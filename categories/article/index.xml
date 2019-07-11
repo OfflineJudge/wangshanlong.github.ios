@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Article on SAquarius的梦想屋</title>
+    <link>https://saquarius.github.io/categories/article/</link>
+    <description>Recent content in Article on SAquarius的梦想屋</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Jul 2019 00:40:15 +0800</lastBuildDate>
+    
+	<atom:link href="https://saquarius.github.io/categories/article/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>我的第一篇blog呀！</title>
+      <link>https://saquarius.github.io/2019/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87blog%E5%91%80/</link>
+      <pubDate>Wed, 10 Jul 2019 00:40:15 +0800</pubDate>
+      
+      <guid>https://saquarius.github.io/2019/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87blog%E5%91%80/</guid>
+      <description>&lt;h1 id=&#34;搭建博客-记录成长的自己&#34;&gt;搭建博客，记录成长的自己&lt;/h1&gt;
+
+&lt;h2 id=&#34;部署记录&#34;&gt;部署记录&lt;/h2&gt;
+
+&lt;p&gt;　　从昨天的傍晚开始试着开始用github+hugo部署静态网页的个人blog，包括复习整个部署流程、寻找喜欢的主题、配置属于自己的主题设置、以及从本地启动预览等等工作，一直折腾到凌晨将近两点左右，终于有了现在的成果，并且在今天的上午开始编辑第一篇blog记录并推上gihub的存储库，以及连接到自己的域名。&lt;/p&gt;
+
+&lt;p&gt;　　中间遇到了很多小小的问题，都慢慢得到了解决，包括hugo主题clone到本地时速度奇慢无比，以及主题配置时各种奇奇怪怪的错误，慢慢开始习惯了阅读原版英文的hugo使用手册和用户文档，终归是解决的大多数的问题，虽然这些问题没什么技术含量，但还是颇有收获。&lt;/p&gt;
+
+&lt;h2 id=&#34;blog目前的使用计划&#34;&gt;blog目前的使用计划&lt;/h2&gt;
+
+&lt;p&gt;　　目前来说会用来记录一下自己转入CS专业以后所有的学习经历和一些成果，比如：一些小小的知识总结，自己刷PAT时候写下的代码，还有一些日常生活和学习中遇到的小麻烦的解决办法，比方说电脑、手机故障或者学习生活中某些事情的处理方法和思路；一些感悟或者心得体会，比如：某些书的读后感、电影的观后感、已经自己的所思所想；自己的一些生活记录或作品，比如：一些经验或者不久之后可能会写点短篇小说什么的。&lt;/p&gt;
+
+&lt;h2 id=&#34;后续更新计划&#34;&gt;后续更新计划&lt;/h2&gt;
+
+&lt;p&gt;　　最近了就是保证能够正常的运行吧。&lt;/p&gt;
+
+&lt;p&gt;　　短期的计划是，可能会加入一些新功能，比如评论功能，以及在力所能及的范围内做一下美化工作。&lt;/p&gt;
+
+&lt;p&gt;　　稍微远一点的计划是，年底的时候把自己的PAT乙级和甲级的刷题记录更新到上面。&lt;/p&gt;
+
+&lt;p&gt;　　再远一些的计划就是记录自己学习过程中点点滴滴的进步和经历。&lt;/p&gt;
+
+&lt;h2 id=&#34;搭建过坑中踩过的坑&#34;&gt;搭建过坑中踩过的坑&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;一定要检查git和hugo的部署安装是否到位，要不然可就麻烦了，hugo在windows上的安装方法不止一种。&lt;/li&gt;
+&lt;li&gt;hugo的主题下载要从github上clone到本地，最好有梯子，要不然慢的要死，可以试试一些加速器，修改host之类的方法或者浅层clone然后再拉取全部内容。&lt;/li&gt;
+&lt;li&gt;hugo主题配置最好在vs code中修改，不知道为什么在记事本中修改后总是在启动时报错，（error的大概意思是，在接近0行的地方有一处标点错误）。&lt;/li&gt;
+&lt;li&gt;hugo主题的配置除了参考教程以外一定要认真阅读主题自带的使用手册，而且要读英文原版的，网页翻译过来的比较坑。&lt;/li&gt;
+&lt;li&gt;主题的配置一定要多尝试，尤其是修改使用自己的图片或者自定义一些内容或功能，可以提前做好备份，大不了重头再做一遍就是了。
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
