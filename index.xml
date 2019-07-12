@@ -6,10 +6,23 @@
     <description>Recent content on SAquarius的梦想屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 11 Jul 2019 23:04:49 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jul 2019 10:31:57 +0800</lastBuildDate>
     
 	<atom:link href="https://saquarius.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hugo&#43;github搭建个人博客（windows10）</title>
+      <link>https://saquarius.github.io/2019/07/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10/</link>
+      <pubDate>Fri, 12 Jul 2019 10:31:57 +0800</pubDate>
+      
+      <guid>https://saquarius.github.io/2019/07/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10/</guid>
+      <description>&lt;p&gt;　　一个尽可能详细的在windows平台上hugo+github部署个人博客的教程。一方面为了记录自己建立博客时候的过程和遇到的困难，另一方面为了给那些学习建立个人博客的同学提供参考。&lt;/p&gt;
+
+&lt;p&gt;　　在参照本教程的时候可以和B站up主CodeSheep的视频搭配食用。&lt;/p&gt;
+
+&lt;p&gt;　　链接地址：&lt;a href=&#34;https://www.bilibili.com/video/av51574688&#34;&gt;手把手教你从0开始搭建自己的个人博客 |第二种姿势 | hugo&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>第二天的记录</title>

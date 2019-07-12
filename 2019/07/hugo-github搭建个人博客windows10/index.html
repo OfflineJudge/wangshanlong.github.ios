@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="SAquarius">
+<meta name="keywords" content="hugo&#43;github, tranquilpeak, C, C&#43;&#43;, PAT">
+<meta name="description" content="　　一个尽可能详细的在windows平台上hugo&#43;github部署个人博客的教程。一方面为了记录自己建立博客时候的过程和遇到的困难，另一方面为了给那些学习建立个人博客的同学提供参考。
+
+　　在参照本教程的时候可以和B站up主CodeSheep的视频搭配食用。
+
+　　链接地址：手把手教你从0开始搭建自己的个人博客 |第二种姿势 | hugo">
+
+
+<meta property="og:description" content="　　一个尽可能详细的在windows平台上hugo&#43;github部署个人博客的教程。一方面为了记录自己建立博客时候的过程和遇到的困难，另一方面为了给那些学习建立个人博客的同学提供参考。
+
+　　在参照本教程的时候可以和B站up主CodeSheep的视频搭配食用。
+
+　　链接地址：手把手教你从0开始搭建自己的个人博客 |第二种姿势 | hugo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hugo&#43;github搭建个人博客（windows10）">
+<meta name="twitter:title" content="Hugo&#43;github搭建个人博客（windows10）">
+<meta property="og:url" content="https://saquarius.github.io/2019/07/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/07/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10/">
+<meta property="og:site_name" content="SAquarius的梦想屋">
+<meta property="og:description" content="　　一个尽可能详细的在windows平台上hugo&#43;github部署个人博客的教程。一方面为了记录自己建立博客时候的过程和遇到的困难，另一方面为了给那些学习建立个人博客的同学提供参考。
+
+　　在参照本教程的时候可以和B站up主CodeSheep的视频搭配食用。
+
+　　链接地址：手把手教你从0开始搭建自己的个人博客 |第二种姿势 | hugo">
+<meta name="twitter:description" content="　　一个尽可能详细的在windows平台上hugo&#43;github部署个人博客的教程。一方面为了记录自己建立博客时候的过程和遇到的困难，另一方面为了给那些学习建立个人博客的同学提供参考。
+
+　　在参照本教程的时候可以和B站up主CodeSheep的视频搭配食用。
+
+　　链接地址：手把手教你从0开始搭建自己的个人博客 |第二种姿势 | hugo">
+<meta property="og:locale" content="zh-cn">
+
+  
+    <meta property="article:published_time" content="2019-07-12T10:31:57">
+  
+  
+    <meta property="article:modified_time" content="2019-07-12T10:31:57">
+  
+  
+  
+    
+      <meta property="article:section" content="教程">
+    
+      <meta property="article:section" content="hugo">
+    
+  
+  
+    
+      <meta property="article:tag" content="hugo">
+    
+      <meta property="article:tag" content="github">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://saquarius.github.io/images/hugo_s.jpg">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/hugo_s.jpg">
+
+
+  <meta property="og:image" content="https://saquarius.github.io/images/hugo.jpg">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/hugo.jpg">
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/f4d398cf5446d2cb184500844daff4d9?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/f4d398cf5446d2cb184500844daff4d9?s=640">
+
+
+    <title>Hugo&#43;github搭建个人博客（windows10）</title>
+
+    <link rel="icon" href="https://saquarius.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://saquarius.github.io/2019/07/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://saquarius.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://saquarius.github.io/">SAquarius的梦想屋</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://saquarius.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/f4d398cf5446d2cb184500844daff4d9?s=90" alt="作者的图片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://saquarius.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/f4d398cf5446d2cb184500844daff4d9?s=110" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">SAquarius</h4>
+        
+          <h5 class="sidebar-profile-bio">All in or nothing, now or never!</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">类别</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">归档</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/SAquarius" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              post-header-cover--full"
+       style="background-image:url('/images/hugo.jpg')"
+       data-behavior="5">
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaOut
+               hasCoverCaption">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+            <span class="post-header-cover-caption caption">教一下hugo部署博客啦</span>
+          
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      Hugo&#43;github搭建个人博客（windows10）
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2019-07-12T10:31:57&#43;08:00">
+        
+  七月 12, 2019
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://saquarius.github.io/categories/%e6%95%99%e7%a8%8b">教程</a>, 
+    
+      <a class="category-link" href="https://saquarius.github.io/categories/hugo">hugo</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>　　一个尽可能详细的在windows平台上hugo+github部署个人博客的教程。一方面为了记录自己建立博客时候的过程和遇到的困难，另一方面为了给那些学习建立个人博客的同学提供参考。</p>
+
+<p>　　在参照本教程的时候可以和B站up主CodeSheep的视频搭配食用。</p>
+
+<p>　　链接地址：<a href="https://www.bilibili.com/video/av51574688">手把手教你从0开始搭建自己的个人博客 |第二种姿势 | hugo</a></p>
+
+<h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#hugo-github搭建个人博客-windows10">Hugo+github搭建个人博客（windows10）</a>
+<ul>
+<li><a href="#准备工作">准备工作</a></li>
+<li><a href="#安装git">安装Git</a></li>
+<li><a href="#安装hugo">安装hugo</a></li>
+<li><a href="#创建并配置站点">创建并配置站点</a>
+<ul>
+<li><a href="#下载并配置站点主题-以tranquilpeak主题为例">下载并配置站点主题（以tranquilpeak主题为例）</a>
+<ul>
+<li><a href="#下载主题">下载主题</a></li>
+<li><a href="#配置主题">配置主题</a></li>
+<li><a href="#设置文章模板">设置文章模板</a></li>
+</ul></li>
+<li><a href="#启动博客的本地预览">启动博客的本地预览</a></li>
+<li><a href="#添加评论功能valine">添加评论功能valine</a></li>
+</ul></li>
+<li><a href="#建立github-pages并将博客项目部署到github上">建立Github Pages并将博客项目部署到Github上</a>
+<ul>
+<li><a href="#建立github仓库">建立Github仓库</a></li>
+<li><a href="#生成静态文件">生成静态文件</a></li>
+<li><a href="#设置全局用户名和邮箱">设置全局用户名和邮箱</a></li>
+<li><a href="#将本地仓库文件部署到github">将本地仓库文件部署到GitHub</a></li>
+<li><a href="#后续更新内容">后续更新内容</a></li>
+</ul></li>
+<li><a href="#关于git">关于Git</a>
+<ul>
+<li><a href="#git教程">Git教程</a></li>
+<li><a href="#picgo与git图床">PICGO与Git图床</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="hugo-github搭建个人博客-windows10">Hugo+github搭建个人博客（windows10）</h1>
+
+<h2 id="准备工作">准备工作</h2>
+
+<ul>
+<li><del>一定要了解git和github</del>（不了解也可以，跟着步骤走，慢慢熟悉）</li>
+<li><a href="https://github.com/">Github</a>账户（存放博客网页的静态文件）</li>
+<li><a href="https://leancloud.cn/">LeanCloud</a>账户（评论系统，视个人情况选择是否添加评论系统）</li>
+<li>安装hugo和git</li>
+
+<li><p>安装<a href="https://code.visualstudio.com/">vs code</a>（用于部署过程中编辑各种文本，windows自带的记事本真的不行）</p>
+
+<h2 id="安装git">安装Git</h2>
+
+<p>　　git的安装非常简单，和平时安装程序一样，全部选项默认就好，一般不会遇到什么问题和困难，在此不再详细介绍，参见<a href="https://www.jianshu.com/p/414ccd423efc">Git安装教程</a></p>
+
+<h2 id="安装hugo">安装hugo</h2>
+
+<p>　　windows10下安装hugo，可以参照<a href="https://gohugo.io/getting-started/installing/">Hugo官方手册</a>的方法，这里讲一个相对简单稳定的方法。</p></li>
+</ul>
+
+<ol>
+<li>下载hugo程序压缩包：前往<a href="https://github.com/gohugoio/hugo/releases">https://github.com/gohugoio/hugo/releases</a>下载和自己系统版本相符合的hugo程序压缩包。<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/hugozip_.png?token=AMKXNPQBISH56FIPYUUI6O25FAYYO" alt="" /></li>
+<li>解压到某个文件夹中（路径不要有中文，而且自己要记得文件夹的路径），最好是不常改动的文件夹下边，以防文件被误删或者丢失。</li>
+
+<li><p>添加hugo到系统环境变量PATH中</p>
+
+<ol>
+<li>找到“系统环境变量”的设置位置，在开始菜单的搜索栏搜索环境变量<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/path.png" alt="" /></li>
+<li>添加系统环境变量，依此：点击环境变量，找到系统变量中的path，点击编辑，然后点击新建，在使用浏览按钮选中文件夹，即可使用hugo。（选中到hugo.exe所在的文件夹即可，不需要选中hugo.exe）<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/addpath.png" alt="" /></li>
+</ol></li>
+
+<li><p>接下来，为了万无一失，还是要检查一下hugo是否安装完成。以管理员方式打开cmd命令窗口，然后输入以下指令：</p>
+
+<pre><code>hugo version
+</code></pre></li>
+</ol>
+
+<p>　　如果得到如下响应，（即显示版本信息），说明安装成功，接下来就可以玩转hugo了。</p>
+
+<pre><code>　Hugo Static Site Generator v0.55.6-A5D4C82D windows/amd64 BuildDate: 2019-05-18T07:57:00Z
+</code></pre>
+
+<h2 id="创建并配置站点">创建并配置站点</h2>
+
+<blockquote>
+<p><strong>以下使用的命令均在以管理员方式运行的cmd命令行窗口下执行</strong></p>
+
+<p><strong>以下所有的“XXXX”均为占位符，你可以替换为属于你自己的文件名</strong></p>
+</blockquote>
+
+<ul>
+<li><p>创建站点命令（使用<a href="https://www.jb51.net/help/cmd.htm">cmd命令手册</a>中的CD命令，选择一个文件夹，在其中存放站点的相关文件，文件路径不要有中文）</p>
+
+<pre><code>hugo new site XXXX
+</code></pre></li>
+</ul>
+
+<p>　该命令执行后，便会在你选择的文件夹下生成名为“XXXX”的文件夹，我们在此称这个文件夹为站点文件的“根目录”。</p>
+
+<h3 id="下载并配置站点主题-以tranquilpeak主题为例">下载并配置站点主题（以tranquilpeak主题为例）</h3>
+
+<h4 id="下载主题">下载主题</h4>
+
+<p>　　你可以在<a href="https://themes.gohugo.io/">Hugo的主题库</a>中选择你喜欢的主题，这里以tranquilpeak主题作为教程示例。</p>
+
+<p>　　<strong>为了解决使用git clone到本地速度特别慢的问题，我们需要修改一下host</strong>，找到C:\Windows\System32\drivers\etc下的hosts文件，使用vs code打开，并在结尾处添加以下dns映射内容：</p>
+
+<pre><code># Github
+151.101.88.249 github.global.ssl.fastly.net 
+151.101.16.249 github.global.ssl.fastly.net 
+151.101.76.249 github.global.ssl.fastly.net 
+151.101.24.249 github.global.ssl.fastly.net 
+151.101.16.133 assets-cdn.github.com documentcloud.github.com raw.github.com training.github.com
+151.101.100.133 assets-cdn.github.com documentcloud.github.com raw.github.com training.github.com
+151.101.24.133  assets-cdn.github.com documentcloud.github.com raw.github.com training.github.com
+151.101.40.133 assets-cdn.github.com documentcloud.github.com raw.github.com training.github.com
+192.30.253.112 github.com www.github.com
+192.30.253.113  github.com www.github.com
+192.30.253.120  nodeload.github.com
+192.30.253.121  nodeload.github.com
+50.19.102.235   status.github.com
+174.129.238.225   status.github.com
+50.16.250.205   status.github.com
+23.21.89.183   status.github.com
+</code></pre>
+
+<p>在任意的文件目录下使用以下命令重新配置windows IP配置，并刷新DNS缓存：</p>
+
+<pre><code>ipconfig/flushdns
+</code></pre>
+
+<p>　　在根目录下使用CD命令来到themes文件夹下，并且在<a href="https://github.com/kakawait/hugo-tranquilpeak-theme">tranquilpeak主题</a>下很容易找到clone命令如下：</p>
+
+<pre><code>cd themes
+git clone https://github.com/kakawait/hugo-tranquilpeak-theme.git tranquilpeak
+
+#以下为注释说明，可以在clone的整句命令后加上你要clone到的文件夹名字，默认是hugo-tranquilpeak-theme
+#可是默认的文件夹名称实在是太长了，为了方便使用，可以在命令后边加上空格然后指定为一个短点儿的文件夹名字，比如这里的tranquilpeak
+</code></pre>
+
+<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/clone.png" alt="" />
+　　一般情况下可以很快完成clone，如果速度还是很慢，可以尝试重新修改hosts，或者采用拉取最近版本，然后再拉去全部版本内容，命令如下：</p>
+
+<pre><code>git clone https://github.com/kakawait/hugo-tranquilpeak-theme.git tranquilpeak --depth 1
+#等待这条命令走完后访问该主题的文件夹
+cd tranquilpeak
+#然后clone全部内容
+git fetch --unshallow
+</code></pre>
+
+<h4 id="配置主题">配置主题</h4>
+
+<p>　　将 根目录\themes\tranquilpeak\exampleSite路径下的config.toml文件赋值到根目录下，覆盖掉根目录下的config.toml文件。然后，我们在vscode中打开并对其作一定的修改就可以直接使用，具体可以修改的内容如下（以我自己的站点配置文件为例，不建议直接复制，我也不清楚格式会不会影响，我会尽可能注释我知道的配置项的含义）：</p>
+
+<pre><code># 写在最前面的说明，这些带号的都属于注释，但是作者把某些可自定义的内容，注释掉了，我们也可自己改过来
+
+baseURL = &quot;https://SAquarius.github.io/&quot;
+# 这个是站点在github的仓库链接，如果已经有了仓库直接修改为仓库地址，或者在build的时候用命令指定baseurl
+
+languageCode = &quot;en-us&quot;
+defaultContentLanguage = &quot;zh-cn&quot;
+# 这个是语言设置，这样子就是中文啦！
+
+title = &quot;SAquarius的梦想屋&quot;
+# 站点的名字，可以自己随便写
+
+theme = &quot;tranquilpeak&quot;
+# 所使用的主题，即主题的文件夹名字，如果有多个主题想轮换使用，改这个就行，或者在build的时候使用-t指令指定主题也可以
+
+disqusShortname = &quot;valine&quot;
+# 这个是评论系统，我才用的是在leancloud上的valine评论系统
+# 如果是第一次用hugo搭建博客，这个可以暂时不用管
+# 因为leancloud需要实名资料认证，可能需要些时间才能审核通过
+# 等到熟悉的使用hugo和配置文件以及git后再来添加评论系统也不迟
+
+# 每一页显示的文章数量
+paginate = 6
+
+# 这个我也忘记是什么了，就按他默认的true吧
+canonifyurls = true
+
+# 这个是使用hugo命令后产生的静态文件的输出目录，大家都是用的public，作者的好像是docs
+# 就很迷，很多教程没提到这一点，我一直以为自己的没产生public
+# 其实，也可以在生成的时候使用hugo -D public 指定输出目录
+# 建议还是改成public，这样很多教程都用这个，省的看了不一样的教程，搞迷糊了
+publishDir = &quot;public&quot;
+
+# 这个应该是时间格式，不用改
+[permalinks]
+  post = &quot;/:year/:month/:slug/&quot;
+
+# 这一项保持默认
+[taxonomies]
+  tag = &quot;tags&quot;
+  category = &quot;categories&quot;
+  archive = &quot;archives&quot;
+
+# 关于站点作者的相关信息
+[author]
+  name = &quot;SAquarius&quot;
+
+  # 生涯记录，或者经历，我直接写了一条格言
+  bio = &quot;All in or nothing, now or never!&quot;      
+  job = &quot;学生&quot;
+  location = &quot;武汉&quot;
+  # Your profile picture
+  # Overwritten by your gravatar image if `author.gravatarEmail` is filled
+  # 作者直接用的WordPress的头像，填写，一个邮箱就可以直接拉取账号的头像
+  # 因为需要梯子访问WordPress所以我删去了邮箱的那一项，直接使用文件路径，
+  # 直接在tranquilpeak/static/images文件夹里放上头像图片就行了，比如放一个touxiang.png
+  picture = &quot;/images/touxiang.png&quot;
+
+  # 下边这些Twitter还有google的就省了吧，后边关于这些的分享选项我也一并删掉了
+  # Your Twitter username without the @. E.g : thibaudlepretre
+  # twitter = &quot;thibaudlepretre&quot;
+  # Your google plus profile id. E.g : +ThibaudLepretre or 114625208755123718311
+  # googlePlus = &quot;+ThibaudLepretre&quot;
+
+# Menu Configuration
+# 侧边栏菜单配置，可以改成自定义的内容，其实只用改identifier和name就可以了
+[[menu.main]]
+  weight = 1
+  identifier = &quot;首页&quot;
+  name = &quot;首页&quot;
+  pre = &quot;&lt;i class=\&quot;sidebar-button-icon fa fa-lg fa-home\&quot;&gt;&lt;/i&gt;&quot;
+  url = &quot;/&quot;
+[[menu.main]]
+  weight = 2
+  identifier = &quot;类别&quot;
+  name = &quot;类别&quot;
+  pre = &quot;&lt;i class=\&quot;sidebar-button-icon fa fa-lg fa-bookmark\&quot;&gt;&lt;/i&gt;&quot;
+  url = &quot;/categories&quot;
+[[menu.main]]
+  weight = 3
+  identifier = &quot;标签&quot;
+  name = &quot;标签&quot;
+  pre = &quot;&lt;i class=\&quot;sidebar-button-icon fa fa-lg fa-tags\&quot;&gt;&lt;/i&gt;&quot;
+  url = &quot;/tags&quot;
+[[menu.main]]
+  weight = 4
+  identifier = &quot;归档&quot;
+  name = &quot;归档&quot;
+  pre = &quot;&lt;i class=\&quot;sidebar-button-icon fa fa-lg fa-archive\&quot;&gt;&lt;/i&gt;&quot;
+  url = &quot;/archives&quot;
+[[menu.main]]
+  weight = 5
+  identifier = &quot;关于&quot;
+  name = &quot;关于&quot;
+  pre = &quot;&lt;i class=\&quot;sidebar-button-icon fa fa-lg fa-question\&quot;&gt;&lt;/i&gt;&quot;
+  url = &quot;/#about&quot;
+
+[[menu.links]]
+  weight = 1
+  identifier = &quot;github&quot;
+  name = &quot;GitHub&quot;
+  pre = &quot;&lt;i class=\&quot;sidebar-button-icon fa fa-lg fa-github\&quot;&gt;&lt;/i&gt;&quot;
+  url = &quot;https://github.com/SAquarius&quot;
+  #github的链接，改为自己的Github链接就行了
+[[menu.misc]]
+  weight = 1
+  identifier = &quot;rss&quot;
+  name = &quot;RSS&quot;
+  pre = &quot;&lt;i class=\&quot;sidebar-button-icon fa fa-lg fa-rss\&quot;&gt;&lt;/i&gt;&quot;
+  url = &quot;/index.xml&quot;
+
+#一些辅助功能的参数设置
+[params]
+  # Customize date format use to render blog post date, categories and other
+  # You must use date format used by Go Time package https://golang.org/pkg/time/
+  # Months (not work with short month like &quot;jan&quot;, &quot;feb&quot;, etc) are translated if translation exists on i18n folders
+  # Default format is: January 2, 2006 
+  # dateFormat = &quot;2 January 2006&quot;
+
+  # Global keywords configuration. Following keywords will be add to every pages
+  # 站点的全局关键字，应该是给搜索引擎参考用的吧，可以自己修改添加，用逗号隔开就行
+  keywords = [&quot;C&quot;, &quot;C++&quot;,&quot;PAT&quot;]
+
+  # Syntax highlighter, possible choice between: &quot;highlight.js&quot; (recommanded) and &quot;prism.js&quot; (experimental)
+  # You can comment it to disable syntax highlighting
+  # 代码高亮，有两种可以选，哪个好看选哪个，我直接默认了
+  syntaxHighlighter = &quot;highlight.js&quot;
+
+  # Hide sidebar on all article page to let article take full width to improve reading, and enjoy wide images and cover images. (true: enable, false: disable)
+  # 清爽阅读，就是看文章的时候把侧边栏缩进去
+  clearReading = true
+
+  # Define categories will create hierarchy between parents: `categories = [&quot;foo&quot;, &quot;bar&quot;]` will consider &quot;bar&quot; a sub-category of &quot;foo&quot;. 
+  # If false it will flat categories.
+  # 和分类与标签有关，直接默认就是了
+  hierarchicalCategories = true
+  
+  # 站点的描述
+  description = &quot;SAquarius的梦想屋&quot;
+
+  # Customization
+  # Define the behavior of the sidebar
+  # 1: Display extra large sidebar on extra large screen, large sidebar on large screen,
+  #    medium sidebar on medium screen and header bar on small screen and
+  # extra large sidebar is swiped on extra large screen and large sidebar on all lower screen (default)
+  # 2: Display large sidebar on large screen, medium sidebar on medium screen and
+  #    header bar on small screen and large sidebar is swiped
+  # 3: Display medium sidebar on large and medium screen and header bar on small screen and
+  #    medium sidebar is swiped
+  # 4: Display header bar on all screens, extra large sidebar is swiped on extra large screen and
+  #    large sidebar is swiped on all lower screens
+  # 5: Display header bar on all screens and large sidebar is swiped on large screen
+  # 6: Display header bar on all screens and medium sidebar is swiped
+  # 这个是侧边栏的模式，1-6代表不同的宽度之类的，2看起来很好看，自己每个都试试就知道效果了，或者直接看上边的英文介绍
+  sidebarBehavior = 2
+
+  # Your blog cover picture. I STRONGLY recommend you to use a CDN to speed up loading of pages.
+  # There is many free CDN like Cloudinary or you can also use indirectly
+  # by using services like Google Photos.
+  # Current image is on AWS S3 and delivered by AWS CloudFront.
+  # Otherwise put your image in folder `static/_images/` (development)  or in `source/assets/images/` if you can't or don't want to build the theme,
+  # and use relative url : `your-image.png`
+  # 这个是站点的封面，放在和头像一样的文件夹下，自定义一些图片吧，属于自己的自定义肯定看着舒服
+  coverImage = &quot;images/cover.jpg&quot;
+
+  # Display an image gallery at the end of a post which have photos variables (false: disabled, true: enabled)
+  #照片墙，或者叫图片走廊，用于默认缩略图或者文章封面的功能，前提是你得存放照片
+  imageGallery = true
+
+  # Display thumbnail image of each post on index pages (false: disabled, true: enabled)
+  # 文章缩略图功能
+  thumbnailImage = true
+
+  # Display thumbnail image at the right of title in index pages (`right`, `left` or `bottom`)
+  # Set this value to `right` if you have old posts to keep the old style on them
+  # and define `thumbnailImagePosition` on a post to overwrite this setting
+  # 缩略图的位置，默认为bottom，即在下边，可以选top，left或者right，这是默认的，也可以在文章里重新定义
+  thumbnailImagePosition = &quot;bottom&quot;
+
+  # Automatically select the cover image or the first photo from the gallery of a post if there is no thumbnail image as the thumbnail image
+  # Set this value to `true` if you have old posts that use the cover image or the first photo as the thumbnail image
+  # and set `autoThumbnailImage` to `false` on a post to overwrite this setting
+  # 自动缩略图，就是从照片墙中选一张用作缩略图，直接默认吧
+  autoThumbnailImage = true
+
+  # Your favicon path, default is &quot;/favicon.png&quot;
+  # 很好玩的功能，就是访问时，浏览器标签页那里显示的站点图标，有兴趣可以自己做一个，存放路径应该和头像一样吧，自己试一试，我没使用，就保持注释掉的状态
+  # favicon = &quot;/favicon.png&quot;
+
+  # Header configuration
+  # The link at the right of the header is customizable
+  # You can add a link (as an icon) at the right of the header instead of the author's gravatar image or author's picture.
+  # By default, author's gravatar or author's picture is displayed.
+  #     url: /#search
+  #     icon: search
+  #     class: st-search-show-outputs
+
+  # Display `Next` on left side of the pagination, and `Prev` on right side one.
+  # If you set this value to `true`, these positions swap.
+  # 一个很反人类习惯的设定，默认作者是注释掉了，一定要开启并且改为true
+  # 默认是下一篇按钮在左，上一篇按钮在右，开了就调换过来，符合国人的习惯，可能是外国人使用习惯不一样吧
+  swapPaginator = true
+
+  # Custom CSS. Put here your custom CSS files. They are loaded after the theme CSS;
+  # they have to be referred from static root. Example
+  # [[params.customCSS]]
+  #   href = &quot;css/mystyle.css&quot;
+
+  # Custom JS. Put here your custom JS files. They are loaded after the theme JS;
+  # they have to be referred from static root. Example
+  # [[params.customJS]]
+  #   src = &quot;js/myscript.js&quot;
+
+  # Sharing options
+  # Comment and uncomment to enable or disable sharing options
+  # If you wanna add a sharing option, read user documentation :
+  # Tranquilpeak configuration &gt; Theme configuration &gt; sharing-options
+
+  #这个地方应该我删掉了sharing options，也就是分享链接的设置，有兴趣的可以研究一下加上微信之类的分享
+
+  # 点击about时候的行为，展示个人信息，不用改，默认就行
+  [params.header.rightLink]
+    class = &quot;&quot;
+    icon = &quot;&quot;
+    url = &quot;/#about&quot;
+ 
+  # 如果添加了valine的评论系统，就需要加上这一段代码，否则不用管；
+  # 占位符在后边会讲到怎么填
+  [params.valine]
+    enable = true
+    appId = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+    appKey = 'XXXXXXXXXXXXXXXXXXXXXXXX'
+    notify = false
+    vertify = false
+    avatar = 'mp'
+    placeholder = '说点什么吧'
+    visitor = true
+
+  # Customize link of author avatar in sidebar
+  # [params.sidebar.profile]
+  #   url = &quot;/#about&quot;
+
+  # Customize copyright value &quot;© 2017 &lt;CUSTOMIZATION&gt;. All Rights Reserved&quot;
+  # [params.footer]
+  #   copyright = &quot;&lt;a href=\&quot;https://github.com/kakawait\&quot;&gt;kakawait&lt;/a&gt;&quot;
+</code></pre>
+
+<h4 id="设置文章模板">设置文章模板</h4>
+
+<p>　　为了更好的使用附加功能，比如封面和缩略图，我们提前修改一下模板。这样，每次使用新建一篇文档时候就省去很多麻烦事。<br />
+　　使用MarlDown文档工具打开themes/tranquilpeak/archetypes中的post.md直接替换为以下的模板：</p>
+
+<pre><code>---
+title: &quot;{{ replace .TranslationBaseName &quot;-&quot; &quot; &quot; | title }}&quot;
+date: {{ .Date }}
+categories:
+- category
+- subcategory
+tags:
+- tag1
+- tag2
+keywords:
+- tech
+# 每次编辑文档时请删去这些解释的注释
+# 缩略图，最好采用宽度为750的图片，可以使用本地文件或者使用git图床
+# 使用本地图库，请把图片存在themes/static/images文件夹下，并且用下面的路径引用
+thumbnailImage: /images/cover.jpg
+# 缩略图位置，我觉得放在上面好看，如果用的小图片作缩略图
+# 可以放在（left或者right），设置此项会取代配置文件中默认在下边的设置
+thumbnailImagePosition: top
+# 这个下边默认就好了，暂时不清楚有什么影响
+autoThumbnailImage: yes
+metaAlignment: center
+# 封面图片，如果选用本地文件的话，和缩略图同样的路径，21：9的图片效果很好看
+coverImage: /images/cover.jpg
+# 封面图片的描述引号中的文字可以自己选
+coverCaption: &quot;文章cover图片描述&quot;
+# in表示文章标题显示在封面图片上，out表示显示在封面图片的外边，也就是文章开头
+coverMeta: in
+# 封面图片的覆盖大小，直接默认为full吧，21:9的图片这样设置显示效果真的不错
+coverSize: full
+---
+#缩略显示的梗概，这里把注释删去，写成文章的简介或者梗概，在首页时候可以只显示梗概
+&lt;!--more--&gt;
+&lt;!-- toc --&gt;
+</code></pre>
+
+<p>　　接下来在根目录下使用以下命令生成一篇文档吧：</p>
+
+<pre><code>hugo new post/XXXX.md
+</code></pre>
+
+<p>　　待本地启动后，可以继续修改这篇文档的内容，在需要的文件夹中加入需要的图片，然后调整相关的参数，看看图片的几个功能是否正常或者符合预期。<br />
+　　更多的配置参数可以阅读<a href="https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md">tranquilpeak主题的使用文档</a></p>
+
+<h3 id="启动博客的本地预览">启动博客的本地预览</h3>
+
+<p>　　建议在配置文件中设置好主题，或者使用 &ndash;t指令指定主题，在站点的根目录下使用命令进行本地启动，本地启动的命令如下：</p>
+
+<pre><code>hugo server -D
+</code></pre>
+
+<p>　　如果执行顺利，会有如下提示：
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/hugoserver.png" alt="" />
+　　在浏览器中输入图片红框中的地址进行预览效果，比如一般是localhost:1313。</p>
+
+<h3 id="添加评论功能valine">添加评论功能valine</h3>
+
+<p>　　添加教程部分参见<a href="https://www.smslit.top/2018/07/08/hugo-valine/">smslit博客</a>。<br />
+　　修改主题文件的步骤上有所不同，这个主题中只需要修改themes/tranquilpeak/layouts/_default/single.html文件，将以下代码插入到第36行的位置：</p>
+
+<pre><code>{{- if .Site.Params.valine.enable -}}
+              &lt;!-- id 将作为查询条件 --&gt;
+              &lt;span id=&quot;{{ .URL | relURL }}&quot; class=&quot;leancloud_visitors&quot; data-flag-title=&quot;{{ .Title }}&quot;&gt;
+                &lt;span class=&quot;post-meta-item-text&quot;&gt;文章阅读量 &lt;/span&gt;
+                &lt;span class=&quot;leancloud-visitors-count&quot;&gt;1000000&lt;/span&gt;
+                &lt;p&gt;&lt;/p&gt;
+              &lt;/span&gt;
+              &lt;div id=&quot;vcomments&quot;&gt;&lt;/div&gt;
+              &lt;script src=&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;&gt;&lt;/script&gt;
+              &lt;script src='//unpkg.com/valine/dist/Valine.min.js'&gt;&lt;/script&gt;
+              &lt;script type=&quot;text/javascript&quot;&gt;
+                new Valine({
+                  el: '#vcomments' ,
+                  appId: '{{ .Site.Params.valine.appId }}',
+                  appKey: '{{ .Site.Params.valine.appKey }}',
+                  notify: '{{ .Site.Params.valine.notify }}',
+                  verify: '{{ .Site.Params.valine.verify }}',
+                  avatar:'{{ .Site.Params.valine.avatar }}', 
+                  placeholder: '{{ .Site.Params.valine.placeholder }}',
+                  visitor: '{{ .Site.Params.valine.visitor }}'
+                });
+              &lt;/script&gt;
+              {{- end }}
+</code></pre>
+
+<p>　　这样，如果leancloud审核通过建立了应用的话，评论系统就可以使用了。当然啦，也可以本地启动一下，测试一下评论系统，如果没有问题就可以上传到Github Pages上了。</p>
+
+<h2 id="建立github-pages并将博客项目部署到github上">建立Github Pages并将博客项目部署到Github上</h2>
+
+<h3 id="建立github仓库">建立Github仓库</h3>
+
+<p>　　注册Github账户，并且建立一个Repository，方法可以参见视频中的介绍，这个过程一般不会遇到什么问题。</p>
+
+<h3 id="生成静态文件">生成静态文件</h3>
+
+<p>　　接下来是生成静态文件，这里要把配置文件config.toml中的baseUrl修改为自己的仓库地址，即https：//XXXXXXXX.github.io/ 或者在hugo命令中使用指令指定 &ndash;baseUrl=“https：//XXXXXXXX.github.io/”<br />
+　　如果在配文件中已经设置好baseUrl和themes的路径，以及输出文件夹，可以直接在站点根目录下采用以下命令：</p>
+
+<pre><code>hugo
+</code></pre>
+
+<p>　　成功后会按照设置好的路径生成一个public文件夹，接下来我们需要将public文件夹中的内容提交到Github的仓库中去。</p>
+
+<h3 id="设置全局用户名和邮箱">设置全局用户名和邮箱</h3>
+
+<p>　　使用以下命令配置全局用户名和邮箱，用于识别身份(XXXX是占位符，换成自己的github名字和邮箱)：</p>
+
+<pre><code>git config --global user.name &quot;xxxxx&quot;
+git config --global user.email &quot;xxxxx@xx.com&quot;
+</code></pre>
+
+<h3 id="将本地仓库文件部署到github">将本地仓库文件部署到GitHub</h3>
+
+<p>　　然后进入public文件中依此使用以下命令部署到Github上：</p>
+
+<pre><code>#进入public文件夹
+cd public
+#初始化
+git init
+#添加public中的所有文件
+git add .
+#提交描述，XXXX中是你这次提交的描述，可以随便写
+git commit -m &quot;XXXXXXXX&quot;
+#链接到远端，把XXXX替换成自己的内容，不要忘了还有后缀.git
+git remote add origin https://github.com/XXXXX/XXXXX.github.io.git
+
+git pull origin master
+git push -u origin master
+</code></pre>
+
+<p>　　这个过程一般不会有什么问题发生，第一次提交应该会要求输入Gihub的账号和密码验证，我使用的时候是直接弹窗的形式出现的，验证过后，之后的push就不用账号密码了。<br />
+　　如果在学习测试阶段遇到push报错，可以在采用暴力一点的方式，<a href="https://blog.csdn.net/sgsgy5/article/details/83689516">加入-f指令</a>，不是采用合并的方式而是删除仓库中以前的所有记录，将本地仓库强制push到远端，所以慎用。但是在初学阶段，随便折腾吧，大不了从新再来，如果之后在此push还遇到问题，去google搜索解决吧。加入-f的push指令如下：</p>
+
+<pre><code>git push -u origin master -f
+</code></pre>
+
+<h3 id="后续更新内容">后续更新内容</h3>
+
+<p>　　后续再写文章的时候，直接在站点根目录下新建一篇文档就行了（如果像前边介绍的配置了生成模板的话会很方便使用的）：</p>
+
+<pre><code>hugo new post/XXXXX.md
+</code></pre>
+
+<p>　　如果对配置不做大的改动（例如：更换主题等），后续的push过程很简单的啦，只有下面几个了(根目录下使用命令)：</p>
+
+<pre><code>hugo
+cd public
+git add .
+git commit -m &quot;XXXXXXX&quot;
+git pull origin master
+git push origin master
+</code></pre>
+
+<p>　　这样似乎很麻烦，其实可以写一个脚本简化push过程的，有兴趣的可以研究下，但是新手还是多用用git的命令吧。push之前最好本地启动预览一下，如果没有问题再push吧！</p>
+
+<h2 id="关于git">关于Git</h2>
+
+<h3 id="git教程">Git教程</h3>
+
+<p>　　Git实在是太好玩了，如果想要深入的了解和学习Git的话，推荐<a href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰的Git教程</a>讲的很好，很适合新手，可以跟着教程新建一个仓库练练手。</p>
+
+<h3 id="picgo与git图床">PICGO与Git图床</h3>
+
+<p>　　站点中的图片可以直接使用站点的本地文件夹，也可以使用Git图床的方式引入图片，后续有时间会写一下关于搭配PICGO使用Git图床的教程。如果急着想学，可以先找找别的教程，建立Git图床其实没什么难度。
+##成果展示<br />
+　　这里是————&gt;<a href="http://saquarius.com/">我的blog</a>，我买了一个属于自己的域名，把Github上的仓库连接到了自己的域名上，如果想有自己的域名的话，可以搜索一下怎么购买和链接吧。（我的域名是在<a href="https://sg.godaddy.com/zh?ci=">Godaddy</a>上买的，不用备案，国内的好像还需要备案吧）虽然现在内容很少，但是后续会慢慢更新的，如果有什么疑问大家可以评论里留言讨论。</p>
+
+<p>　　总算是写完了，从早上开始写到2019/7/12 23:29:28 ，主要因为很多操作不是很熟练。虽然很辛苦但是我觉得真的是太好玩了，以后会好好更新自己的博客嗒~，也希望这篇教程能帮到学习建立博客的同学。</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/hugo/">hugo</a>
+
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/github/">github</a>
+
+                  </div>
+                
+              
+            
+              <span id="/2019/07/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10/" class="leancloud_visitors" data-flag-title="Hugo&#43;github搭建个人博客（windows10）">
+                <span class="post-meta-item-text">文章阅读量 </span>
+                <span class="leancloud-visitors-count">1000000</span>
+                <p></p>
+              </span>
+              <div id="vcomments"></div>
+              <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+              <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+              <script type="text/javascript">
+                new Valine({
+                  el: '#vcomments' ,
+                  appId: 'pUTSdyX8kkcBbF9uwgHrTskD-gzGzoHsz',
+                  appKey: 'INTlJfGBjMlFQyc1NzGRAASw',
+                  notify: 'false',
+                  verify: '',
+                  avatar:'mp', 
+                  placeholder: '说点什么吧',
+                  visitor: 'true'
+                });
+              </script>
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%9A%84%E8%AE%B0%E5%BD%95/" data-tooltip="第二天的记录">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2019 SAquarius. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%9A%84%E8%AE%B0%E5%BD%95/" data-tooltip="第二天的记录">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/f4d398cf5446d2cb184500844daff4d9?s=110" alt="作者的图片" />
+    
+    <h4 id="about-card-name">SAquarius</h4>
+    
+      <div id="about-card-bio">All in or nothing, now or never!</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        学生
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        武汉
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://saquarius.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://saquarius.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/07\/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10\/';
+          
+            this.page.identifier = '\/2019\/07\/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'valine';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
