@@ -645,8 +645,11 @@ publishDir = &quot;public&quot;
 
   # Custom JS. Put here your custom JS files. They are loaded after the theme JS;
   # they have to be referred from static root. Example
-  # [[params.customJS]]
-  #   src = &quot;js/myscript.js&quot;
+  #自定义js插件，这里采用一个很好看的点击鼠标出现爱心的特效
+  #将在这个主题的目录下static/js中新建文件clicklove.js
+  #然后将下边给出的插件代码复制进去，就可以了
+   [[params.customJS]]
+     src = &quot;js/clicklove.js&quot;
 
   # Sharing options
   # Comment and uncomment to enable or disable sharing options
@@ -680,6 +683,90 @@ publishDir = &quot;public&quot;
   # Customize copyright value &quot;© 2017 &lt;CUSTOMIZATION&gt;. All Rights Reserved&quot;
   # [params.footer]
   #   copyright = &quot;&lt;a href=\&quot;https://github.com/kakawait\&quot;&gt;kakawait&lt;/a&gt;&quot;
+</code></pre>
+
+<p>　　在主题配置中加入自定义的js插件以后，添加的点击爱心特效插件的代码如下：</p>
+
+<pre><code>(function(window,document,undefined){
+    var hearts = [];
+    
+    window.requestAnimationFrame = (function(){
+        return window.requestAnimationFrame || 
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+         window.oRequestAnimationFrame ||
+         window.msRequestAnimationFrame ||
+         function (callback){
+             setTimeout(callback,1000/60);
+         }
+    })();
+    
+    init();
+ 
+    function init(){
+        css(&quot;.heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}&quot;);
+        attachEvent();
+        gameloop();
+    }
+ 
+    function gameloop(){
+        for(var i=0;i&lt;hearts.length;i++){
+            if(hearts[i].alpha &lt;=0){
+                document.body.removeChild(hearts[i].el);
+                hearts.splice(i,1);
+                continue;
+             }
+ 
+             hearts[i].y--;
+             hearts[i].scale += 0.004;
+             hearts[i].alpha -= 0.013;
+             hearts[i].el.style.cssText = &quot;left:&quot;+hearts[i].x+&quot;px;top:&quot;+hearts[i].y+&quot;px;opacity:&quot;+hearts[i].alpha+&quot;;transform:scale(&quot;+hearts[i].scale+&quot;,&quot;+hearts[i].scale+&quot;) rotate(45deg);background:&quot;+hearts[i].color;
+        }
+ 
+        requestAnimationFrame(gameloop);
+    }
+ 
+    function attachEvent(){
+        var old = typeof window.onclick===&quot;function&quot; &amp;&amp; window.onclick;
+        window.onclick = function(event){
+            old &amp;&amp; old();
+            createHeart(event);
+        }
+    }
+ 
+    function createHeart(event){
+        var d = document.createElement(&quot;div&quot;);
+        d.className = &quot;heart&quot;;
+        hearts.push({
+            el : d,
+            x : event.clientX - 5,
+            y : event.clientY - 5,
+            scale : 1,
+            alpha : 1,
+            color : randomColor()
+        });
+ 
+        document.body.appendChild(d);
+    }
+ 
+    function css(css){
+        var style = document.createElement(&quot;style&quot;);
+        style.type=&quot;text/css&quot;;
+        try{
+            style.appendChild(document.createTextNode(css));
+        }
+        catch(ex){
+            style.styleSheet.cssText = css;
+        }
+ 
+        document.getElementsByTagName('head')[0].appendChild(style);
+    }
+ 
+    function randomColor(){
+        return &quot;rgb(&quot;+(~~(Math.random()*255))+&quot;,&quot;+(~~(Math.random()*255))+&quot;,&quot;+(~~(Math.random()*255))+&quot;)&quot;;
+    }
+    
+})(window,document);
 </code></pre>
 
 <h4 id="设置文章模板">设置文章模板</h4>
