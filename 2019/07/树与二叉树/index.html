@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="SAquarius">
+<meta name="keywords" content="数据结构, 二叉树, 二叉树的遍历, C, C&#43;&#43;, PAT">
+<meta name="description" content="　　总结一下树和二叉树的基本操作和应用，算是一个总结的笔记整理。大致包括树与二叉树的表示、储存、遍历、以及相关的其他操作的伪代码或C&#43;&#43;代码。">
+
+
+<meta property="og:description" content="　　总结一下树和二叉树的基本操作和应用，算是一个总结的笔记整理。大致包括树与二叉树的表示、储存、遍历、以及相关的其他操作的伪代码或C&#43;&#43;代码。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树与二叉树">
+<meta name="twitter:title" content="树与二叉树">
+<meta property="og:url" content="https://saquarius.github.io/2019/07/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/07/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/">
+<meta property="og:site_name" content="SAquarius的梦想屋">
+<meta property="og:description" content="　　总结一下树和二叉树的基本操作和应用，算是一个总结的笔记整理。大致包括树与二叉树的表示、储存、遍历、以及相关的其他操作的伪代码或C&#43;&#43;代码。">
+<meta name="twitter:description" content="　　总结一下树和二叉树的基本操作和应用，算是一个总结的笔记整理。大致包括树与二叉树的表示、储存、遍历、以及相关的其他操作的伪代码或C&#43;&#43;代码。">
+<meta property="og:locale" content="zh-cn">
+
+  
+    <meta property="article:published_time" content="2019-07-19T17:01:29">
+  
+  
+    <meta property="article:modified_time" content="2019-07-19T17:01:29">
+  
+  
+  
+    
+      <meta property="article:section" content="数据结构">
+    
+      <meta property="article:section" content="树与二叉树">
+    
+  
+  
+    
+      <meta property="article:tag" content="数据结构">
+    
+      <meta property="article:tag" content="二叉树">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://saquarius.github.io/images/tree_s.jpg">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/tree_s.jpg">
+
+
+  <meta property="og:image" content="https://saquarius.github.io/images/tree.png">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/tree.png">
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/f4d398cf5446d2cb184500844daff4d9?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/f4d398cf5446d2cb184500844daff4d9?s=640">
+
+
+    <title>树与二叉树</title>
+
+    <link rel="icon" href="https://saquarius.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://saquarius.github.io/2019/07/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://saquarius.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://saquarius.github.io/">SAquarius的梦想屋</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://saquarius.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/f4d398cf5446d2cb184500844daff4d9?s=90" alt="作者的图片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://saquarius.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/f4d398cf5446d2cb184500844daff4d9?s=110" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">SAquarius</h4>
+        
+          <h5 class="sidebar-profile-bio">All in or nothing, now or never!</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">类别</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">归档</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/SAquarius" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              post-header-cover--full"
+       style="background-image:url('/images/tree.png')"
+       data-behavior="5">
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaOut
+               hasCoverCaption">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+            <span class="post-header-cover-caption caption">树与二叉树的总结笔记</span>
+          
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      树与二叉树
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2019-07-19T17:01:29&#43;08:00">
+        
+  七月 19, 2019
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://saquarius.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84">数据结构</a>, 
+    
+      <a class="category-link" href="https://saquarius.github.io/categories/%e6%a0%91%e4%b8%8e%e4%ba%8c%e5%8f%89%e6%a0%91">树与二叉树</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>　　总结一下树和二叉树的基本操作和应用，算是一个总结的笔记整理。大致包括树与二叉树的表示、储存、遍历、以及相关的其他操作的伪代码或C++代码。</p>
+
+<h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#树与二叉树">树与二叉树</a>
+<ul>
+<li><a href="#树的实现和遍历">树的实现和遍历</a>
+<ul>
+<li><a href="#树的实现">树的实现</a></li>
+<li><a href="#树的遍历">树的遍历</a></li>
+</ul></li>
+<li><a href="#二叉树">二叉树</a>
+<ul>
+<li><a href="#二叉树的存储">二叉树的存储</a></li>
+<li><a href="#相关的基本操作">相关的基本操作：</a></li>
+<li><a href="#二叉树的遍历">二叉树的遍历</a>
+<ul>
+<li><a href="#先序遍历">先序遍历</a></li>
+<li><a href="#中序遍历">中序遍历</a></li>
+<li><a href="#后序遍历">后序遍历</a></li>
+<li><a href="#层次遍历">层次遍历</a></li>
+</ul></li>
+<li><a href="#二叉树遍历的应用">二叉树遍历的应用</a>
+<ul>
+<li><a href="#由遍历序列建树">由遍历序列建树</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="树与二叉树">树与二叉树</h1>
+
+<p>　　树和二叉树的实现以及基本的遍历方法和代码，包括一般树（多叉树）的静态表示方法和遍历，以及二叉树的存储实现和遍历代码。<br />
+　　用到的头文件有如下两个：</p>
+
+<pre><code>#include&lt;queue&gt;
+#include&lt;vector&gt;
+</code></pre>
+
+<h2 id="树的实现和遍历">树的实现和遍历</h2>
+
+<h3 id="树的实现">树的实现</h3>
+
+<p>　　这里的树指的是，一般意义的树，多叉且孩子没有顺序的区别.<br />
+　　这里采用树的<strong>静态写法</strong>作示例：</p>
+
+<pre><code>//静态写法
+#define MAXN 1000       //最大的结点个数
+struct node{
+    int data;           
+    //int child[MAXN];  //指针域，存放所有孩子的指针，可以用vector来代替定长数组,如下所示
+    vertor&lt;int&gt; child;
+}Node[MAXN]             //MAXN表示树中的结点上限
+</code></pre>
+
+<p>　　基于静态写法的<strong>新结点的创建</strong></p>
+
+<pre><code>//静态写法中创建新结点
+int index=0;                        //初始化树为空，可用结点下标为0
+int newnode(int v){
+    if(index &gt;= MAXN) return -1;    //判定是否有可用的空结点，如果没有返回-1，代表结点申请失败  
+    Node[index].data = v;
+    Node[index].child.clear();
+    return index++;                 //返回创建的结点的下标，然后index自增，为下一次申请新结点的判定作准备
+}
+</code></pre>
+
+<h3 id="树的遍历">树的遍历</h3>
+
+<p>　　树的<strong>先根遍历</strong>，因为多叉树的孩子数量不定，因此没有中序和后序遍历的说法。</p>
+
+<pre><code>//树的先根遍历
+void preorder(int  root){
+    printf(&quot;%d&quot;,Node[root].data);                       //访问当前结点
+    for(int i = 0;i &lt; Node[root].child.size(); i++){    //依此先根遍历所有的孩子结点
+        preorder(Node[root].child[i]);
+    }
+}
+</code></pre>
+
+<p>　　树的<strong>层次遍历</strong></p>
+
+<pre><code>//树的层次遍历
+void layerorde (int root){
+    queue&lt;int&gt; q;                                       //借助队列实现层次遍历
+    q.push(root);                                       //根节点入队
+    while(!q.empty()){                                  //队不空时进行循环
+        int now =q.front();                             //去除队头元素并访问
+        q.pop;
+        printf(&quot;%d&quot;,Node[now].data);
+        for(int i = 0;i &lt; Node[now].child.size(); i++){ //将当前结点的所有孩子按照先后顺序入队
+            q.push(Node[now].child[i]);
+        }
+    }
+}
+</code></pre>
+
+<h2 id="二叉树">二叉树</h2>
+
+<h3 id="二叉树的存储">二叉树的存储</h3>
+
+<p>　　静态储存，使用数组存储结点结构体，使用数组下标表示指针，其中可以用-1（任何负数都可以）表示空指针，其基本的操作和链式差不多。
+　　链式存储结构，使用结构体表示一个二叉树的结点，包括数据域、指针域、以及可能用得到的记录结点所在的层次的变量。</p>
+
+<pre><code>typedef struct Node{
+    int data;
+    int layer;              //如果需要在层次遍历中用到结点，可以添加一个记录层次的成员变量
+    struct Node* lchild,rchild;    //左右孩子的指针域
+}Node,*Tree;
+</code></pre>
+
+<h3 id="相关的基本操作">相关的基本操作：</h3>
+
+<p>　　1.<strong>创建新结点</strong></p>
+
+<pre><code>Node* newnode(int v){                       //创建一个结点值为v的结点
+    Node * new_node = new node;             //创建一个新的结点，用new_node指针变量指向
+    new_node-&gt;data=v;                       //赋值
+    new_node-&gt;lchild=new_node-&gt;rchild=NULL; //左右孩子指针域初始为空
+    return new_node;
+}
+</code></pre>
+
+<p>　　2.<strong>二叉树结点的查找和修改</strong></p>
+
+<pre><code>//查找结点值为x的结点，并修改为newdata
+void search(Node * root, int x, int newdata ){
+    if(root == NULL){
+        return;                 //递归边界，如果是空的则返回
+    }
+    if(root-&gt;data == x){
+        root-&gt;data=newdata;     //如果找到x所在的结点，更新为新的值
+    }
+    //递归调用，分别往左右子树搜索x并修改
+    search(root-&gt;lchild, x, newdata);
+    search(root-&gt;rchild, x, newdata);
+}
+</code></pre>
+
+<p>　　3.<strong>二叉树结点的插入</strong><br />
+　　二叉树的插入和二叉树本身的特征有关，此处只给出伪代码：</p>
+
+<pre><code>//使用insert向二叉树中插入一个值为x的结点
+//树的指针要使用引用，否则插入的修改操作不起作用
+void insert(Node* &amp;root,  int x){
+    if(root == NULL){                   //如果树空，直接创建一个结点插入  
+        root=newnode(x);                //调用新建结点函数
+        return root；
+    }
+    if( 由二叉树自身的性质决定判定，x插入在左子树){
+        insert(root-&gt;lchid, x);
+    }
+    else{
+        insert(root-&gt;rchild, x);
+    }
+}
+</code></pre>
+
+<p>　　4.<strong>二叉树的建立</strong><br />
+　　二叉树的创建，借助插入函数，每次读入一个结点，然后插入即可。</p>
+
+<pre><code>//使用一个数组序列data[]建立二叉树
+Node* Creat(int data[],int n){
+    Node* root=NULL;                //创建根结点
+    for(int i = 0; i &lt; n; i++){     //将数据序列依此插入到二叉树中
+        insert(root,data[i]);
+    }
+    return root;
+}
+</code></pre>
+
+<h3 id="二叉树的遍历">二叉树的遍历</h3>
+
+<p>　　二叉树的先序、中序、后序遍历路径其实是相同的。如下图所示，先序为路径上第一次遇到时就访问，中序是路径上第二次遇到访问，后序为第三次遇到时访问。<br />
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/tree_traval.png" alt="二叉树的遍历路径" /><br />
+　　其中，由于叶子结点有两个空指针域，故算上相应的遍历和返回次数，可以按照遇到先后的次序不同得到不同的遍历序列。</p>
+
+<h4 id="先序遍历">先序遍历</h4>
+
+<p>　　先序遍历的递归写法：</p>
+
+<pre><code>//先序遍历的递归写法
+void preorder(Node * root){
+    if(root == NULL) return;        //递归边界
+    printf(&quot;%d/n&quot;,root-&gt;data);      //先序访问结点
+    preorder(root-&gt;lchild);         //递归先序遍历左子树
+    preorder(root-&gt;rchild);         //递归先序遍历右子树
+}
+</code></pre>
+
+<p>　　先序遍历的非递归写法：借助栈实现先序的遍历，在第一次遇到时进行访问。代码如下：</p>
+
+<pre><code>//先序遍历的非递归写法
+//使用了stack容器，需要包含头文件
+#include&lt;stack&gt;
+void preorder(Node* root){
+    stack&lt;int&gt; s;
+    Node *p=root;               //p为遍历指针
+    while(p||!s.empty()){       //当栈不空时或者p不为空时进行循环
+        if(p){
+            visit(p);           //第一次遇到，访问结点，具体的访问函数视需求而定
+            s.push(p);          //将根进栈，遍历左子树
+            p=p-&gt;lchild;
+        }
+        else{
+            p=s.top();
+            s.pop();            //如果p是空，说明到达了最左边的结点，此时p出栈，转向右子树继续遍历。
+            p=p-&gt;rchild;
+        }
+    }
+}
+</code></pre>
+
+<h4 id="中序遍历">中序遍历</h4>
+
+<p>　　中序遍历的递归写法：</p>
+
+<pre><code>//中序遍历的递归写法
+//与先序相似，只不过改动了访问的顺序
+void inorder(Node * root){
+    if(root == NULL) return;        //递归边界
+    inorder(root-&gt;lchild);          //递归中序遍历左子树
+    printf(&quot;%d/n&quot;,root-&gt;data);      //中序访问结点
+    inorder(root-&gt;rchild);          //递归中序遍历右子树
+}
+</code></pre>
+
+<p>　　中序遍历的非递归写法：借用栈实现，与先序非常相似，知识调整了visit（）的位置，放在第二次遇到时进行访问，代码如下：</p>
+
+<pre><code>//中序遍历的非递归写法
+//使用了stack容器，需要包含头文件
+#include&lt;stack&gt;
+void inorder(Node* root){
+    stack&lt;int&gt; s;
+    Node *p=root;               //p为遍历指针
+    while(p||!s.empty()){       //当栈不空时或者p不为空时进行循环
+        if(p){
+            s.push(p);          //将根进栈，遍历左子树
+            p=p-&gt;lchild;
+        }
+        else{
+            p=s.top();
+            s.pop();            //如果p是空，说明到达了最左边的结点，此时p出栈，转向右子树继续遍历。
+            visit(p);           //第二次遇到，访问结点，具体的访问函数视需求而定
+            p=p-&gt;rchild;
+        }
+    }
+}
+</code></pre>
+
+<h4 id="后序遍历">后序遍历</h4>
+
+<p>　　后序遍历的递归写法：</p>
+
+<pre><code>//后序遍历的递归写法
+//与先序相似，只不过改动了访问的顺序
+void postorder(Node * root){
+    if(root == NULL) return;            //递归边界
+    postorder(root-&gt;lchild);            //递归后序遍历左子树
+    postorder(root-&gt;rchild);            //递归后序遍历右子树
+    printf(&quot;%d/n&quot;,root-&gt;data);          //后序访问结点
+}
+</code></pre>
+
+<p>　　后序遍历的非递归算法，主要的难点在于如何区分是第二次遇到还是第三次遇到（即，是从左子树返回还是右子树返回），因此采用不同地解决方法，得到两种遍历算法的思路：<br />
+　　<strong>第一种</strong>：需要一个指针来分清是第二次遇到（从左子树返回）还是第三次遇到（从右子树返回），用辅助指针r指向最近访问过的最近的结点（即，遍历路径上某个访问点的前驱结点）。<br />
+　　<strong>第二种</strong>：采用带标记栈的方法，来记录当前结点的左右子树是否被访问过，用以区分是从左子树返回，还是右子树返回。<br />
+　　一、采用栈+额外指针的方式实现非递归算法，代码如下：</p>
+
+<pre><code>//后序遍历的非递归写法，采用栈和额外指针的方法
+#include&lt;stack&gt;
+void postorder(Node* root){
+    stack&lt;int&gt; s;                           //栈
+    Node* p=root;                           //p为工作指针
+    Node* r=NULL;                           //用于记录上一个结点的辅助指针，初始化为空
+    while(p||!s.empty()){
+        if(p){
+            s.push(p);                      //一直向左到最左边的结点
+            p=p-&gt;lchild;
+        }
+        else{
+            p=s.top();                      //到边界空指针时，转回父节点
+            if(p-&gt;rchild&amp;&amp;p-&gt;rchild!=r){    //当右指针不空，且前一个结点不是右孩子（即，不是从右孩子返回，而是从左孩子返回）
+                p=p-&gt;rchild;                //转向右子树，一直到右子树的做左边
+                s.push(p);
+                p=p-&gt;lchild;
+            }
+            else{                           //否则右子树为空（也认为是直从右子树返回）或者右子树不为空且从右子树返回
+                p=s.top();                  //从右子树返回（即第三次遇到）进行访问
+                s.pop();
+                vist(p);                    //访问的操作函数要求写
+                r=p;                        //记录最近访问的结点
+                p=NULL;                     //p置空，表示当前结点的子树全部访问完毕，以起到类似返回的效果，驱动从栈中取元素出来
+            }
+        }
+    }
+}
+</code></pre>
+
+<p>　　二、采用标记栈方法的后序遍历的非递归算法</p>
+
+<pre><code>//采用标记栈方法的后序遍历的非递归算法
+#include&lt;stack&gt;                 //需要包含stack头文件
+typedef struct{                 //定义标记栈中元素的存储结构体       
+    Node* p;                    //二叉树结点指针
+    int rvis;                   //访问标记，0表示表示右子树未被访问，1表示右子树已被访问
+}Snode;
+void postorder(Node* root){
+    Snode sn;                   //用去取栈中元素
+    stack&lt;Snode&gt; s;             //建立栈
+    Node* pt=root;              //二叉树的遍历工作指针
+
+    //为了让下边出栈遍历的循环层次看起来少一些，将一直走到左边的循环单独写出来
+    while(pt){                  //一直走到最左边
+        Snode temp;             //用于构建临时的栈元素，用于入栈
+        temp.p=pt;
+        temp.rvis=0;
+        s.push(temp);
+        pt=pt-&gt;lchild;
+    }
+
+    while(!s.empty()){
+        sn=s.top();             //读取栈顶元素
+        if(sn.p-&gt;rchidl==NULL || sn.rvis==1){
+            vist(sn.p);         //如果右子树为空（认为直接返回）或者右子树已被访问（即，从右子树返回，第三次遇到），进行出栈访问；
+            s.pop();
+        }
+        else{                   //否则转向右子树
+            sn.rvis=1;          //修改右子树访问标记
+            pt=sn.p-&gt;rchidl;
+            while(pt){          //在右子树中走到最左下方
+                Snode temp;     //用于构建临时的栈元素，用于入栈
+                temp.p=pt;
+                temp.rvis=0;
+                s.push(temp);
+                pt=pt-&gt;lchild; 
+            }
+        }
+    }
+}
+</code></pre>
+
+<h4 id="层次遍历">层次遍历</h4>
+
+<p>　　层次遍历，借助队列实现：先把根结点入队，然后每次从队列中取出一个结点，如果左右子树不为空，就把左右子树入队，一直循环到队列为空。代码如下：</p>
+
+<pre><code>//使用队列的层次遍历
+#include&lt;queue&gt;                     //需要包含queue头文件
+void layerorder(Node* root){
+    queue&lt;node*&gt; q;                 //队列中存放树的结点指针
+    q.push(root);                   //根结点入队
+    while(!q.empty()){
+        Node* now;                  //依此从队列中取出队头元素，进行访问
+        now=q.front();
+        q.pop();
+        printf(&quot;%d\n&quot;,now-&gt;data);   
+                                    //如果左右孩子不空，左右孩子入队
+        if(now-lchild)  q.push(now-&gt;lchild);
+        if(now-rchild)  q.push(now-&gt;rchild);
+    }
+}
+</code></pre>
+
+<h3 id="二叉树遍历的应用">二叉树遍历的应用</h3>
+
+<h4 id="由遍历序列建树">由遍历序列建树</h4>
+
+<p>　　给定二叉树的中序遍历序列和（先序、后序、层次遍历）的任意一个遍历序列可以构建唯一的二叉树，其中中序遍历序列必不可少，因为参照中序序列可以分开左右子树。<br />
+　　此处以<strong>先序+中序</strong>为例，后序序列的方法类似，找到根节点以后在中序中定位根节点，并对左右子树递归调用建立树，难点在于对<strong>递归时在序列中的位置的计算</strong>，代码实现如下：</p>
+
+<pre><code>//一直先序和中序的遍历序列，建立二叉树
+int pre[MAXN];                              //先序遍历序列
+int in[MAXV];                               //中序遍历序列
+Node* creat(int pl, int pr, int il, int ir){
+    //pl和pr分别代表先序的左边和右边下标
+    //il和ir分别代表后序的左边和右边下标
+    if(pl&gt;pr)  return NULL;                 //递归边界，先序长度小于或者等于0时返回空指针
+    Node* root=new node;                    //创建一个新结点用于存放二叉树的根
+    root-&gt;data=pre[pl];
+    int k;
+    for(int k=il; k&lt;ir ; k++){              //在中序序列中寻找根节点的位置k，k左侧是左子树，k右侧是右子树
+        if(in[k] == pre[k]) break;
+    }                                       //可以采用unordered_map建立中序序列和下标的映射，方便快速查询k的位置
+    int numleft=k-il;                       //左子树的结点数量
+                                            //根据左子树结点的个数，确定左右子树对应的先序和后序的下标位置，然后递归建立左右子树
+    root-&gt;lchild=creat(pl+1,pu+numleft,il,k-1);
+    root-&gt;rchild=creat(pl+numleft+1,pr,k+1,ir);
+
+    return root;                            //返回创建树的根节点
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
+
+                  </div>
+                
+              
+            
+              <span id="/2019/07/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/" class="leancloud_visitors" data-flag-title="树与二叉树">
+                <span class="post-meta-item-text">文章阅读量 </span>
+                <span class="leancloud-visitors-count">1000000</span>
+                <p></p>
+              </span>
+              <div id="vcomments"></div>
+              <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+              <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+              <script type="text/javascript">
+                new Valine({
+                  el: '#vcomments' ,
+                  appId: 'pUTSdyX8kkcBbF9uwgHrTskD-gzGzoHsz',
+                  appKey: 'INTlJfGBjMlFQyc1NzGRAASw',
+                  notify: 'false',
+                  verify: '',
+                  avatar:'mp', 
+                  placeholder: '说点什么吧',
+                  visitor: 'true'
+                });
+              </script>
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10/" data-tooltip="Hugo&#43;github搭建个人博客（windows10）">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2019 SAquarius. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10/" data-tooltip="Hugo&#43;github搭建个人博客（windows10）">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/f4d398cf5446d2cb184500844daff4d9?s=110" alt="作者的图片" />
+    
+    <h4 id="about-card-name">SAquarius</h4>
+    
+      <div id="about-card-bio">All in or nothing, now or never!</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        学生
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        武汉
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://saquarius.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://saquarius.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/07\/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91\/';
+          
+            this.page.identifier = '\/2019\/07\/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'valine';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
