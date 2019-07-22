@@ -6,10 +6,20 @@
     <description>Recent content in Posts on SAquarius的梦想屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Jul 2019 17:01:29 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jul 2019 15:15:03 +0800</lastBuildDate>
     
 	<atom:link href="https://saquarius.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Github博客同步到Coding,自定义域名双线解析</title>
+      <link>https://saquarius.github.io/2019/07/github%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%AD%A5%E5%88%B0coding%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E5%8F%8C%E7%BA%BF%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Mon, 22 Jul 2019 15:15:03 +0800</pubDate>
+      
+      <guid>https://saquarius.github.io/2019/07/github%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%AD%A5%E5%88%B0coding%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E5%8F%8C%E7%BA%BF%E8%A7%A3%E6%9E%90/</guid>
+      <description>&lt;p&gt;　
+　　为了解决Github屏蔽了百度爬虫导致的Github Pages无法被收录的问题，将Github上的静态网页同步到Coding Pages上。同时对域名采用DNSPod实现域名双线解析，以加快国内的访问，并被百度收录。这里，以我使用Hugo框架搭建的blog为例，使用在&lt;a href=&#34;https://sg.godaddy.com/zh?ci=&#34;&gt;Godaddy&lt;/a&gt;上购买的域名，作为自定义域名。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>树与二叉树</title>
