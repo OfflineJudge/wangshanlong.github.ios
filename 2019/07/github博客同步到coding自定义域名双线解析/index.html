@@ -274,6 +274,19 @@
 <li><a href="#coding-pages仓库的建立">Coding Pages仓库的建立</a></li>
 <li><a href="#git中添加第二个远程仓库">Git中添加第二个远程仓库</a></li>
 <li><a href="#把站点文件推向两个远程仓库">把站点文件推向两个远程仓库</a></li>
+<li><a href="#建立自定义域名的双线解析">建立自定义域名的双线解析</a>
+<ul>
+<li><a href="#github-pages自定义域名">Github Pages自定义域名</a></li>
+<li><a href="#coding-pages自定义域名">Coding Pages自定义域名</a></li>
+<li><a href="#自定义域名以及dnspod设置">自定义域名以及DNSPod设置</a>
+<ul>
+<li><a href="#域名dns服务器设置">域名DNS服务器设置</a></li>
+<li><a href="#dnspod中设置coding的dns解析">DNSPod中设置Coding的dns解析</a></li>
+<li><a href="#dnspod中设置github的dns解析">DNSPod中设置Github的dns解析</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#双线解析测试">双线解析测试</a></li>
+<li><a href="#友情提示">友情提示</a></li>
 </ul>
 </nav> 
 
@@ -322,7 +335,69 @@ origin  https://git.dev.tencent.com/SAquarius/SAquarius.git (push)
 <h1 id="把站点文件推向两个远程仓库">把站点文件推向两个远程仓库</h1>
 
 <p>　　由于pull命令只能拉取第一个远程仓库，不能拉取第二个远程仓库，可以采用修改两个仓库的顺序然后拉取第二个仓库，不然第二个仓库无法成功上传。其实也可以采用不同的名字 然后分别拉取和推送。<br />
-　　为了省事，统一命名为origin的情况下，第一次直接</p></li>
+　　为了省事，统一命名为origin的情况下，第一次直接强推上去，毕竟Coding上只有一个初始化的readme.md文档，强制推上去它就没有了，不会有什么影响。其命令如下：</p>
+
+<pre><code>git pull origin master
+git push origin master -f
+</code></pre>
+
+<p>　　第一次push时，新的Coding仓库需要输入账户和密码，之后就不用了，往后的提交方式和正常一样，不需要添加“<code>-f</code>”的指令了。</p>
+
+<h1 id="建立自定义域名的双线解析">建立自定义域名的双线解析</h1>
+
+<h2 id="github-pages自定义域名">Github Pages自定义域名</h2>
+
+<p>　　在Github Pages仓库的setting设置中找到自定义域名，把自己的自定义域名填写上并保存：
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/gitdns2_.png" alt="" /></p>
+
+<h2 id="coding-pages自定义域名">Coding Pages自定义域名</h2>
+
+<p>　　在Coding　pages服务的中找到如下设置菜单，然后绑定域名，其中SSL证书的申请稍后介绍：
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/Codingdns.png" alt="" /></p>
+
+<h2 id="自定义域名以及dnspod设置">自定义域名以及DNSPod设置</h2>
+
+<h3 id="域名dns服务器设置">域名DNS服务器设置</h3>
+
+<p>　　在购买的域名中设置DNS服务交给DNSPod管理，具体设置方法如下：</p>
+
+<pre><code>//将域名DNS服务器改为DNSPod的服务器，不再使用域名提供商Godadyy提供的DNS服务
+//以下为DNSPod的服务器映射地址
+f1g1ns1.dnspod.net
+f1g1ns2.dnspod.net
+</code></pre>
+
+<p>　　在Godaddy的DNS管理中自定义域名服务器更改如下：
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/DNSserver.png" alt="" /></p>
+
+<h3 id="dnspod中设置coding的dns解析">DNSPod中设置Coding的dns解析</h3>
+
+<p>　　在DNSPod中加入一条CNAME的记录，指向“你的Pages名字.coding.me”，示例如图所示：
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/dnspod1.png" alt="" /><br />
+　　此时，先不要添加Github Pages的CNAME记录，你需要回到Coding Pages的设置中申请<strong>SSL安全证书</strong>，稍等片刻，一般证书便能申请到。
+<div class="alert warning ">
+  <p>SSL安全证书需要每三个月重新申请一次，再次申请的时候，先停用Github的海外解析线路再申请，否则，会因为域名服务器在国外导致申请失败</p>
+</div></p>
+
+<h3 id="dnspod中设置github的dns解析">DNSPod中设置Github的dns解析</h3>
+
+<p>　　在申请<strong>SSL安全证书</strong>成功之后再添加一条Github Pages的CNAME记录，如上图中第二条记录所示。</p>
+
+<h1 id="双线解析测试">双线解析测试</h1>
+
+<p>　　分别测试使用不同的方式访问博客：</p>
+
+<pre><code>1.指向Coding的测试，使用如下访问
+https：//你的pages名称.coding.me   
+2.指向Github的测试，使用如下访问
+https：//你的仓库名称.github.io
+</code></pre>
+
+<p>　　如果都能成功访问到你的博客站点，证明双线解析生效，之后就可以愉快地同时在Coding和Github上更新博客了。</p>
+
+<h1 id="友情提示">友情提示</h1>
+
+<p>　　如果像我一样在博客中添加了valine的评论系统，需要在Leancloud的安全中心中的Web安全域名中加入Coding Pages的访问地址。</p></li>
 </ul>
               
             </div>
