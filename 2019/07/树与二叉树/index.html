@@ -650,7 +650,7 @@ Node* creat(int pl, int pr, int il, int ir){
     }                                       //可以采用unordered_map建立中序序列和下标的映射，方便快速查询k的位置
     int numleft=k-il;                       //左子树的结点数量
                                             //根据左子树结点的个数，确定左右子树对应的先序和后序的下标位置，然后递归建立左右子树
-    root-&gt;lchild=creat(pl+1,pu+numleft,il,k-1);
+    root-&gt;lchild=creat(pl+1,pl+numleft,il,k-1);
     root-&gt;rchild=creat(pl+numleft+1,pr,k+1,ir);
 
     return root;                            //返回创建树的根节点
