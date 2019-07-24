@@ -4,18 +4,59 @@
   
   <url>
     <loc>https://saquarius.github.io/categories/</loc>
-    <lastmod>2019-07-22T15:15:03+08:00</lastmod>
+    <lastmod>2019-07-24T08:55:08+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://saquarius.github.io/post/</loc>
+    <lastmod>2019-07-24T08:55:08+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://saquarius.github.io/</loc>
+    <lastmod>2019-07-24T08:55:08+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://saquarius.github.io/tags/</loc>
+    <lastmod>2019-07-24T08:55:08+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://saquarius.github.io/tags/hugo/</loc>
+    <lastmod>2019-07-24T08:55:08+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://saquarius.github.io/categories/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2019-07-24T08:55:08+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://saquarius.github.io/categories/%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE/</loc>
+    <lastmod>2019-07-24T08:55:08+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://saquarius.github.io/2019/07/%E7%BB%99hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE/</loc>
+    <lastmod>2019-07-24T08:55:08+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://saquarius.github.io/tags/%E7%BD%91%E6%98%93%E4%BA%91/</loc>
+    <lastmod>2019-07-24T08:55:08+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://saquarius.github.io/tags/coding/</loc>
-    <lastmod>2019-07-22T15:15:03+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://saquarius.github.io/tags/github/</loc>
     <lastmod>2019-07-22T15:15:03+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -32,25 +73,7 @@
   </url>
   
   <url>
-    <loc>https://saquarius.github.io/post/</loc>
-    <lastmod>2019-07-22T15:15:03+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://saquarius.github.io/</loc>
-    <lastmod>2019-07-22T15:15:03+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://saquarius.github.io/tags/</loc>
-    <lastmod>2019-07-22T15:15:03+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://saquarius.github.io/categories/%E6%95%99%E7%A8%8B/</loc>
+    <loc>https://saquarius.github.io/tags/github/</loc>
     <lastmod>2019-07-22T15:15:03+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -62,13 +85,13 @@
   </url>
   
   <url>
-    <loc>https://saquarius.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <loc>https://saquarius.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2019-07-19T17:01:29+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://saquarius.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <loc>https://saquarius.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2019-07-19T17:01:29+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -90,12 +113,6 @@
   </url>
   
   <url>
-    <loc>https://saquarius.github.io/tags/hugo/</loc>
-    <lastmod>2019-07-12T10:31:57+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://saquarius.github.io/categories/hugo/</loc>
     <lastmod>2019-07-12T10:31:57+08:00</lastmod>
     <priority>0</priority>
@@ -114,13 +131,13 @@
   </url>
   
   <url>
-    <loc>https://saquarius.github.io/tags/log/</loc>
+    <loc>https://saquarius.github.io/categories/log/</loc>
     <lastmod>2019-07-11T23:04:49+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://saquarius.github.io/categories/log/</loc>
+    <loc>https://saquarius.github.io/tags/log/</loc>
     <lastmod>2019-07-11T23:04:49+08:00</lastmod>
     <priority>0</priority>
   </url>

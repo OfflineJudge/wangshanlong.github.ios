@@ -7,40 +7,40 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
-<meta name="keywords" content="life, C, C&#43;&#43;, PAT">
-<meta name="description" content="　　第二天折腾一下主题的配置和使用，也要留下点记录，tranquilpeak的主题真的好看。">
+<meta name="keywords" content="hugo, 博客, 音乐外链, 网易云, C, C&#43;&#43;, PAT">
+<meta name="description" content="　　之前给博客页面做了一点点美化，其实就是加了一个鼠标点击出现小心心的特效插件。但是，感觉还不够呀，这样的博客太安静了，于是就研究给自己的博客加上音乐播放插件，可是搜索到的都是hexo的教程，于是自己参照着摸索出了给自己的hugo博客加上网易云音乐外链的方法。">
 
 
-<meta property="og:description" content="　　第二天折腾一下主题的配置和使用，也要留下点记录，tranquilpeak的主题真的好看。">
+<meta property="og:description" content="　　之前给博客页面做了一点点美化，其实就是加了一个鼠标点击出现小心心的特效插件。但是，感觉还不够呀，这样的博客太安静了，于是就研究给自己的博客加上音乐播放插件，可是搜索到的都是hexo的教程，于是自己参照着摸索出了给自己的hugo博客加上网易云音乐外链的方法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第二天的记录">
-<meta name="twitter:title" content="第二天的记录">
-<meta property="og:url" content="https://saquarius.github.io/2019/07/%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%9A%84%E8%AE%B0%E5%BD%95/">
-<meta property="twitter:url" content="https://saquarius.github.io/2019/07/%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%9A%84%E8%AE%B0%E5%BD%95/">
+<meta property="og:title" content="给Hugo博客添加网易云音乐外链">
+<meta name="twitter:title" content="给Hugo博客添加网易云音乐外链">
+<meta property="og:url" content="https://saquarius.github.io/2019/07/%E7%BB%99hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/07/%E7%BB%99hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE/">
 <meta property="og:site_name" content="SAquarius的梦想屋">
-<meta property="og:description" content="　　第二天折腾一下主题的配置和使用，也要留下点记录，tranquilpeak的主题真的好看。">
-<meta name="twitter:description" content="　　第二天折腾一下主题的配置和使用，也要留下点记录，tranquilpeak的主题真的好看。">
+<meta property="og:description" content="　　之前给博客页面做了一点点美化，其实就是加了一个鼠标点击出现小心心的特效插件。但是，感觉还不够呀，这样的博客太安静了，于是就研究给自己的博客加上音乐播放插件，可是搜索到的都是hexo的教程，于是自己参照着摸索出了给自己的hugo博客加上网易云音乐外链的方法。">
+<meta name="twitter:description" content="　　之前给博客页面做了一点点美化，其实就是加了一个鼠标点击出现小心心的特效插件。但是，感觉还不够呀，这样的博客太安静了，于是就研究给自己的博客加上音乐播放插件，可是搜索到的都是hexo的教程，于是自己参照着摸索出了给自己的hugo博客加上网易云音乐外链的方法。">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2019-07-11T23:04:49">
+    <meta property="article:published_time" content="2019-07-24T08:55:08">
   
   
-    <meta property="article:modified_time" content="2019-07-11T23:04:49">
+    <meta property="article:modified_time" content="2019-07-24T08:55:08">
   
-  
-  
-    
-      <meta property="article:section" content="Article">
-    
-      <meta property="article:section" content="log">
-    
   
   
     
-      <meta property="article:tag" content="log">
+      <meta property="article:section" content="教程">
     
-      <meta property="article:tag" content="diary">
+      <meta property="article:section" content="添加网易云音乐外链">
+    
+  
+  
+    
+      <meta property="article:tag" content="hugo">
+    
+      <meta property="article:tag" content="网易云">
     
   
 
@@ -53,12 +53,12 @@
 
 
 
-  <meta property="og:image" content="https://saquarius.github.io/images/pic2.jpg">
-  <meta property="twitter:image" content="https://saquarius.github.io/images/pic2.jpg">
+  <meta property="og:image" content="https://saquarius.github.io/images/netease_s.jpg">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/netease_s.jpg">
 
 
-  <meta property="og:image" content="https://saquarius.github.io/images/pic1.jpg">
-  <meta property="twitter:image" content="https://saquarius.github.io/images/pic1.jpg">
+  <meta property="og:image" content="https://saquarius.github.io/images/netease.jpg">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/netease.jpg">
 
 
 
@@ -67,14 +67,14 @@
   <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
 
 
-    <title>第二天的记录</title>
+    <title>给Hugo博客添加网易云音乐外链</title>
 
     <link rel="icon" href="https://saquarius.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://saquarius.github.io/2019/07/%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%9A%84%E8%AE%B0%E5%BD%95/">
+    <link rel="canonical" href="https://saquarius.github.io/2019/07/%E7%BB%99hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -217,21 +217,33 @@
   <div class="post-header-cover
               text-center
               post-header-cover--full"
-       style="background-image:url('/images/pic1.jpg')"
+       style="background-image:url('/images/netease.jpg')"
        data-behavior="5">
     
-      <div class="post-header main-content-wrap text-center">
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaOut
+               hasCoverCaption">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+            <span class="post-header-cover-caption caption">在用我最近常听的歌单呀</span>
+          
+          
+            <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      第二天的记录
+      给Hugo博客添加网易云音乐外链
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-07-11T23:04:49&#43;08:00">
+      <time itemprop="datePublished" datetime="2019-07-24T08:55:08&#43;08:00">
         
-  七月 11, 2019
+  七月 24, 2019
 
       </time>
     
@@ -240,57 +252,87 @@
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://saquarius.github.io/categories/article">Article</a>, 
+      <a class="category-link" href="https://saquarius.github.io/categories/%e6%95%99%e7%a8%8b">教程</a>, 
     
-      <a class="category-link" href="https://saquarius.github.io/categories/log">log</a>
+      <a class="category-link" href="https://saquarius.github.io/categories/%e6%b7%bb%e5%8a%a0%e7%bd%91%e6%98%93%e4%ba%91%e9%9f%b3%e4%b9%90%e5%a4%96%e9%93%be">添加网易云音乐外链</a>
     
   
 
   </div>
 
 </div>
-    
-  </div>
-
-
-      <div id="main" data-behavior="5"
-        class="hasCover
-               hasCoverMetaIn
-               hasCoverCaption">
-        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
-          
-            <span class="post-header-cover-caption caption">往后大概经常用这个格调的图片了</span>
-          
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>　　第二天折腾一下主题的配置和使用，也要留下点记录，tranquilpeak的主题真的好看。</p>
+              <p>　　之前给博客页面做了一点点美化，其实就是加了一个鼠标点击出现小心心的特效插件。但是，感觉还不够呀，这样的博客太安静了，于是就研究给自己的博客加上音乐播放插件，可是搜索到的都是hexo的教程，于是自己参照着摸索出了给自己的hugo博客加上网易云音乐外链的方法。</p>
 
 <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
 <ul>
-<li><a href="#写点记录呀">写点记录呀</a>
+<li><a href="#hugo博客添加音乐外链">Hugo博客添加音乐外链</a>
 <ul>
-<li><a href="#开始学写markddown文档">开始学写MarkdDown文档</a></li>
-<li><a href="#开始学习git了">开始学习git了</a></li>
-<li><a href="#记下第二篇">记下第二篇</a></li>
+<li><a href="#其实很简单">其实很简单</a></li>
+<li><a href="#准备网易云的音乐外链代码">准备网易云的音乐外链代码</a></li>
+<li><a href="#代码的插入和调整">代码的插入和调整</a>
+<ul>
+<li><a href="#插入相应的位置">插入相应的位置</a></li>
+<li><a href="#适当的调整">适当的调整</a></li>
+</ul></li>
+<li><a href="#同步到远端并查看效果">同步到远端并查看效果</a></li>
 </ul></li>
 </ul>
 </nav>
 
-<h1 id="写点记录呀">写点记录呀</h1>
+<h1 id="hugo博客添加音乐外链">Hugo博客添加音乐外链</h1>
 
-<h2 id="开始学写markddown文档">开始学写MarkdDown文档</h2>
+<h2 id="其实很简单">其实很简单</h2>
 
-<p>　　今天开始学习写MarkDown文档了，就先从基本的语法开始吧，还是很好上手的，就是希望自己能把平时日记类型的文档写的好看些。</p>
+<p>　　<del>给静态网页添加音乐外链的插件真的好难啊！一般人都学不会！</del>所以我们都是二般人！<br />
+　　其实，给Hugo博客加上网易云音乐外链插件很简单，真的是一行代码的事，对于我使用的Tranquilpeak主题来说，只需要在侧边栏上加上一个iframe标签就可以了。<br />
+　　接下来就自己动手跟着教程添加吧！</p>
 
-<h2 id="开始学习git了">开始学习git了</h2>
+<h2 id="准备网易云的音乐外链代码">准备网易云的音乐外链代码</h2>
 
-<p>　　试着搭建hugo博客，算是开始入门git的使用了。简直是想见很晚啊，这么好用的东西，为什么现在才遇到，希望能深入学习，然后熟练的使用图床还有建立好自己的仓库，除了blog的page以外，我也打算建立PAT的仓库了，好好向柳婼大佬学习，成为一名优秀的程序员，写好代码，增强自己的基础技能。</p>
+<p>　　<del>这段代码是要自己写的</del>，其实是自动生成的。<br />
+　　网易云音乐外链的生成方法超级简单的,跟着以下步骤走就行了：</p>
 
-<h2 id="记下第二篇">记下第二篇</h2>
+<ul>
+<li>首先你要去<a href="https://music.163.com">网页版的网易云音乐</a><br /></li>
 
-<p>　　第二篇日记没有什么内容，也没有各种美化，就是拿来练练手，希望自己能把一些基础的工具用的越来越熟练。
-<!--more--></p>
+<li><p>搜索你想要添加的歌曲或者歌单：<br />
+<div class="alert warning ">
+  <p>如果想添加自己的歌单，不要登陆账号，直接搜索就行，不然找不到生成外链的选项！<br />
+没有版权的歌曲无法生成外链！<br />
+如果歌单里有无法生成外链的歌曲，歌单无法循环播放，因此建议使单首歌的外链！</p>
+</div>
+　　以我网易云创建的myblog歌单为例：<br />
+　　搜索到歌单以后，点击<strong>生成外链</strong>选项：
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/netease1.png" alt="" />
+　　然后，根据自己的喜好，搭配自己的主题选择合适的尺寸样式：
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/netease2.png" alt="" />
+　　就可以看到生成的iframe标签代码：</p>
+
+<pre><code>&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=110 src=&quot;//music.163.com/outchain/player?type=0&amp;id=2896870368&amp;auto=1&amp;height=90&quot;&gt;&lt;/iframe&gt;
+</code></pre>
+
+<h2 id="代码的插入和调整">代码的插入和调整</h2>
+
+<h3 id="插入相应的位置">插入相应的位置</h3>
+
+<p>　　代码可以插入在任何你想让播放器出现的任何位置，比如首页、文章页面、或者侧边栏。这里以插入到侧边栏为例，因为这样在任何一个标签都能随时调出侧边栏，方便播放。
+　　在主题文件中找到有关布局的html文件，以我的为例：主题根目录/layouts/partials/sidebar.html，插入到合适的位置（根据我的主题的风格，我插入到了所有菜单栏的下边）：
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/sidebar.png" alt="" /></p>
+
+<h3 id="适当的调整">适当的调整</h3>
+
+<p>　　在本地启动blog的预览，看外链播放器的效果，然后适当修改<code>width</code>和<code>height</code>两个参数的数值，以调整到合适的大小。
+<div class="alert info ">
+  <p>我的连接中删去了border的参数，因为和我的侧边栏菜单的图片有冲突，如果你遇到了相同的问题，可以尝试类似的方法解决</p>
+</div></p>
+
+<h2 id="同步到远端并查看效果">同步到远端并查看效果</h2>
+
+<p>　　把修改过后的blog生成静态文件，push到远端，然后查看效果是否符合预期。由于宽度和高度的参数，有时候本地预览和实际的浏览效果有差别，所以查看效果以确定是否需要进一步的修改。</p></li>
+</ul>
               
             </div>
           </div>
@@ -302,15 +344,15 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">标签</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/log/">log</a>
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/hugo/">hugo</a>
 
-  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/diary/">diary</a>
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E7%BD%91%E6%98%93%E4%BA%91/">网易云</a>
 
                   </div>
                 
               
             
-              <span id="/2019/07/%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%9A%84%E8%AE%B0%E5%BD%95/" class="leancloud_visitors" data-flag-title="第二天的记录">
+              <span id="/2019/07/%E7%BB%99hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE/" class="leancloud_visitors" data-flag-title="给Hugo博客添加网易云音乐外链">
                 <span class="post-meta-item-text">文章阅读量 </span>
                 <span class="leancloud-visitors-count">1000000</span>
                 <p></p>
@@ -337,7 +379,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87blog%E5%91%80/" data-tooltip="我的第一篇blog呀！">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/github%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%AD%A5%E5%88%B0coding%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E5%8F%8C%E7%BA%BF%E8%A7%A3%E6%9E%90/" data-tooltip="Github博客同步到Coding,自定义域名双线解析">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -345,7 +387,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10/" data-tooltip="Hugo&#43;github搭建个人博客（windows10）">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -405,7 +447,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87blog%E5%91%80/" data-tooltip="我的第一篇blog呀！">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/github%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%AD%A5%E5%88%B0coding%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E5%8F%8C%E7%BA%BF%E8%A7%A3%E6%9E%90/" data-tooltip="Github博客同步到Coding,自定义域名双线解析">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -413,7 +455,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10/" data-tooltip="Hugo&#43;github搭建个人博客（windows10）">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -545,9 +587,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/saquarius.github.io\/2019\/07\/%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%9A%84%E8%AE%B0%E5%BD%95\/';
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/07\/%E7%BB%99hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE\/';
           
-            this.page.identifier = '\/2019\/07\/%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%9A%84%E8%AE%B0%E5%BD%95\/'
+            this.page.identifier = '\/2019\/07\/%E7%BB%99hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE\/'
           
         };
         (function() {
