@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
-<meta name="keywords" content="数据结构, 二叉树, 二叉树的遍历, C, C&#43;&#43;, PAT">
+<meta name="keywords" content="数据结构, 二叉树, 相同二叉树的比较, 同构二叉树的比较, 二叉树的遍历, 二叉搜索树, 平衡二叉树, C, C&#43;&#43;, PAT">
 <meta name="description" content="　　总结一下树和二叉树的基本操作和应用，算是一个总结的笔记整理。大致包括树与二叉树的表示、储存、遍历、以及相关的其他操作的伪代码或C&#43;&#43;代码。">
 
 
@@ -278,7 +278,14 @@
 <li><a href="#二叉树">二叉树</a>
 <ul>
 <li><a href="#二叉树的存储">二叉树的存储</a></li>
-<li><a href="#相关的基本操作">相关的基本操作：</a></li>
+<li><a href="#相关的基本操作">相关的基本操作</a>
+<ul>
+<li><a href="#1-创建新结点">1.创建新结点</a></li>
+<li><a href="#2-二叉树结点的查找和修改">2.二叉树结点的查找和修改</a></li>
+<li><a href="#3-二叉树结点的插入">3.二叉树结点的插入</a></li>
+<li><a href="#4-二叉树的建立">4.二叉树的建立</a></li>
+<li><a href="#5-二叉树的比较">5.二叉树的比较</a></li>
+</ul></li>
 <li><a href="#二叉树的遍历">二叉树的遍历</a>
 <ul>
 <li><a href="#先序遍历">先序遍历</a></li>
@@ -289,6 +296,22 @@
 <li><a href="#二叉树遍历的应用">二叉树遍历的应用</a>
 <ul>
 <li><a href="#由遍历序列建树">由遍历序列建树</a></li>
+</ul></li>
+<li><a href="#二叉搜索树-bst">二叉搜索树（BST）</a>
+<ul>
+<li><a href="#二叉搜索树的插入和建立">二叉搜索树的插入和建立</a></li>
+<li><a href="#删除结点">删除结点</a></li>
+</ul></li>
+<li><a href="#平衡二叉树-alv">平衡二叉树（ALV）</a>
+<ul>
+<li><a href="#平衡二叉树的定义">平衡二叉树的定义</a></li>
+<li><a href="#平衡二叉树的结点定义">平衡二叉树的结点定义</a></li>
+<li><a href="#平衡二叉树的平衡因子">平衡二叉树的平衡因子</a></li>
+<li><a href="#平衡二叉树的插入">平衡二叉树的插入</a>
+<ul>
+<li><a href="#平衡二叉树的调整">平衡二叉树的调整</a></li>
+</ul></li>
+<li><a href="#平衡二叉树的建树">平衡二叉树的建树</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -369,16 +392,18 @@ void layerorde (int root){
 <p>　　静态储存，使用数组存储结点结构体，使用数组下标表示指针，其中可以用-1（任何负数都可以）表示空指针，其基本的操作和链式差不多。
 　　链式存储结构，使用结构体表示一个二叉树的结点，包括数据域、指针域、以及可能用得到的记录结点所在的层次的变量。</p>
 
-<pre><code>typedef struct Node{
+<pre><code>typedef struct node{
     int data;
     int layer;              //如果需要在层次遍历中用到结点，可以添加一个记录层次的成员变量
-    struct Node* lchild,rchild;    //左右孩子的指针域
+    struct node* lchild,rchild;    //左右孩子的指针域
 }Node,*Tree;
 </code></pre>
 
-<h3 id="相关的基本操作">相关的基本操作：</h3>
+<h3 id="相关的基本操作">相关的基本操作</h3>
 
-<p>　　1.<strong>创建新结点</strong></p>
+<h4 id="1-创建新结点">1.创建新结点</h4>
+
+<p>　　<strong>创建新结点</strong></p>
 
 <pre><code>Node* newnode(int v){                       //创建一个结点值为v的结点
     Node * new_node = new node;             //创建一个新的结点，用new_node指针变量指向
@@ -388,7 +413,9 @@ void layerorde (int root){
 }
 </code></pre>
 
-<p>　　2.<strong>二叉树结点的查找和修改</strong></p>
+<h4 id="2-二叉树结点的查找和修改">2.二叉树结点的查找和修改</h4>
+
+<p>　　<strong>二叉树结点的查找和修改</strong></p>
 
 <pre><code>//查找结点值为x的结点，并修改为newdata
 void search(Node * root, int x, int newdata ){
@@ -404,7 +431,9 @@ void search(Node * root, int x, int newdata ){
 }
 </code></pre>
 
-<p>　　3.<strong>二叉树结点的插入</strong><br />
+<h4 id="3-二叉树结点的插入">3.二叉树结点的插入</h4>
+
+<p>　　<strong>二叉树结点的插入</strong><br />
 　　二叉树的插入和二叉树本身的特征有关，此处只给出伪代码：</p>
 
 <pre><code>//使用insert向二叉树中插入一个值为x的结点
@@ -423,7 +452,9 @@ void insert(Node* &amp;root,  int x){
 }
 </code></pre>
 
-<p>　　4.<strong>二叉树的建立</strong><br />
+<h4 id="4-二叉树的建立">4.二叉树的建立</h4>
+
+<p>　　<strong>二叉树的建立</strong><br />
 　　二叉树的创建，借助插入函数，每次读入一个结点，然后插入即可。</p>
 
 <pre><code>//使用一个数组序列data[]建立二叉树
@@ -434,6 +465,132 @@ Node* Creat(int data[],int n){
     }
     return root;
 }
+</code></pre>
+
+<h4 id="5-二叉树的比较">5.二叉树的比较</h4>
+
+<p>　　<strong>二叉树的比较</strong><br />
+　　二叉树的比较，即判断两棵二叉树是否完全相同。二叉树的比较又可以细分为两种：判断相同的二叉树比较、判断同构的二叉树比较。<br />
+　　<strong>判断相同的二叉树比较</strong>即判断二叉树是否完全相同，包括二叉树的左右子树关系和次序，结点的元素个数等等，均要求相同才相同。使用递归的判断方法：　　</p>
+
+<pre><code>bool Campare(Node* root1, Node* root2)
+{
+    bool ret=false;                             //单一的返回出口，默认为false，默认两棵树不相同
+    if(root1==NULL&amp;&amp;root2==NULL)                //如果两棵树都是空树，判断两棵树相同
+        ret=true;
+    else if(root1!=NULL&amp;&amp;root2!=NULL&amp;&amp;root1-&gt;data==root2-&gt;data)         //如果两棵树都不会空，且结点值相同，递归判定左右子树是否都相同
+        ret=Campare(root1-&gt;lchild,root2-l&gt;child)&amp;&amp;Campare(root1-&gt;rchild,root2-&gt;rchild);         //当左右子树都相同时才判断两棵树相同
+    return ret;
+}
+</code></pre>
+
+<p>　　判断同构的二叉树比较，即<strong>任意交换</strong>一棵二叉树中<strong>某一对或几对</strong>二叉树的<strong>左右子树</strong>得到的新的树，认为和原来的二叉树是同构的。同构的二叉树有一个特征，父子关系不变，只是改变了某几对二叉树左右子树的顺序，因此，采用并查集的方法能够思路清晰的判定是否同构。代码如下：</p>
+
+<pre><code>#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;math.h&gt;
+#include&lt;string.h&gt;
+#include&lt;algorithm&gt; 
+#include&lt;map&gt;
+#include&lt;unordered_map&gt;
+#include&lt;vector&gt;
+#include&lt;queue&gt; 
+#include&lt;stack&gt;
+#include&lt;string&gt; 
+using namespace std;
+//使用并查集判断树的同构,以上头文件是PAT刷题模板，为了尽可能包含所有可能用到的头文件
+//本例采用数组的方式用并查集记录父子关系，然后转化为用map存储，由于map会自动排序，方便比较。
+typedef struct{
+    char data;                          //结点的值
+    int fa;                             //该结点父节点在数组中的下标
+}Node;
+map&lt;char,char&gt; mp1;                     //使用map记录两棵树每个结点指向父节点的映射 
+map&lt;char,char&gt; mp2;
+void CreatTree(map&lt;char,char&gt; &amp;mp);     //根据树，建立map记录
+int main(){      
+    CreatTree(mp1);
+    CreatTree(mp2);
+    if(mp1==mp2)                        //如果两个map记录的父子对应关系完全相同，说明两棵树同构，否则不同构
+        puts(&quot;Yes&quot;);
+    else
+        puts(&quot;No&quot;);
+    return 0;    
+}
+void CreatTree(map&lt;char,char&gt; &amp;mp)
+{
+    int n;
+    char a,b,c;
+    cin&gt;&gt;n;
+    vector&lt;Node&gt; v(n);                  //使用并查集记录二叉树结点的父节点的编号
+    getchar();                          //吸收多余的回车字符
+    for(int i=0;i&lt;n;i++){               //初始化父结点为-1
+        v[i].fa=-1;
+    }
+    for(int i=0;i&lt;n;i++){
+        scanf(&quot;%c %c %c&quot;,&amp;a,&amp;b,&amp;c);
+        getchar();
+        v[i].data=a;
+        if(b!='-')  v[b-'0'].fa=i;      //当有左右孩子时，给其孩子添加父节点标记
+        if(c!='-')  v[c-'0'].fa=i;
+    }
+    for(int i=0;i&lt;n;i++){               //用map容器记录父子关系
+        int index=v[i].fa;
+        if(index==-1)                   //如果没有父节点就是根节点，映射为特殊字符# 
+            mp[v[i].data]='#';
+        else
+            mp[v[i].data]=v[index].data;//如果有父节点，就映射为其父节点的值
+    }
+}
+
+/*
+题目测试数据输入格式
+　　输入给出2棵二叉树树的信息。对于每棵树，首先在一行中给出一个非负整数N (≤10)，即该树的结点数（此时假设结点从0到N−1编号）；随后N行，第i行对应编号第i个结点，给出该结点中存储的1个英文大写字母、其左孩子结点的编号、右孩子结点的编号。如果孩子结点为空，则在相应位置上给出“-”。给出的数据间用一个空格分隔。注意：题目保证每个结点中存储的字母是不同的
+
+测试数据输入样例1
+8
+A 1 2
+B 3 4
+C 5 -
+D - -
+E 6 -
+G 7 -
+F - -
+H - -
+8
+G - 4
+B 7 6
+F - -
+A 5 1
+H - -
+C 0 -
+D - -
+E 2 -
+样例1输出结果
+Yes
+
+
+测试数据输入样例2
+8
+B 5 7
+F - -
+A 0 3
+C 6 -
+H - -
+D - -
+G 4 -
+E 1 -
+8
+D 6 -
+B 5 -
+E - -
+H - -
+C 0 2
+G - 3
+F - -
+A 1 4
+样例2输出结果
+No
 </code></pre>
 
 <h3 id="二叉树的遍历">二叉树的遍历</h3>
@@ -656,6 +813,87 @@ Node* creat(int pl, int pr, int il, int ir){
     return root;                            //返回创建树的根节点
 }
 </code></pre>
+
+<h3 id="二叉搜索树-bst">二叉搜索树（BST）</h3>
+
+<p>　　二叉树的基本定义和特征：<br />
+　　（1）为空树；<br />
+　　（2）或者左、右子树为二叉搜索树；
+　　（3）左子树的元素都小于根，右子树的元素都大于根；<br />
+　　由上可知，二叉树的重要特征：中序遍历得到的序列是有序的。</p>
+
+<h4 id="二叉搜索树的插入和建立">二叉搜索树的插入和建立</h4>
+
+<p>　　二叉搜索树的插入和建立过程与一般的二叉树基本相同，插入时的判定为：</p>
+
+<pre><code>//如果有重复的元素插入，则需判断是否等于根结点的值，如果等于，不用插入，直接返回
+if(x&lt;root-&gt;data)            
+    insert(root-&gt;lchild,x);     //如果小于根结点，插入到左子树
+esle
+    insert(root-&gt;rchild,x);     //如果大于根结点，插入到右子树
+</code></pre>
+
+<h4 id="删除结点">删除结点</h4>
+
+<p>　　删除二叉搜索树的几点采用的方法是：如果是叶子结点，则直接删除；如果不是叶子结点，寻找该结点的左子树中最大（即中序遍历的前驱）的或者右子树中最小（即中序遍历中的后继）的结点替代该结点，然后递归删除用来替换的结点。<br />
+　　首先需要两个函数分别寻找最大值和寻找右最小值：　　</p>
+
+<pre><code>//寻找最大
+Node *findmax(Node * root){
+    while(root-&gt;rchild!=NULL){  //根据二叉搜索树的性质，一直向右子树走便是最大
+        root=root-&gt;rchild;
+    }
+    return root;
+}
+
+//寻找最小
+Node *findmin(Node * root){
+    while(root-&gt;rchild!=NULL){  //根据二叉搜索树的性质，一直向左子树走便是最小
+        root=root-&gt;rchild;
+    }
+    return root;
+}
+
+//删除二叉搜索树的结点
+void deleteNode(Node * &amp;root,int x)
+{
+    if(root==NULL) return;                              //如果不存在值为x的结点，直接返回
+    if(root-&gt;data==x){                                  //如果找到值为x的结点
+        if(root-&gt;rchidl==NULL&amp;&amp;root-&gt;rchild==NULL)      //如果是叶子结点，直接删除
+            root=NULL;
+        else if(root-&gt;lchid!=NULL){                     //如果不是叶子结点，且存在左子树
+             Node *pre=findmax(root-&gt;lchild);           //找到前驱节点，即左子树中的最大结点
+            root-&gt;data=pre-&gt;data;                       //用前驱结点替换
+            deleteNode(root-lchild,pre-&gt;data);          //递归在左子树中删除前驱结点
+        }
+        else{
+            Node *next=findmin(root-&gt;rchild);            //找到后继节点，即右子树中的最小结点
+            root-&gt;data=next-&gt;data;                       //用后继结点替换
+            deleteNode(root-rchild,next-&gt;data);          //递归在右子树中删除后继结点
+        }
+    }
+    else if(x&gt;root-&gt;data)               
+        deleteNode(root-&gt;rchild,x);                     //如果x大于当前结点，则递归在右子树中删除
+    else
+        deleteNode(root-&gt;lchild,x);                     //如果x小于当前结点，则递归在左子树中删除
+}
+</code></pre>
+
+<p>　　<strong>小结</strong>，在上述的删除算法中有一个缺陷，由于优先考虑使用前驱结点替换，所以有可能导致树中的结点偏向一边。对此，有两种解决办法：一、当被删除的结点的左右子树都存在的时候，使用随机数决定用前驱还是后继来替换。二、采用结构更加优秀的平衡二叉树（ALV）。</p>
+
+<h3 id="平衡二叉树-alv">平衡二叉树（ALV）</h3>
+
+<h4 id="平衡二叉树的定义">平衡二叉树的定义</h4>
+
+<h4 id="平衡二叉树的结点定义">平衡二叉树的结点定义</h4>
+
+<h4 id="平衡二叉树的平衡因子">平衡二叉树的平衡因子</h4>
+
+<h4 id="平衡二叉树的插入">平衡二叉树的插入</h4>
+
+<h5 id="平衡二叉树的调整">平衡二叉树的调整</h5>
+
+<h4 id="平衡二叉树的建树">平衡二叉树的建树</h4>
               
             </div>
           </div>
