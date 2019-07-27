@@ -8,18 +8,22 @@
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="数据结构, 二叉树, 相同二叉树的比较, 同构二叉树的比较, 二叉树的遍历, 二叉搜索树, 平衡二叉树, C, C&#43;&#43;, PAT">
-<meta name="description" content="　　总结一下树和二叉树的基本操作和应用，算是一个总结的笔记整理。大致包括树与二叉树的表示、储存、遍历、以及相关的其他操作的伪代码或C&#43;&#43;代码。">
+<meta name="description" content="　　总结一下树和二叉树的基本操作和应用，算是一个总结的笔记整理。大致包括树与二叉树的表示、储存、遍历、以及相关的其他操作的伪代码或C&#43;&#43;代码。
+　　为了直观的体验不同的数据结构的样子和相关操作，推荐参考数据结构和算法的可视化网站Visualgo选择相应的类型通过动画和伪代码的形式观察和学习。">
 
 
-<meta property="og:description" content="　　总结一下树和二叉树的基本操作和应用，算是一个总结的笔记整理。大致包括树与二叉树的表示、储存、遍历、以及相关的其他操作的伪代码或C&#43;&#43;代码。">
+<meta property="og:description" content="　　总结一下树和二叉树的基本操作和应用，算是一个总结的笔记整理。大致包括树与二叉树的表示、储存、遍历、以及相关的其他操作的伪代码或C&#43;&#43;代码。
+　　为了直观的体验不同的数据结构的样子和相关操作，推荐参考数据结构和算法的可视化网站Visualgo选择相应的类型通过动画和伪代码的形式观察和学习。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树与二叉树">
 <meta name="twitter:title" content="树与二叉树">
 <meta property="og:url" content="https://saquarius.github.io/2019/07/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/">
 <meta property="twitter:url" content="https://saquarius.github.io/2019/07/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/">
 <meta property="og:site_name" content="SAquarius的梦想屋">
-<meta property="og:description" content="　　总结一下树和二叉树的基本操作和应用，算是一个总结的笔记整理。大致包括树与二叉树的表示、储存、遍历、以及相关的其他操作的伪代码或C&#43;&#43;代码。">
-<meta name="twitter:description" content="　　总结一下树和二叉树的基本操作和应用，算是一个总结的笔记整理。大致包括树与二叉树的表示、储存、遍历、以及相关的其他操作的伪代码或C&#43;&#43;代码。">
+<meta property="og:description" content="　　总结一下树和二叉树的基本操作和应用，算是一个总结的笔记整理。大致包括树与二叉树的表示、储存、遍历、以及相关的其他操作的伪代码或C&#43;&#43;代码。
+　　为了直观的体验不同的数据结构的样子和相关操作，推荐参考数据结构和算法的可视化网站Visualgo选择相应的类型通过动画和伪代码的形式观察和学习。">
+<meta name="twitter:description" content="　　总结一下树和二叉树的基本操作和应用，算是一个总结的笔记整理。大致包括树与二叉树的表示、储存、遍历、以及相关的其他操作的伪代码或C&#43;&#43;代码。
+　　为了直观的体验不同的数据结构的样子和相关操作，推荐参考数据结构和算法的可视化网站Visualgo选择相应的类型通过动画和伪代码的形式观察和学习。">
 <meta property="og:locale" content="zh-cn">
 
   
@@ -264,7 +268,8 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>　　总结一下树和二叉树的基本操作和应用，算是一个总结的笔记整理。大致包括树与二叉树的表示、储存、遍历、以及相关的其他操作的伪代码或C++代码。</p>
+              <p>　　总结一下树和二叉树的基本操作和应用，算是一个总结的笔记整理。大致包括树与二叉树的表示、储存、遍历、以及相关的其他操作的伪代码或C++代码。<br />
+　　为了直观的体验不同的数据结构的样子和相关操作，推荐参考数据结构和算法的可视化网站<a href="https://visualgo.net/zh">Visualgo</a>选择相应的类型通过动画和伪代码的形式观察和学习。</p>
 
 <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
 <ul>
@@ -302,14 +307,18 @@
 <li><a href="#二叉搜索树的插入和建立">二叉搜索树的插入和建立</a></li>
 <li><a href="#删除结点">删除结点</a></li>
 </ul></li>
-<li><a href="#平衡二叉树-alv">平衡二叉树（ALV）</a>
+<li><a href="#平衡二叉树-avl">平衡二叉树（AVL）</a>
 <ul>
 <li><a href="#平衡二叉树的定义">平衡二叉树的定义</a></li>
 <li><a href="#平衡二叉树的结点定义">平衡二叉树的结点定义</a></li>
 <li><a href="#平衡二叉树的平衡因子">平衡二叉树的平衡因子</a></li>
 <li><a href="#平衡二叉树的插入">平衡二叉树的插入</a>
 <ul>
-<li><a href="#平衡二叉树的调整">平衡二叉树的调整</a></li>
+<li><a href="#平衡二叉树的调整">平衡二叉树的调整</a>
+<ul>
+<li><a href="#左旋与右旋">左旋与右旋</a></li>
+<li><a href="#左旋与右旋的使用">左旋与右旋的使用</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#平衡二叉树的建树">平衡二叉树的建树</a></li>
 </ul></li>
@@ -879,21 +888,200 @@ void deleteNode(Node * &amp;root,int x)
 }
 </code></pre>
 
-<p>　　<strong>小结</strong>，在上述的删除算法中有一个缺陷，由于优先考虑使用前驱结点替换，所以有可能导致树中的结点偏向一边。对此，有两种解决办法：一、当被删除的结点的左右子树都存在的时候，使用随机数决定用前驱还是后继来替换。二、采用结构更加优秀的平衡二叉树（ALV）。</p>
+<p>　　<strong>小结</strong>，在上述的删除算法中有一个缺陷，由于优先考虑使用前驱结点替换，所以有可能导致树中的结点偏向一边。对此，有两种解决办法：一、当被删除的结点的左右子树都存在的时候，使用随机数决定用前驱还是后继来替换。二、采用结构更加优秀的平衡二叉树（AVL）。</p>
 
-<h3 id="平衡二叉树-alv">平衡二叉树（ALV）</h3>
+<h3 id="平衡二叉树-avl">平衡二叉树（AVL）</h3>
 
 <h4 id="平衡二叉树的定义">平衡二叉树的定义</h4>
 
+<p>　　平衡二叉树本身仍然是一棵<strong>二叉搜索树</strong>，但是为了解决二叉搜索树插入过程中可能导致不平衡的问题，引入一个指标<strong>平衡因子</strong>，（即，某个节点的左子树与右子树的高度差）。于是，有了平衡的概念，所有结点的平衡因子绝对值都不超过1，则认为该二叉搜索树平衡，即为平衡二叉树（AVL）。</p>
+
 <h4 id="平衡二叉树的结点定义">平衡二叉树的结点定义</h4>
+
+<p>　　平衡二叉树的由于有了平衡因子的概念，因此对于结点的定义，需要增加与之相关的结构体成员。在结点中增加一个表示以当前结点为根结点的树的高度<code>high</code>:</p>
+
+<pre><code>//结点定义
+typedef struct node{
+    int data,high;                  //结点的数据和高度
+    struct node * lchild,rchild;
+}Node,*Tree;
+
+//新建结点的函数
+Node *newnode(int x){
+    Node * root=new Node;  
+    root-&gt;data=x;           //结点赋值
+    root-&gt;high=1;           //高度初始化为1，空结点的高度定义为0，因此单个结点的高度为1
+    root-&gt;lchild=root-&gt;rchild=NULL;  
+    return root;
+}
+</code></pre>
 
 <h4 id="平衡二叉树的平衡因子">平衡二叉树的平衡因子</h4>
 
+<p>　　平衡因子，通过结点的左右子树的高度计算得出：</p>
+
+<pre><code>//通过以下函数得到某个结点的高度
+int gethigh(Node *root){
+    if(root==NULL)      return 0;                                   //空结点高度为0
+    else                return root-&gt;high;
+}
+
+//通过一下函数获得得到某个结点的平衡因子（BalanceFactor），简写为bf
+int getbf(Node *root){
+    return gethigh(root-&gt;lchild)-gethigh(root-&gt;rchild);             //平衡因子等于左子树减去右子树的高度
+}
+
+//当插入时，更新某个结点的高度
+void updatehigh(Node *root){
+    root-&gt;high=max(gethigh(root-lichild),gethigh(root-&gt;rchild))+1;  //根结点的高度等于左右子树中的较大值加 1
+}
+</code></pre>
+
 <h4 id="平衡二叉树的插入">平衡二叉树的插入</h4>
+
+<p>　　平衡二叉树的插入和一般二叉搜索树的插入比较类似，只是在二叉搜索树的插入基础上增加了调整平衡的步骤。</p>
 
 <h5 id="平衡二叉树的调整">平衡二叉树的调整</h5>
 
+<div class="alert info no-icon ">
+  <p><ul>
+<li>本小节图片引用自《算法笔记》,可以阅读原书讲解，加深理解</li>
+</ul></p>
+</div>
+
+<h6 id="左旋与右旋">左旋与右旋</h6>
+
+<p>　　平衡二叉树的调整有两种形式：左旋和右旋。<br />
+　　左旋及其代码如下所示：<br />
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/L.png" alt="" /></p>
+
+<pre><code>//左旋
+void L(Node *&amp;root){                //因为需要修改指针，因此要传引用
+    Node *temp=root-&gt;rchild;        
+    root-&gt;rchild=temp-&gt;lchild;      //步骤1
+    temp-&gt;lchild=root；             //步骤2
+    updatehigh(root);               //更新结点的高度
+    updatehigh(temp);
+    root=temp;                      //步骤3
+}
+</code></pre>
+
+<p>　　右旋及其代码如下所示：
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/R.png" alt="" /></p>
+
+<pre><code>//右旋
+void R(Node * &amp;root)
+{
+    Node *temp=root-&gt;lchild;
+    root-&gt;lchild=root-&gt;rchild;
+    temp-&gt;rchild=root;              //步骤1
+    updatehigh(root);               //步骤2
+    updatehigh(temp);
+    root=temp;                      //步骤3
+}
+</code></pre>
+
+<h6 id="左旋与右旋的使用">左旋与右旋的使用</h6>
+
+<p>　　左旋和右旋的使用，用于在插入时调整树的平衡。主要有一下类型：LL型、LR型；RR型，RL型。<br />
+　　LL型的调整，只需要对平衡因子为2的树使用<strong>右旋（R）</strong>：
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/LL.png" alt="" /><br />
+　　LR型的调整，先要对子树中平衡因子为-1的左子树使用 <strong>左旋(L)</strong> 变成LL型，再对平衡因子为2的结点使<strong>右旋&reg;</strong> 即可：
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/LR.png" alt="" /><br />
+　　RR型的调整，只需要对平衡因子为-2的树使用<strong>左旋（L）</strong>：
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/RR_.png" alt="" /><br />
+　　RL型的调整，先要对子树中平衡因子为1的右子树使用 <strong>右旋&reg;</strong> 变成RR型，再对平衡因子为-2的结点使<strong>左旋(L)</strong> 即可：
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/RL_.png" alt="" /></p>
+
+<p>　　由上，可以得到平衡二叉树的插入算法，在插入的过程中，没插入一个结点，进行一次调整，算法代码如下：</p>
+
+<pre><code>void Insert(Node * &amp;root,int x)
+{
+    if(root==NULL){
+        root=newnode(x);
+        return;
+    }
+    if(x&lt;root-&gt;data){                           //插入到左子树 
+        Insert(root-&gt;lchild,x);
+        updatehigh(root);
+        if(getbf(root)==2){
+            if(getbf(root-&gt;lchild)==1)          //LL型 
+                R(root);
+            else if(getbf(root-&gt;lchild)==-1){   //LR型 
+                L(root-&gt;lchild);
+                R(root);
+            }
+        }
+    }
+    else{
+        Insert(root-&gt;rchild,x);
+        updatehigh(root);
+         if(getbf(root)==-2){
+            if(getbf(root-&gt;rchild)==-1)         //RR型 
+                L(root);
+            else if(getbf(root-&gt;child)==1){     //RL型 
+                R(root-&gt;rchild);
+                L(root);
+            }
+        }
+    }
+}
+</code></pre>
+
+<p>　　小结，对不同树型的调整情况，作以下总结：</p>
+
+<table>
+<thead>
+<tr>
+<th>树型</th>
+<th>判定条件</th>
+<th>调整方法</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>LL</td>
+<td>BF(root)= 2,BF(root-&gt;lchild)= 1</td>
+<td>对root进行右旋</td>
+</tr>
+
+<tr>
+<td>LR</td>
+<td>BF(root)= 2,BF(root-&gt;lchild)=-1</td>
+<td>先对root-&gt;lchild进行左旋，再对root进行右旋</td>
+</tr>
+
+<tr>
+<td>RR</td>
+<td>BF(root)=-2,BF(root-&gt;lchild)=-1</td>
+<td>对root进行左旋</td>
+</tr>
+
+<tr>
+<td>RL</td>
+<td>BF(root)=-2,BF(root-&gt;lchild)= 1</td>
+<td>先对root-&gt;rchild进行右旋，再对root进行左旋</td>
+</tr>
+</tbody>
+</table>
+
 <h4 id="平衡二叉树的建树">平衡二叉树的建树</h4>
+
+<p>　　平衡二叉树的创建，类似于普通二叉树的插入方，只不过需要使用平衡二叉树专用的自动调整的插入方式，其代码如下：</p>
+
+<pre><code>//建立平衡二叉树
+Node * CreatAVL(){
+    Node * root=NULL;
+    for(int i=0;i&lt;n;i++){
+        int temp;
+        cin&gt;&gt;temp;
+        Insert(root,temp);
+    }
+}
+</code></pre>
+
+<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/tobec_.png" alt="" /></p>
               
             </div>
           </div>
