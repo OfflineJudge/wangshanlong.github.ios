@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="SAquarius">
+<meta name="keywords" content="数据结构, 图, 图的表示, 图的遍历, 最短路径, 最小生成树, C, C&#43;&#43;, PAT">
+<meta name="description" content="　　对于数据结构中图的基本基本知识进行总结。具体内容大致包括图的邻接表和邻接矩阵表示方法、图的遍历求解图的单源最短路径和多元最短路径、图的最小生成树、图的拓扑排序、求解关键路径等经典算法的实现。">
+
+
+<meta property="og:description" content="　　对于数据结构中图的基本基本知识进行总结。具体内容大致包括图的邻接表和邻接矩阵表示方法、图的遍历求解图的单源最短路径和多元最短路径、图的最小生成树、图的拓扑排序、求解关键路径等经典算法的实现。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图的总结">
+<meta name="twitter:title" content="图的总结">
+<meta property="og:url" content="https://saquarius.github.io/2019/08/%E5%9B%BE%E7%9A%84%E6%80%BB%E7%BB%93/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/08/%E5%9B%BE%E7%9A%84%E6%80%BB%E7%BB%93/">
+<meta property="og:site_name" content="SAquarius的梦想屋">
+<meta property="og:description" content="　　对于数据结构中图的基本基本知识进行总结。具体内容大致包括图的邻接表和邻接矩阵表示方法、图的遍历求解图的单源最短路径和多元最短路径、图的最小生成树、图的拓扑排序、求解关键路径等经典算法的实现。">
+<meta name="twitter:description" content="　　对于数据结构中图的基本基本知识进行总结。具体内容大致包括图的邻接表和邻接矩阵表示方法、图的遍历求解图的单源最短路径和多元最短路径、图的最小生成树、图的拓扑排序、求解关键路径等经典算法的实现。">
+<meta property="og:locale" content="zh-cn">
+
+  
+    <meta property="article:published_time" content="2019-08-08T14:45:50">
+  
+  
+    <meta property="article:modified_time" content="2019-08-08T14:45:50">
+  
+  
+  
+    
+      <meta property="article:section" content="数据结构">
+    
+      <meta property="article:section" content="图">
+    
+  
+  
+    
+      <meta property="article:tag" content="数据结构">
+    
+      <meta property="article:tag" content="图">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://saquarius.github.io/images/Graph_s.png">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/Graph_s.png">
+
+
+  <meta property="og:image" content="https://saquarius.github.io/images/Graph.png">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/Graph.png">
+
+
+
+
+  <meta property="og:image" content="https://saquarius.github.io/images/touxiang.png">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
+
+
+    <title>图的总结</title>
+
+    <link rel="icon" href="https://saquarius.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://saquarius.github.io/2019/08/%E5%9B%BE%E7%9A%84%E6%80%BB%E7%BB%93/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://saquarius.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://saquarius.github.io/">SAquarius的梦想屋</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://saquarius.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://saquarius.github.io/images/touxiang.png" alt="作者的图片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://saquarius.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://saquarius.github.io/images/touxiang.png" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">SAquarius</h4>
+        
+          <h5 class="sidebar-profile-bio">All in or nothing, now or never!</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">类别</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">归档</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/SAquarius" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+  <iframe frameborder="no" marginwidth="0" marginheight="0" width=230 height=52 src="//music.163.com/outchain/player?type=0&id=2896870368&auto=1&height=32"></iframe>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              post-header-cover--full"
+       style="background-image:url('/images/Graph.png')"
+       data-behavior="5">
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaOut
+               hasCoverCaption">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+            <span class="post-header-cover-caption caption">图</span>
+          
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      图的总结
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2019-08-08T14:45:50&#43;08:00">
+        
+  八月 8, 2019
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://saquarius.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84">数据结构</a>, 
+    
+      <a class="category-link" href="https://saquarius.github.io/categories/%e5%9b%be">图</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>　　对于数据结构中图的基本基本知识进行总结。具体内容大致包括图的邻接表和邻接矩阵表示方法、图的遍历求解图的单源最短路径和多元最短路径、图的最小生成树、图的拓扑排序、求解关键路径等经典算法的实现。</p>
+
+<h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#图的总结">图的总结</a>
+<ul>
+<li><a href="#图的表示">图的表示</a>
+<ul>
+<li><a href="#图的邻接矩阵表示">图的邻接矩阵表示</a></li>
+<li><a href="#图的邻接表表示">图的邻接表表示　　</a></li>
+</ul></li>
+<li><a href="#图的遍历">图的遍历</a>
+<ul>
+<li><a href="#深度优先-dfs">深度优先（DFS）</a>
+<ul>
+<li><a href="#dfs的邻接矩阵写法">DFS的邻接矩阵写法</a></li>
+<li><a href="#dfs的邻接表写法">DFS的邻接表写法</a></li>
+</ul></li>
+<li><a href="#广度优先-bfs">广度优先（BFS）</a>
+<ul>
+<li><a href="#bfs的邻接矩阵写法">BFS的邻接矩阵写法</a></li>
+<li><a href="#bfs的邻接表写法">BFS的邻接表写法</a></li>
+<li><a href="#bfs和层数">BFS和层数</a></li>
+</ul></li>
+<li><a href="#小结">小结　　</a></li>
+</ul></li>
+<li><a href="#最短路径">最短路径</a>
+<ul>
+<li><a href="#单源最短路径-dijkstra算法">单源最短路径（Dijkstra算法）</a>
+<ul>
+<li><a href="#算法的实现">算法的实现</a></li>
+<li><a href="#算法的扩展应用">算法的扩展应用</a></li>
+<li><a href="#通用的dijkstra-dfs求解算法">通用的Dijkstra+DFS求解算法</a></li>
+</ul></li>
+<li><a href="#多源最短路径-floyd算法">多源最短路径（Floyd算法）</a></li>
+<li><a href="#小结-1">小结</a></li>
+</ul></li>
+<li><a href="#最小生成树">最小生成树</a>
+<ul>
+<li><a href="#prime算法">Prime算法</a></li>
+<li><a href="#kruskal算法">Kruskal算法</a></li>
+</ul></li>
+<li><a href="#拓扑排序">拓扑排序</a>
+<ul>
+<li><a href="#拓扑排序算法的实现">拓扑排序算法的实现</a></li>
+<li><a href="#拓扑排序的应用-判定图中是否有环">拓扑排序的应用——判定图中是否有环</a></li>
+</ul></li>
+<li><a href="#关键路径">关键路径</a>
+<ul>
+<li><a href="#基于拓扑排序的关键路径求解">基于拓扑排序的关键路径求解</a></li>
+<li><a href="#基于动态优化的关键路径长度求解">基于动态优化的关键路径长度求解</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>  
+
+<h1 id="图的总结">图的总结</h1>
+
+<p>　　图是基础数据结构中比较复杂的类型，图与二叉树不同，既有有向图也有无向图，因此其表示和相关的算法都比较复杂。在此，就图的基本表示方法和相关算法做相应的总结如下，以回顾图的相关知识，并结合自己的PAT的刷题过程记录经典的算法。</p>
+
+<h2 id="图的表示">图的表示</h2>
+
+<p>　　图的表示方法有邻接矩阵、邻接表、邻接多重表，十字链表等多种表示方法，这里仅以最基础的邻接矩阵和邻接表法的表示为例。<br />
+　　图的表示中需要用到二维数组和相应的容器，比如邻接表的表示方法需要用到vector容器构建一个边长的二维数组用于表示邻接表。其次图的基本信息也需要另外表示，可以使用封装的方法，将有关图的所有信息封装到一个结构体中，在此，使用全局变量的方式来表示图的顶点个数和边的个数。因此，需要包含相应的头文件，并且声明相应的全局变量如下：</p>
+
+<pre><code>#include&lt;vector&gt;            //包含vector容器的头文件
+#define MAXV 1000           //图的最大顶点个数
+int  n,m;                   //图的顶点个数n 和边的条数 m
+</code></pre>
+
+<h3 id="图的邻接矩阵表示">图的邻接矩阵表示</h3>
+
+<p>　　图的邻接矩阵表示方法，很容易理解，使用二维的矩阵中的<code>G[i][j]</code>表示图中第i号顶点和第j号顶点之间是否连通或者连通的边的花费。其中，对于仅表示是否有边的情况下，可以约定0表示没有边（即不连通），1表示有边（即连通）；当需要记录边的权值或者花费时，0可能用来表示权值，这是需要用一个很大的数来表示不连通，一般来说权值为整型类型的数据的不连通可以考虑用0x3fffffff来表示，整型最大是0x7fffffff，由于可能遇到相加的情况，所以用整型最大值的一半来表示“无穷大”的概念，以此来表示不连通。<br />
+　　邻接矩阵的表示有一下性质和特征：一、对于无向图来说，由于边没有方向，故二维数组构成的矩阵是对称矩阵，因此在储存的时候可以考虑压缩存储。二、第i行的非0或者非无穷大的权值个数即为i号顶点的出度。三、邻接矩阵用于存放稠密图时比较合算，稀疏图的存储会导致很多空间的浪费，但是考虑到遍历的时间复杂度，邻接矩阵适合存储顶点个数较少的图，一般就PAT的测试所规定的时间来说，1000个顶点以下或者严格一点的时间限制（500个顶点以下）可以考虑采用邻接矩阵的方法表示图。<br />
+　　邻接矩阵的表示如下：</p>
+
+<pre><code>#define MAXV 1000               //1000个顶点以下可以考虑使用邻接矩阵存储
+# define INF 0x3fffffff         //用一个很大的数表示无穷大，用于表示不连通
+int G[MAXV][MAXV];              //假定图的边权值为int类型
+</code></pre>
+
+<p>　　邻接表的初始化：</p>
+
+<pre><code>#include&lt;algorithm&gt;             //stl的函数模板中的fill函数用于初始化图
+
+//方法一
+int G[MAXV][MAXV]={0};          //在定义二维数组时直接全部初始化为0
+//方法二
+fill(G[0],G[0]+MAXV*MAXV,INF);  //使用fill函数将整个数组全部初始化为无穷大，这里的参数需要使用G[0],而不是G，否则会数组越界。（这里涉及到二维数组的指针的解引用知识点）
+</code></pre>
+
+<h3 id="图的邻接表表示">图的邻接表表示　　</h3>
+
+<p>　　图的邻接表表示法的基本思路是：有一个由顶点构成的顺序表（顶点表），每个顶点对应着一个链表（边表），链表中存放和自己相连接的边的相关信息。<br />
+　　邻接表的表示也可以分为简单版本和稍微复杂的版本：<br />
+　　一，简单点的只需要在边表中表示该边所连接的另一个顶点的编号即可，这种情况下可以使用变长的二维数组进行表示，顶点表为一个固定的维度，另一个维度的边表，都是变长的二维数组。示例如下：</p>
+
+<pre><code>vector&lt;int&gt; Adj[n];             //代表有MAXV个int型的变长数组
+
+//数据的读入：
+//1 3                           //以此为例，有一条从1号顶点指向3号顶点的边
+cin&gt;&gt;i&gt;&gt;j;
+Adj[i].push_back(j);            //有向图只需这一句，记录这条有向边即可
+
+Adj[j].push_back(i);            //如果是无向图的表示，需要i和j的边表中都加入这条边
+</code></pre>
+
+<p>　　二，复杂一点的需要加入变得权值。此时需要定义编辑边结点，其中包含边的指向信息和边的权值。示例如下：</p>
+
+<pre><code>typedef struct edg{                         //定义边结点
+    int v;                                  //v表示该边指向的顶点的编号
+    int w;                                  //w表示该边的权值
+    edg(int _v,int _w):v(_v),w(_w);         //边结点的构造函数，可以直接用语句edg（1，3）;初始化一条边
+}Edg;
+vector&lt;Edg&gt; Adj[n];                         //邻接表的定义，包含了n个顶点
+
+//数据的读入
+//1 3 12                                    //以此为例，一条从1号顶点指向3号顶点权值为12的边
+
+Edg temp;
+int i;
+//有向图的读入
+cin&gt;&gt;i&gt;&gt;temp.v&gt;&gt;temp.w;
+Adj[i].push_back(temp);
+
+//无向图的读入
+int i,j,w;
+cin&gt;&gt;i&gt;&gt;j&gt;&gt;w;                               //通过调用构造函数直接插入边节点
+Adj[i].push_back(edg(j,w));                 //i的边表中插入
+Adj[j].push_back(edg(i.w));                 //j的边表中插入
+</code></pre>
+
+<h2 id="图的遍历">图的遍历</h2>
+
+<p>　　图的遍历有深度优先和广度优先两种：深度优先遍历（DFS）和广度优先遍历。</p>
+
+<h3 id="深度优先-dfs">深度优先（DFS）</h3>
+
+<p>　　深度优先：深度优先遍历采用递归的思想，对一个起始顶点开始，访问它的所有未被访问的相邻结点，对这些相邻顶点进行递归的深度优先遍历。<br />
+　　算法的实现：1.DFS，从一个顶点开始，遍历它的所有未被访问的相邻节点，并递归进行DFS；2.由于图可能不是连通的，有多个连通分量，因此需要一个驱动函数DFSTrave保证每一个顶点都进行一遍DFS，以保证所有的连通分量都被访问到。其伪代码如下：</p>
+
+<pre><code>DFS(int u){                                 //DFS函数
+    vis[u]=true;                            //用数组vis记录结点是否被访问
+    for(从u出发所能到达的所有顶点v){            //枚举所有u能到达的顶点v
+        if(vis[v]==false){                  //如果未被访问，递归进行访问
+            DFS(v);
+        }
+    }
+}
+
+DFSTrave(G){                                //DFS的驱动函数
+    for(G的所有顶点u){                        //对每一个连通分量都进行DFS遍历
+        if(vis[u]==false){
+            DFS(u)
+        }
+    }
+}
+</code></pre>
+
+<p>　　对于不同的图的表示方法，DFS的写法上有所不同，但是都算法的思路都如伪代码所示，其中邻接矩阵和邻接表的写法分别如下：</p>
+
+<h4 id="dfs的邻接矩阵写法">DFS的邻接矩阵写法</h4>
+
+<p>　　邻接矩阵中能否到达，在这里以INF作为判定条件，假定此处使用的是带权值的图，如果<code>G[i][j]==INF</code>表示i到j无法到达，否则认为可以到达。DFS代码如下：</p>
+
+<pre><code>//DFS的邻接矩阵写法
+int G[MAXV][MAXV];                              //邻接矩阵存储图
+int n;                                          //图的顶点个数
+bool vis[MAXV]={false};                         //用于标记等点是否被访问过，初始化为false
+void DFS(int u,int depth){                      //DFS，添加了depth参数，用于记录遍历的顶点所在的层数
+    vis[u]=true;                                //标记当前访问的顶点为已访问
+    visit(u);                                   //此为访问函数，视实际需求而定
+    for(int v=0;v&lt;n;v++){                       //枚举所有顶点中与u相邻的顶点
+        if(vis[v]==false&amp;&amp;G[u][v]!=INF){        //如果未被访问过，且可到达
+            DFS(v,depth+1);                     //递归访问
+        }
+    }
+}
+
+void DFSTrave(){                                //DFS驱动函数
+    for(int i=0;i&lt;n;i++){
+        if(vis[i]==false){                      //每一个连通分量的第一个顶点深度都从1开始计算
+            DFS(i,1);
+        }
+    }
+}
+</code></pre>
+
+<h4 id="dfs的邻接表写法">DFS的邻接表写法</h4>
+
+<p>　　邻接表的表示中，i号顶点的边表中边连接的顶点都是i可达到的，因此相比于邻接矩阵的写法，不需要判定是否能到达。因此只有图的表示和顶点枚举的写法上有所不同，其他都相同：</p>
+
+<pre><code>//DFS的邻接表写法
+vector&lt;int&gt; Adj;                                //邻接表存储图,此没有边权
+int n;                                          //图的顶点个数
+bool vis[MAXV]={false};                         //用于标记等点是否被访问过，初始化为false
+void DFS(int u,int depth){                      //DFS，添加了depth参数，用于记录遍历的顶点所在的层数
+    vis[u]=true;                                //标记当前访问的顶点为已访问
+    visit(u);                                   //此为访问函数，视实际需求而定
+    for(int i=0;v&lt;Adj[u].size();i++){           //枚举u的边表中每一条边
+        int v=Adj[u][i];                        //读取边所连通的顶点
+        if(vis[v]==false){                      //如果未被访问过，由于邻接表中记录的都是连通的顶点，因此不用判定是否可以到达
+            DFS(v,depth+1);                     //递归访问
+        }
+    }
+}
+
+void DFSTrave(){                                //DFS驱动函数
+    for(int i=0;i&lt;n;i++){
+        if(vis[i]==false){                      //每一个连通分量的第一个顶点深度都从1开始计算
+            DFS(i,1);
+        }
+    }
+}
+</code></pre>
+
+<h3 id="广度优先-bfs">广度优先（BFS）</h3>
+
+<p>　　广度优先：广度优先遍历与树的层次遍历类似，借用一个队列，将起顶点入队，每次从队列中弹出一个顶点，将该顶点的所有相邻顶点全部遍历一遍，并将它们依此入队，循环至队空。<br />
+　　算法思想，使用队列实现广度优先遍历，同样考虑到多个连通分量的情况，除了BFS还需要一个BFS的驱动函数，其伪代码如下：</p>
+
+<pre><code>BFS(u){
+    queue q;
+    q.push(u);                                  //起始顶点入队并标记
+    vis[u]=ture;
+    while(队列q不空){
+        取出队首元素u进行访问;
+        for(从U出发可达到的所有顶点v){
+            if(vis[v]==false){                  //如果v未曾加入过队列，入队并标记 
+                将v入队;
+                vis[v]=ture; 
+            }
+        } 
+    } 
+} 
+BFSTrave(G){
+    for(G的所有顶点u，依此访问){
+        if(vis[u]==false){
+            BFS(u);
+        }
+    } 
+} 
+</code></pre>
+
+<h4 id="bfs的邻接矩阵写法">BFS的邻接矩阵写法</h4>
+
+<p>　　与DFS相类似的，只需要针对不同的表示方法，写出不同的类型的枚举语句即可：</p>
+
+<pre><code>//BFS邻接矩阵写法
+int n,G[MAXV][MAXV];                            //n为顶点数，G为邻接矩阵 
+bool vis[MAXV]={false};                         //是否在队列的标记数组，初始化为false
+
+void BFS(int u){
+    queue&lt;int&gt; q;                               //起始顶点入队
+    q.push(u); 
+    vis[u]=true;                                //标记并访问
+    visit(u);                                   //访问函数，视实际需求而定
+    while(!q.empty()){                          //当队不空时进行循环
+        int u=q.front();                        //取出队头元素u
+        q.pop();
+        for(int v=0;v&lt;n;v++){                   //枚举u所有的未访问且可到达顶点
+            if(vis[v]==false&amp;&amp;G[u][v]!=INF){    
+                q.push(v);                      //入队并修改访问标记
+                vis[v]=true;
+            }
+        }
+    }
+} 
+void BFSTrave(){                                //BFS的驱动函数
+    for(int u=0;u&lt;n;u++){
+        if(vis[u]==false){
+            BFS(u);
+        }
+    }
+}
+</code></pre>
+
+<h4 id="bfs的邻接表写法">BFS的邻接表写法</h4>
+
+<p>　　BFS的邻接表写法和邻接矩阵的写法只在图的表示和枚举的表示上有所不同，代码如下：</p>
+
+<pre><code>//BFS邻接表写法
+vector&lt;int&gt; Adj[MAXV];                          //图的不带边权邻接表表示
+int n;                                          //n为顶点数
+bool vis[MAXV]={false};                         //是否在队列的标记数组，初始化为false
+
+void BFS(int u){
+    queue&lt;int&gt; q;                               //起始顶点入队
+    q.push(u); 
+    vis[u]=true;                                //标记并访问
+    visit(u);                                   //访问函数，视实际需求而定
+    while(!q.empty()){                          //当队不空时进行循环
+        int u=q.front();                        //取出队头元素u
+        q.pop();
+        for(int i=0;i&lt;Adj[u].size();i++){       //枚举u边表中的所有边
+            int v=Adj[u][v];                    //读取边所连通的所有顶点
+            if(vis[v]==false){                  //如果未被访问
+                q.push(v);                      //入队并修改访问标记
+                vis[v]=true;
+            }
+        }
+    }
+} 
+void BFSTrave(){                                //BFS的驱动函数
+    for(int u=0;u&lt;n;u++){
+        if(vis[u]==false){
+            BFS(u);
+        }
+    }
+}
+</code></pre>
+
+<h4 id="bfs和层数">BFS和层数</h4>
+
+<p>　　BFS可以类比于DFS的做法，增加一个新的参数，用于记录遍历的层数，例如，起始顶点的层数记为第0层，其伪代码如下所示：</p>
+
+<pre><code>//BFS与层数
+BFS(u){
+    queue q;
+    q.push(u);
+    vis[u]=ture;
+    int level=0,last=u;                         //layer表示层数，起始顶点为0层，last表示当前层的最后一个，用于判断是否该层结束，初始化为起始顶点u
+    int tail=u;                                 //tail用于跟踪当前顶点u的下一层顶点，该层结束后，变成该层的最后一个，用于更新last的值
+    while(队列q不空){
+        取出队首元素u进行访问;
+        for(从U出发可达到的所有顶点v){
+            if(vis[v]==false){                  //如果v未曾加入过队列，入队并标记 
+                将v入队;
+                vis[v]=ture;
+                tali=v; 
+            }
+        }
+        if(u==last){
+            level++;                            //当前层结束，层数加一，统计进入下一层
+            last=tail;                          //last更新为新一层的最后一个
+        } 
+    } 
+} 
+</code></pre>
+
+<h3 id="小结">小结　　</h3>
+
+<p>　　遍历的小结：<br />
+　　1.图的遍历过程中如果需要访问只需在修改访问标记的语句<code>vis[u]=true</code>前后加上相应的访问操作即可，如果需要使用DFS或者BFS的其他特性，可以加入相应的参数，例如深度和层数，也可以定义新的顶点结构体，将顶点的这些信息放进去，方便统计和访问。<br />
+　　2.其中，如果为了方便访问标记数组和图的遍历和修改，可以直接定义为全局变量。更加严谨安全的做法，应该是定义成主函数中的局部变量，然后各个函数根据数据规模分别传指针或者传引用。<br />
+　　3.图的遍历也可以用于判断图是否连通，在驱动函数处加入计数器，统计连通分量的个数即可。<br />
+　　4.图的遍历根据实际情况根据实际的需求加入相应的判定形成特殊的递归边界，以实现递归的剪纸，以优化运行速度或者避免不需要的递归访问。</p>
+
+<h2 id="最短路径">最短路径</h2>
+
+<p>　　最短路径的求解问题，主要包含两种：单源最短路径和多源路径最短问题。求单源最短路径的算法主要有Dijkstra算法，以及多尺度优化条件的Dijkstra算法，还有使用Dijkstra+DFS求解单源最短路径的算法；求解多源最短路径的算法，这里仅给出算法思想相对简单的Floyd算法代码。</p>
+
+<h3 id="单源最短路径-dijkstra算法">单源最短路径（Dijkstra算法）</h3>
+
+<p>　　Dijkstra算法用于求解给定图G和给定起始顶点s，求s到其他各个顶点的最短距离。Dijkstra算法的策略是：<br />
+　　1.设置集合S，存放已被访问的顶点集。<br />
+　　2.然后从未被访问过的顶点集中选择到达S集合的最短距离的顶点u，加入到S中。<br />
+　　3.以u为中介点，更新顶点集S到剩余未访问的顶点的距离。<br />
+　　4.循环直到连通分量的所有顶点都被收录。</p>
+
+<h4 id="算法的实现">算法的实现</h4>
+
+<p>　　算法的具体实现方法：<br />
+　　1.首先需要一个bool型数组vis记录是否被加入顶点集S；2.然后需要一个dis数组记录起始顶点s到所有其他顶点的最小距离。3.如果有需要记录最短路径，还需要有记录路径的数组path。其伪代码如下所示：</p>
+
+<pre><code>//G表示图，可使用全局变量，数组dis表示从起始顶点到其他顶点的最短路径
+Dijkstra(G,dis[],s){
+    初始化；                                    //初始化dis数组为无穷大，并将起点s的dis初始为0；
+    for(循环n次){
+        u=使dis[u]最小的还未被访问的顶点的编号
+        记u被访问；
+        for(从u出发所能到达的所有顶点v){
+            if(v未被访问&amp;&amp;以u为中介点使s到v的最短距离dis[v]更优){
+                优化dis[v];
+            }
+        }
+    }
+}
+</code></pre>
+
+<p>　　Dijkstra算法针对不同的图的表示方法，写法上只有枚举和判定是否能到达这两点上有所不同。<br />
+　　<strong>Dijkstra算法的邻接矩阵写法:</strong></p>
+
+<pre><code>//Dijkstra算法的邻接矩阵写法
+int n,G[MAXV][MAXV];                    //图的顶点个数和邻接矩阵表示
+int dis[MAXV];                          //记录距离的数组
+bool vis[MAXV]={false};                 //访问标记数组
+
+void Dijkstra(int s){                   //参数为单源起点s
+    fill（dis,dis+MAXV,INF);         //初始化dis数组为无穷大
+    dis[s]=0;                           //起始顶点s到自身的距离为0
+    for(int i=0;i&lt;n;i++){               //执行n次循环，每次把一个新的顶点纳入顶点集S
+        int u=-1,MIN=INF;               //u使得dis[u]最小，并用MIN记录dis[u]
+        for(int j=0;j&lt;n;j++){
+            if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
+                u=j;
+                MIN=dis[u];
+            }
+        }
+        if(u==-1) return;               //如果找不到这样的u，说明不连通或者已经遍历结束，则返回
+        vis[u]=true;                    //标记u为已访问
+        for(int v=0;v&lt;n;v++){           //对u能到达的顶点v进行优化
+            if(vis[v]==false&amp;&amp;G[u][v]!=INF&amp;&amp;dis[u]+G[u][v]&lt;dis[v]){
+                dis[v]=dis[u]+G[u][v];
+            }
+        }
+    }   
+}
+</code></pre>
+
+<p>　　<strong>Dijkstra算法的邻接表写法：</strong></p>
+
+<pre><code>//Dijkstra算法的邻接表写法
+typedef struct egd{                     //邻接表边结点的结构体定义
+    int v;                              //v为边的目标顶点，d为边的权值
+    int d;
+}Edg;
+int n;                                  //图的顶点个数和邻接表
+vector&lt;Edg&gt; Adj[MAXV];
+int dis[MAXV];                          //记录距离的数组
+bool vis[MAXV]={false};                 //访问标记数组,初始化全为否
+
+void Dijkstra(int s){                   //参数为单源起点s
+    fill（dis,dis+MAXV,INF);         //初始化dis数组为无穷大
+    dis[s]=0;                           //起始顶点s到自身的距离为0
+    for(int i=0;i&lt;n;i++){               //执行n次循环，每次把一个新的顶点纳入顶点集S
+        int u=-1,MIN=INF;               //u使得dis[u]最小，并用MIN记录dis[u]
+        for(int j=0;j&lt;n;j++){
+            if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
+                u=j;
+                MIN=dis[u];
+            }
+        }
+        if(u==-1) return;               //如果找不到这样的u，说明不连通或者已经遍历结束，则返回
+        vis[u]=true;                    //标记u为已访问
+
+        //只有这里的for循环和邻接矩阵的写法有所不同
+        for(int j=0;j&lt;Adj[u].size();j++){           //对u能到达的顶点v进行优化
+            int v=Adj[u][j].v;
+            if(vis[v]==falsedis[u]+Adj[u][j].d&lt;dis[v]){
+                dis[v]=dis[u]+Adj[u][j].d;
+            }
+        }
+    }   
+}
+</code></pre>
+
+<h4 id="算法的扩展应用">算法的扩展应用</h4>
+
+<p>　　在Dijkstra算法的基础上，进行相应的扩展，比如：求解并输出最短路径上的结点、根据不同的优化尺度进行优化的选择、Dijkstra+DFS的等等。<br />
+　　<strong>1.记录最短路径</strong><br />
+　　实现方法：使用一个path数组记录每次优化时，优化的结点的前驱结点，然后从最短路径的重点开始递归读取path数组获得路径，或者使用栈的方式，入栈再出栈，将倒着找到的最短路径顺序输出。伪代码如下：</p>
+
+<pre><code>if(v未被访问&amp;&amp;以u为中介点使s到v的最短距离dis[v]更优){
+    优化dis[v];
+    令v的前驱结点为u;
+}
+</code></pre>
+
+<p>　　这里以邻接矩阵的实现为举例：</p>
+
+<pre><code>//Dijkstra算法的邻接矩阵写法(带路径)
+int n,G[MAXV][MAXV];                    //图的顶点个数和邻接矩阵表示
+int dis[MAXV];                          //记录距离的数组
+bool vis[MAXV]={false};                 //访问标记数组
+
+int path[MAXV];                         //（新）记录路径的数组，path[v]记录最短路径上v的前驱顶点
+
+void Dijkstra(int s){                   //参数为单源起点s
+    fill（dis,dis+MAXV,INF);         //初始化dis数组为无穷大
+
+    fill(path,path+MAXV,-1)             //（新）路径数组初始化前驱节点-1
+
+    dis[s]=0;                           //起始顶点s到自身的距离为0
+    for(int i=0;i&lt;n;i++){               //执行n次循环，每次把一个新的顶点纳入顶点集S
+        int u=-1,MIN=INF;               //u使得dis[u]最小，并用MIN记录dis[u]
+        for(int j=0;j&lt;n;j++){
+            if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
+                u=j;
+                MIN=dis[u];
+            }
+        }
+        if(u==-1) return;               //如果找不到这样的u，说明不连通或者已经遍历结束，则返回
+        vis[u]=true;                    //标记u为已访问
+        for(int v=0;v&lt;n;v++){           //对u能到达的顶点v进行优化
+            if(vis[v]==false&amp;&amp;G[u][v]!=INF&amp;&amp;dis[u]+G[u][v]&lt;dis[v]){
+                dis[v]=dis[u]+G[u][v];
+
+                path[v]=u;              //（新）如果进行了优化，则记录v的前驱顶点为u
+
+            }
+        }
+    }   
+}
+
+//输出最短路径
+void Print_Path(int s,int v){           //s为起始顶点，v为最短路径的终点
+    stack&lt;int&gt;  pathout;                //定义用于输出的栈pathout
+    while(v!=-1){                       //递归入栈
+        pathout.push(v);
+        v=path[v];
+    }
+    for(int i=pathout.size();i&gt;=0;i--){ //栈中路径倒序输出
+        cout&lt;&lt;pathout[i]&lt;&lt;' ';
+    }
+}
+
+</code></pre>
+
+<p>　　<strong>2.多尺度优化</strong><br />
+　　<strong>①新增边权</strong>：边权有两个，一个代表距离花费，一个代表时间花费。这是需要增加另外记录时间花费，比如新开二维数组<code>cost[u][v]</code>记录时间花费，然后新增数组<code>c[]</code>记录起始顶点到各个顶点的时间花费，在Dijkstra算法中进行更新，假如：距离最短时优先选择最短距离，最短距离相同时，选择时间花费最短的路径，其代码如下所示：</p>
+
+<pre><code>int G[MAXV][MAXV];                      //图的距离权值
+int cost[MAXV][MAXV];                   //图的时间花费权值
+
+//最短距离和最短时间，除起始顶点自身初始化为0以外，其他全部初始化为INF
+int dis[MAXV];                          //最短距离数组
+int c[MAXV];                            //最短花费数组
+
+</code></pre>
+
+<pre><code>//优化代码
+for(int v=0;v&lt;n;v++){
+    if(vis[v]==false&amp;&amp;G[u][v]!=INF){    //u的可到达未访问顶点
+        if(dis[u]+G[u][v]&lt;dis[v]){
+            dis[v]=dis[u]+G[u][v];
+            c[v]=c[u]+cost[u][v];       //距离最优时，同时优化距离和时间
+        }
+        else if(dis[u]+G[u][v]==dis[v]&amp;&amp;c[u]+cost[u][v]&lt;c[v]){
+            c[v]=c[u]+cost[u][v];       //距离相同时，看时间是否最优
+        }
+    }
+}
+</code></pre>
+
+<p>　　<strong>②新增点权</strong>：对于新增点权的情况来说，一般顶点的权值代表了顶点的资源多少，这时需要增加一个<code>weight[]</code>数组来记录每一个顶点的资源数目，类似于新增了时间花费的写法一样，对于优先更新第一优化尺度——距离，如果距离相同，优化第二尺度——顶点资源。其优化代码如下：</p>
+
+<pre><code>int G[MAXV][MAXV];                      //图的距离权值
+int weight[MAXV];                       //顶点的资源权值,
+
+//最短距离和最短时间，除起始顶点自身初始化为0以外，其他全部初始化为INF
+int dis[MAXV];                          //最短距离数组
+int w[MAXV];                            //w[u]表示从起始顶点开始到达顶点u能够收集到的资源
+                                        //w数组中除了起始顶点初始化为自身顶点的资源weight[s]以外，其他顶点都初始化为0
+
+//优化代码
+for(int v=0;v&lt;n;v++){
+    if(vis[v]==false&amp;&amp;G[u][v]!=INF){    //u的可到达未访问顶点
+        if(dis[u]+G[u][v]&lt;dis[v]){
+            dis[v]=dis[u]+G[u][v];
+            w[v]=w[u]+weight[v];        //距离最优时，同时优化距离和资源
+        }
+        else if(dis[u]+G[u][v]==dis[v]&amp;&amp;c[u]+weight[u][v]&gt;w[v]){
+            w[v]=w[u]+weight[v];        //距离相同时，看资源能够更优，这里以能够带更多的资源为更优
+        }
+    }
+}
+</code></pre>
+
+<p>　　<strong>③求最酸路径的条数</strong>：统计路径条数，只需要另外增加一个记录路径条数的数组<code>num[]</code>即可，用num[u]表示从起始顶点s到顶点u之间的路径条数，其中num[s]初始化为1，其他初始化为0，然后在更新路径时，如果以u为中介点可以使s到v距离更优，那么<code>num[v]</code>继承<code>num[u]</code>即可，但是如果遇到通过u为中介点使s到u的距离相同，这时把<code>num[u]</code>加到<code>num[v]</code>上。代码如下：</p>
+
+<pre><code>int num[MAXV];                          //路径条数数组，初始化起点的num[s]=1,其他初始化为0
+//优化代码
+for(int v=0;v&lt;n;v++){
+    if(vis[v]==false&amp;&amp;G[u][v]!=INF){    //u的可到达未访问顶点
+        if(dis[u]+G[u][v]&lt;dis[v]){
+            dis[v]=dis[u]+G[u][v];
+            num[v]=num[u];              //距离最优时，路径条数继承
+        }
+        else if(dis[u]+G[u][v]==dis[v]){
+            num[v]+=num[u];             //距离相同时，路径条数累加
+        }
+    }
+}
+</code></pre>
+
+<h4 id="通用的dijkstra-dfs求解算法">通用的Dijkstra+DFS求解算法</h4>
+
+<p>　　<strong>通用模板的总结</strong>：对于更加复杂的优化规则，使用如上所示的优化代码，可能逻辑上过于复杂，容易出错，因此可以采用Dijkstra+DFS算法，将所有最短路径都求解出来，然后枚举每一条路径，计算每条路径的优化尺度，然后选择最优的那一条。<br />
+　　算法的实现分为两个主要部分：<br />
+　　第一步是通用的Dijkstra算法的最短路径求解。由于有可能有多条路径，所以用于记录前驱结点的path数组需要扩展为vector类型的数组<code>vector&lt;int&gt; path[MAXV]</code>，这样对于每一个顶点u来说都能在<code>path[u]</code>这个边长数组中存储前驱结点，但是此时<code>path[v]</code>的更新方法上有所不同，详细可见代码注释：</p>
+
+<pre><code>int n,G[MAXV][MAXV];                    //图的顶点个数和邻接矩阵表示
+int dis[MAXV];                          //记录距离的数组
+bool vis[MAXV]={false};                 //访问标记数组
+
+vector&lt;int&gt; path[MAXV];                 //（新）使用边长数组记录每个顶点的前驱
+
+void Dijkstra(int s){                   //参数为单源起点s
+    fill（dis,dis+MAXV,INF);         //初始化dis数组为无穷大
+    dis[s]=0;                           //起始顶点s到自身的距离为0
+    for(int i=0;i&lt;n;i++){               //执行n次循环，每次把一个新的顶点纳入顶点集S
+        int u=-1,MIN=INF;               //u使得dis[u]最小，并用MIN记录dis[u]
+        for(int j=0;j&lt;n;j++){
+            if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
+                u=j;
+                MIN=dis[u];
+            }
+        }
+        if(u==-1) return;               //如果找不到这样的u，说明不连通或者已经遍历结束，则返回
+        vis[u]=true;                    //标记u为已访问
+        for(int v=0;v&lt;n;v++){           //对u能到达的顶点v进行优化
+            if(vis[v]==false&amp;&amp;G[u][v]!=INF){
+                if(dis[u]+G[u][v]&lt;dis[v]){      //当能够以u为中介点进行优化时
+                    dis[v]=dis[u]+G[u][v];      //进行优化
+                    path[v].clear();            //path中的前驱使用覆盖式更新，即先清空，后更新  
+                    path[v].push_back(u);
+                }
+                esle if(dis[u]+G[u][v]==dis[v]){
+                    path[v].push_back(u);       //当出现相同长度的路径时，采用添加式更新，不清除
+                }
+                
+            }
+        }
+    }   
+}
+</code></pre>
+
+<p>　　第二步，对记录的每一条路径进行DFS，然后统计第二优化尺度，选出符合要求的路径进行输出，这时候需要一个数组临时存放枚举的每一条完整的路径temppath，还需要一个保存完整的最终输出的数组pathout，然后对对Dijkstra算法生成的所有最短路径做递归的DFS遍历，获得符合要求的输出结果，代码如下：</p>
+
+<pre><code>int optvalue;                                   //第二尺度最优值，根据实际情况进行初始化
+vector&lt;int&gt; path[MAXV];                         //保留路径上每个顶点的前驱顶点
+vector&lt;int&gt; pathout,temppath;                   //保存完整的输出路径和临时的最优路径
+
+void DFS(int v){                                //v为当前访问的顶点
+    //递归边界
+    if(v==s){                                   //如果到达顶点，则表示已经生成了一条临时路径
+        temppath.push_back(s);                  //加入起始顶点，补全路径
+        int value;                              //临时存放第二尺度的值
+        计算临时路径上的第二尺度的值，例如时间花费或者顶点资源数量等（见注释）;
+        if(value由于optvalue){                    //如果是较为优化的路径，就记录给pathou和optvalue
+            optvalue=value;
+            pathout=temppath;
+        }
+        temppath.pop_back();                    //将刚加入的结点删除，返回继续向另外的分支进行递归
+        return；
+    }
+
+    //递归式
+    temppath.push_back(v);
+    for(int i=0;i&lt;path[v].size();i++){
+        DFS(path[v][i]);
+    }
+    temppath.pop_back();                        //完成本层递归的所有遍历后，删除当前结点v返回上一层继续转向另外的分支进行递归
+}
+
+</code></pre>
+
+<div class="alert info no-icon ">
+  <p><strong>注释：</strong>计算临时路径上的第二尺度的值，根据实际情况选择顺序或者倒序遍历temppath数组获得！</p>
+</div>
+
+<h3 id="多源最短路径-floyd算法">多源最短路径（Floyd算法）</h3>
+
+<p>　　Floyd算法的思路相当简洁，对于整个图来讲，任意的顶点i和j如果存在一个中间顶点k使得顶点i到j的路径变得更短，就用k来优化i到j的路径，这样显然枚举所有的n个顶点，是他们分别作为中间顶点 优化每一对顶点之间的距离，就获得了任意两点之间的最短路径，这就是多源路径最短的Floyd算法的思想。其伪代码如下：</p>
+
+<pre><code>for(枚举所有n个顶点，然他们依此充当中间顶点k){
+    for(以k为中介点，枚举所有的定点对i和j，i∈[0,n-1],j∈[0,n-1]){        //此处为两重循环，遍历所有的顶点对儿
+        if(以k为中间顶点，使距离更优){
+            更新i到j的距离；
+        }
+    }
+}
+
+</code></pre>
+
+<p>　　Floyd算法的实现代码如下：</p>
+
+<pre><code>int dis[MAXV][MAXV];                                    //图任意两顶点之间的距离二维数组（即图的初始状态），如果图只需要一遍处理的话，可以直接在图上执行Floyd算法
+//Floyd算法
+void Floyd(){
+    for(int k=0;k&lt;n;k++){
+        for(int i=0;i&lt;n;i++){
+            for(int j=0;j&lt;n;j++){
+                if(dis[i][k]!=INF&amp;&amp;dis[k][j]!=INF&amp;&amp;dis[i][k]+dis[k][j]&lt;dis[i][j]){
+                    dis[i][j]=dis[i][k]+dis[k][j];      //如果i，j之间可以用k做中介点，并且k使得i，j之间距离更优，则更新dis[i][j]
+                }
+            }
+        }
+    }
+}
+</code></pre>
+
+<h3 id="小结-1">小结</h3>
+
+<h2 id="最小生成树">最小生成树</h2>
+
+<h3 id="prime算法">Prime算法</h3>
+
+<h3 id="kruskal算法">Kruskal算法</h3>
+
+<h2 id="拓扑排序">拓扑排序</h2>
+
+<h3 id="拓扑排序算法的实现">拓扑排序算法的实现</h3>
+
+<h3 id="拓扑排序的应用-判定图中是否有环">拓扑排序的应用——判定图中是否有环</h3>
+
+<h2 id="关键路径">关键路径</h2>
+
+<h3 id="基于拓扑排序的关键路径求解">基于拓扑排序的关键路径求解</h3>
+
+<h3 id="基于动态优化的关键路径长度求解">基于动态优化的关键路径长度求解</h3>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E5%9B%BE/">图</a>
+
+                  </div>
+                
+              
+            
+              <span id="/2019/08/%E5%9B%BE%E7%9A%84%E6%80%BB%E7%BB%93/" class="leancloud_visitors" data-flag-title="图的总结">
+                <span class="post-meta-item-text">文章阅读量 </span>
+                <span class="leancloud-visitors-count">1000000</span>
+                <p></p>
+              </span>
+              <div id="vcomments"></div>
+              <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+              <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+              <script type="text/javascript">
+                new Valine({
+                  el: '#vcomments' ,
+                  appId: 'pUTSdyX8kkcBbF9uwgHrTskD-gzGzoHsz',
+                  appKey: 'INTlJfGBjMlFQyc1NzGRAASw',
+                  notify: 'false',
+                  verify: '',
+                  avatar:'mp', 
+                  placeholder: '说点什么吧',
+                  visitor: 'true'
+                });
+              </script>
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/%E7%BB%99hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE/" data-tooltip="给Hugo博客添加网易云音乐外链">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2019 SAquarius. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/%E7%BB%99hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE/" data-tooltip="给Hugo博客添加网易云音乐外链">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://saquarius.github.io/images/touxiang.png" alt="作者的图片" />
+    
+    <h4 id="about-card-name">SAquarius</h4>
+    
+      <div id="about-card-bio">All in or nothing, now or never!</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        学生
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        武汉
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://saquarius.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://saquarius.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+  
+    <script src="https://saquarius.github.io/js/clicklove.js"></script>
+  
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/08\/%E5%9B%BE%E7%9A%84%E6%80%BB%E7%BB%93\/';
+          
+            this.page.identifier = '\/2019\/08\/%E5%9B%BE%E7%9A%84%E6%80%BB%E7%BB%93\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'valine';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
