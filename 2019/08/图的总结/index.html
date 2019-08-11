@@ -313,8 +313,12 @@
 </ul></li>
 <li><a href="#关键路径">关键路径</a>
 <ul>
+<li><a href="#aoe网与aov网">AOE网与AOV网</a></li>
+<li><a href="#关键路径的求解思路">关键路径的求解思路</a>
+<ul>
 <li><a href="#基于拓扑排序的关键路径求解">基于拓扑排序的关键路径求解</a></li>
-<li><a href="#基于动态优化的关键路径长度求解">基于动态优化的关键路径长度求解</a></li>
+<li><a href="#基于动态规划的关键路径求解">基于动态规划的关键路径求解</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1117,11 +1121,182 @@ bool topsort(){
 
 <h2 id="关键路径">关键路径</h2>
 
-<p>　　关键路径的求解是建立在AOV网和AOE网，</p>
+<h3 id="aoe网与aov网">AOE网与AOV网</h3>
 
-<h3 id="基于拓扑排序的关键路径求解">基于拓扑排序的关键路径求解</h3>
+<p>　　顶点活动（AOV）网表示用顶点代表活动，用边代表活动优先顺序的有向图关系。边活动（AOE）网指的是用带权的边表示活动，用顶点表示时间的有向图，这时候有权边表示了活动的时间花费。<br />
+　　一般来说，一个工程可以用一个AOE网表示其进程，工程长分为若干子工程，显然AOE网不能有环，否则会出现，环内的所有定点都是其他顶点的先决条件，这将导致整个工程无法完成。对于AOV网来说有类似的逻辑关系。<br />
+　　AOE网中，可能有多个<strong>源点</strong>（活动的起始顶点）或者多个<strong>汇点</strong>（活动结束的点），这种情况下可以采用给多个源点添加一个统一的源点——“超级源点”，或者给多个汇点添加一个统一的汇点——“超级汇点”的方法转化为一个源点和一个汇点的情况，如下图所示：<br />
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/AOE.png" alt="超级源点和超级汇点的AOE网" /><br />
+　　AOV网，可以将一个顶点事件拆分为两个顶点，分别为该事件的起始和结束，边表示该事件的时间花费，如下所示的方法，将AOV网转化为AOE网的样子：
+AOE网：
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/AOE_.png" alt="AOE网" />
+AOE转化成AOV网：<br />
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/AOV.png" alt="AOE转化为AOV" /></p>
 
-<h3 id="基于动态优化的关键路径长度求解">基于动态优化的关键路径长度求解</h3>
+<h3 id="关键路径的求解思路">关键路径的求解思路</h3>
+
+<h4 id="基于拓扑排序的关键路径求解">基于拓扑排序的关键路径求解</h4>
+
+<p>　　AOE网实际上是邮箱无环图，关键路径是图中的最长路径，这里给出求解有向无环图（DAG）的最长路径的求解思路：<br />
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/act.png" alt="活动示意图" /><br />
+　　由于关键活动没有时间余量，不允许拖延，因此这些轰动的最早开始时间必须等于最迟开始时间，这里用数组e和l分别记录每一个活动的最早开始和最迟开始时间，对于活动a<sub>r</sub>来说，e[r]和l[r]表示了活动的最早开始时间和最迟开始时间，如果对于活动a<sub>r</sub>有e[r]==l[r]，那么这个活动便不允许拖延，就是关键路径。<br />
+　　但是求解e和l数组需要借助活动a<sub>r</sub>两端的事件，如果用ve和vl数组表示顶点事件的最早和最迟发生时间那么有以下关系：<br />
+　　①a<sub>r</sub>的最早发生时间是事件V<sub>i</sub>的最早发生时间，即e[r]=ve[i];<br />
+　　②a<sub>r</sub>的最迟发生事件是事件V<sub>j</sub>的最迟发生时间减去活动a<sub>r</sub>的时间花费，即l[r]=vl[j]-length[r];<br />
+　　<strong>一、求解ve</strong>
+　　由此可见，只需要求出ve和vl就可以求出活动的e和l。对于ve数组的求解来说，计算某个事件V<sub>j</sub>，如果事件V<sub>j</sub>有很多前置事件，例如有k个事件V<sub>i1</sub>~ V<sub>ik</sub>那么显示必须所有的前置事件完成后才能开始事件V<sub>j</sub>，因此V<sub>j</sub>的最早开始事件为前置事件中ve[i1]+lengh[r1]~ve[ik]+lengh[rk]的最大值。可理解如下：<br />
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/get_ve.png" alt="ve的求解" /><br />
+　　显然，想要球的ve[j]就必须直到前置事件的ve，这里借助拓扑排序来实现，这样保证了遇到事件V<sub>j</sub>的时候，所有的前置事件的ve已全部求出，只需找到ve[i1]+lengh[r1]~ve[ik]+lengh[rk]的最大值即可，代码实现如下所示：</p>
+
+<pre><code>//图以及求解关键路径时使用的容器的定义和声明
+typedef struct {                            //活动结点 
+    int st,ed;                              //活动的开始事件顶点和结束事件顶点 
+    int e,l;                                //活动的最早开始时间和最晚开始时间 
+    int id,len;                             //活动的编号和活动的花费 
+}Act;
+int n,m;                                    //图的顶点个数和边数
+int G[MAXV][MAXV];                          //记录图 
+int inDegree[MAXV]={0};                     //结点的入度数组 
+vector&lt;Act&gt; v;                              //记录边的容器 
+int ve[MAXV]={0}, vl[MAXV];                 //活动的最早开始时间和最晚开始时间，ve
+初始化为0，vl初始化为关键路径长度 
+stack&lt;int&gt; toporder;                        //存放拓扑序列 
+</code></pre>
+
+<pre><code>//利用拓扑排序实现ve数组的求解
+int topsort()                               //拓扑排序 
+{
+    queue&lt;int&gt; q;
+    for(int i=1;i&lt;=n;i++){                  //把所有入度为0顶点的入队 
+        if(inDegree[i]==0){
+            q.push(i);
+        }
+    }
+    int u;
+    int maxlen=0;                           //记录最大的ve  就是整个工程的最短时间 
+    while(!q.empty()){
+        u=q.front();                        //从队列中取出一个结点 
+        q.pop();
+        toporder.push(u);
+        for(int i=1;i&lt;=n;i++){              // 将他的后继结点的入度减一 
+            if(G[u][i]!=INF){
+                inDegree[i]--;
+                if(inDegree[i]==0)          //如果入度也变为0，入队 
+                    q.push(i);
+                //更新u的后序结点的ve值 
+                if(ve[u]+G[u][i]&gt;ve[i]){
+                    ve[i]=ve[u]+G[u][i];
+                    if(ve[i]&gt;maxlen)        //更新过后，寻找最短时间，即关键路径的长度 
+                        maxlen=ve[i];       //关键路径长度等于汇点活动的最早开始时间的最大值
+                }   
+            }
+        }
+    }
+    if(toporder.size()==n)  return  maxlen; //如果是有向无环图，返回关键路径的长度vl求解函数用于初始化vl数组 
+    else return -1;                         //否则返回-1，表示图中有环，整个工程调度不可行
+}
+</code></pre>
+
+<p>　　以上算法不仅能够通过返回值得到关键路径的长度，还能判断是否是有向无环图，由此判断工程调度是否合理。<br />
+　　<strong>二、求解vl数组</strong><br />
+　　vl数组的求解，对于事件V<sub>i</sub>来说，其vl的值需要通过其后继的事件推出，显然如果事件V<sub>i</sub>的后继有k个事件V<sub>j1</sub>~ V<sub>jk</sub>分别由权值为length[r1]~length[rk]的活动边r1~rk连接，则事件V<sub>i</sub>的最迟发生时间为vl[j1]-length[r1]~vl[jk]-length[rk]的最小值，选最小值的原因是为了保证后继事件的最迟发生时间得到保障，可以通过下面的公式理解：<br />
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/get_vl.png" alt="vl的求解" /><br />
+　　这里与ve求解不同之处在于，需要先直到后继事件的vl值，因此，使用<strong>拓扑序列的逆序</strong>来处理，这个时候，将记录了拓扑序列的栈按顺序出栈便是拓扑排序的逆序，由此从后往前推算vl数组，代码实现如下：</p>
+
+<pre><code>void get_vl(int maxlen)                     //拓扑排序得到的关键路径长度
+    fill(vl,vl+MAXV,maxlen);                //初始化vl数组为关键路径的长度 
+    while(!toporder.empty()){               //拓扑序列出栈，逆过程更新vl 
+        int u=toporder.top();
+        toporder.pop();
+
+        for(int i=1;i&lt;=n;i++){              //用u的后继结点的vl值来更新vl[u]
+            if(G[u][i]!=INF){
+                if(vl[i]-G[u][i]&lt;vl[u]){    //vl[u]为其前驱活动开始的最小值 
+                    vl[u]=vl[i]-G[u][i];
+                }
+            }
+        }
+    }
+</code></pre>
+
+<p>　　<strong>③计算每个活动的e和l</strong></p>
+
+<pre><code>void get_path{
+    for(int i=0;i&lt;m;i++){                   //遍历所有的边，计算每一个活动的e和l 
+        v[i].e=ve[v[i].st];
+        v[i].l=vl[v[i].ed]-v[i].len;
+
+        if(v[i].e==v[i].l){                 //如果是关键路径则输出
+            printf(&quot;%d-%d\n&quot;,v[i].st,v[i].ed);
+        }
+    }
+}
+</code></pre>
+
+<div class="alert info no-icon ">
+  <p>可以根据情况将以上的函数进行组和或者拆分，以达到按要求输出的目的</p>
+</div>
+
+<h4 id="基于动态规划的关键路径求解">基于动态规划的关键路径求解</h4>
+
+<p>　　有向无环图的关键路径就是DAG图中的最长路径，即整个工程的最终时间。如果只是求解最长路径，这里采用动态规划的方法解决这个问题。
+　　可根据实际情况着重解决一下两类问题：一、求解整个图中的最长路径，即不固定起点和终点；二、固定终点，求DAG的最长路径。
+　　对于第一个问题，采用一个数组dp，其中dp[i]表示从i号顶点出发能得到的最长路径长度，同样的，如何求得的dp[i]？这里借用求解vl数组的思路，如果对事件V<sub>i</sub>的后继有k个事件V<sub>j1</sub>~ V<sub>jk</sub>分别由权值为length[r1]~length[rk]的活动边r1~rk连接，且对于后继的事件其dp已知，显然dp[i]等于dp[j1]+length[r1]~dp[jk]+length[rk]的最大值，示意图如下所示：<br />
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/DAG_.png" alt="DAG的dp数组" /><br />
+　　为了让算法变得简洁，可以采用递归的写法获得dp数组的求解，代码如下：</p>
+
+<pre><code>int dp[MAXV]={0};               //由于递归求解最后一层是图的汇点，从它出发的最长路径便是0，因此dp数组初始化为0，作为递归的边界
+int choice[MAXV];               //记录每个结点的后继，初始化为-1
+
+fill(choice,choice+MAXV,-1);    //提前在外部，初始化路径数组
+int DP(int i){
+
+    if(dp[i]&gt;0) return  dp[i];  //如果dp已经求得，直接返回结果
+    for(int j=0;j&lt;n;j++){       //对i的所有后继顶点进行遍历
+        if(G[i][j]!=INF){       //令dp[i]等于dp[j1]+length[r1]~dp[jk]+length[rk]的最大值
+            int temp=DP[j]+G[i][j];
+            if(temp&gt;dp[i]){     //如果更新了dp[i]，则更新i在路径上的后继
+                dp[i]=temp;
+                choice[i]=j;
+            }
+        }
+    }
+    return dp[i];
+}
+//求个dp数组后将dp数组中的最大值(即关键路径长度)的下标i交给打印函数，用于打印路径
+void Print_path(int i){
+    printf(&quot;%d&quot;,i);             //打印路径的起始顶点
+    while(choice[i]!=-1){       //当不到汇点的时候进行循环
+        i=choice[i];            //i往后一步成为其后继
+        printf(&quot;-&gt;%d&quot;,i)        //打印路径
+    }
+}
+</code></pre>
+
+<p>　　以上算法，由于遍历的时候后继顶点的遍历是从编号从小到大进行的，因此实现了得到路径的字典序最小的方案。如果有更多条路径，choice数组可以改为vector二维数组，向Dijkstra+DFS一样得到多条路径，并按照要求选择。<br />
+　　接下来考虑，限定终点的条件下，如何求解。限定了顶点Ｔ为结束顶点时，则需要递归边界在T处停止，因此初始化，dp[T]=0，其他初始化为一个很大的负数 -INF，以表示不可到达，只能达到T，同时加入访问标记数组，使得其他顶点不会因为多次访问是的dp值变得影响dp[T],其他的代码同上类似，只不过dp数组的含义，因为初始化的限制条件，dp[i]变为了从i到达终点T的最长路径：</p>
+
+<pre><code>fill(choice,choice+MAXV,-INF);  //初始化路径数组
+dp[T]=0;
+vis[MAXV]={false};
+int DP(int i){
+
+    if(vis[i])  return  dp[i];  //如果dp已经求得，直接返回结果
+    vis[i]=true;
+    for(int j=0;j&lt;n;j++){       //对i的所有后继顶点进行遍历
+        if(G[i][j]!=INF){       //令dp[i]等于dp[j1]+length[r1]~dp[jk]+length[rk]的最大值
+            int temp=DP[j]+G[i][j];
+            if(temp&gt;dp[i]){     //如果更新了dp[i]，则更新i在路径上的后继
+                dp[i]=temp;
+                choice[i]=j;
+            }
+        }
+    }
+    return dp[i];
+}
+</code></pre>
+
+<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/tobec_.png" alt="" /></p>
               
             </div>
           </div>
