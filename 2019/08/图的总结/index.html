@@ -707,7 +707,7 @@ void Dijkstra(int s){                   //参数为单源起点s
         //只有这里的for循环和邻接矩阵的写法有所不同
         for(int j=0;j&lt;Adj[u].size();j++){           //对u能到达的顶点v进行优化
             int v=Adj[u][j].v;
-            if(vis[v]==falsedis[u]+Adj[u][j].d&lt;dis[v]){
+            if(vis[v]==falsed&amp;&amp;is[u]+Adj[u][j].d&lt;dis[v]){
                 dis[v]=dis[u]+Adj[u][j].d;
             }
         }
