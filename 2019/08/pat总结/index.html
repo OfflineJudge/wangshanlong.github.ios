@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
-<meta name="keywords" content="PAT, C&#43;&#43;, Programing Abilit Test, 刷题总结, stl使用, C, C&#43;&#43;, PAT">
+<meta name="keywords" content="PAT, C&#43;&#43;, Programing Abilit Test, 刷题总结, stl使用, 素数的筛选法, 结构体的初始化, C, C&#43;&#43;, PAT">
 <meta name="description" content="　　PAT（Programing Ability Test）是浙江大学设立的计算机编程能力测试。为了准备PAT测试，将PAT刷题时候的一些心得，常用的操作或者函数、模板等等总结如下。">
 
 
@@ -280,10 +280,10 @@
 <li><a href="#printf和scanf">printf和scanf</a>
 <ul>
 <li><a href="#printf输出">printf输出</a></li>
-<li><a href="#scanf输出">scanf输出</a></li>
+<li><a href="#scanf输入">scanf输入</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#字符独有的输入输出">字符独有的输入输出</a></li>
-</ul></li>
 <li><a href="#sprintf和sscanf">sprintf和sscanf</a></li>
 <li><a href="#标准输入输出流">标准输入输出流</a></li>
 </ul></li>
@@ -299,13 +299,28 @@
 <li><a href="#stack栈">stack栈</a></li>
 <li><a href="#string类">string类</a></li>
 </ul></li>
-<li><a href="#函数类">函数类</a></li>
+<li><a href="#函数类">函数类</a>
+<ul>
+<li><a href="#c-的stl中的函数模板">C++的STL中的函数模板</a></li>
+<li><a href="#c标准库中的函数">C标准库中的函数</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#结构体的初始化">结构体的初始化</a></li>
 <li><a href="#解题技巧">解题技巧</a>
 <ul>
-<li><a href="#常用自定义函数">常用自定义函数</a></li>
-<li><a href="#操作技巧">操作技巧</a></li>
+<li><a href="#常用自定义函数">常用自定义函数</a>
+<ul>
+<li><a href="#最大公约数和最小公倍数">最大公约数和最小公倍数　　</a></li>
+<li><a href="#素数">素数</a></li>
+<li><a href="#闰年判定">闰年判定</a></li>
+<li><a href="#进制转换">进制转换</a></li>
+</ul></li>
+<li><a href="#操作技巧">操作技巧</a>
+<ul>
+<li><a href="#复杂结构体只排下标-见排序中代码实现">复杂结构体只排下标（见排序中代码实现）</a></li>
+<li><a href="#跨天时间计算">跨天时间计算</a></li>
+<li><a href="#排队服务的模拟">排队服务的模拟</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -354,8 +369,6 @@ int main(){                         //主函数
 <h2 id="输入与输出">输入与输出</h2>
 
 <h3 id="格式化输入输出">格式化输入输出</h3>
-
-<p>　　基本输入输出包括printf、scanf等等：</p>
 
 <h4 id="printf和scanf">printf和scanf</h4>
 
@@ -607,7 +620,7 @@ printf(&quot;Here is one &quot;
 </code></pre></li>
 </ul>
 
-<h5 id="scanf输出">scanf输出</h5>
+<h5 id="scanf输入">scanf输入</h5>
 
 <p>　　scanf用于标准输入，包含转换说明和指定的输入对象等参数。scanf（）函数是有返回值的，其返回值为成功读入的项数，当遇到输入不匹配时，返回0，如果到了读取到了文件的末尾，则返回EOF（定义在stdlib.h中的特殊值，用于表示文件末尾），根据返回值可以进行输入匹配的检查。<br />
 　　scanf()的参数中，除了字符串（即c风格字符数组）以外都需要加上取地址符&amp;，示例如下：</p>
@@ -768,7 +781,7 @@ while(scanf(&quot;%d&quot;,num)!=EOF){    //当未读到文件末尾时，继续
 </code></pre></li>
 </ul>
 
-<h4 id="字符独有的输入输出">字符独有的输入输出</h4>
+<h3 id="字符独有的输入输出">字符独有的输入输出</h3>
 
 <p>　　字符也有专用的输入输出函数，常用的有单字符输入输出和字符串的输入输出，如下所示的gtchar()、putchar()、gets()、puts()等，其中gets不够安全，但是不影响常规的使用：</p>
 
@@ -1057,13 +1070,245 @@ reverse(str.begin(),str.end());         //reverse函数将str进行逆转操作
 
 <h3 id="函数类">函数类</h3>
 
+<h4 id="c-的stl中的函数模板">C++的STL中的函数模板</h4>
+
+<p>　　包含在algorithm头文件中有很多可用的函数，可以直接用于代码中：</p>
+
+<pre><code>max(a,b);                       //返回a和b中的最大值，参数可以是浮点数
+min(a,b);                       //返回a和b中的最小值，参数可以是浮点数
+abs(x);                         //返回x的绝对值，参数x必须是整数
+swap(a,b);                      //交换a，b的值，不会损失精度
+reverse(it1,it2);               //对迭代器[it1,it2)范围内的所有元素进行反转
+next_permutation(a,a+3);        //将int型数组a~a+3之间的元素，排成当前序列的下一个全排列
+                                //例如a的前三个元素是2，3，1 则下一个序列是3，1，2
+fill(a,a+n,value);              //将数组a的n个元素全部填充为值value
+//说明，二维数组的写法可有以下两种，G[m][n]
+fill(G[0],G[0]+m*n,value);      //涉及到二维指针的解引用，不能像一维数组那样直接写G
+fill(G[0][0],G[0][0]+m*n,value);
+fill(v.begin(),v.end(),value);  //对于容器，可以使用迭代器作为参数
+
+//排序函数
+sort(首地址，尾地址的下一个地址，比较函数);         //不填写比较函数时，默认升序排列
+sort(a,a+n,cmp);                              //对a的n个元素进行排序
+sort(v.begin(),v.end(),cmp);                  //对vector容器进行排序
+
+//比较函数的实现
+//基本类型的排序
+bool cmp(int a,int b){
+    return a&lt;b;                 //按照从小到大，如果是大于号&gt; 则从大到小排
+}
+//结构体的多级排序，假设结构体的定义如下
+typedef struct node{
+    string id;
+    int high;
+    int weigh;
+}Node;
+bool cmp(Noe a,Node b){
+    if(a.id!=b.id)      return a.id&lt;b.id;      //如果名字不同，按照名字的字典序从小到大排序
+    else if(a.high!=b.high) return a.high&lt;b.high;   //如果名字相同，但是高度不同，从低到高排序
+    else     return a.weigh&lt;b.weigh;            //如果名字和高度都相同，重量不同，按照重量从小到大排序
+}
+
+//排序的技巧
+//如果结构体的数据量比较大，则采用下标排序的方式，减少时间复杂度
+int index[100];                                 //记录原始的下标，初始化为index[i]=i
+vector&lt;Node&gt; v(100);                            //存放结构体的容器，为了让比较函数能够访问，直接定义为全局变量
+bool cmp(int a,int b){                          //对下标排序，比较函数的参数为下标的类型，即整型
+    if(v[i].id!=b.id)      return v[i].id&lt;b.id; //引用结构体数组确定排序规则
+    ...                                         //以下写法类推
+    ...
+}
+
+lower_bound(first,last,val);                    //在数组或者容器的[first,last） 范围内找到第一个大于等于val的位置，然会下标或者迭代器
+upper_bound(first,last,val);                    //在数组或者容器的[first,last） 范围内找到第一个大于val的位置，然会下标或者迭代器
+//如果找不到这样的位置，返回可以插入该元素的位置的下标或者指针
+</code></pre>
+
+<h4 id="c标准库中的函数">C标准库中的函数</h4>
+
+<ul>
+<li><p>math.h中的函数</p>
+
+<pre><code>double hypot(double x,double y);                //返回根号下x与y的平方和
+double pow(dobule x,double y);                  //返回x的y次方
+double sqrt(double x);                          //返回根号x
+double ceil(double x);                          //返回不小于x的最小整数，即向上取整
+double floor(double x);                         //返回不大于x的最小整数，即向下取整
+double fabs（double x);                         //返回x的绝对值
+dobule round(double x);                         //四舍五入到最近的整数
+//四舍五入到整数的实现，可以采用+0.5 然后强制类型转换为整数来实现
+</code></pre>
+
 <h2 id="结构体的初始化">结构体的初始化</h2>
+
+<p>　　结构体在C++中的实现，已经接近于类的实现，因此对于需要在定义时就初始化的情况，或者为了方便快速的调用，在结构体的定义中加入构造函数，方便初始化，使用示例如下：</p>
+
+<pre><code>//简单的初始化和重载的初始化
+typedef struct node{                    //定义一个点的坐标结构体 
+int x,y;                            
+node():x(0),y(0){}                  //默认的构造函数，初始化为x=0,y=0 
+node(int _x,int _y):x(_x),y(_y){}   //重载的构造函数，使用两个参数初始化x，y 
+}Node; 
+
+//使用示例
+Node a;                                 //默认构造函数，自动初始为(0,0)
+Node b=node(3,4);                       //使用重载的构造函数，初始化为(3,4)
+
+//复杂类型的初始化，在默认构造函数中实现初始化
+typedef struct st{                      //学生结构体
+string id;                          //学生id
+int score[10];                      //记录10门课程成绩的数组，-1表示缺考
+bool pass;                          //是否合格的标记
+st():{
+    pass=true;                      //默认合格，不合格时修改标记
+    fill(score,score+n;-1);         //初始化为-1，表示缺考
+}
+}                                       //默认构造函数，定义时便完成初始化
+</code></pre></li>
+</ul>
 
 <h2 id="解题技巧">解题技巧</h2>
 
+<p>　　在刷PAT甲级、乙级题库时，积累了很多有用的解题思路和技巧，包括一些常用的函数，比如求公约数，判断素数，判断闰年等，一些数据的处理方式，比如计算跨天时间差，排队问题的时间和队列处理等等，整理如下：</p>
+
 <h3 id="常用自定义函数">常用自定义函数</h3>
 
+<h4 id="最大公约数和最小公倍数">最大公约数和最小公倍数　　</h4>
+
+<p>　　最大公约数，根据辗转相除法可以得到一下递归的函数求解最大公约数：</p>
+
+<pre><code>int gcd(int a,int b){
+    return !b?a:gcd(b,a%b);
+}
+</code></pre>
+
+<p>　　最写公倍数可有最大公约数求得：</p>
+
+<pre><code>如果a和b的最大公约数为d，则两个数的最小公倍数为：a*b/d;
+</code></pre>
+
+<h4 id="素数">素数</h4>
+
+<p>　　素数的求解可以直接对某个素数进行判定，或者使用打表的方式，采用筛选法提前得到素数表：</p>
+
+<pre><code>//素数判定方法
+bool isprime(int n){            //判定n是不是素数
+    if(x&lt;1)     return false;   //特判
+    int sqr=(int)sqrt(1.0*n);   //得到根号n，sqrt函数在c++中参数必须是浮点型
+    for(int i=2;i&lt;=sqr;i++){    //如果n有除了自身和1以外的因子，则不是素数
+        if(n%i==0)
+            return false;
+    }
+    return true;
+}
+
+
+//筛选法获取素数表
+bool p[MAXN];   
+fill(p,p+MAXN,true);            //素数标记数组，可传引用或者直接定义为全局变量，初始化为真，然后筛掉不是素数的数
+void getPrime(){
+    p[0]=p[1]=false;
+    for(int i=2;i&lt;MAXN;i++){
+        if(p[i]){               //如果i是素数，将所有i的所有倍数全部标记为非素数
+            for(int j=i+i;j&lt;MAXN;j+=i){ 
+                p[j]=false;
+            }
+        }
+    }
+}
+</code></pre>
+
+<h4 id="闰年判定">闰年判定</h4>
+
+<p>　　能被400整除的或者能被4整除但是不能被100整除的年份就是闰年：</p>
+
+<pre><code>bool isLeap(int year){
+    return (year%400==0)||(year%4==0&amp;&amp;year%100!=0);
+}
+</code></pre>
+
+<h4 id="进制转换">进制转换</h4>
+
+<p>　　<strong>把十进制y转换为Q进制</strong></p>
+
+<pre><code>vector&lt;int&gt; v;      //用于保存获得的q进制数
+int y,Q;            //y为十进制，Q为进制数
+do{
+    int temp=y%Q;   //除留余数法
+    v.push_back(temp);  //存放
+    y/=Q;
+}while(y!=0);
+//倒序输出v即使转换后的值
+for(int i=v.size()-1;i&gt;=0;i--){
+    cout&lt;&lt;v[i];         
+}
+</code></pre>
+
+<p>　　<strong>P进制数x转换为十进制y</strong></p>
+
+<pre><code>int P;                   //进制P
+int y,pw=1;              //y用于保存十进制数，P表示每一步进制的权值，最低为权值为1
+while(X!=0){
+    y=y+(x%10)*pw;      //去一位数，并乘上权值，计入y;
+    x/=10;              //x除以十，用于下一轮循环提取下一位
+    pw*=P;              //权值提高一个位
+}
+</code></pre>
+
 <h3 id="操作技巧">操作技巧</h3>
+
+<h4 id="复杂结构体只排下标-见排序中代码实现">复杂结构体只排下标（见排序中代码实现）</h4>
+
+<h4 id="跨天时间计算">跨天时间计算</h4>
+
+<p>　　一个月内的跨天时间计算，由于不同天数内时间大小和先后判定需要考虑是否跨天，比较复杂，有两种情况可以进行解决：一、将每一分钟从开始hash映射到一个整数，然后进行加减计算；二、对不同情况进行判定，开始时间向后推算到整天，整时，整分，结束时间向前推算到整天，整时，整分；然后单独计算非整天，非整时，非整分（虽然非常麻烦，但是这种思路可能对某些问题具有启发性）。<br />
+　　第二种推算的方法实现如下：</p>
+
+<pre><code>//使用一下格式表示时间 mm:dd:hh:mimi 月 天 小时 分钟
+//这里采用   &quot;mm:dd:hh:mimi mm:dd:hh:mimi&quot;的字符串格式表示一条输入记录，计算第一个时间到第二个时间之间的分钟数
+double paycount(string s)
+{
+    string out=s.substr(3,8)+&quot; &quot;+s.substr(16,8);    //截取记录的时间用于输出 
+    int cnt=0;
+    int pay=0;
+    double ret;
+    int mon1,d1,h1,min1,mon2,d2,h2,min2;
+    sscanf(s.c_str(),&quot;%d:%d:%d:%d %d:%d:%d:%d&quot;,&amp;mon1,&amp;d1,&amp;h1,&amp;min1,&amp;mon2,&amp;d2,&amp;h2,&amp;min2);
+
+    if(d1==d2){                                     //如果是同一天内 
+        if(h1==h2){                                 //如果是同一个小时内，直接相减计算 
+            cnt=min2-min1;
+        }
+        else{                                       //否则开始时间向后推算到下一个整点，结束时间向前计算到当前整点，然后进行整点统计 
+            cnt+=(60-min1+min2); 
+            pay+=(rate[h1]*(60-min1)+rate[h2]*min2);
+            for(h1++;h1&lt;h2;h1++){
+                cnt+=60;
+            }
+        }
+    }
+    else{                                           //如果不在同一天 
+        cnt+=(60-min1+min2);                        //开始时间向后推算到下一个整点，结束时间向前计算到当前整点
+        
+        for(h1++;h1&lt;24;h1++){                       //开始时间推算到下一个整天，且天数加一 
+            cnt+=60;
+        }
+        d1++;                                       //推算后天数加一 
+        for(int i=0;i&lt;h2;i++){                      //结尾时间向前推算到当前的整天 
+            cnt+=60;
+        }
+            
+        cnt+=(d2-d1)*60*24;                         //计算整天时间               
+    } 
+    cout&lt;&lt;out&lt;&lt;' '&lt;&lt;cnt&lt;&lt;' ';                       //输出该条记录，并输出总的分钟数
+
+    return cnt;                                     //返回分钟数
+}
+</code></pre>
+
+<h4 id="排队服务的模拟">排队服务的模拟</h4>
+
+<p>　　首先把所有的时间都映射为整形，使用数组记录所有服务队列的结束时间（初始化为服务开始的时间，比如银行窗口开放的时间），然后在时间计数的循环体内，遍历所有的服务队列，如果时间刚好到达该服务队列的结束时间，则从顾客等待队列中取出一位正在等待的顾客放入该服务队列进行服务，此时根据顾客的时间花费，更新该服务队列的结束时间，循环直至所有顾客被服务完或者时间结束。</p>
               
             </div>
           </div>
