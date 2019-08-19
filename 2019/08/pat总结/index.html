@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="SAquarius">
+<meta name="keywords" content="PAT, C&#43;&#43;, Programing Abilit Test, 刷题总结, stl使用, C, C&#43;&#43;, PAT">
+<meta name="description" content="　　PAT（Programing Ability Test）是浙江大学设立的计算机编程能力测试。为了准备PAT测试，将PAT刷题时候的一些心得，常用的操作或者函数、模板等等总结如下。">
+
+
+<meta property="og:description" content="　　PAT（Programing Ability Test）是浙江大学设立的计算机编程能力测试。为了准备PAT测试，将PAT刷题时候的一些心得，常用的操作或者函数、模板等等总结如下。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT总结">
+<meta name="twitter:title" content="PAT总结">
+<meta property="og:url" content="https://saquarius.github.io/2019/08/pat%E6%80%BB%E7%BB%93/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/08/pat%E6%80%BB%E7%BB%93/">
+<meta property="og:site_name" content="SAquarius的梦想屋">
+<meta property="og:description" content="　　PAT（Programing Ability Test）是浙江大学设立的计算机编程能力测试。为了准备PAT测试，将PAT刷题时候的一些心得，常用的操作或者函数、模板等等总结如下。">
+<meta name="twitter:description" content="　　PAT（Programing Ability Test）是浙江大学设立的计算机编程能力测试。为了准备PAT测试，将PAT刷题时候的一些心得，常用的操作或者函数、模板等等总结如下。">
+<meta property="og:locale" content="zh-cn">
+
+  
+    <meta property="article:published_time" content="2019-08-19T10:21:39">
+  
+  
+    <meta property="article:modified_time" content="2019-08-19T10:21:39">
+  
+  
+  
+    
+      <meta property="article:section" content="数据结构">
+    
+      <meta property="article:section" content="PAT总结">
+    
+  
+  
+    
+      <meta property="article:tag" content="PAT">
+    
+      <meta property="article:tag" content="刷题总结">
+    
+      <meta property="article:tag" content="stl">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://saquarius.github.io/images/PAT_s.jpg">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/PAT_s.jpg">
+
+
+  <meta property="og:image" content="https://saquarius.github.io/images/PAT.png">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/PAT.png">
+
+
+
+
+  <meta property="og:image" content="https://saquarius.github.io/images/touxiang.png">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
+
+
+    <title>PAT总结</title>
+
+    <link rel="icon" href="https://saquarius.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://saquarius.github.io/2019/08/pat%E6%80%BB%E7%BB%93/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://saquarius.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://saquarius.github.io/">SAquarius的梦想屋</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://saquarius.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://saquarius.github.io/images/touxiang.png" alt="作者的图片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://saquarius.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://saquarius.github.io/images/touxiang.png" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">SAquarius</h4>
+        
+          <h5 class="sidebar-profile-bio">All in or nothing, now or never!</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">类别</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">归档</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/SAquarius" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+  <iframe frameborder="no" marginwidth="0" marginheight="0" width=230 height=52 src="//music.163.com/outchain/player?type=0&id=2896870368&auto=1&height=32"></iframe>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              post-header-cover--full"
+       style="background-image:url('/images/PAT.png')"
+       data-behavior="5">
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaOut
+               hasCoverCaption">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+            <span class="post-header-cover-caption caption">Programing Ability Test</span>
+          
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      PAT总结
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2019-08-19T10:21:39&#43;08:00">
+        
+  八月 19, 2019
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://saquarius.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84">数据结构</a>, 
+    
+      <a class="category-link" href="https://saquarius.github.io/categories/pat%e6%80%bb%e7%bb%93">PAT总结</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>　　PAT（Programing Ability Test）是浙江大学设立的计算机编程能力测试。为了准备PAT测试，将PAT刷题时候的一些心得，常用的操作或者函数、模板等等总结如下。</p>
+
+<h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#pat总结">PAT总结</a>
+<ul>
+<li><a href="#刷题模板">刷题模板</a></li>
+<li><a href="#输入与输出">输入与输出</a>
+<ul>
+<li><a href="#格式化输入输出">格式化输入输出</a>
+<ul>
+<li><a href="#printf和scanf">printf和scanf</a>
+<ul>
+<li><a href="#printf输出">printf输出</a></li>
+<li><a href="#scanf输出">scanf输出</a></li>
+</ul></li>
+<li><a href="#字符独有的输入输出">字符独有的输入输出</a></li>
+</ul></li>
+<li><a href="#sprintf和sscanf">sprintf和sscanf</a></li>
+<li><a href="#标准输入输出流">标准输入输出流</a></li>
+</ul></li>
+<li><a href="#stl的使用">stl的使用</a>
+<ul>
+<li><a href="#容器类">容器类</a>
+<ul>
+<li><a href="#vector变长数组">vector变长数组</a></li>
+<li><a href="#set集合">set集合</a></li>
+<li><a href="#map映射容器">map映射容器</a></li>
+<li><a href="#queue队列">queue队列</a></li>
+<li><a href="#priority-queue优先级队列">priority_queue优先级队列</a></li>
+<li><a href="#stack栈">stack栈</a></li>
+<li><a href="#string类">string类</a></li>
+</ul></li>
+<li><a href="#函数类">函数类</a></li>
+</ul></li>
+<li><a href="#结构体的初始化">结构体的初始化</a></li>
+<li><a href="#解题技巧">解题技巧</a>
+<ul>
+<li><a href="#常用自定义函数">常用自定义函数</a></li>
+<li><a href="#操作技巧">操作技巧</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="pat总结">PAT总结</h1>
+
+<div class="alert info ">
+  <p>以下均使用C++语言</p>
+</div>
+
+<h2 id="刷题模板">刷题模板</h2>
+
+<p>　　为了解决PAT刷题过程中每次都要敲头文件，并且要对测试示例进行输入测试，特使用模板来提高效率。一方面，模板包含了基本所有能用到的头文件；另一方面，模板使用文件的方式引入输入的测试点数据，让输入测试更加便捷。<br />
+　　模板直接使用即可，在中间按插入解题所用代码，以及需要定义的变量；在cpp文件所在的同一文件夹下创建<code>1.txt</code>文件用于保存和读入测试数据。</p>
+
+<pre><code>#include&lt;iostream&gt;                  //输入输出流头文件
+#include&lt;stdio.h&gt;                   //标准输入输出
+#include&lt;stdlib.h&gt;
+#include&lt;math.h&gt;                    //数学函数
+#include&lt;string.h&gt;                  //C语言字符数组的字符串
+#include&lt;algorithm&gt;                 //C++标准模板库的函数
+#include&lt;map&gt;                       //map映射容器
+#include&lt;unordered_map&gt;             //无序的map映射容器
+#include&lt;vector&gt;                    //变长数组容器
+#include&lt;queue&gt;                     //队列
+#include&lt;stack&gt;                     //栈
+#include&lt;string&gt;                    //C++string类
+#include&lt;set&gt;                       //set集合
+using namespace std;                //标准命名空间
+
+                                    //可以加入全局变量或者其他函数
+
+int main(){                         //主函数
+#ifdef ONLINE_JUDGE                 //如果有oj系统（在线判定），则忽略文件读入，否则使用文件作为标准输入
+#else    
+    freopen(&quot;1.txt&quot;, &quot;r&quot;, stdin);   //从1.txt输入数据
+#endif 
+    
+    //加入自己的代码
+
+    return 0;                       //返回0，如果不返回0，PAT会报错
+}
+</code></pre>
+
+<h2 id="输入与输出">输入与输出</h2>
+
+<h3 id="格式化输入输出">格式化输入输出</h3>
+
+<p>　　基本输入输出包括printf、scanf等等：</p>
+
+<h4 id="printf和scanf">printf和scanf</h4>
+
+<h5 id="printf输出">printf输出</h5>
+
+<p>　　printf用于格式化的输出，包括类型转换说明符和，输出数值参数。printf()函数是有返回值的，其返回值为<code>printf(“fafkdsafkld&quot;)</code>的双引号中最终打显示出的字符个数，包括空格，换行符等，数字分成一个个的字符算入其中；如果有输出错误，入类型不匹配，则返回一个负值。</p>
+
+<pre><code>//printf的基本格式
+printf(&quot;%d&quot;,a);
+</code></pre>
+
+<ul>
+<li>类型转换说明<br /></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="center">转换说明</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">%a</td>
+<td align="left">浮点数，十六进制和p记数法 c99/c11</td>
+</tr>
+
+<tr>
+<td align="center">%A</td>
+<td align="left">浮点数，十六进制和p记数法 c99/c11</td>
+</tr>
+
+<tr>
+<td align="center">%c</td>
+<td align="left">单个字符</td>
+</tr>
+
+<tr>
+<td align="center">%d</td>
+<td align="left">有符号十进制数</td>
+</tr>
+
+<tr>
+<td align="center">%e</td>
+<td align="left">浮点数，e记数法</td>
+</tr>
+
+<tr>
+<td align="center">%E</td>
+<td align="left">浮点数，E记数法</td>
+</tr>
+
+<tr>
+<td align="center">%f</td>
+<td align="left">浮点数，十进制计数法</td>
+</tr>
+
+<tr>
+<td align="center">%g</td>
+<td align="left">根据值的不同，自动选择%f或者%e，%e格式用于指数小于-4或者大于或者等于精度时</td>
+</tr>
+
+<tr>
+<td align="center">%i</td>
+<td align="left">根据值的不同，自动选择%f或者%E，%E格式用于指数小于-4或者大于或者等于精度时</td>
+</tr>
+
+<tr>
+<td align="center">%o</td>
+<td align="left">有符号十进制数，和%d相同</td>
+</tr>
+
+<tr>
+<td align="center">%p</td>
+<td align="left">指针</td>
+</tr>
+
+<tr>
+<td align="center">%s</td>
+<td align="left">字符串</td>
+</tr>
+
+<tr>
+<td align="center">%u</td>
+<td align="left">无符号十进制整数</td>
+</tr>
+
+<tr>
+<td align="center">%x</td>
+<td align="left">无符号十六进制整数，使用格式0f</td>
+</tr>
+
+<tr>
+<td align="center">%X</td>
+<td align="left">无符号十六进制整数，使用格式0F</td>
+</tr>
+
+<tr>
+<td align="center">%%</td>
+<td align="left">打印一个百分号%</td>
+</tr>
+
+<tr>
+<td align="center">　　　　　　</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>常用转换说明的修饰符<br /></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="center">修饰符</th>
+<th>含义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">标记</td>
+<td>使用多种标记，来限制格式</td>
+</tr>
+
+<tr>
+<td align="center">数字</td>
+<td>表示输出的最小宽度<br>如果该修饰小于实际需要打印的字符长度，则自动使用更宽的字段</td>
+</tr>
+
+<tr>
+<td align="center">.数字</td>
+<td>精度<br>对于%e、%E、%f表示小数点右边的数字的位数<br>示例:&ldquo;%5.2f&rdquo;表示打印一个浮点数，整数部分宽度为5，小数部分宽度为2</td>
+</tr>
+
+<tr>
+<td align="center">h</td>
+<td>和整型转换说明一起使用，表示short int或者unsigned short int</td>
+</tr>
+
+<tr>
+<td align="center">hh</td>
+<td>和整型转换说明一起使用，表示short cahr或者unsigned short char</td>
+</tr>
+
+<tr>
+<td align="center">j</td>
+<td>和整型转换说明一起使用，表示intmax_t或者uintmax_t类型的值，这些类型定义在stdllib.h中</td>
+</tr>
+
+<tr>
+<td align="center">l<br>（一个小写的L）</td>
+<td>和整型转换说明一起使用，表示long int或者unsigned long int</td>
+</tr>
+
+<tr>
+<td align="center">ll<br>（两个小写的L）</td>
+<td>和整型转换说明一起使用，表示long long int或者unsigned long long int</td>
+</tr>
+
+<tr>
+<td align="center">L</td>
+<td>和浮点数转换说明一起使用，表示long double类型的值</td>
+</tr>
+
+<tr>
+<td align="center">t</td>
+<td>和整型转换说明一起使用，表示ptrdiff_t类型的值，ptrdiff_t类型是两个指针差值的类型</td>
+</tr>
+
+<tr>
+<td align="center">z</td>
+<td>和整型转换说明一起使用，表示size_t类型的值，即sizeof的返回类型</td>
+</tr>
+
+<tr>
+<td align="center">　　　　　　　　</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>printf的修饰标记<br /></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="center">标记</th>
+<th>含义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">-</td>
+<td>打印采用左对齐方式，即从字段的左侧开始打印</td>
+</tr>
+
+<tr>
+<td align="center">+</td>
+<td>显示符号，如果是正数，显示正号+ ；如果是负数，显示负号 -</td>
+</tr>
+
+<tr>
+<td align="center">空格</td>
+<td>如果是正数，显示一个空格；如果是负数，显示负号-</td>
+</tr>
+
+<tr>
+<td align="center">*</td>
+<td>字符宽度的通配符，使用变量指定字符宽度，示例: printf(&rdquo;%*d&rdquo;,w,num); 输出宽度为w的数字num</td>
+</tr>
+
+<tr>
+<td align="center">0</td>
+<td>对于指定宽度的字符，使用0填充以达到要求的宽度</td>
+</tr>
+
+<tr>
+<td align="center">　　　</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li><p>printf打印较长的字符串</p>
+
+<pre><code>//对于较长的字符串可以分开几段调用printf，也可以在printf的参数中分段，但是每一个分段必须用双引号”“ 包裹起来
+
+//方法一  直接打印
+printf(&quot;Here is one way to print a long string.\n&quot;);
+
+//方法二  分开打印
+printf(&quot;Here is one &quot;);
+printf(&quot;way to print &quot;);
+printf(&quot;print a long string.\n&quot;);
+
+//方法三  分段打印
+printf(&quot;Here is one &quot;
+    &quot;way to print &quot;
+    &quot;a long string.\n&quot;);    //分段用引号隔开，中间用空白字符分割
+</code></pre></li>
+</ul>
+
+<h5 id="scanf输出">scanf输出</h5>
+
+<p>　　scanf用于标准输入，包含转换说明和指定的输入对象等参数。scanf（）函数是有返回值的，其返回值为成功读入的项数，当遇到输入不匹配时，返回0，如果到了读取到了文件的末尾，则返回EOF（定义在stdlib.h中的特殊值，用于表示文件末尾），根据返回值可以进行输入匹配的检查。<br />
+　　scanf()的参数中，除了字符串（即c风格字符数组）以外都需要加上取地址符&amp;，示例如下：</p>
+
+<pre><code>//常规读取
+int num;
+scanf(&quot;%d&quot;,&amp;num);
+
+//c风格字符串
+char s[100];
+scanf(&quot;%s&quot;,s);
+
+%s的转换会自动在字符数组的末尾加上'\0' 作为字符串的结尾标记
+</code></pre>
+
+<ul>
+<li>类型转换说明<br /></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>转换说明</th>
+<th>含义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>%c</td>
+<td>把输入解释成字符</td>
+</tr>
+
+<tr>
+<td>%d</td>
+<td>把输入解释成有符号十进制整数</td>
+</tr>
+
+<tr>
+<td>%e、%f、%g、%a</td>
+<td>把输入解释成浮点数（C99增加了%a）</td>
+</tr>
+
+<tr>
+<td>%E、%F、%G、%A</td>
+<td>把输入解释成浮点数（C99增加了%A）</td>
+</tr>
+
+<tr>
+<td>%i</td>
+<td>把输入解释成有符号十进制整数</td>
+</tr>
+
+<tr>
+<td>%o</td>
+<td>把输入解释成有符号八进制整数</td>
+</tr>
+
+<tr>
+<td>%p</td>
+<td>把输入解释成指针（地址）</td>
+</tr>
+
+<tr>
+<td>%s</td>
+<td>把输入解释成字符串，从第一个非空白字符开始，到下一个非空白字符之前的所有字符都是输入</td>
+</tr>
+
+<tr>
+<td>%u</td>
+<td>把输入解释成无符号十进制整数</td>
+</tr>
+
+<tr>
+<td>%x%x</td>
+<td>把输入解释成有符号十六进制整数</td>
+</tr>
+
+<tr>
+<td>　　　　　　　　　　　</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>转换说明的修饰符</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="center">修饰符</th>
+<th>含义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">*</td>
+<td>抑制赋值 示例：scanf(&rdquo;%*d %d&rdquo;,&amp;b); 则跳过第一个输入，把第二个赋值给b</td>
+</tr>
+
+<tr>
+<td align="center">数字</td>
+<td>读入的最大字段宽度，到达指定宽度时停止，或者在第一次遇到空白字符时停止</td>
+</tr>
+
+<tr>
+<td align="center">hh</td>
+<td>把整数作为signed char 或者unsigned char类型读取</td>
+</tr>
+
+<tr>
+<td align="center">ll<br>（两个小写L）</td>
+<td>把整数作为long long或者unsigned long long类型读取</td>
+</tr>
+
+<tr>
+<td align="center">h、l或者L<br>（大写或者小写的L）</td>
+<td>%hd和%hi表示把值储存为short int型<br>%ho和%hx和%hu表示把值储存为unsigned short int型<br>%ld和%li表示储存为long 类型<br>%lo和%lx和%lu表示储存为unsigned long类型<br>%le和%lf和%lg便是把值存储为double类型，如果此三种改为大写的L修饰，则表示存储为long double类型<br>如果没有修饰符，d、i、o、x表示储存为int类型，f和g表示存储为float类型</td>
+</tr>
+
+<tr>
+<td align="center">j</td>
+<td>和整型转换说明一起使用，表示intmax\_t或者uintmax\_t类型的值，这些类型定义在stdllib\.h中</td>
+</tr>
+
+<tr>
+<td align="center">z</td>
+<td>和整型转换说明一起使用，表示size\_t类型的值，即sizeof的返回类型</td>
+</tr>
+
+<tr>
+<td align="center">t</td>
+<td>和整型转换说明一起使用，表示ptrdiff\_t类型的值，ptrdiff\_t类型是两个指针差值的类型</td>
+</tr>
+
+<tr>
+<td align="center">　　　　　　　　　　　</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li><p>scanf使用技巧之————判定文件结尾</p>
+
+<pre><code>//可以根据返回值判断是否正确读入，或者到了文件末尾，适用于事先不知道有多少输入的情况
+while(scanf(&quot;%d&quot;,&amp;num)==1){     //当成功读入一个整数时，继续循环
+
+}
+
+while(scanf(&quot;%d&quot;,num)!=EOF){    //当未读到文件末尾时，继续循环
+
+}
+
+</code></pre></li>
+</ul>
+
+<h4 id="字符独有的输入输出">字符独有的输入输出</h4>
+
+<p>　　字符也有专用的输入输出函数，常用的有单字符输入输出和字符串的输入输出，如下所示的gtchar()、putchar()、gets()、puts()等，其中gets不够安全，但是不影响常规的使用：</p>
+
+<ul>
+<li><p>单字符输入输出</p>
+
+<pre><code>char ch;                //定义单个字符
+
+getchar();              //读入单个字符，不赋值
+ch=getchar();           //读入单个字符，赋值给ch
+
+putchar(ch);            //输出单个字符
+
+//使用技巧之————过滤字符
+//为了过滤掉空字符，如空格或者换行，可以使用getchar()的输入特性，吸收字符
+while((ch=getchar())!='\n')     //一个空循环，一直读到回车处停止
+continue;
+</code></pre></li>
+
+<li><p>字符串的输入和输出</p>
+
+<pre><code>//整行字符串的输入
+char words[100];            //定义字符串
+gets(words)；               //读取整行输入，直至遇到换行符，然后丢掉换行符，储存其他字符，并在结尾加上'\0'的字符结尾标记
+
+//整行字符串的输出
+puts(words);                //于gets相对应的puts输出一整个字符串，可以是字符变量，也可所以是&quot;Here is a string.&quot;这样的字符串常量
+//示例
+puts(&quot;Here is a string.&quot;);  //puts会自动加上回车换行
+</code></pre></li>
+</ul>
+
+<h3 id="sprintf和sscanf">sprintf和sscanf</h3>
+
+<p>　　sprintf和sscanf前者可以把相应的字符打印到一个字符数组中，后者可以把一个字符数组按照相应的个数输入到变量中，使用示例如下：</p>
+
+<pre><code>char str[100];
+int nun;
+
+sprintf(str,&quot;%d&quot;,n);        //把n按照%d的格式打印到str中
+
+sscanf(str,&quot;%d&quot;,&amp;n);        //把str按照%d的格式输入到n中
+//使用示例
+str=&quot;2019/8/19&quot;;
+int year,mon,day;
+sscanf(str,&quot;%d/%d/%d&quot;,&amp;year,&amp;mon,&amp;day);
+
+//如果是string类变量，可以使用string类的转化为c风格字符串使用以上函数
+string s=&quot;2019/8/19&quot;;
+sscanf(s.c_str(),&quot;%d/%d/%d&quot;,&amp;year,&amp;mon,&amp;day);
+</code></pre>
+
+<h3 id="标准输入输出流">标准输入输出流</h3>
+
+<p>　　cin和cout是c++的标准输入输出流，可以自动识别输入输出的对象，但是控制输入输出格式比较麻烦，且速度不如printf和scanf：</p>
+
+<pre><code>//cin和cout的使用
+cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;                   //多值输入
+cout&lt;&lt;a&lt;&lt;b&lt;&lt;c&lt;&lt;'\n'&lt;&lt;' '&lt;&lt;d;    //混合输出，包括字符等各种类型
+
+//标准输入输出流的整行输入
+//输入整行字符串到string类中，可用一下方式
+stirng str;
+getline(cin,str);       //getline可以获得整行输入，通过调用cin输入流，把整行字符赋值给string类变量str
+                        //此用法可以吸收掉行末的换行符
+</code></pre>
+
+<h2 id="stl的使用">stl的使用</h2>
+
+<p>　　C++中提供了丰富的stl模板，对于常见的类型或者容器，有了专门的类对象可供使用，这里总结一下容器类和函数类的stl使用方法和格式。stl的使用需要包含相应的头文件，并使用标准命名空间<code>using namespace std</code>.</p>
+
+<h3 id="容器类">容器类</h3>
+
+<h4 id="vector变长数组">vector变长数组</h4>
+
+<p>　　vector容器可以认为是一个变长的数组，可以存放任何类型的元素，也可以嵌套使用构成多维数组，使用该类型的基本操作可以简化数据的存储和使用.</p>
+
+<pre><code>//vector数组的定义
+//1.常规类型的定义
+vector&lt;typename&gt; v;           //直接用类型名字定义
+//例如:
+vector&lt;int&gt; v;                //整型
+vector&lt;double&gt; v;             //浮点型
+vector&lt;Node&gt; v;               //结构体类型
+
+//2.指定大小的定义
+vector&lt;int&gt; v(n);             //定义存放n个int型的vector容器
+vector&lt;int&gt; v(n,15);          //基本类型可以定义时，直接初始化为n个统一的值
+
+//3.二维数组的定义的三种方法
+vector&lt;vector&lt;int&gt; &gt; v;       //v是包含了多个vect容器的vector容器，&gt; &gt;之间的空格不能省
+vector&lt;int&gt; v[100];           //定义100个存放int型数据的变长数组，其中v[0]~v[99]都各是一个变长数组
+                              //二维数组的第二种写法的以为长度已经固定为100，这是和第一种写法的区别
+vector&lt;vector&lt;int&gt; &gt;  v(m,vector&lt;int&gt; (n));
+                              //定义一个m*n的二维数组
+
+//vector数组的遍历
+//vector数组的遍历可以采用常规数组的遍历方法，直接使用下标，或者使用迭代器（类似于指针）的方法
+v[i]=0;
+v.begin()+i;
+
+//vector数组的常用函数操作，以int型数组为例
+vector&lt;int&gt; v;
+v.push_back(num);               //将num插入到v的尾部，对结构体数组而言，该函数可以插入结构体类型的变量
+v.pop_back();                   //删除vector尾部的元素
+v.size();                       //返回数组v的大小
+v.clear();                      //将v清空
+
+vector&lt;int&gt;:: iterator it=v.begin()+3;  //定义一个数组v的迭代器指向第三个位置
+v.insert(it,13);                //在迭代器it指向的位置插入元素13
+v.erase(it);                    //删除迭代器指向的元素
+v.erase(first,last);             //删除迭代器[first,last) 左闭右开的区间内的元素
+
+v1.assign(v2.begin(),v2.end()); //将v2数组赋值给v1，会清除v1以前的内容
+v.insert(v.end(),v1.begin(),v1.end());  //将v1插入到v的后边
+</code></pre>
+
+<h4 id="set集合">set集合</h4>
+
+<p>　　set集合内部是一个自动有序且不包含重复元素的容器，使用方法如下：</p>
+
+<pre><code>//set的定义
+set&lt;typename&gt; se;              //定义方法于vector类似
+set&lt;typename&gt; se[100];         //多维的set，从se[0]~se[99]都各是一个set容器
+
+//set的常用函数
+se.insert(x);                  //将x插入到set容器中给，自动递增排序并去重
+se.find(value);                //返回set杜勇value的迭代器
+
+set&lt;typename&gt;:: iterator it;   //定义一个set的迭代器变量it
+se.erase(it);                  //删除迭代器it指向的元素
+se.erase(value);               //删除value元素
+se.erase(first,last);          //删除迭代器[first,last)左闭右开区间内的元素
+se.size();                     //返回set容器内的元素个数
+se.clear();                    //清空set中所有的元素
+</code></pre>
+
+<h4 id="map映射容器">map映射容器</h4>
+
+<p>　　map容器是一种反应映射关系的容器，可以映射各种类型，包括基本数据类型、结构体和STL容器，且map内部自动按照关键字升序排列，unordered_map是一种内部无序的map容器。</p>
+
+<pre><code>//map映射的定义
+//map映射需要确定关键字key到值value的映射，因此需要确定两种类型
+map&lt;typename1,typename2&gt; mp;            //定义typename1类型到typename2类型的映射容器mp
+map&lt;int,string&gt; mp;
+                                        //映射可以针对任意类型，包括结构体和容器
+//map的访问和遍历
+//mp的访问可以直接通过关键字key访问，或者使用迭代器
+mp[342]=&quot;Hello&quot;;                        //赋值一对映射关系
+cout&lt;&lt;mp[342];                          //直接使用key值访问
+
+//正序遍历
+map&lt;int,string&gt;:: iterator it;          //正序遍历迭代器
+for(it=mp.begin(),it!=mp.end();it++){
+    cout&lt;&lt;it-&gt;first&lt;&lt;' '&lt;&lt;it-&gt;second;   //使用迭代器访问key和value的值，类似于指针的写法，it-&gt;first表示key值，it-&gt;second表示value的值
+}
+//逆序遍历
+map&lt;int,string&gt;:: reverse_iterator it;  //逆序遍历迭代器
+for(it=mp.rbegin(),it!=mp.rend();it++){
+    cout&lt;&lt;it-&gt;first&lt;&lt;' '&lt;&lt;it-&gt;second;   //使用逆序迭代器，起始迭代器变为mp.rbegin(),结束判定编程mp.rend();
+}
+
+//map的常用函数
+mp.find(key);                           //在mp中查找key，如果存在返回迭代器，如果不存在返回mp.end()
+mp.erase(it);                           //删除迭代器it指向的映射
+mp.erase(key);                          //删除key的映射关系和元素
+mp.size();                              //返回mp的大小，即映射对儿的个数
+mp.clear();                             //清空mp容器
+</code></pre>
+
+<div class="alert info ">
+  <p><p>C++11特性中有自动类型，因此，这些迭代器的定义可以直接使用auto类型</p>
+
+<pre><code>for(auto it=mp.begin(),it!=mp.end();it++){
+    cout&lt;&lt;it-&gt;first&lt;&lt;' '&lt;&lt;it-&gt;second;
+}
+</code></pre>
+</p>
+</div>
+
+<h4 id="queue队列">queue队列</h4>
+
+<p>　　队列是一种先进先出的容器，其定义和使用与其他容器相似：</p>
+
+<pre><code>//队列的定义
+queue&lt;typename&gt; q;                      //定义typename类型的队列
+
+//queue的常用函数
+q.push(x);                              //把x入队
+q.pop();                                //不需要参数，把队头元素出队
+q.front();                              //读取队头元素
+q.back();                               //读取队尾元素
+q.empty();                              //判断队列是否为空，若空，返回true，否则返回false
+q.size();                               //队列的大小
+</code></pre>
+
+<h4 id="priority-queue优先级队列">priority_queue优先级队列</h4>
+
+<p>　　优先级队列底层是使用堆实现的，优先级队列中，队首元素一定是当前队列中优先级最高最高的一个，其定义和使用如下；</p>
+
+<pre><code>//priority_queue的定义
+priority_queue&lt;typename&gt; pq;            //定义一个优先级队列，元素类型可以是结构体
+
+//priority_queue的常用函数
+pq.push(x);                             //将元素x入队，并自动实现优先级排序
+pq.top();                               //读取队首元素
+pq.pop();                               //队首元素出队
+pq.empty();                             //判断是否队空
+pq.size();                              //队列的大小
+
+//为基本数据类型设定优先级，如int char double类型等
+priority_queue&lt;int,vector&lt;int&gt;,less&lt;int&gt; &gt; pq;      //int型队列，底层使用vector实现排序
+//less&lt;int&gt;表示数字越大，优先级越大;如果使用greater&lt;int&gt; 表示数字越小，优先级越大
+                                                    
+</code></pre>
+
+<h4 id="stack栈">stack栈</h4>
+
+<p>　　栈是一种后进先出的数据结构，这里的stack便是这样一种容器，其定义与基本使用方法如下：</p>
+
+<pre><code>//stack的定义
+stack&lt;typename&gt; st;                     //栈的定义
+
+//stack的常用函数
+st.push(x);                             //把x入栈
+st.pop();                               //栈顶元素出栈
+st.top();                               //读取栈顶元素
+st.size();                              //栈的大小
+st.empty();                             //栈判空
+</code></pre>
+
+<div class="alert warning ">
+  <p>栈以及队列的pop、top、front等操作要预先验证栈或者队列是否为空，否则会出错</p>
+</div>
+
+<h4 id="string类">string类</h4>
+
+<p>　　string类是C++中的一种特殊的字符串类型，对字符串进行了封装，将很多常用的操作放在类中，方便了字符串的操作和使用。</p>
+
+<pre><code>//string类型的定义与基本数据类型的定义相同
+string str;                             //定义字符串类型变量
+
+//string类的初始化为空的方法
+//方法一 直接定义为空字符串
+string　str=&quot;&quot;;                         //直接定义为空字符串
+//方法二 定义为任意的字面量，然后使用clear函数清空
+string str=&quot;hello&quot;;  str.clear();       //定义后清空
+
+//string类的输入输出和访问，只能使用cin和cout，或者转为c风格字符串输出
+cin&gt;&gt;str;                               //输入和输出
+cout&lt;&lt;str;
+getline(cin,str);                       //整行输入
+str[0]='A'；                            //使用下边直接访问，并赋值为一个字符，也可以使用迭代器访问
+
+//string类的常用操作
+
+//重载的 + 操作，使用+ 可以将string类进行拼接,并用等号= 进行赋值
+string str1,str2,str3;
+str1=str2+str3;
+//重载的比较操作 ==  != &lt; &lt;= &gt; &gt;=等比较操作都按照字典序进行比较
+if(str1==str2){     }                   //可直接比较
+if(str1!=str2){     }
+if(str1&gt;str2){     }
+if(str1&lt;str2){     }
+
+str.size();     str.length();           //返回str字符串的长度
+
+str.insert(pos,str2);                   //在str的下标pos处插入str2字符串
+str.insert(it,it1,it2);                 //在str迭代器为it处插入某个字符串[it1,it2)区间内的字符串
+
+str.push_back('A');                     //在str字符串的尾部插入一个字符
+
+str.erase(it);                          //删除迭代器it指向位置的字符
+str.erase(first,last);                  //删除迭代器[first,last)左闭右开区间内的所有字符
+str.erase(pos,length);                  //删除从下标pos开始（包含pos位置）往后的长度为length的字符
+
+str.clear();                            //清空字符串
+str=str1.substr(pos,len);               //把str1中从下标pos位置开始（包含pos位置）往后长度为len的字串赋值给str
+
+string::npos                            //一个常数，组为find函数失配时的返回值，一般等于-1或者4294967295（unsigned int的最大值）
+str.find(str1);                         //查找str2在str中第一次出现的位置，如果匹配不到返回string::npos
+str.find(str1,pos);                     //查找str2在str中从pos位置开始第一次出现的位置，如果不匹配，返回string::npos
+
+reverse(str.begin(),str.end());         //reverse函数将str进行逆转操作
+</code></pre>
+
+<h3 id="函数类">函数类</h3>
+
+<h2 id="结构体的初始化">结构体的初始化</h2>
+
+<h2 id="解题技巧">解题技巧</h2>
+
+<h3 id="常用自定义函数">常用自定义函数</h3>
+
+<h3 id="操作技巧">操作技巧</h3>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/pat/">PAT</a>
+
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93/">刷题总结</a>
+
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/stl/">stl</a>
+
+                  </div>
+                
+              
+            
+              <span id="/2019/08/pat%E6%80%BB%E7%BB%93/" class="leancloud_visitors" data-flag-title="PAT总结">
+                <span class="post-meta-item-text">文章阅读量 </span>
+                <span class="leancloud-visitors-count">1000000</span>
+                <p></p>
+              </span>
+              <div id="vcomments"></div>
+              <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+              <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+              <script type="text/javascript">
+                new Valine({
+                  el: '#vcomments' ,
+                  appId: 'KlN0M7Tjl5V4eppXsbRRGddm-MdYXbMMI',
+                  appKey: 'ln30tBHGmV0B5ljj24hjugN0',
+                  notify: 'true',
+                  verify: '',
+                  avatar:'mp', 
+                  placeholder: '偷偷告诉你~ 填写了邮箱会收到评论回复通知哦~~',
+                  visitor: 'true'
+                });
+              </script>
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/08/%E5%9B%BE%E7%9A%84%E6%80%BB%E7%BB%93/" data-tooltip="图的总结">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2019 SAquarius. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/08/%E5%9B%BE%E7%9A%84%E6%80%BB%E7%BB%93/" data-tooltip="图的总结">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://saquarius.github.io/images/touxiang.png" alt="作者的图片" />
+    
+    <h4 id="about-card-name">SAquarius</h4>
+    
+      <div id="about-card-bio">All in or nothing, now or never!</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        学生
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        武汉
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://saquarius.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://saquarius.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+  
+    <script src="https://saquarius.github.io/js/clicklove.js"></script>
+  
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/08\/pat%E6%80%BB%E7%BB%93\/';
+          
+            this.page.identifier = '\/2019\/08\/pat%E6%80%BB%E7%BB%93\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'valine';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
