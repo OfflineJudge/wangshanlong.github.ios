@@ -321,6 +321,7 @@
 <li><a href="#复杂结构体只排下标-见排序中代码实现">复杂结构体只排下标（见排序中代码实现）</a></li>
 <li><a href="#跨天时间计算">跨天时间计算</a></li>
 <li><a href="#排队服务的模拟">排队服务的模拟</a></li>
+<li><a href="#中文读数">中文读数</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -1346,6 +1347,72 @@ double paycount(string s)
 <h4 id="排队服务的模拟">排队服务的模拟</h4>
 
 <p>　　首先把所有的时间都映射为整形，使用数组记录所有服务队列的结束时间（初始化为服务开始的时间，比如银行窗口开放的时间），然后在时间计数的循环体内，遍历所有的服务队列，如果时间刚好到达该服务队列的结束时间，则从顾客等待队列中取出一位正在等待的顾客放入该服务队列进行服务，此时根据顾客的时间花费，更新该服务队列的结束时间，循环直至所有顾客被服务完或者时间结束。</p>
+
+<h4 id="中文读数">中文读数</h4>
+
+<p>　　对于不超过九位的数字，按照中文读法读出，从低到高对每一位进行读取，（除了个位都需要加入单位），然后非0数字需要读；如果是0进行判定是否读零，对于万位的单位不论如何都要读“万”，对于需要读零的情况进行判定即可：</p>
+
+<pre><code>#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;math.h&gt;
+#include&lt;string.h&gt;
+#include&lt;algorithm&gt; 
+#include&lt;map&gt;
+#include&lt;unordered_map&gt;
+#include&lt;vector&gt;
+#include&lt;queue&gt; 
+#include&lt;stack&gt;
+#include&lt;string&gt;
+using namespace std;
+
+
+int main(){    
+#ifdef ONLINE_JUDGE    
+#else    
+    freopen(&quot;1.txt&quot;, &quot;r&quot;, stdin);    
+#endif 
+    //数字位读法
+    string shu[10]={&quot;ling&quot;,&quot;yi&quot;,&quot;er&quot;,&quot;san&quot;,&quot;si&quot;,&quot;wu&quot;,&quot;liu&quot;,&quot;qi&quot;,&quot;ba&quot;,&quot;jiu&quot;};
+    //位数的读法
+    string wei[10]={&quot;0&quot;,&quot;0&quot;,&quot;Shi&quot;,&quot;Bai&quot;,&quot;Qian&quot;,&quot;Wan&quot;,&quot;Shi&quot;,&quot;Bai&quot;,&quot;Qian&quot;,&quot;Yi&quot;};
+    int n;                  //读入要处理的数 
+    int tag=0;              //正负数标记，1表示负数，0表示正数 
+    cin&gt;&gt;n;
+    vector&lt;string&gt; v;       //用于存放最终结果，最后倒序输出 
+    int now,numcnt=0,pre;   //now记录当前位的数字，pre记录前一位的数字，numcnt记录当前数字的位数 
+    if(n==0) {              //特判0 
+        puts(&quot;ling&quot;); return 0;
+    }
+    if(n&lt;0){
+        tag=1;n=-n;         //修改正负号标记，改为正数统一处理 
+    }
+    while(n){
+        now=n%10;
+        n/=10;
+        numcnt++;
+        if(now){            //如果当前为不是0 
+            if(numcnt&gt;1)    //如果当前为不是个位，则需要单位 
+                v.push_back(wei[numcnt]);       //如果需要单位，放入对应的单位
+            v.push_back(shu[now]);              //存入数字的读法       
+        }
+        else{               //如果是0，考虑读不读0 
+            if(numcnt==5)   //如果是万位，则加入万的单位 
+                v.push_back(wei[numcnt]);
+            else if(pre!=0&amp;&amp;numcnt!=9&amp;&amp;numcnt!=1)       //如果前一位不是0，且不是亿位，万位和个位的时候读0 
+                v.push_back(shu[now]);
+        } 
+        pre=now;            //更新pre 
+    }
+    if(tag==1) v.push_back(&quot;Fu&quot;);
+    for(int i=v.size()-1;i&gt;=0;i--){
+        if(i!=v.size()-1) putchar(' ');
+        cout&lt;&lt;v[i];
+    }
+    
+    return 0;    
+}
+</code></pre>
               
             </div>
           </div>
