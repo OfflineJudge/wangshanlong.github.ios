@@ -1197,7 +1197,7 @@ typedef struct st{                      //学生结构体
 string id;                          //学生id
 int score[10];                      //记录10门课程成绩的数组，-1表示缺考
 bool pass;                          //是否合格的标记
-st():{
+st(){
     pass=true;                      //默认合格，不合格时修改标记
     fill(score,score+n;-1);         //初始化为-1，表示缺考
 }
