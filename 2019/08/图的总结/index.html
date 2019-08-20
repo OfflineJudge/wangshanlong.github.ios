@@ -664,7 +664,7 @@ void Dijkstra(int s){                   //参数为单源起点s
         for(int j=0;j&lt;n;j++){
             if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
                 u=j;
-                MIN=dis[u];
+                MIN=dis[j];
             }
         }
         if(u==-1) return;               //如果找不到这样的u，说明不连通或者已经遍历结束，则返回
@@ -698,7 +698,7 @@ void Dijkstra(int s){                   //参数为单源起点s
         for(int j=0;j&lt;n;j++){
             if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
                 u=j;
-                MIN=dis[u];
+                MIN=dis[j];
             }
         }
         if(u==-1) return;               //如果找不到这样的u，说明不连通或者已经遍历结束，则返回
@@ -747,7 +747,7 @@ void Dijkstra(int s){                   //参数为单源起点s
         for(int j=0;j&lt;n;j++){
             if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
                 u=j;
-                MIN=dis[u];
+                MIN=dis[j];
             }
         }
         if(u==-1) return;               //如果找不到这样的u，说明不连通或者已经遍历结束，则返回
@@ -864,7 +864,7 @@ void Dijkstra(int s){                   //参数为单源起点s
         for(int j=0;j&lt;n;j++){
             if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
                 u=j;
-                MIN=dis[u];
+                MIN=dis[j];
             }
         }
         if(u==-1) return;               //如果找不到这样的u，说明不连通或者已经遍历结束，则返回
