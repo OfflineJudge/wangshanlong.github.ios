@@ -450,7 +450,7 @@ void search(Node * root, int x, int newdata ){
 void insert(Node* &amp;root,  int x){
     if(root == NULL){                   //如果树空，直接创建一个结点插入  
         root=newnode(x);                //调用新建结点函数
-        return root；
+        return；
     }
     if( 由二叉树自身的性质决定判定，x插入在左子树){
         insert(root-&gt;lchid, x);
