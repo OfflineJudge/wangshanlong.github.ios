@@ -891,6 +891,9 @@ v.push_back(num);               //将num插入到v的尾部，对结构体数组
 v.pop_back();                   //删除vector尾部的元素
 v.size();                       //返回数组v的大小
 v.clear();                      //将v清空
+v.back();                       //取容器尾部的元素
+v.resize(n);                    //把容器大小需修改为n
+v.reserve(n);                   //把容器的存储能力修改到n，但是size不变
 
 vector&lt;int&gt;:: iterator it=v.begin()+3;  //定义一个数组v的迭代器指向第三个位置
 v.insert(it,13);                //在迭代器it指向的位置插入元素13
