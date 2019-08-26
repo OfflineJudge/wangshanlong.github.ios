@@ -933,7 +933,7 @@ int getbf(Node *root){
 
 //当插入时，更新某个结点的高度
 void updatehigh(Node *root){
-    root-&gt;high=max(gethigh(root-lichild),gethigh(root-&gt;rchild))+1;  //根结点的高度等于左右子树中的较大值加 1
+    root-&gt;high=max(gethigh(root-&gt;lichild),gethigh(root-&gt;rchild))+1;  //根结点的高度等于左右子树中的较大值加 1
 }
 </code></pre>
 
@@ -1019,7 +1019,7 @@ void R(Node * &amp;root)
          if(getbf(root)==-2){
             if(getbf(root-&gt;rchild)==-1)         //RR型 
                 L(root);
-            else if(getbf(root-&gt;child)==1){     //RL型 
+            else if(getbf(root-&gt;rchild)==1){        //RL型 
                 R(root-&gt;rchild);
                 L(root);
             }
@@ -1054,13 +1054,13 @@ void R(Node * &amp;root)
 
 <tr>
 <td>RR</td>
-<td>BF(root)=-2,BF(root-&gt;lchild)=-1</td>
+<td>BF(root)=-2,BF(root-&gt;rchild)=-1</td>
 <td>对root进行左旋</td>
 </tr>
 
 <tr>
 <td>RL</td>
-<td>BF(root)=-2,BF(root-&gt;lchild)= 1</td>
+<td>BF(root)=-2,BF(root-&gt;rchild)= 1</td>
 <td>先对root-&gt;rchild进行右旋，再对root进行左旋</td>
 </tr>
 </tbody>
