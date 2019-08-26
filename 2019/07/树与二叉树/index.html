@@ -404,7 +404,7 @@ void layerorde (int root){
 <pre><code>typedef struct node{
     int data;
     int layer;              //如果需要在层次遍历中用到结点，可以添加一个记录层次的成员变量
-    struct node* lchild,rchild;    //左右孩子的指针域
+    struct node *lchild,*rchild;    //左右孩子的指针域
 }Node,*Tree;
 </code></pre>
 
@@ -903,7 +903,7 @@ void deleteNode(Node * &amp;root,int x)
 <pre><code>//结点定义
 typedef struct node{
     int data,high;                  //结点的数据和高度
-    struct node * lchild,rchild;
+    struct node *lchild,*rchild;
 }Node,*Tree;
 
 //新建结点的函数
