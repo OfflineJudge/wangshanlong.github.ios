@@ -811,7 +811,7 @@ Node* creat(int pl, int pr, int il, int ir){
     Node* root=new node;                    //创建一个新结点用于存放二叉树的根
     root-&gt;data=pre[pl];
     int k;
-    for(int k=il; k&lt;ir ; k++){              //在中序序列中寻找根节点的位置k，k左侧是左子树，k右侧是右子树
+    for(int k=il; k&lt;=ir ; k++){              //在中序序列中寻找根节点的位置k，k左侧是左子树，k右侧是右子树
         if(in[k] == pre[k]) break;
     }                                       //可以采用unordered_map建立中序序列和下标的映射，方便快速查询k的位置
     int numleft=k-il;                       //左子树的结点数量
