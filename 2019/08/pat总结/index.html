@@ -1106,6 +1106,9 @@ sort_heap(v1.begin(), v1.end());    //sort_heap于make_heap要使用同样的排
 //声明如下，参数为迭代器
 bool is_heap( RandomIt first, RandomIt last );
 bool is_heap( RandomIt first, RandomIt last, Compare comp );
+//带有比较函数的堆判定写法,以int型的vector数组v为例
+is(v.begin(),v.end(),less&lt;int&gt;());      //判断v是不是大根堆
+is(v.begin(),v.end(),greater&lt;int&gt;());   //判断v是不是小根堆
 
 </code></pre>
 
