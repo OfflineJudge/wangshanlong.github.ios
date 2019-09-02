@@ -1068,7 +1068,7 @@ int kruskal(int n,vector&lt;Edg&gt; &amp;egdv ){      //n表示顶点个数,v传
                 father[fed]+=father[fst];
                 father[fst]=fed;
             }
-            and+=edgv[i].v;             //将该边权值计入最小生成树
+            ans+=edgv[i].v;             //将该边权值计入最小生成树
             edgnum++；                   //最小生成树的边数加一
             if(edgnum==n-1) break;      //当选够n-1条边时结束算法
         }
