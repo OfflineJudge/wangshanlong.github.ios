@@ -1109,7 +1109,9 @@ bool is_heap( RandomIt first, RandomIt last, Compare comp );
 //带有比较函数的堆判定写法,以int型的vector数组v为例
 is_heap(v.begin(),v.end(),less&lt;int&gt;());     //判断v是不是大根堆
 is_heap(v.begin(),v.end(),greater&lt;int&gt;());  //判断v是不是小根堆
-
+//is_heap_until第一个不满足堆的位置的迭代器（C++11）
+is_heap_until(v.begin(),v.end());       //判断容器中第一个不满足的位置，可用默认比较函数，或者自定义比较函数
+is_heap_until(v.begin(),v.end(),cmp);
 </code></pre>
 
 <h3 id="函数类">函数类</h3>
@@ -1120,6 +1122,8 @@ is_heap(v.begin(),v.end(),greater&lt;int&gt;());  //判断v是不是小根堆
 
 <pre><code>max(a,b);                       //返回a和b中的最大值，参数可以是浮点数
 min(a,b);                       //返回a和b中的最小值，参数可以是浮点数
+tolower(char ch);               //将字符型变量ch的大写转换为小写，其他不变
+toupper(char ch);               //将字符型变量ch的小写转换为大写，其他不变
 abs(x);                         //返回x的绝对值，参数x必须是整数
 swap(a,b);                      //交换a，b的值，不会损失精度
 reverse(it1,it2);               //对迭代器[it1,it2)范围内的所有元素进行反转
@@ -1208,6 +1212,16 @@ typedef struct st{                      //学生结构体
         fill(score,score+n;-1);         //初始化为-1，表示缺考
     }
 }                                       //默认构造函数，定义时便完成初始化
+
+//结构体比较，对 &lt; 的重载
+struct node{
+int x,y;
+friend bool operator &lt; (node a,node b){     //重载小于号，用于构建优先级关系，或者在set或者堆中的大小关系
+    if(a.x!=b.x)    return a.x&lt;b.x;
+    else            return a.y&lt;b.y;
+}
+}
+typedef strcut node Node;
 </code></pre></li>
 </ul>
 
