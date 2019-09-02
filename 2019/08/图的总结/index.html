@@ -770,7 +770,7 @@ void Print_Path(int s,int v){           //s为起始顶点，v为最短路径的
         pathout.push(v);
         v=path[v];
     }
-    for(int i=pathout.size();i&gt;=0;i--){ //栈中路径倒序输出
+    for(int i=pathout.size()-1;i&gt;=0;i--){   //栈中路径倒序输出
         cout&lt;&lt;pathout[i]&lt;&lt;' ';
     }
 }
