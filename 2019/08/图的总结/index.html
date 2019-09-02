@@ -827,7 +827,7 @@ for(int v=0;v&lt;n;v++){
 }
 </code></pre>
 
-<p>　　<strong>③求最酸路径的条数</strong>：统计路径条数，只需要另外增加一个记录路径条数的数组<code>num[]</code>即可，用num[u]表示从起始顶点s到顶点u之间的路径条数，其中num[s]初始化为1，其他初始化为0，然后在更新路径时，如果以u为中介点可以使s到v距离更优，那么<code>num[v]</code>继承<code>num[u]</code>即可，但是如果遇到通过u为中介点使s到u的距离相同，这时把<code>num[u]</code>加到<code>num[v]</code>上。代码如下：</p>
+<p>　　<strong>③求最短路径的条数</strong>：统计路径条数，只需要另外增加一个记录路径条数的数组<code>num[]</code>即可，用num[u]表示从起始顶点s到顶点u之间的路径条数，其中num[s]初始化为1，其他初始化为0，然后在更新路径时，如果以u为中介点可以使s到v距离更优，那么<code>num[v]</code>继承<code>num[u]</code>即可，但是如果遇到通过u为中介点使s到u的距离相同，这时把<code>num[u]</code>加到<code>num[v]</code>上。代码如下：</p>
 
 <pre><code>int num[MAXV];                          //路径条数数组，初始化起点的num[s]=1,其他初始化为0
 //优化代码
