@@ -6,10 +6,19 @@
     <description>Recent content on SAquarius的梦想屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 19 Aug 2019 10:21:39 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 04 Sep 2019 16:55:58 +0800</lastBuildDate>
     
 	<atom:link href="https://saquarius.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>KMP算法浅析</title>
+      <link>https://saquarius.github.io/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/</link>
+      <pubDate>Wed, 04 Sep 2019 16:55:58 +0800</pubDate>
+      
+      <guid>https://saquarius.github.io/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/</guid>
+      <description>&lt;p&gt;　　字符串的匹配值得是，在一个指定的字符串文本(长度为n)中找到某个字符串（模式串，长度为m）的出现的位置，简单匹配的方式，时间复杂度O(n*m)，在此基础上有改进的匹配算法KMP。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>PAT总结</title>
