@@ -7,42 +7,40 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
-<meta name="keywords" content="KMP, 字符匹配, C, C&#43;&#43;, PAT">
-<meta name="description" content="　　字符串的匹配值得是，在一个指定的字符串文本(长度为n)中找到某个字符串（模式串，长度为m）的出现的位置，简单匹配的方式，时间复杂度O(n*m)，在此基础上有改进的匹配算法KMP。">
+<meta name="keywords" content="算法, 动态规划, 字符串, C, C&#43;&#43;, PAT">
+<meta name="description" content="　　动态规划，是用于解决一类最优化问题的算法思想。简单来说，讲一个复杂的问题分解成若干个子问题，通过子问题的最优解推出原问题的最优解，动态规划会记录子问题的结果，用于求解最终问题，解决了纯粹使用递归时候重复计算的问题。这里总结集中常见的动态规划算法。">
 
 
-<meta property="og:description" content="　　字符串的匹配值得是，在一个指定的字符串文本(长度为n)中找到某个字符串（模式串，长度为m）的出现的位置，简单匹配的方式，时间复杂度O(n*m)，在此基础上有改进的匹配算法KMP。">
+<meta property="og:description" content="　　动态规划，是用于解决一类最优化问题的算法思想。简单来说，讲一个复杂的问题分解成若干个子问题，通过子问题的最优解推出原问题的最优解，动态规划会记录子问题的结果，用于求解最终问题，解决了纯粹使用递归时候重复计算的问题。这里总结集中常见的动态规划算法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="KMP算法浅析">
-<meta name="twitter:title" content="KMP算法浅析">
-<meta property="og:url" content="https://saquarius.github.io/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/">
-<meta property="twitter:url" content="https://saquarius.github.io/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/">
+<meta property="og:title" content="动态规划">
+<meta name="twitter:title" content="动态规划">
+<meta property="og:url" content="https://saquarius.github.io/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
 <meta property="og:site_name" content="SAquarius的梦想屋">
-<meta property="og:description" content="　　字符串的匹配值得是，在一个指定的字符串文本(长度为n)中找到某个字符串（模式串，长度为m）的出现的位置，简单匹配的方式，时间复杂度O(n*m)，在此基础上有改进的匹配算法KMP。">
-<meta name="twitter:description" content="　　字符串的匹配值得是，在一个指定的字符串文本(长度为n)中找到某个字符串（模式串，长度为m）的出现的位置，简单匹配的方式，时间复杂度O(n*m)，在此基础上有改进的匹配算法KMP。">
+<meta property="og:description" content="　　动态规划，是用于解决一类最优化问题的算法思想。简单来说，讲一个复杂的问题分解成若干个子问题，通过子问题的最优解推出原问题的最优解，动态规划会记录子问题的结果，用于求解最终问题，解决了纯粹使用递归时候重复计算的问题。这里总结集中常见的动态规划算法。">
+<meta name="twitter:description" content="　　动态规划，是用于解决一类最优化问题的算法思想。简单来说，讲一个复杂的问题分解成若干个子问题，通过子问题的最优解推出原问题的最优解，动态规划会记录子问题的结果，用于求解最终问题，解决了纯粹使用递归时候重复计算的问题。这里总结集中常见的动态规划算法。">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2019-09-04T16:55:58">
+    <meta property="article:published_time" content="2019-09-07T09:11:47">
   
   
-    <meta property="article:modified_time" content="2019-09-04T16:55:58">
+    <meta property="article:modified_time" content="2019-09-07T09:11:47">
   
   
   
     
       <meta property="article:section" content="算法">
     
-      <meta property="article:section" content="字符串">
+      <meta property="article:section" content="动态规划">
     
   
   
-    
-      <meta property="article:tag" content="KMP">
-    
-      <meta property="article:tag" content="字符匹配">
     
       <meta property="article:tag" content="算法">
+    
+      <meta property="article:tag" content="动态规划">
     
   
 
@@ -55,12 +53,12 @@
 
 
 
-  <meta property="og:image" content="https://saquarius.github.io/images/KMP_s.png">
-  <meta property="twitter:image" content="https://saquarius.github.io/images/KMP_s.png">
+  <meta property="og:image" content="https://saquarius.github.io/images/DP_s.jpg">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/DP_s.jpg">
 
 
-  <meta property="og:image" content="https://saquarius.github.io/images/KMP.jpg">
-  <meta property="twitter:image" content="https://saquarius.github.io/images/KMP.jpg">
+  <meta property="og:image" content="https://saquarius.github.io/images/DP.jpg">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/DP.jpg">
 
 
 
@@ -69,14 +67,14 @@
   <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
 
 
-    <title>KMP算法浅析</title>
+    <title>动态规划</title>
 
     <link rel="icon" href="https://saquarius.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://saquarius.github.io/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/">
+    <link rel="canonical" href="https://saquarius.github.io/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -219,7 +217,7 @@
   <div class="post-header-cover
               text-center
               post-header-cover--full"
-       style="background-image:url('/images/KMP.jpg')"
+       style="background-image:url('/images/DP.jpg')"
        data-behavior="5">
     
   </div>
@@ -231,21 +229,21 @@
                hasCoverCaption">
         <article class="post" itemscope itemType="http://schema.org/BlogPosting">
           
-            <span class="post-header-cover-caption caption">KMP算法</span>
+            <span class="post-header-cover-caption caption">DP，动态规划</span>
           
           
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      KMP算法浅析
+      动态规划
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-09-04T16:55:58&#43;08:00">
+      <time itemprop="datePublished" datetime="2019-09-07T09:11:47&#43;08:00">
         
-  九月 4, 2019
+  九月 7, 2019
 
       </time>
     
@@ -256,7 +254,7 @@
     
       <a class="category-link" href="https://saquarius.github.io/categories/%e7%ae%97%e6%b3%95">算法</a>, 
     
-      <a class="category-link" href="https://saquarius.github.io/categories/%e5%ad%97%e7%ac%a6%e4%b8%b2">字符串</a>
+      <a class="category-link" href="https://saquarius.github.io/categories/%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92">动态规划</a>
     
   
 
@@ -266,102 +264,184 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>　　字符串的匹配值得是，在一个指定的字符串文本(长度为n)中找到某个字符串（模式串，长度为m）的出现的位置，简单匹配的方式，时间复杂度O(n*m)，在此基础上有改进的匹配算法KMP。</p>
+              <p>　　动态规划，是用于解决一类最优化问题的算法思想。简单来说，讲一个复杂的问题分解成若干个子问题，通过子问题的最优解推出原问题的最优解，动态规划会记录子问题的结果，用于求解最终问题，解决了纯粹使用递归时候重复计算的问题。这里总结集中常见的动态规划算法。</p>
 
-<h1 id="table-of-contents">目录</h1>
+<h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#动态规划">动态规划</a>
+<ul>
+<li><a href="#最大连续子列和">最大连续子列和</a></li>
+<li><a href="#最长不下降子序列-lis">最长不下降子序列（LIS）</a></li>
+<li><a href="#最长公共子序列-lcs">最长公共子序列（LCS）</a></li>
+<li><a href="#最长回文子串">最长回文子串</a></li>
+</ul></li>
+</ul>
+</nav>
 
-<p>　　KMP算法是有Knuth、Morris、Ptatt三人合作的结果，并使用三人名字的首字母作为该算法的命名，该算法在匹配之前对模式串进行了分析，找出模式串的规律，由此大大提高了每次匹配失败后后移算法的性能，讲模式串匹配的时间复杂度提升到了O(n+m)级别。<br />
-　　对于模式串的分析，需要求出模式串的next数组，next[i]表示了，如果当前位匹配不成功时，模式串的指针需要跳转到的位置，其计算方法和表示含义如下所示：
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/nextnew.png" alt="next数组的含义" />
-　　由以上规则，可以很容易写出一个pattern字符串的next数组，如下示例所示：</p>
+<h1 id="动态规划">动态规划</h1>
 
-<table>
-<thead>
-<tr>
-<th align="center">pattern</th>
-<th align="center">a</th>
-<th align="center">b</th>
-<th align="center">c</th>
-<th align="center">a</th>
-<th align="center">b</th>
-<th align="center">c</th>
-<th align="center">a</th>
-<th align="center">c</th>
-<th align="center">a</th>
-<th align="center">b</th>
-</tr>
-</thead>
+<h2 id="最大连续子列和">最大连续子列和</h2>
 
-<tbody>
-<tr>
-<td align="center">j</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">2</td>
-<td align="center">3</td>
-<td align="center">4</td>
-<td align="center">5</td>
-<td align="center">6</td>
-<td align="center">7</td>
-<td align="center">8</td>
-<td align="center">9</td>
-</tr>
+<p><div class="alert info no-icon ">
+  <p>在一组练习的数字序列中 A~1~ ~ A~n~中求得一个从A~i~ ~ A~j~的序列，使得该序列的和最大，求此最大和的问题成为最大连续子列和。</p>
+</div>
+　　使用一个dp数组记录子问题的结果，其中<strong>dp[i]表示以A[i]作为结尾的连续子的最大和（A[i]必须是这个序列的结尾）</strong>，则dp[i]的获得有以下两种方法：<br />
+　　一、该序列只有A[i]开始，A[i]结束，所以其dp[i]值为A[i];<br />
+　　二、该序列从A[p]其中(p&lt;i) 开始一直到A[i]结束，测试dp[i]的值等于dp[i-1]+A[i];<br />
+　　由此变得出动态规划的递推关系，即状态转移方程：</p>
 
-<tr>
-<td align="center">next</td>
-<td align="center">-1</td>
-<td align="center">-1</td>
-<td align="center">-1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">2</td>
-<td align="center">3</td>
-<td align="center">-1</td>
-<td align="center">0</td>
-<td align="center">-1</td>
-</tr>
-</tbody>
-</table>
+<pre><code>dp[i]=max(A[i],dp[i-1]+A[i]);
+</code></pre>
 
-<p>　　next数组的求解，可以使用定义的方法进行手动求解。但是算法的实现，则需要通过前一个位置的next数组的值推算出来，这种方法的证明不在此处给出，近给出算法的代码实现：</p>
+<p>　　在更新dp[i]的时候更新最大值，或者到dp数组求解完成后遍历一遍dp数组得到最大值，便是最大连续子列和，其代码实现如下:</p>
 
-<pre><code>vector&lt;int&gt; _next;                              //假定next定义为全局变量，并且此处认为已经获取pattern串的长度为n
-void getnext(){                         
-    _next.clear();
-    _next.resize(n);
-    _netx[0]=-1;
-    for(int j=1;j&lt;n;j++){
-        int i=_next[j-1];                        //看前一位的next位置
-        while(i=&gt;0&amp;&amp;pattern[i+1]!=pattern[j])     //判定i的下一位和当前位是不是相同，不相同则向前追溯到最长的相等的串，直至追溯到串的开头i为next[0]=-1时，则为找不到
-            i=_next[i];
-        _next[j]=pattern[i+1]==pattren[j]?i+1:-1;//如果i的下一位和当前位相同，则next值为i+1，否则找不到，next为-1
+<pre><code>#define MAXN 1000
+#define INF 0x3fffffff
+int A[MAXN],dp[MAXN];               //A数组存放原始数据序列
+int main(){
+    int n;
+    cin&gt;&gt;n;
+    int maxsum=-INF
+    for(int i=0;i&lt;n;i++){
+        cin&gt;&gt;A[i];
+        if(i==0)    dp[0]=A[0];     //初始化dp[0]为第一个元素
+        if(i&gt;0)
+            dp[i]=max(A[i],dp[i-1]+A[i]);
+        if(dp[i]&gt;maxsum)
+            maxsum=dp[i];
     }
+    cout&lt;&lt;maxsum;
+    return 0;
 }
 </code></pre>
 
-<p>　　有了next数组之后，则可以使用KMP算法进行匹配，KMP算法的思想是：如果当前位匹配，则文本串和模式串的指针同时后移；如果当前位不匹配，文本串指针不动，匹配串的指针移动到next[j]+1的位置，继续匹配；直至模式串指针走完匹配完成或者文本串指针走完未完成匹配。其算法的代码实现如下：</p>
+<p>　　显然很容易发现这个题目，可以省去dp数组，直接在每一步进行判定，每次更新当前的dp值时，只用到之前的一个的数组，因此之前的结果便不再需要，这样的算法也成为<strong>在线处理</strong>。</p>
 
-<pre><code>//对于文本串str，有模式串pattern，如果匹配，输出从匹配位置开始往后的字符串，否则输出未找到
-void KMP(){
-    int i,j;                
-    i=j=0;                                      //str串和pattern串的指针，初始化为0
-    while(i&lt;ls&amp;&amp;j&lt;lp){                          //当有任意一个指针走到尽头时，结束循环
-        if(str[i]==pattern[j]){                 //如果匹配，指针同时后移
-            i++;j++;
+<h2 id="最长不下降子序列-lis">最长不下降子序列（LIS）</h2>
+
+<p><div class="alert info no-icon ">
+  <p>在一个数字序列中，找到一组最长的子序列（可以连续，也可以不连续），使得这个子序列是非递减的，输出这个最长子序列的长度。</p>
+</div><br />
+　　使用dp数组记录子问题的结果，<strong>dp[i]记录以A[i]结尾的最长不下降子列的长度</strong>，那么对于dp[i]的获得，有以下方法：<br />
+　　一、如果在元素A[i]之前存在一个元素A[j]是的A[i]&gt;=A[j]并且dp[j]+1&gt;dp[i],那么说明A[i]加入到以A[j]结束的最长不下降子序列中能够形成更长的LIS，因此更dp[i]=dp[j]+1；
+　　二、如果A[i]之前的元素都比A[i]大，则其自身形成一个LIS，该序列中只有A[i]自己，因此长度为1；<br />
+　　由此，也能得到求解dp[i]时候的递推关系，即<strong>状态转移方程</strong>：</p>
+
+<pre><code>dp[i]=max(1,dp[j]+1);       //其中j是A[i]能够加入形成更长的LIS情况
+</code></pre>
+
+<p>　　其代码实现如下：　　</p>
+
+<pre><code>#define MAXN 1000
+int A[MAXN],dp[MAXN];
+int main(){
+    int n;
+    cin&gt;&gt;n;
+    for(int i=0;i&lt;n;i++){                   //输入数据
+        cin&gt;&gt;A[i];
+    }
+    int ans=-1;
+    for(int i=1;i&lt;n;i++){                   //从第二个元素开始更新dp数组
+        dp[i]=1;                            //初始化为1，即只有自己构成LIS的情况
+        for(int j=0;j&lt;i;j++){               //从头寻找是否有更优的解
+            if(A[i]&gt;=A[j]&amp;&amp;dp[j]+1&gt;dp[i])
+                dp[i]=dp[j]+1;
         }
-        else{                                   //如果不匹配
-            if(j&gt;0)                             //如果不匹配，j移动到next[j-1]的下一位
-                j=_next[j-1]+1;
-            else                                //如果j==0，即第一位不匹配，将str的指针后移
-                i++;
+        ans=max(ans,dp[i]);                 //更新并记录最优解
+    }
+    cout&lt;&lt;ans;
+    return 0;
+}
+</code></pre>
+
+<h2 id="最长公共子序列-lcs">最长公共子序列（LCS）</h2>
+
+<p><div class="alert info no-icon ">
+  <p>给定两个字符串或者数字序列，A和B，求A和B最长的公共子序列的长度（子序列可以不连续）。</p>
+</div>  　　<br />
+　　使用一个二维的dp数组记录子问题的结果，<strong>dp[i][j]表示A的i号位置和B的j号位置之前（包含i和j位）的LCS长度</strong>，则求解dp[i][j]的时候有以下情况：<br />
+　　一、如果A[i]==B[j]则字符串的的LCS就增加一位，dp[i][j]=dp[i-1][j-1]+1;<br />
+　　二、如果A[i]!=B[j]，这时无法使得LCS更长。因此dp[i][j]需要继承dp[i-1][j]和dp[i][j-1]中较大的值，也就是前一个最长的LCS的数值。<br />
+　　由此得到求解dp[i][j]时候的递推关系，即<strong>状态转移方程</strong>：</p>
+
+<pre><code>A[i]==B[j]时，dp[i][j]=dp[i-1][j-1]+1;
+A[i]!=B[j]时，dp[i][j]=max(dp[i][j-1],dp[i-1][j]);
+</code></pre>
+
+<p>　　其代码实现如下：</p>
+
+<pre><code>#define MAXN 1000
+char A[MAXN],B[MAXN];
+int dp[MAXN][MAXN];
+int main(){
+    int n;
+    cin&gt;&gt;n;
+    gets(A+1);              //为了更容易判断，从下标1开始存储字符串
+    gets(B+1);
+    int lena=strlen(A+1),lenb=strlen(B+1);
+    for(int i=0;i&lt;=lena;i++){   //初始化边界值
+        dp[i][0]=0;
+    }
+    for(int i=0;i&lt;=lenb;i++){
+        dp[0][i]=0;
+    }
+    for(int i=1;i&lt;=lena;i++){
+        for(int j=1;j&lt;lenb;j++){
+            if(A[i]==B[i])
+                dp[i][j]=dp[i-1][j-1]+1;
+            else
+                dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
         }
     }
-    if(j==lp)                                   //循环结束后，如果模式串完全匹配，则按照要求输出
-        cout&lt;&lt;str.substr(i-lp,ls+lp-i)&lt;&lt;'\n&gt;';
-    else                                        //如果模式串没有完全匹配，则输出找不到
-        puts(&quot;Not Found&quot;);
+    cout&lt;&lt;dp[lena][lenb];       //输出最终结果
 }
+</code></pre>
 
+<h2 id="最长回文子串">最长回文子串</h2>
+
+<p><div class="alert info no-icon ">
+  <p>最长回文子串问题要解决给定的一个字符串的最长回文子串的长度。</p>
+</div><br />
+　　对于一个字符串S来说，使用<strong>dp[i][j]表示字符串i到j位置是不是一个回文串（用1表示是，0表示不是）</strong>，则求解dp[i][j]时可分为一下两种情况：<br />
+　　一、如果S[i]==S[j],如果S[i+1]到S[j-1]是回文串则S[i][j]也是回文串，否则不是回文串。<br />
+　　二、如果S[i]!=S[j],那么S[i]到S[j]一定不是回文串。<br />
+　　由此，可以得到求解dp[i][j]时候的递推关系，即<strong>状态转移方程</strong>：</p>
+
+<pre><code>S[i]==S[j],dp[i][j]=dp[i+1][j-1];
+S[i]!=S[j],dp[i][j]=0;
+</code></pre>
+
+<p>　　其代码实现过程如下：</p>
+
+<pre><code>#define MAN 1000
+char s[MAXN];
+bool dp[MAXN][MAXN]={0};
+int main(){
+    gets(s);
+    int len=strlen(s),ans=1;                    //初始化答案为1，至少有一位
+    //状态边界
+    for(int i=0;i&lt;len;i++){
+        dp[i][i]=1;
+        if(i&lt;len-1){
+            if(s[i]==s[j]){
+                dp[i][i+1]=1;
+                ans=2;                          //如果有两位相邻且相同的，则答案至少为2
+            }
+        }
+    }
+    //求解dp
+    for(int L=3;L&lt;=len;L++){                    //枚举字串的长度
+        if(i=0;i+L-1&lt;len;i++){                  //枚举字串的起始端点
+            int j=i+L-1;                        //计算字串的右端点
+            if(s[i]==s[j&amp;&amp;dp[i+1][j-1]==1]){    //状态转移方程
+                dp[i][j]=1;
+                ans=L;
+            }
+        }
+    }
+    cout&lt;&lt;ans;
+    return 0;
+}
 </code></pre>
               
             </div>
@@ -374,17 +454,15 @@ void KMP(){
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">标签</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/kmp/">KMP</a>
-
-  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E5%AD%97%E7%AC%A6%E5%8C%B9%E9%85%8D/">字符匹配</a>
-
   <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E7%AE%97%E6%B3%95/">算法</a>
+
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
 
                   </div>
                 
               
             
-              <span id="/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/" class="leancloud_visitors" data-flag-title="KMP算法浅析">
+              <span id="/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="leancloud_visitors" data-flag-title="动态规划">
                 <span class="post-meta-item-text">文章阅读量 </span>
                 <span class="leancloud-visitors-count">1000000</span>
                 <p></p>
@@ -411,7 +489,7 @@ void KMP(){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/08/pat%E6%80%BB%E7%BB%93/" data-tooltip="PAT总结">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/" data-tooltip="KMP算法浅析">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -419,7 +497,7 @@ void KMP(){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" data-tooltip="动态规划">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -479,7 +557,7 @@ void KMP(){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/08/pat%E6%80%BB%E7%BB%93/" data-tooltip="PAT总结">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/" data-tooltip="KMP算法浅析">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -487,7 +565,7 @@ void KMP(){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" data-tooltip="动态规划">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -619,9 +697,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/saquarius.github.io\/2019\/09\/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90\/';
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/09\/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92\/';
           
-            this.page.identifier = '\/2019\/09\/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90\/'
+            this.page.identifier = '\/2019\/09\/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92\/'
           
         };
         (function() {
