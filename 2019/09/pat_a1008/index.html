@@ -7,30 +7,26 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
-<meta name="keywords" content="PAT, PAT甲级, PATA1001, C, C&#43;&#43;, PAT">
-<meta name="description" content="PAT甲级1001.
-">
+<meta name="keywords" content="PAT, PAT甲级, PATA1008, C, C&#43;&#43;, PAT">
+<meta name="description" content="　　PAT甲级1008.">
 
 
-<meta property="og:description" content="PAT甲级1001.
-">
+<meta property="og:description" content="　　PAT甲级1008.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT_A1001">
-<meta name="twitter:title" content="PAT_A1001">
-<meta property="og:url" content="https://saquarius.github.io/2019/09/pat_a1001/">
-<meta property="twitter:url" content="https://saquarius.github.io/2019/09/pat_a1001/">
+<meta property="og:title" content="PAT_A1008">
+<meta name="twitter:title" content="PAT_A1008">
+<meta property="og:url" content="https://saquarius.github.io/2019/09/pat_a1008/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/09/pat_a1008/">
 <meta property="og:site_name" content="SAquarius的梦想屋">
-<meta property="og:description" content="PAT甲级1001.
-">
-<meta name="twitter:description" content="PAT甲级1001.
-">
+<meta property="og:description" content="　　PAT甲级1008.">
+<meta name="twitter:description" content="　　PAT甲级1008.">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2019-09-09T11:36:03">
+    <meta property="article:published_time" content="2019-09-09T21:58:03">
   
   
-    <meta property="article:modified_time" content="2019-09-09T11:36:03">
+    <meta property="article:modified_time" content="2019-09-09T21:58:03">
   
   
   
@@ -70,14 +66,14 @@
   <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
 
 
-    <title>PAT_A1001</title>
+    <title>PAT_A1008</title>
 
     <link rel="icon" href="https://saquarius.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://saquarius.github.io/2019/09/pat_a1001/">
+    <link rel="canonical" href="https://saquarius.github.io/2019/09/pat_a1008/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -228,13 +224,13 @@
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      PAT_A1001
+      PAT_A1008
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-09-09T11:36:03&#43;08:00">
+      <time itemprop="datePublished" datetime="2019-09-09T21:58:03&#43;08:00">
         
   九月 9, 2019
 
@@ -257,12 +253,11 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <pre><code>PAT甲级1001.
-</code></pre>
+              <p>　　PAT甲级1008.</p>
 
 <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
 <ul>
-<li><a href="#a1001">A1001</a>
+<li><a href="#a1008">A1008</a>
 <ul>
 <li><a href="#题目">题目</a></li>
 <li><a href="#样例">样例</a></li>
@@ -272,27 +267,27 @@
 </ul>
 </nav>
 
-<h1 id="a1001">A1001</h1>
+<h1 id="a1008">A1008</h1>
 
 <h2 id="题目">题目</h2>
 
-<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1001.png" alt="A1001" /></p>
+<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1008.png" alt="" /></p>
 
 <h2 id="样例">样例</h2>
 
-<p>输入：</p>
+<p>输入:</p>
 
-<pre><code>-1000000 9
+<pre><code>3 2 3 1
 </code></pre>
 
-<p>输出</p>
+<p>输出:</p>
 
-<pre><code>-999,991
+<pre><code>41
 </code></pre>
 
 <h2 id="思路和坑点">思路和坑点</h2>
 
-<p>　　输出结果不是很长，所以把sum从低到高每一位直接拿出来存在字符串中，每三位加入一个逗号，当sum取完所有位时结束循环，负号最后处理。然后倒着输出结果。</p>
+<p>　　简单模拟，直接按照规则进行处理计算便可，等待时间可以直接计算，因为每一层都需要停留，所以直接在读入n的时候计算等待部分的时间。</p>
 
 <h2 id="ac代码">AC代码</h2>
 
@@ -310,29 +305,28 @@
 #include&lt;set&gt;
 #include&lt;stack&gt;
 using namespace std;
-
+#define ut 6                    //时间常量
+#define dt 4
+#define st 5
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
     freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    string ans;
-    int a,b;
-    scanf(&quot;%d%d&quot;,&amp;a,&amp;b);
-    a+=b;
-    int sum=a,cnt=0;
-    while(1){
-        ans.push_back('0'+abs(sum%10));
-        sum/=10;
-        if(sum==0)  break;
-        cnt++;
-        if(cnt%3==0)
-            ans.push_back(',');
+    int n,ans=0,pre=0;
+    scanf(&quot;%d&quot;,&amp;n);
+    ans+=n*st;                  //直接计算等待时间
+    for(int i=0;i&lt;n;i++){
+        int temp;
+        scanf(&quot;%d&quot;,&amp;temp);
+        int k=temp-pre;
+        if(k&gt;0)                 //模拟过程
+            ans+=ut*k;
+        else if(k&lt;0)
+            ans+=dt*(-k);
+        pre=temp;
     }
-    if(a&lt;0)
-        ans.push_back('-');
-    for(int i=ans.size()-1;i&gt;=0;i--)
-        putchar(ans[i]);
+    cout&lt;&lt;ans;
     return 0;
 } 
 </code></pre>
@@ -357,7 +351,7 @@ int main(void){
                 
               
             
-              <span id="/2019/09/pat_a1001/" class="leancloud_visitors" data-flag-title="PAT_A1001">
+              <span id="/2019/09/pat_a1008/" class="leancloud_visitors" data-flag-title="PAT_A1008">
                 <span class="post-meta-item-text">文章阅读量 </span>
                 <span class="leancloud-visitors-count">1000000</span>
                 <p></p>
@@ -384,7 +378,7 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1002/" data-tooltip="PAT_A1002">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1009/" data-tooltip="PAT_A1009">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -392,7 +386,7 @@ int main(void){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1009/" data-tooltip="PAT_A1009">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1007/" data-tooltip="PAT_A1007">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -452,7 +446,7 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1002/" data-tooltip="PAT_A1002">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1009/" data-tooltip="PAT_A1009">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -460,7 +454,7 @@ int main(void){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1009/" data-tooltip="PAT_A1009">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1007/" data-tooltip="PAT_A1007">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -592,9 +586,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/saquarius.github.io\/2019\/09\/pat_a1001\/';
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/09\/pat_a1008\/';
           
-            this.page.identifier = '\/2019\/09\/pat_a1001\/'
+            this.page.identifier = '\/2019\/09\/pat_a1008\/'
           
         };
         (function() {
