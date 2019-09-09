@@ -7,40 +7,46 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
-<meta name="keywords" content="算法, 动态规划, 字符串, C, C&#43;&#43;, PAT">
-<meta name="description" content="　　动态规划，是用于解决一类最优化问题的算法思想。简单来说，讲一个复杂的问题分解成若干个子问题，通过子问题的最优解推出原问题的最优解，动态规划会记录子问题的结果，用于求解最终问题，解决了纯粹使用递归时候重复计算的问题。这里总结集中常见的动态规划算法。">
+<meta name="keywords" content="PAT, PAT甲级, A1001, C, C&#43;&#43;, PAT">
+<meta name="description" content="PAT甲级1003.
+">
 
 
-<meta property="og:description" content="　　动态规划，是用于解决一类最优化问题的算法思想。简单来说，讲一个复杂的问题分解成若干个子问题，通过子问题的最优解推出原问题的最优解，动态规划会记录子问题的结果，用于求解最终问题，解决了纯粹使用递归时候重复计算的问题。这里总结集中常见的动态规划算法。">
+<meta property="og:description" content="PAT甲级1003.
+">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动态规划">
-<meta name="twitter:title" content="动态规划">
-<meta property="og:url" content="https://saquarius.github.io/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-<meta property="twitter:url" content="https://saquarius.github.io/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+<meta property="og:title" content="PAT_A1003">
+<meta name="twitter:title" content="PAT_A1003">
+<meta property="og:url" content="https://saquarius.github.io/2019/09/pat_a1003/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/09/pat_a1003/">
 <meta property="og:site_name" content="SAquarius的梦想屋">
-<meta property="og:description" content="　　动态规划，是用于解决一类最优化问题的算法思想。简单来说，讲一个复杂的问题分解成若干个子问题，通过子问题的最优解推出原问题的最优解，动态规划会记录子问题的结果，用于求解最终问题，解决了纯粹使用递归时候重复计算的问题。这里总结集中常见的动态规划算法。">
-<meta name="twitter:description" content="　　动态规划，是用于解决一类最优化问题的算法思想。简单来说，讲一个复杂的问题分解成若干个子问题，通过子问题的最优解推出原问题的最优解，动态规划会记录子问题的结果，用于求解最终问题，解决了纯粹使用递归时候重复计算的问题。这里总结集中常见的动态规划算法。">
+<meta property="og:description" content="PAT甲级1003.
+">
+<meta name="twitter:description" content="PAT甲级1003.
+">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2019-09-07T09:11:47">
+    <meta property="article:published_time" content="2019-09-09T11:36:03">
   
   
-    <meta property="article:modified_time" content="2019-09-07T09:11:47">
+    <meta property="article:modified_time" content="2019-09-09T11:36:03">
   
-  
-  
-    
-      <meta property="article:section" content="算法">
-    
-      <meta property="article:section" content="动态规划">
-    
   
   
     
-      <meta property="article:tag" content="算法">
+      <meta property="article:section" content="PAT">
     
-      <meta property="article:tag" content="动态规划">
+      <meta property="article:section" content="PAT甲级">
+    
+  
+  
+    
+      <meta property="article:tag" content="PAT">
+    
+      <meta property="article:tag" content="PAT题库">
+    
+      <meta property="article:tag" content="PAT甲级">
     
   
 
@@ -53,12 +59,9 @@
 
 
 
-  <meta property="og:image" content="https://saquarius.github.io/images/DP_s.jpg">
-  <meta property="twitter:image" content="https://saquarius.github.io/images/DP_s.jpg">
+  <meta property="og:image" content="https://saquarius.github.io/images/PAT_A.png">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/PAT_A.png">
 
-
-  <meta property="og:image" content="https://saquarius.github.io/images/DP.jpg">
-  <meta property="twitter:image" content="https://saquarius.github.io/images/DP.jpg">
 
 
 
@@ -67,14 +70,14 @@
   <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
 
 
-    <title>动态规划</title>
+    <title>PAT_A1003</title>
 
     <link rel="icon" href="https://saquarius.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://saquarius.github.io/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+    <link rel="canonical" href="https://saquarius.github.io/2019/09/pat_a1003/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -214,36 +217,26 @@
 </nav>
 
       
-  <div class="post-header-cover
-              text-center
-              post-header-cover--full"
-       style="background-image:url('/images/DP.jpg')"
-       data-behavior="5">
-    
-  </div>
-
 
       <div id="main" data-behavior="5"
-        class="hasCover
-               hasCoverMetaOut
-               hasCoverCaption">
+        class="
+               hasCoverMetaIn
+               ">
         <article class="post" itemscope itemType="http://schema.org/BlogPosting">
-          
-            <span class="post-header-cover-caption caption">DP，动态规划</span>
           
           
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      动态规划
+      PAT_A1003
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-09-07T09:11:47&#43;08:00">
+      <time itemprop="datePublished" datetime="2019-09-09T11:36:03&#43;08:00">
         
-  九月 7, 2019
+  九月 9, 2019
 
       </time>
     
@@ -252,9 +245,9 @@
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://saquarius.github.io/categories/%e7%ae%97%e6%b3%95">算法</a>, 
+      <a class="category-link" href="https://saquarius.github.io/categories/pat">PAT</a>, 
     
-      <a class="category-link" href="https://saquarius.github.io/categories/%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92">动态规划</a>
+      <a class="category-link" href="https://saquarius.github.io/categories/pat%e7%94%b2%e7%ba%a7">PAT甲级</a>
     
   
 
@@ -264,184 +257,141 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>　　动态规划，是用于解决一类最优化问题的算法思想。简单来说，讲一个复杂的问题分解成若干个子问题，通过子问题的最优解推出原问题的最优解，动态规划会记录子问题的结果，用于求解最终问题，解决了纯粹使用递归时候重复计算的问题。这里总结集中常见的动态规划算法。</p>
+              <pre><code>PAT甲级1003.
+</code></pre>
 
 <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
 <ul>
-<li><a href="#动态规划">动态规划</a>
+<li>
 <ul>
-<li><a href="#最大连续子列和">最大连续子列和</a></li>
-<li><a href="#最长不下降子序列-lis">最长不下降子序列（LIS）</a></li>
-<li><a href="#最长公共子序列-lcs">最长公共子序列（LCS）</a></li>
-<li><a href="#最长回文子串">最长回文子串</a></li>
+<li><a href="#题目">题目</a></li>
+<li><a href="#样例">样例</a></li>
+<li><a href="#思路和坑点">思路和坑点</a></li>
+<li><a href="#ac代码">AC代码</a></li>
 </ul></li>
 </ul>
 </nav>
 
-<h1 id="动态规划">动态规划</h1>
+<p>#　A1003</p>
 
-<h2 id="最大连续子列和">最大连续子列和</h2>
+<h2 id="题目">题目</h2>
 
-<p><div class="alert info no-icon ">
-  <p>在一组练习的数字序列中 A~1~ ~ A~n~中求得一个从A~i~ ~ A~j~的序列，使得该序列的和最大，求此最大和的问题成为最大连续子列和。</p>
-</div>
-　　使用一个dp数组记录子问题的结果，其中<strong>dp[i]表示以A[i]作为结尾的连续子的最大和（A[i]必须是这个序列的结尾）</strong>，则dp[i]的获得有以下两种方法：<br />
-　　一、该序列只有A[i]开始，A[i]结束，所以其dp[i]值为A[i];<br />
-　　二、该序列从A[p]其中(p&lt;i) 开始一直到A[i]结束，测试dp[i]的值等于dp[i-1]+A[i];<br />
-　　由此变得出动态规划的递推关系，即状态转移方程：</p>
+<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1003.png" alt="" /></p>
 
-<pre><code>dp[i]=max(A[i],dp[i-1]+A[i]);
+<h2 id="样例">样例</h2>
+
+<p>输入：</p>
+
+<pre><code>5 6 0 2
+1 2 1 5 3
+0 1 1
+0 2 2
+0 3 1
+1 2 1
+2 4 1
+3 4 1
 </code></pre>
 
-<p>　　在更新dp[i]的时候更新最大值，或者到dp数组求解完成后遍历一遍dp数组得到最大值，便是最大连续子列和，其代码实现如下:</p>
+<p>输出:</p>
 
-<pre><code>#define MAXN 1000
+<pre><code>2 4
+</code></pre>
+
+<h2 id="思路和坑点">思路和坑点</h2>
+
+<p>　　直接使用Dijkstra+dfs计算路径，没得到一条路径就进行统计，然后根据第二尺度进行优化。起始一遍Dijkstra算法应该可以，但是判定逻辑可能不是很好理清楚。</p>
+
+<h2 id="ac代码">AC代码</h2>
+
+<pre><code>#include&lt;iostream&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;math.h&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+#include&lt;string&gt;
+#include&lt;map&gt;
+#include&lt;unordered_map&gt;
+#include&lt;queue&gt;
+#include&lt;set&gt;
+#include&lt;stack&gt;
+using namespace std;
+#define MAXN 505
 #define INF 0x3fffffff
-int A[MAXN],dp[MAXN];               //A数组存放原始数据序列
-int main(){
-    int n;
-    cin&gt;&gt;n;
-    int maxsum=-INF
+int G[MAXN][MAXN];
+int weight[MAXN]={0};
+bool vis[MAXN]={false};
+int dis[MAXN];
+vector&lt;int&gt; pre[MAXN];
+int st,ed,n,m,ansnum=0,answ=0;
+vector&lt;int&gt; temppath;
+void Dijkstra(){
+    fill(dis,dis+MAXN,INF);
+    dis[st]=0;
     for(int i=0;i&lt;n;i++){
-        cin&gt;&gt;A[i];
-        if(i==0)    dp[0]=A[0];     //初始化dp[0]为第一个元素
-        if(i&gt;0)
-            dp[i]=max(A[i],dp[i-1]+A[i]);
-        if(dp[i]&gt;maxsum)
-            maxsum=dp[i];
-    }
-    cout&lt;&lt;maxsum;
-    return 0;
-}
-</code></pre>
-
-<p>　　显然很容易发现这个题目，可以省去dp数组，直接在每一步进行判定，每次更新当前的dp值时，只用到之前的一个的数组，因此之前的结果便不再需要，这样的算法也成为<strong>在线处理</strong>。</p>
-
-<h2 id="最长不下降子序列-lis">最长不下降子序列（LIS）</h2>
-
-<p><div class="alert info no-icon ">
-  <p>在一个数字序列中，找到一组最长的子序列（可以连续，也可以不连续），使得这个子序列是非递减的，输出这个最长子序列的长度。</p>
-</div><br />
-　　使用dp数组记录子问题的结果，<strong>dp[i]记录以A[i]结尾的最长不下降子列的长度</strong>，那么对于dp[i]的获得，有以下方法：<br />
-　　一、如果在元素A[i]之前存在一个元素A[j]是的A[i]&gt;=A[j]并且dp[j]+1&gt;dp[i],那么说明A[i]加入到以A[j]结束的最长不下降子序列中能够形成更长的LIS，因此更dp[i]=dp[j]+1；
-　　二、如果A[i]之前的元素都比A[i]大，则其自身形成一个LIS，该序列中只有A[i]自己，因此长度为1；<br />
-　　由此，也能得到求解dp[i]时候的递推关系，即<strong>状态转移方程</strong>：</p>
-
-<pre><code>dp[i]=max(1,dp[j]+1);       //其中j是A[i]能够加入形成更长的LIS情况
-</code></pre>
-
-<p>　　其代码实现如下：　　</p>
-
-<pre><code>#define MAXN 1000
-int A[MAXN],dp[MAXN];
-int main(){
-    int n;
-    cin&gt;&gt;n;
-    for(int i=0;i&lt;n;i++){                   //输入数据
-        cin&gt;&gt;A[i];
-    }
-    int ans=-1;
-    for(int i=1;i&lt;n;i++){                   //从第二个元素开始更新dp数组
-        dp[i]=1;                            //初始化为1，即只有自己构成LIS的情况
-        for(int j=0;j&lt;i;j++){               //从头寻找是否有更优的解
-            if(A[i]&gt;=A[j]&amp;&amp;dp[j]+1&gt;dp[i])
-                dp[i]=dp[j]+1;
+        int u=-1,MIN=INF;
+        for(int j=0;j&lt;n;j++){
+            if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
+                u=j;
+                MIN=dis[j];
+            }
         }
-        ans=max(ans,dp[i]);                 //更新并记录最优解
-    }
-    cout&lt;&lt;ans;
-    return 0;
-}
-</code></pre>
-
-<h2 id="最长公共子序列-lcs">最长公共子序列（LCS）</h2>
-
-<p><div class="alert info no-icon ">
-  <p>给定两个字符串或者数字序列，A和B，求A和B最长的公共子序列的长度（子序列可以不连续）。</p>
-</div>  　　<br />
-　　使用一个二维的dp数组记录子问题的结果，<strong>dp[i][j]表示A的i号位置和B的j号位置之前（包含i和j位）的LCS长度</strong>，则求解dp[i][j]的时候有以下情况：<br />
-　　一、如果A[i]==B[j]则字符串的的LCS就增加一位，dp[i][j]=dp[i-1][j-1]+1;<br />
-　　二、如果A[i]!=B[j]，这时无法使得LCS更长。因此dp[i][j]需要继承dp[i-1][j]和dp[i][j-1]中较大的值，也就是前一个最长的LCS的数值。<br />
-　　由此得到求解dp[i][j]时候的递推关系，即<strong>状态转移方程</strong>：</p>
-
-<pre><code>A[i]==B[j]时，dp[i][j]=dp[i-1][j-1]+1;
-A[i]!=B[j]时，dp[i][j]=max(dp[i][j-1],dp[i-1][j]);
-</code></pre>
-
-<p>　　其代码实现如下：</p>
-
-<pre><code>#define MAXN 1000
-char A[MAXN],B[MAXN];
-int dp[MAXN][MAXN];
-int main(){
-    int n;
-    cin&gt;&gt;n;
-    gets(A+1);              //为了更容易判断，从下标1开始存储字符串
-    gets(B+1);
-    int lena=strlen(A+1),lenb=strlen(B+1);
-    for(int i=0;i&lt;=lena;i++){   //初始化边界值
-        dp[i][0]=0;
-    }
-    for(int i=0;i&lt;=lenb;i++){
-        dp[0][i]=0;
-    }
-    for(int i=1;i&lt;=lena;i++){
-        for(int j=1;j&lt;lenb;j++){
-            if(A[i]==B[i])
-                dp[i][j]=dp[i-1][j-1]+1;
-            else
-                dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
-        }
-    }
-    cout&lt;&lt;dp[lena][lenb];       //输出最终结果
-}
-</code></pre>
-
-<h2 id="最长回文子串">最长回文子串</h2>
-
-<p><div class="alert info no-icon ">
-  <p>最长回文子串问题要解决给定的一个字符串的最长回文子串的长度。</p>
-</div><br />
-　　对于一个字符串S来说，使用<strong>dp[i][j]表示字符串i到j位置是不是一个回文串（用1表示是，0表示不是）</strong>，则求解dp[i][j]时可分为一下两种情况：<br />
-　　一、如果S[i]==S[j],如果S[i+1]到S[j-1]是回文串则S[i][j]也是回文串，否则不是回文串。<br />
-　　二、如果S[i]!=S[j],那么S[i]到S[j]一定不是回文串。<br />
-　　由此，可以得到求解dp[i][j]时候的递推关系，即<strong>状态转移方程</strong>：</p>
-
-<pre><code>S[i]==S[j],dp[i][j]=dp[i+1][j-1];
-S[i]!=S[j],dp[i][j]=0;
-</code></pre>
-
-<p>　　其代码实现过程如下：</p>
-
-<pre><code>#define MAN 1000
-char s[MAXN];
-bool dp[MAXN][MAXN]={0};
-int main(){
-    gets(s);
-    int len=strlen(s),ans=1;                    //初始化答案为1，至少有一位
-    //状态边界
-    for(int i=0;i&lt;len;i++){
-        dp[i][i]=1;
-        if(i&lt;len-1){
-            if(s[i]==s[j]){
-                dp[i][i+1]=1;
-                ans=2;                          //如果有两位相邻且相同的，则答案至少为2
+        if(u==-1) return;
+        vis[u]=true;
+        for(int v=0;v&lt;n;v++){
+            if(vis[v]==false&amp;&amp;G[u][v]!=INF){
+                if(dis[u]+G[u][v]&lt;dis[v]){
+                    dis[v]=dis[u]+G[u][v];
+                    pre[v].clear();
+                    pre[v].push_back(u);
+                }
+                else if(dis[u]+G[u][v]==dis[v]){
+                    pre[v].push_back(u);
+                }
             }
         }
     }
-    //求解dp
-    for(int L=3;L&lt;=len;L++){                    //枚举字串的长度
-        if(i=0;i+L-1&lt;len;i++){                  //枚举字串的起始端点
-            int j=i+L-1;                        //计算字串的右端点
-            if(s[i]==s[j&amp;&amp;dp[i+1][j-1]==1]){    //状态转移方程
-                dp[i][j]=1;
-                ans=L;
-            }
-        }
-    }
-    cout&lt;&lt;ans;
-    return 0;
+
 }
+void dfs(int s){
+    if(s==st){
+        ansnum++;
+        temppath.push_back(s);
+        int val=0;
+        for(int i=0;i&lt;temppath.size();i++){
+            val+=weight[temppath[i]];
+        }
+        answ=max(answ,val);
+        temppath.pop_back();
+        return;
+    }
+    temppath.push_back(s);
+    for(int i=0;i&lt;pre[s].size();i++){
+        dfs(pre[s][i]);
+    }
+    temppath.pop_back();
+}
+int main(void){
+#ifdef ONLINE_JUDGE
+#else
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+#endif
+    fill(G[0],G[0]+MAXN*MAXN,INF);
+    cin&gt;&gt;n&gt;&gt;m&gt;&gt;st&gt;&gt;ed;
+    for(int i=0;i&lt;n;i++){
+        scanf(&quot;%d&quot;,&amp;weight[i]);
+    }
+    for(int i=0;i&lt;m;i++){
+        int a,b,c;
+        scanf(&quot;%d%d%d&quot;,&amp;a,&amp;b,&amp;c);
+        G[a][b]=G[b][a]=c;
+    }
+    Dijkstra();
+    dfs(ed);
+    cout&lt;&lt;ansnum&lt;&lt;' '&lt;&lt;answ;
+    return 0;
+} 
 </code></pre>
               
             </div>
@@ -454,15 +404,17 @@ int main(){
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">标签</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E7%AE%97%E6%B3%95/">算法</a>
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/pat/">PAT</a>
 
-  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/pat%E9%A2%98%E5%BA%93/">PAT题库</a>
+
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/pat%E7%94%B2%E7%BA%A7/">PAT甲级</a>
 
                   </div>
                 
               
             
-              <span id="/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="leancloud_visitors" data-flag-title="动态规划">
+              <span id="/2019/09/pat_a1003/" class="leancloud_visitors" data-flag-title="PAT_A1003">
                 <span class="post-meta-item-text">文章阅读量 </span>
                 <span class="leancloud-visitors-count">1000000</span>
                 <p></p>
@@ -489,7 +441,7 @@ int main(){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/" data-tooltip="KMP算法浅析">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1004/" data-tooltip="PAT_A1004">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -497,7 +449,7 @@ int main(){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1004/" data-tooltip="PAT_A1004">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1002/" data-tooltip="PAT_A1002">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -557,7 +509,7 @@ int main(){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/" data-tooltip="KMP算法浅析">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1004/" data-tooltip="PAT_A1004">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -565,7 +517,7 @@ int main(){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1004/" data-tooltip="PAT_A1004">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1002/" data-tooltip="PAT_A1002">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -697,9 +649,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/saquarius.github.io\/2019\/09\/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92\/';
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/09\/pat_a1003\/';
           
-            this.page.identifier = '\/2019\/09\/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92\/'
+            this.page.identifier = '\/2019\/09\/pat_a1003\/'
           
         };
         (function() {

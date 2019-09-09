@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PAT on SAquarius的梦想屋</title>
-    <link>https://saquarius.github.io/tags/pat/</link>
+    <link>https://saquarius.github.io/categories/pat/</link>
     <description>Recent content in PAT on SAquarius的梦想屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 09 Sep 2019 11:36:03 +0800</lastBuildDate>
     
-	<atom:link href="https://saquarius.github.io/tags/pat/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://saquarius.github.io/categories/pat/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

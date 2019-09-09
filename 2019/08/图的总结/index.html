@@ -820,7 +820,7 @@ for(int v=0;v&lt;n;v++){
             dis[v]=dis[u]+G[u][v];
             w[v]=w[u]+weight[v];        //距离最优时，同时优化距离和资源
         }
-        else if(dis[u]+G[u][v]==dis[v]&amp;&amp;c[u]+weight[u][v]&gt;w[v]){
+        else if(dis[u]+G[u][v]==dis[v]&amp;&amp;w[u]+weight[u][v]&gt;w[v]){
             w[v]=w[u]+weight[v];        //距离相同时，看资源能够更优，这里以能够带更多的资源为更优
         }
     }
