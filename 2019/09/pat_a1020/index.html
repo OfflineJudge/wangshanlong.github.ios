@@ -7,38 +7,42 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
-<meta name="keywords" content="KMP, 字符匹配, C, C&#43;&#43;, PAT">
-<meta name="description" content="　　字符串的匹配值得是，在一个指定的字符串文本(长度为n)中找到某个字符串（模式串，长度为m）的出现的位置，简单匹配的方式，时间复杂度O(n*m)，在此基础上有改进的匹配算法KMP。">
+<meta name="keywords" content="PAT, PAT甲级, PATA1020, C, C&#43;&#43;, PAT">
+<meta name="description" content="PAT甲级1020.
+">
 
 
-<meta property="og:description" content="　　字符串的匹配值得是，在一个指定的字符串文本(长度为n)中找到某个字符串（模式串，长度为m）的出现的位置，简单匹配的方式，时间复杂度O(n*m)，在此基础上有改进的匹配算法KMP。">
+<meta property="og:description" content="PAT甲级1020.
+">
 <meta property="og:type" content="article">
-<meta property="og:title" content="KMP算法浅析">
-<meta name="twitter:title" content="KMP算法浅析">
-<meta property="og:url" content="https://saquarius.github.io/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/">
-<meta property="twitter:url" content="https://saquarius.github.io/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/">
+<meta property="og:title" content="PAT_A1020">
+<meta name="twitter:title" content="PAT_A1020">
+<meta property="og:url" content="https://saquarius.github.io/2019/09/pat_a1020/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/09/pat_a1020/">
 <meta property="og:site_name" content="SAquarius的梦想屋">
-<meta property="og:description" content="　　字符串的匹配值得是，在一个指定的字符串文本(长度为n)中找到某个字符串（模式串，长度为m）的出现的位置，简单匹配的方式，时间复杂度O(n*m)，在此基础上有改进的匹配算法KMP。">
-<meta name="twitter:description" content="　　字符串的匹配值得是，在一个指定的字符串文本(长度为n)中找到某个字符串（模式串，长度为m）的出现的位置，简单匹配的方式，时间复杂度O(n*m)，在此基础上有改进的匹配算法KMP。">
+<meta property="og:description" content="PAT甲级1020.
+">
+<meta name="twitter:description" content="PAT甲级1020.
+">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2019-09-04T16:55:58">
+    <meta property="article:published_time" content="2019-09-15T23:58:50">
   
   
-    <meta property="article:modified_time" content="2019-09-04T16:55:58">
+    <meta property="article:modified_time" content="2019-09-15T23:58:50">
   
-  
-  
-    
-      <meta property="article:section" content="算法">
-    
-      <meta property="article:section" content="字符串">
-    
   
   
     
-      <meta property="article:tag" content="算法">
+      <meta property="article:section" content="PAT">
+    
+      <meta property="article:section" content="PAT甲级">
+    
+  
+  
+    
+      <meta property="article:tag" content="PAT">
     
   
 
@@ -51,12 +55,9 @@
 
 
 
-  <meta property="og:image" content="https://saquarius.github.io/images/KMP_s.png">
-  <meta property="twitter:image" content="https://saquarius.github.io/images/KMP_s.png">
+  <meta property="og:image" content="https://saquarius.github.io/images/PAT_A.png">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/PAT_A.png">
 
-
-  <meta property="og:image" content="https://saquarius.github.io/images/KMP.jpg">
-  <meta property="twitter:image" content="https://saquarius.github.io/images/KMP.jpg">
 
 
 
@@ -65,14 +66,14 @@
   <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
 
 
-    <title>KMP算法浅析</title>
+    <title>PAT_A1020</title>
 
     <link rel="icon" href="https://saquarius.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://saquarius.github.io/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/">
+    <link rel="canonical" href="https://saquarius.github.io/2019/09/pat_a1020/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -212,36 +213,26 @@
 </nav>
 
       
-  <div class="post-header-cover
-              text-center
-              post-header-cover--full"
-       style="background-image:url('/images/KMP.jpg')"
-       data-behavior="5">
-    
-  </div>
-
 
       <div id="main" data-behavior="5"
-        class="hasCover
-               hasCoverMetaOut
-               hasCoverCaption">
+        class="
+               hasCoverMetaIn
+               ">
         <article class="post" itemscope itemType="http://schema.org/BlogPosting">
-          
-            <span class="post-header-cover-caption caption">KMP算法</span>
           
           
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      KMP算法浅析
+      PAT_A1020
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-09-04T16:55:58&#43;08:00">
+      <time itemprop="datePublished" datetime="2019-09-15T23:58:50&#43;08:00">
         
-  九月 4, 2019
+  九月 15, 2019
 
       </time>
     
@@ -250,9 +241,9 @@
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://saquarius.github.io/categories/%e7%ae%97%e6%b3%95">算法</a>, 
+      <a class="category-link" href="https://saquarius.github.io/categories/pat">PAT</a>, 
     
-      <a class="category-link" href="https://saquarius.github.io/categories/%e5%ad%97%e7%ac%a6%e4%b8%b2">字符串</a>
+      <a class="category-link" href="https://saquarius.github.io/categories/pat%e7%94%b2%e7%ba%a7">PAT甲级</a>
     
   
 
@@ -262,102 +253,114 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>　　字符串的匹配值得是，在一个指定的字符串文本(长度为n)中找到某个字符串（模式串，长度为m）的出现的位置，简单匹配的方式，时间复杂度O(n*m)，在此基础上有改进的匹配算法KMP。</p>
-
-<h1 id="table-of-contents">目录</h1>
-
-<p>　　KMP算法是有Knuth、Morris、Ptatt三人合作的结果，并使用三人名字的首字母作为该算法的命名，该算法在匹配之前对模式串进行了分析，找出模式串的规律，由此大大提高了每次匹配失败后后移算法的性能，讲模式串匹配的时间复杂度提升到了O(n+m)级别。<br />
-　　对于模式串的分析，需要求出模式串的next数组，next[i]表示了，如果当前位匹配不成功时，模式串的指针需要跳转到的位置，其计算方法和表示含义如下所示：
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/nextnew.png" alt="next数组的含义" />
-　　由以上规则，可以很容易写出一个pattern字符串的next数组，如下示例所示：</p>
-
-<table>
-<thead>
-<tr>
-<th align="center">pattern</th>
-<th align="center">a</th>
-<th align="center">b</th>
-<th align="center">c</th>
-<th align="center">a</th>
-<th align="center">b</th>
-<th align="center">c</th>
-<th align="center">a</th>
-<th align="center">c</th>
-<th align="center">a</th>
-<th align="center">b</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td align="center">j</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">2</td>
-<td align="center">3</td>
-<td align="center">4</td>
-<td align="center">5</td>
-<td align="center">6</td>
-<td align="center">7</td>
-<td align="center">8</td>
-<td align="center">9</td>
-</tr>
-
-<tr>
-<td align="center">next</td>
-<td align="center">-1</td>
-<td align="center">-1</td>
-<td align="center">-1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">2</td>
-<td align="center">3</td>
-<td align="center">-1</td>
-<td align="center">0</td>
-<td align="center">-1</td>
-</tr>
-</tbody>
-</table>
-
-<p>　　next数组的求解，可以使用定义的方法进行手动求解。但是算法的实现，则需要通过前一个位置的next数组的值推算出来，这种方法的证明不在此处给出，近给出算法的代码实现：</p>
-
-<pre><code>vector&lt;int&gt; _next;                              //假定next定义为全局变量，并且此处认为已经获取pattern串的长度为n
-void getnext(){                         
-    _next.clear();
-    _next.resize(n);
-    _netx[0]=-1;
-    for(int j=1;j&lt;n;j++){
-        int i=_next[j-1];                        //看前一位的next位置
-        while(i=&gt;0&amp;&amp;pattern[i+1]!=pattern[j])     //判定i的下一位和当前位是不是相同，不相同则向前追溯到最长的相等的串，直至追溯到串的开头i为next[0]=-1时，则为找不到
-            i=_next[i];
-        _next[j]=pattern[i+1]==pattren[j]?i+1:-1;//如果i的下一位和当前位相同，则next值为i+1，否则找不到，next为-1
-    }
-}
+              <pre><code>PAT甲级1020.
 </code></pre>
 
-<p>　　有了next数组之后，则可以使用KMP算法进行匹配，KMP算法的思想是：如果当前位匹配，则文本串和模式串的指针同时后移；如果当前位不匹配，文本串指针不动，匹配串的指针移动到next[j]+1的位置，继续匹配；直至模式串指针走完匹配完成或者文本串指针走完未完成匹配。其算法的代码实现如下：</p>
+<h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#a1020">A1020</a>
+<ul>
+<li><a href="#题目">题目</a></li>
+<li><a href="#样例">样例</a></li>
+<li><a href="#思路和坑点">思路和坑点</a></li>
+<li><a href="#ac代码">AC代码</a></li>
+</ul></li>
+</ul>
+</nav>  
 
-<pre><code>//对于文本串str，有模式串pattern，如果匹配，输出从匹配位置开始往后的字符串，否则输出未找到
-void KMP(){
-    int i,j;                
-    i=j=0;                                      //str串和pattern串的指针，初始化为0
-    while(i&lt;ls&amp;&amp;j&lt;lp){                          //当有任意一个指针走到尽头时，结束循环
-        if(str[i]==pattern[j]){                 //如果匹配，指针同时后移
-            i++;j++;
-        }
-        else{                                   //如果不匹配
-            if(j&gt;0)                             //如果不匹配，j移动到next[j-1]的下一位
-                j=_next[j-1]+1;
-            else                                //如果j==0，即第一位不匹配，将str的指针后移
-                i++;
-        }
+<h1 id="a1020">A1020</h1>
+
+<h2 id="题目">题目</h2>
+
+<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1020.png" alt="" /></p>
+
+<h2 id="样例">样例</h2>
+
+<p>输入:</p>
+
+<pre><code>7
+2 3 1 5 7 6 4
+1 2 3 4 5 6 7
+</code></pre>
+
+<p>输出:</p>
+
+<pre><code>4 1 6 3 5 7 2
+</code></pre>
+
+<h2 id="思路和坑点">思路和坑点</h2>
+
+<p>　　根据后序和中序序列递归建树，然后使用层序遍历输出结果。</p>
+
+<h2 id="ac代码">AC代码</h2>
+
+<pre><code>#include&lt;iostream&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;math.h&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+#include&lt;string&gt;
+#include&lt;map&gt;
+#include&lt;unordered_map&gt;
+#include&lt;queue&gt;
+#include&lt;set&gt;
+#include&lt;stack&gt;
+using namespace std;
+typedef struct node{
+    int data;
+    struct node *right,*left;
+    node(){
+        right=left=NULL;
     }
-    if(j==lp)                                   //循环结束后，如果模式串完全匹配，则按照要求输出
-        cout&lt;&lt;str.substr(i-lp,ls+lp-i)&lt;&lt;'\n&gt;';
-    else                                        //如果模式串没有完全匹配，则输出找不到
-        puts(&quot;Not Found&quot;);
+}Node;
+vector&lt;int&gt; post,in;
+void layorder(Node *root){                  //层序遍历 
+    int cnt=0;
+    queue&lt;Node*&gt; q;
+    q.push(root);
+    while(!q.empty()){
+        Node *now=q.front();
+        q.pop();
+        if(cnt++) putchar(' ');
+        printf(&quot;%d&quot;,now-&gt;data);
+        if(now-&gt;left)   q.push(now-&gt;left);
+        if(now-&gt;right)  q.push(now-&gt;right);
+    }
 }
-
+Node * creat(int pl,int pr,int il,int ir){  //根据中序和后序序列递归建树 
+    if(pl&gt;pr)   return NULL;                //递归边界，序列中没有结点时 
+    Node *root=new node;
+    root-&gt;data=post[pr];                    //根结点赋值 
+    int k;
+    for(k=il;k&lt;=ir;k++){                    //找到根结点在中序的位置 
+        if(post[pr]==in[k])
+            break;
+    }
+    int lnum=k-il;                          //计算左子树的结点个数 
+    root-&gt;left=creat(pl,pl+lnum-1,il,k-1);  //递归建立左右子树 
+    root-&gt;right=creat(pl+lnum,pr-1,k+1,ir);
+    return root;                            //返回建成的树 
+}
+int main(void){
+#ifdef ONLINE_JUDGE
+#else
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+#endif
+    int n;
+    scanf(&quot;%d&quot;,&amp;n);
+    post.resize(n); in.resize(n);
+    for(int i=0;i&lt;n;i++){
+        scanf(&quot;%d&quot;,&amp;post[i]);
+    }
+    for(int i=0;i&lt;n;i++){
+        scanf(&quot;%d&quot;,&amp;in[i]);
+    }
+    Node *root=creat(0,n-1,0,n-1);
+    layorder(root);
+    return 0;
+} 
 </code></pre>
               
             </div>
@@ -370,13 +373,13 @@ void KMP(){
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">标签</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E7%AE%97%E6%B3%95/">算法</a>
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/pat/">PAT</a>
 
                   </div>
                 
               
             
-              <span id="/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/" class="leancloud_visitors" data-flag-title="KMP算法浅析">
+              <span id="/2019/09/pat_a1020/" class="leancloud_visitors" data-flag-title="PAT_A1020">
                 <span class="post-meta-item-text">文章阅读量 </span>
                 <span class="leancloud-visitors-count">1000000</span>
                 <p></p>
@@ -403,7 +406,7 @@ void KMP(){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/08/pat%E5%9D%91%E7%82%B9%E6%B1%87%E6%80%BB/" data-tooltip="PAT坑点汇总">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1019/" data-tooltip="PAT_A1019">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -411,7 +414,7 @@ void KMP(){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" data-tooltip="动态规划">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1021/" data-tooltip="PAT_A1021">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -471,7 +474,7 @@ void KMP(){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/08/pat%E5%9D%91%E7%82%B9%E6%B1%87%E6%80%BB/" data-tooltip="PAT坑点汇总">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1019/" data-tooltip="PAT_A1019">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -479,7 +482,7 @@ void KMP(){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" data-tooltip="动态规划">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1021/" data-tooltip="PAT_A1021">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -611,9 +614,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/saquarius.github.io\/2019\/09\/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90\/';
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/09\/pat_a1020\/';
           
-            this.page.identifier = '\/2019\/09\/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90\/'
+            this.page.identifier = '\/2019\/09\/pat_a1020\/'
           
         };
         (function() {

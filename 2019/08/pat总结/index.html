@@ -318,6 +318,11 @@
 <li><a href="#跨天时间计算">跨天时间计算</a></li>
 <li><a href="#排队服务的模拟">排队服务的模拟</a></li>
 <li><a href="#中文读数">中文读数</a></li>
+<li><a href="#读入并处理未知数量连续多个关键词">读入并处理未知数量连续多个关键词</a>
+<ul>
+<li><a href="#方法1">方法1</a></li>
+<li><a href="#方法2">方法2</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -1434,6 +1439,43 @@ int main(){
     return 0;    
 }
 </code></pre>
+
+<h4 id="读入并处理未知数量连续多个关键词">读入并处理未知数量连续多个关键词</h4>
+
+<pre><code>//如下样例  
+//如果需要对一下多个使用空格分隔，使用换行结束的关键词进行分别读取和操作  
+song music word keyword bike book
+</code></pre>
+
+<h5 id="方法1">方法1</h5>
+
+<p>　　使用整行读取，然后分别取词；</p>
+
+<pre><code>string temp,str;
+getline(cin,str);                       //整行读入
+for(int i=0;i&lt;str.size();i++){          //遍历取词
+    if(str[i]==' '||i==str.size()-1){   //如果遇到空格或者结束，获得一个单词
+        if(i==str.size()-1)             //如果是结束，需要吧结尾的字符加入单词
+            temp+=str[i];
+        dealwith(temp);                 //处理获得单词，具体操作函数视情况而定
+        temp.clear();                   //temp清空，准备接收下一个字符
+    }
+    else 
+        temp+=str[i];
+}
+</code></pre>
+
+<h5 id="方法2">方法2</h5>
+
+<p>　　使用string和char类型混合输入，char字符用于辨别最后换行结束：</p>
+
+<pre><code>while(1){                       
+    cin&gt;&gt;word;                          //读入一个单词
+    char ch=getchar();                  //吸收空格字符
+    dealwith(word);                     //处理获得的单词
+    if(ch=='\n')    break;              //到换行处结束
+}
+</code></pre>
               
             </div>
           </div>
@@ -1486,7 +1528,7 @@ int main(){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/" data-tooltip="KMP算法浅析">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/08/pat%E5%9D%91%E7%82%B9%E6%B1%87%E6%80%BB/" data-tooltip="PAT坑点汇总">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -1554,7 +1596,7 @@ int main(){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/" data-tooltip="KMP算法浅析">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/08/pat%E5%9D%91%E7%82%B9%E6%B1%87%E6%80%BB/" data-tooltip="PAT坑点汇总">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>

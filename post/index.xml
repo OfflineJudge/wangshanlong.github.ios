@@ -6,10 +6,50 @@
     <description>Recent content in Posts on SAquarius的梦想屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Sep 2019 23:59:43 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 16 Sep 2019 00:12:50 +0800</lastBuildDate>
     
 	<atom:link href="https://saquarius.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PAT_A1022</title>
+      <link>https://saquarius.github.io/2019/09/pat_a1022/</link>
+      <pubDate>Mon, 16 Sep 2019 00:12:50 +0800</pubDate>
+      
+      <guid>https://saquarius.github.io/2019/09/pat_a1022/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;PAT甲级1022.
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>PAT_A1021</title>
+      <link>https://saquarius.github.io/2019/09/pat_a1021/</link>
+      <pubDate>Mon, 16 Sep 2019 00:03:57 +0800</pubDate>
+      
+      <guid>https://saquarius.github.io/2019/09/pat_a1021/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;PAT甲级1021.
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>PAT_A1020</title>
+      <link>https://saquarius.github.io/2019/09/pat_a1020/</link>
+      <pubDate>Sun, 15 Sep 2019 23:58:50 +0800</pubDate>
+      
+      <guid>https://saquarius.github.io/2019/09/pat_a1020/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;PAT甲级1020.
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>PAT_A1019</title>
+      <link>https://saquarius.github.io/2019/09/pat_a1019/</link>
+      <pubDate>Sun, 15 Sep 2019 23:48:13 +0800</pubDate>
+      
+      <guid>https://saquarius.github.io/2019/09/pat_a1019/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;PAT甲级1019.
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
     
     <item>
       <title>PAT_A1018</title>
@@ -201,6 +241,15 @@
       
       <guid>https://saquarius.github.io/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/</guid>
       <description>&lt;p&gt;　　字符串的匹配值得是，在一个指定的字符串文本(长度为n)中找到某个字符串（模式串，长度为m）的出现的位置，简单匹配的方式，时间复杂度O(n*m)，在此基础上有改进的匹配算法KMP。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PAT坑点汇总</title>
+      <link>https://saquarius.github.io/2019/08/pat%E5%9D%91%E7%82%B9%E6%B1%87%E6%80%BB/</link>
+      <pubDate>Mon, 19 Aug 2019 10:21:39 +0800</pubDate>
+      
+      <guid>https://saquarius.github.io/2019/08/pat%E5%9D%91%E7%82%B9%E6%B1%87%E6%80%BB/</guid>
+      <description>&lt;p&gt;　　PAT（Programing Ability Test）是浙江大学设立的计算机编程能力测试。为了准备PAT测试，将PAT刷题时候遇到的一些总结坑点总结如下。&lt;/p&gt;</description>
     </item>
     
     <item>
