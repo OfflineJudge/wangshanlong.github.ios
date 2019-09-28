@@ -7,30 +7,30 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
-<meta name="keywords" content="PAT, PAT甲级, PATA1034, C, C&#43;&#43;, PAT">
-<meta name="description" content="PAT甲级1034.
+<meta name="keywords" content="PAT, PAT甲级, PATA1036, C, C&#43;&#43;, PAT">
+<meta name="description" content="PAT甲级1036.
 ">
 
 
-<meta property="og:description" content="PAT甲级1034.
+<meta property="og:description" content="PAT甲级1036.
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT_A1034">
-<meta name="twitter:title" content="PAT_A1034">
-<meta property="og:url" content="https://saquarius.github.io/2019/09/pat_a1034/">
-<meta property="twitter:url" content="https://saquarius.github.io/2019/09/pat_a1034/">
+<meta property="og:title" content="PAT_A1036">
+<meta name="twitter:title" content="PAT_A1036">
+<meta property="og:url" content="https://saquarius.github.io/2019/09/pat_a1036/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/09/pat_a1036/">
 <meta property="og:site_name" content="SAquarius的梦想屋">
-<meta property="og:description" content="PAT甲级1034.
+<meta property="og:description" content="PAT甲级1036.
 ">
-<meta name="twitter:description" content="PAT甲级1034.
+<meta name="twitter:description" content="PAT甲级1036.
 ">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2019-09-26T23:46:40">
+    <meta property="article:published_time" content="2019-09-28T22:25:46">
   
   
-    <meta property="article:modified_time" content="2019-09-26T23:46:40">
+    <meta property="article:modified_time" content="2019-09-28T22:25:46">
   
   
   
@@ -66,14 +66,14 @@
   <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
 
 
-    <title>PAT_A1034</title>
+    <title>PAT_A1036</title>
 
     <link rel="icon" href="https://saquarius.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://saquarius.github.io/2019/09/pat_a1034/">
+    <link rel="canonical" href="https://saquarius.github.io/2019/09/pat_a1036/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -224,15 +224,15 @@
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      PAT_A1034
+      PAT_A1036
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-09-26T23:46:40&#43;08:00">
+      <time itemprop="datePublished" datetime="2019-09-28T22:25:46&#43;08:00">
         
-  九月 26, 2019
+  九月 28, 2019
 
       </time>
     
@@ -253,12 +253,12 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <pre><code>PAT甲级1034.
+              <pre><code>PAT甲级1036.
 </code></pre>
 
 <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
 <ul>
-<li><a href="#a1034">A1034</a>
+<li><a href="#a1036">A1036</a>
 <ul>
 <li><a href="#题目">题目</a></li>
 <li><a href="#样例">样例</a>
@@ -267,17 +267,16 @@
 <li><a href="#样例2">样例2</a></li>
 </ul></li>
 <li><a href="#思路和坑点">思路和坑点</a></li>
-<li><a href="#ac代码-并查集实现">AC代码 （并查集实现）</a></li>
-<li><a href="#ac代码-图的dfs算法实现">AC代码 （图的dfs算法实现）</a></li>
+<li><a href="#ac代码">AC代码</a></li>
 </ul></li>
 </ul>
 </nav>  
 
-<h1 id="a1034">A1034</h1>
+<h1 id="a1036">A1036</h1>
 
 <h2 id="题目">题目</h2>
 
-<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1034.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1036.png" alt="" /></p>
 
 <h2 id="样例">样例</h2>
 
@@ -285,52 +284,39 @@
 
 <p>输入:</p>
 
-<pre><code>8 59
-AAA BBB 10
-BBB AAA 20
-AAA CCC 40
-DDD EEE 5
-EEE DDD 70
-FFF GGG 30
-GGG HHH 20
-HHH FFF 10
+<pre><code>3
+Joe M Math990112 89
+Mike M CS991301 100
+Mary F EE990830 95
 </code></pre>
 
 <p>输出:</p>
 
-<pre><code>2
-AAA 3
-GGG 3
+<pre><code>Mary EE990830
+Joe Math990112
+6
 </code></pre>
 
 <h3 id="样例2">样例2</h3>
 
 <p>输入:</p>
 
-<pre><code>8 70
-AAA BBB 10
-BBB AAA 20
-AAA CCC 40
-DDD EEE 5
-EEE DDD 70
-FFF GGG 30
-GGG HHH 20
-HHH FFF 10
+<pre><code>1
+Jean M AA980920 60
 </code></pre>
 
 <p>输出:</p>
 
-<pre><code>0
+<pre><code>Absent
+Jean AA980920
+NA
 </code></pre>
 
 <h2 id="思路和坑点">思路和坑点</h2>
 
-<p>　　此题有两种思路，一种是使用图的dfs算法进行处理，另一种是使用并查集的方法实现，这里对并查集实现的方法作详细的介绍，dfs算法仅给出AC代码。<br />
-　　把每一个人当作一个独立的个体，它既是一个并查集中的元素，也是一个犯罪团伙，用一个结构体记录作为个体以及作为一个团伙的相关信息，根据通话记录进行合并。<br />
-　　由于id都是字母，使用map映射分配结构体数组的下标，同时按照下标成对的存放通话记录，比如i和j通过话，这该记录为<code>i*10000+j</code>来保存（考虑到最多有2000人，因此使用10000来作为进率。这样的记录通过<code>/</code>和<code>%</code>运算（对10000执行）分离两个通话着的下标。<br />
-　　根据通话记录进行并查集的合并，并更新并查集中的信息，最后对每一个进行筛选，如果符合要求则输出。</p>
+<p>　　使用两个结构体分别存储男生和女生要求的最低分和最高分个人信息，然后最后按照要求输出，初始化的时候把名字初始化为空字符，这样有利于最后判别是否有该类型的个体，并按照要求输出。</p>
 
-<h2 id="ac代码-并查集实现">AC代码 （并查集实现）</h2>
+<h2 id="ac代码">AC代码</h2>
 
 <pre><code>#include&lt;iostream&gt;
 #include&lt;stdlib.h&gt;
@@ -346,151 +332,43 @@ HHH FFF 10
 #include&lt;set&gt;
 #include&lt;stack&gt;
 using namespace std;
-map&lt;string,int&gt; mp;                         //id对应的下标映射             
-typedef struct node{                        //每一个人对应的个人结构体，同时认为每个人是一个并查集，也是一个单独的团伙， 
-    string id;                              //个人的id 
-    int w,fa,maxi,total;                    //通话权重，并查集的father，该团伙中最大权重的id对应的下标（合并时用于更新团伙），团伙中的总权重（用于判定） 
-    node(){                                 //初始化fa=-1表示该并查集只有一个人，总权重为0 
-        fa=-1; w=total=0;
-    }
+typedef struct node{
+    string name,id;                     //学生结构体 
+    int score;
+    node(){
+        name=&quot;&quot;;                        //姓名初始化为空字符，用于最后的判定 
+    }   
 }Node;
-Node v[2002];                               //1000条信息，所以最多2000个人 
-int find_fa(int x){                         //查找并查集的祖先 
-    while(v[x].fa&gt;=0){
-        x=v[x].fa;
-    }
-    return x;
-}
-void Union(int i,int j){                    //并查集的合并 
-    int fi=find_fa(i),fj=find_fa(j);
-    if(fi==fj) return;                      //如果两个人在同一个并查集中，不需要合并 
-    if(v[fi].fa&gt;v[fj].fa)                   //把小的合并到大的中，判断大小，为了代码统一，做适当的交换 
-        swap(fi,fj);                        //并查集的根指向一个负数，数的绝对值代表并查集中元素个数 
-    v[fi].fa+=v[fj].fa;                     //更新大小 
-    v[fj].fa=fi;                            //合并
-     
-    v[fi].total+=v[fj].total;               //更新总权值 
-    int p=v[fi].maxi,q=v[fj].maxi;          //更新最大权值的id下标 
-    v[fi].maxi=v[p].w&gt;v[q].w?p:q;
-}
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
     freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    int n,k,cnt=0;
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;k);
-    k*=2;                                   //合并更新总权值的时候计算会重复，所以筛选限度×2 
-    vector&lt;int&gt; data(n);
+    Node m,w;
+    m.score=101;w.score=-1;
+    int n;
+    scanf(&quot;%d&quot;,&amp;n);
     for(int i=0;i&lt;n;i++){
-        string a,b;
-        int c;
-        cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;
-        if(mp.find(a)==mp.end()) mp[a]=cnt++;   //分配下标 
-        if(mp.find(b)==mp.end()) mp[b]=cnt++;
-        int ia=mp[a],ib=mp[b];
-        data[i]=ia*10000+ib;                    //将两个人的通话记录保存一下用于合并并查集 
-        v[ia].w+=c; v[ia].id=a; v[ia].maxi=ia;  v[ia].total+=c;         //更新权重 
-        v[ib].w+=c; v[ib].id=b; v[ib].maxi=ib;  v[ib].total+=c;
-    }
-    for(int i=0;i&lt;n;i++){
-        int a=data[i]/10000,b=data[i]%10000;
-        Union(a,b);                             //根据通话记录进行合并 
-    }
-    map&lt;string,int&gt; out;                        //结果存放 
-    for(int i=0;i&lt;cnt;i++){                     //按要求筛查 
-        if(v[i].fa&lt;-2&amp;&amp;v[i].total&gt;k){           //如果团伙人数超过两人，并且超过限度 
-            int k=v[i].maxi;
-            out[v[k].id]=-v[i].fa;
-        }       
-    }
-    printf(&quot;%d\n&quot;,out.size());                  //输出结果 
-    for(auto it=out.begin();it!=out.end();it++){
-        cout&lt;&lt;it-&gt;first&lt;&lt;' '&lt;&lt;it-&gt;second&lt;&lt;'\n';
-    }
-    return 0;
-} 
-</code></pre>
-
-<h2 id="ac代码-图的dfs算法实现">AC代码 （图的dfs算法实现）</h2>
-
-<pre><code>#include&lt;stdio.h&gt;
-#include&lt;iostream&gt;
-#include&lt;map&gt;
-#include&lt;string&gt;
-using namespace std;
-
-const int MAXV=2010;
-const int INF=1000000000;
-int G[MAXV][MAXV]={0},weight[MAXV]={0};
-int n,k,numP=0;
-bool vis[MAXV]={false};
-
-map&lt;int,string&gt; int_str;
-map&lt;string,int&gt; str_int;
-map&lt;string,int&gt; gang; 
-
-void DFS(int u,int &amp;head,int &amp;numM,int &amp;total);
-void DFSTrave();
-int change(string str);
-int main(void)
-{
-    int w;
-    string s1,s2;
-    cin&gt;&gt;n&gt;&gt;k;
-    for(int i=0;i&lt;n;i++){
-        cin&gt;&gt;s1&gt;&gt;s2&gt;&gt;w;
-        int id1=change(s1);
-        int id2=change(s2);
-        weight[id1]+=w;
-        weight[id2]+=w;
-        G[id1][id2]+=w;
-        G[id2][id1]+=w;
-    }
-    DFSTrave();
-    cout&lt;&lt;gang.size()&lt;&lt;'\n';
-    for(auto it=gang.begin();it!=gang.end();it++){
-        cout&lt;&lt;it-&gt;first&lt;&lt;' '&lt;&lt;it-&gt;second&lt;&lt;'\n';
-    }
-    return 0;
-} 
-int change(string str)
-{
-    if(str_int.find(str)!=str_int.end())    return str_int[str];
-    else{
-        str_int[str]=numP;
-        int_str[numP]=str;
-        return numP++;      //先return，在numP++，因为到括号程序才算结束 
-    }
-}
-void DFS(int u,int &amp;head,int &amp;numM,int &amp;total)
-{
-    numM++;                 //该组成员人数加一
-    vis[u]=true;
-    if(weight[u]&gt;weight[head]) head=u;
-    for(int i=0;i&lt;numP;i++){
-        if(G[u][i]&gt;0){
-            total+=G[u][i];
-            G[u][i]=G[i][u]=0;
-            if(vis[i]==false){
-                DFS(i,head,numM,total);
-            }
+        Node temp;
+        string tag;
+        cin&gt;&gt;temp.name&gt;&gt;tag&gt;&gt;temp.id&gt;&gt;temp.score;   //读入并按照性别记录 
+        if(tag==&quot;F&quot;){
+            if(temp.score&gt;w.score)
+                w=temp;
+        }
+        else{
+            if(temp.score&lt;m.score)
+                m=temp;
         }
     }
+    if(w.name==&quot;&quot;)  puts(&quot;Absent&quot;);                 //判定输出 
+    else cout&lt;&lt;w.name&lt;&lt;' '&lt;&lt;w.id&lt;&lt;'\n';
+    if(m.name==&quot;&quot;)  puts(&quot;Absent&quot;);
+    else cout&lt;&lt;m.name&lt;&lt;' '&lt;&lt;m.id&lt;&lt;'\n';
+    if(w.name==&quot;&quot;||m.name==&quot;&quot;)  puts(&quot;NA&quot;);
+    else cout&lt;&lt;(w.score-m.score);
+    return 0;
 } 
-void DFSTrave()
-{
-    for(int i=0;i&lt;numP;i++){
-        if(vis[i]==false){
-            int head=i,numM=0,total=0;
-            DFS(i,head,numM,total);
-            if(numM&gt;2&amp;&amp;total&gt;k){
-                gang[int_str[head]]=numM;
-            }
-        }
-    }
-}
-
 </code></pre>
               
             </div>
@@ -509,7 +387,7 @@ void DFSTrave()
                 
               
             
-              <span id="/2019/09/pat_a1034/" class="leancloud_visitors" data-flag-title="PAT_A1034">
+              <span id="/2019/09/pat_a1036/" class="leancloud_visitors" data-flag-title="PAT_A1036">
                 <span class="post-meta-item-text">文章阅读量 </span>
                 <span class="leancloud-visitors-count">1000000</span>
                 <p></p>
@@ -536,7 +414,7 @@ void DFSTrave()
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1033/" data-tooltip="PAT_A1033">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1035/" data-tooltip="PAT_A1035">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -544,7 +422,7 @@ void DFSTrave()
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1035/" data-tooltip="PAT_A1035">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1037/" data-tooltip="PAT_A1037">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -604,7 +482,7 @@ void DFSTrave()
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1033/" data-tooltip="PAT_A1033">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1035/" data-tooltip="PAT_A1035">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -612,7 +490,7 @@ void DFSTrave()
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1035/" data-tooltip="PAT_A1035">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1037/" data-tooltip="PAT_A1037">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -744,9 +622,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/saquarius.github.io\/2019\/09\/pat_a1034\/';
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/09\/pat_a1036\/';
           
-            this.page.identifier = '\/2019\/09\/pat_a1034\/'
+            this.page.identifier = '\/2019\/09\/pat_a1036\/'
           
         };
         (function() {
