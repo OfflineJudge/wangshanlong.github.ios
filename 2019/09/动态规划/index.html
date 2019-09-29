@@ -423,7 +423,7 @@ int main(){
     for(int i=0;i&lt;len;i++){
         dp[i][i]=1;
         if(i&lt;len-1){
-            if(s[i]==s[j]){
+            if(s[i]==s[i+1]){
                 dp[i][i+1]=1;
                 ans=2;                          //如果有两位相邻且相同的，则答案至少为2
             }
@@ -431,7 +431,7 @@ int main(){
     }
     //求解dp
     for(int L=3;L&lt;=len;L++){                    //枚举字串的长度
-        if(i=0;i+L-1&lt;len;i++){                  //枚举字串的起始端点
+        for(i=0;i+L-1&lt;len;i++){                  //枚举字串的起始端点
             int j=i+L-1;                        //计算字串的右端点
             if(s[i]==s[j&amp;&amp;dp[i+1][j-1]==1]){    //状态转移方程
                 dp[i][j]=1;
