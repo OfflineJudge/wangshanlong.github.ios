@@ -832,6 +832,9 @@ coverSize: full
 <h3 id="添加评论功能valine">添加评论功能valine</h3>
 
 <p>　　添加教程部分参见<a href="https://www.smslit.top/2018/07/08/hugo-valine/">smslit博客</a>。<br />
+<div class="alert info ">
+  <p>由于LeanCloud更新了服务规则，国内节点现在域名需要备案过才能使用。所以建议把评论后台部署在LeanCloud的国际账户上。</p>
+</div>
 　　修改主题文件的步骤上有所不同，这个主题中只需要修改themes/tranquilpeak/layouts/_default/single.html文件，将以下代码插入到第36行的位置：</p>
 
 <pre><code>{{- if .Site.Params.valine.enable -}}
