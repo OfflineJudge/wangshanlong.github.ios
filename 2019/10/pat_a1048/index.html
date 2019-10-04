@@ -7,30 +7,30 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
-<meta name="keywords" content="PAT, PAT甲级, PATA1045, C, C&#43;&#43;, PAT">
-<meta name="description" content="PAT甲级1045.
+<meta name="keywords" content="PAT, PAT甲级, PATA1048, C, C&#43;&#43;, PAT">
+<meta name="description" content="PAT甲级1048.
 ">
 
 
-<meta property="og:description" content="PAT甲级1045.
+<meta property="og:description" content="PAT甲级1048.
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT_A1045">
-<meta name="twitter:title" content="PAT_A1045">
-<meta property="og:url" content="https://saquarius.github.io/2019/10/pat_a1045/">
-<meta property="twitter:url" content="https://saquarius.github.io/2019/10/pat_a1045/">
+<meta property="og:title" content="PAT_A1048">
+<meta name="twitter:title" content="PAT_A1048">
+<meta property="og:url" content="https://saquarius.github.io/2019/10/pat_a1048/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/10/pat_a1048/">
 <meta property="og:site_name" content="SAquarius的梦想屋">
-<meta property="og:description" content="PAT甲级1045.
+<meta property="og:description" content="PAT甲级1048.
 ">
-<meta name="twitter:description" content="PAT甲级1045.
+<meta name="twitter:description" content="PAT甲级1048.
 ">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2019-10-03T00:00:13">
+    <meta property="article:published_time" content="2019-10-04T22:58:39">
   
   
-    <meta property="article:modified_time" content="2019-10-03T00:00:13">
+    <meta property="article:modified_time" content="2019-10-04T22:58:39">
   
   
   
@@ -66,14 +66,14 @@
   <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
 
 
-    <title>PAT_A1045</title>
+    <title>PAT_A1048</title>
 
     <link rel="icon" href="https://saquarius.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://saquarius.github.io/2019/10/pat_a1045/">
+    <link rel="canonical" href="https://saquarius.github.io/2019/10/pat_a1048/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -224,15 +224,15 @@
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      PAT_A1045
+      PAT_A1048
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-10-03T00:00:13&#43;08:00">
+      <time itemprop="datePublished" datetime="2019-10-04T22:58:39&#43;08:00">
         
-  十月 3, 2019
+  十月 4, 2019
 
       </time>
     
@@ -253,44 +253,62 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <pre><code>PAT甲级1045.
+              <pre><code>PAT甲级1048.
 </code></pre>
 
 <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
 <ul>
-<li><a href="#a1045">A1045</a>
+<li><a href="#a1048">A1048</a>
 <ul>
 <li><a href="#题目">题目</a></li>
-<li><a href="#样例">样例</a></li>
+<li><a href="#样例">样例</a>
+<ul>
+<li><a href="#样例1">样例1</a></li>
+<li><a href="#样例2">样例2</a></li>
+</ul></li>
 <li><a href="#思路和坑点">思路和坑点</a></li>
 <li><a href="#ac代码">AC代码</a></li>
 </ul></li>
 </ul>
 </nav>  
 
-<h1 id="a1045">A1045</h1>
+<h1 id="a1048">A1048</h1>
 
 <h2 id="题目">题目</h2>
 
-<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1045.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/20191004225820.png" alt="" /></p>
 
 <h2 id="样例">样例</h2>
 
+<h3 id="样例1">样例1</h3>
+
 <p>输入:</p>
 
-<pre><code>6
-5 2 3 1 5 6
-12 2 2 4 1 5 5 6 3 1 1 5 6
+<pre><code>8 15
+1 2 8 7 2 4 11 15
 </code></pre>
 
 <p>输出:</p>
 
-<pre><code>7
+<pre><code>4 11
+</code></pre>
+
+<h3 id="样例2">样例2</h3>
+
+<p>输入:</p>
+
+<pre><code>7 14
+1 8 7 2 4 11 15
+</code></pre>
+
+<p>输出:</p>
+
+<pre><code>No Solution
 </code></pre>
 
 <h2 id="思路和坑点">思路和坑点</h2>
 
-<p>　　将喜欢的序列映射成一个递增的序列，然后将给出的序列中使用动态规划的方式找到最长不下降子序列即可（动态规划的求解思路参见<a href="https://saquarius.com/2019/09/动态规划/">动态规划</a>的总结）</p>
+<p>　　使用两点法，把币值从小到大排序，然后头尾各一个指针向中间逼近，如果有答案则输出，否则按照要求输出无解。</p>
 
 <h2 id="ac代码">AC代码</h2>
 
@@ -308,43 +326,29 @@
 #include&lt;set&gt;
 #include&lt;stack&gt;
 using namespace std;
+
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
     freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    int n;
-    scanf(&quot;%d&quot;,&amp;n);                     //过滤第一个数字，其实第一个数字没有用处 
-    scanf(&quot;%d&quot;,&amp;n);                     //读入喜欢的序列 
-    unordered_map&lt;int,int&gt; mp;          //按照升序映射 
-    for(int i=1;i&lt;=n;i++){
-        int temp;
-        scanf(&quot;%d&quot;,&amp;temp);
-        mp[temp]=i;
-    }
-    scanf(&quot;%d&quot;,&amp;n);                     //读取提供的序列 
-    vector&lt;int&gt; v;
-    for(int i=0;i&lt;n;i++){               //如果没有喜欢的直接略过，不保存 
-        int temp;
-        scanf(&quot;%d&quot;,&amp;temp);
-        if(mp.find(temp)!=mp.end())     //按照映射的方式加入序列 
-            v.push_back(mp[temp]);
-    }
-    if(v.size()==0){                    //如果没有喜欢的颜色，特判输出0 
-        cout&lt;&lt;0;
-        return 0;
-    }
-    int ans=1;                          //如果有喜欢的颜色，则至少为1 
-    vector&lt;int&gt; dp(v.size(),1);         //动态规划计算最长不下降子序列（可连续，也可以不连续） 
-    for(int i=1;i&lt;v.size();i++){
-        for(int j=0;j&lt;i;j++){
-            if(v[j]&lt;=v[i]&amp;&amp;dp[j]+1&gt;dp[i]){
-                dp[i]=dp[j]+1;
-            }
+    int n,m;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    vector&lt;int&gt; v(n);
+    for(int i=0;i&lt;n;i++)
+        scanf(&quot;%d&quot;,&amp;v[i]);
+    sort(v.begin(),v.end());
+    int i=0,j=n-1,flag=0;               //两点法，i，j为两端的指针，flag为答案的标记 
+    while(i&lt;j){
+        int sum=v[i]+v[j];
+        if(sum&lt;m)   i++;
+        else if(sum==m){
+            printf(&quot;%d %d&quot;,v[i],v[j]);
+            flag=1; break;
         }
-        ans=max(ans,dp[i]);             //保存最长的序列 
-    }
-    cout&lt;&lt;ans;
+        else    j--;
+    } 
+    if(flag==0) puts(&quot;No Solution&quot;);
     return 0;
 } 
 </code></pre>
@@ -365,7 +369,7 @@ int main(void){
                 
               
             
-              <span id="/2019/10/pat_a1045/" class="leancloud_visitors" data-flag-title="PAT_A1045">
+              <span id="/2019/10/pat_a1048/" class="leancloud_visitors" data-flag-title="PAT_A1048">
                 <span class="post-meta-item-text">文章阅读量 </span>
                 <span class="leancloud-visitors-count">1000000</span>
                 <p></p>
@@ -392,7 +396,7 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1044/" data-tooltip="PAT_A1044">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1047/" data-tooltip="PAT_A1047">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -400,7 +404,7 @@ int main(void){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1046/" data-tooltip="PAT_A1046">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1049/" data-tooltip="PAT_A1049">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -460,7 +464,7 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1044/" data-tooltip="PAT_A1044">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1047/" data-tooltip="PAT_A1047">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -468,7 +472,7 @@ int main(void){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1046/" data-tooltip="PAT_A1046">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1049/" data-tooltip="PAT_A1049">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -600,9 +604,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/saquarius.github.io\/2019\/10\/pat_a1045\/';
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/10\/pat_a1048\/';
           
-            this.page.identifier = '\/2019\/10\/pat_a1045\/'
+            this.page.identifier = '\/2019\/10\/pat_a1048\/'
           
         };
         (function() {
