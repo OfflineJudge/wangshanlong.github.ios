@@ -7,30 +7,30 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
-<meta name="keywords" content="PAT, PAT甲级, PATA1053, C, C&#43;&#43;, PAT">
-<meta name="description" content="PAT甲级1053.
+<meta name="keywords" content="PAT, PAT甲级, PATA1057, C, C&#43;&#43;, PAT">
+<meta name="description" content="PAT甲级1057.
 ">
 
 
-<meta property="og:description" content="PAT甲级1053.
+<meta property="og:description" content="PAT甲级1057.
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT_A1053">
-<meta name="twitter:title" content="PAT_A1053">
-<meta property="og:url" content="https://saquarius.github.io/2019/10/pat_a1053/">
-<meta property="twitter:url" content="https://saquarius.github.io/2019/10/pat_a1053/">
+<meta property="og:title" content="PAT_A1057">
+<meta name="twitter:title" content="PAT_A1057">
+<meta property="og:url" content="https://saquarius.github.io/2019/10/pat_a1057/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/10/pat_a1057/">
 <meta property="og:site_name" content="SAquarius的梦想屋">
-<meta property="og:description" content="PAT甲级1053.
+<meta property="og:description" content="PAT甲级1057.
 ">
-<meta name="twitter:description" content="PAT甲级1053.
+<meta name="twitter:description" content="PAT甲级1057.
 ">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2019-10-08T00:11:03">
+    <meta property="article:published_time" content="2019-10-10T00:26:13">
   
   
-    <meta property="article:modified_time" content="2019-10-08T00:11:03">
+    <meta property="article:modified_time" content="2019-10-10T00:26:13">
   
   
   
@@ -66,14 +66,14 @@
   <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
 
 
-    <title>PAT_A1053</title>
+    <title>PAT_A1057</title>
 
     <link rel="icon" href="https://saquarius.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://saquarius.github.io/2019/10/pat_a1053/">
+    <link rel="canonical" href="https://saquarius.github.io/2019/10/pat_a1057/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -224,15 +224,15 @@
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      PAT_A1053
+      PAT_A1057
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-10-08T00:11:03&#43;08:00">
+      <time itemprop="datePublished" datetime="2019-10-10T00:26:13&#43;08:00">
         
-  十月 8, 2019
+  十月 10, 2019
 
       </time>
     
@@ -253,12 +253,12 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <pre><code>PAT甲级1053.
+              <pre><code>PAT甲级1057.
 </code></pre>
 
 <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
 <ul>
-<li><a href="#a1053">A1053</a>
+<li><a href="#a1057">A1057</a>
 <ul>
 <li><a href="#题目">题目</a></li>
 <li><a href="#样例">样例</a></li>
@@ -268,100 +268,132 @@
 </ul>
 </nav>  
 
-<h1 id="a1053">A1053</h1>
+<h1 id="a1057">A1057</h1>
 
 <h2 id="题目">题目</h2>
 
-<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1053.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1057.png" alt="" /></p>
 
 <h2 id="样例">样例</h2>
 
 <p>输入:</p>
 
-<pre><code>20 9 24
-10 2 4 3 5 10 2 18 9 7 2 2 1 3 12 1 8 6 2 2
-00 4 01 02 03 04
-02 1 05
-04 2 06 07
-03 3 11 12 13
-06 1 09
-07 2 08 10
-16 1 15
-13 3 14 16 17
-17 2 18 19
+<pre><code>17
+Pop
+PeekMedian
+Push 3
+PeekMedian
+Push 2
+PeekMedian
+Push 1
+PeekMedian
+Pop
+Pop
+Push 5
+Push 4
+PeekMedian
+Pop
+Pop
+Pop
+Pop
 </code></pre>
 
 <p>输出:</p>
 
-<pre><code>10 5 2 7
-10 4 10
-10 3 3 6 2
-10 3 3 6 2
+<pre><code>Invalid
+Invalid
+3
+2
+2
+1
+2
+4
+4
+5
+3
+Invalid
 </code></pre>
 
 <h2 id="思路和坑点">思路和坑点</h2>
 
-<p>　　使用树的dfs和回说剪枝来实现统计要求的路径。其中为了输出路径时按照规则从大到小，对每个结点的孩子都按照权重从大到小排列。也可以把每个符合要求的路径保存，并按照要求排序，最后统一输出。</p>
+<p>　　分块思想（分桶法），太难了，实在是太难了，没时间具体写了，有空了再写！这里仅给出代码，注意分块的大小，不能太大，也不能太小。如果太小会有段错误，如果太大还会超时。需要详解的请参见《算法笔记》的讲解（书上有分桶法和树状数组法）</p>
 
 <h2 id="ac代码">AC代码</h2>
 
 <pre><code>#include&lt;stdio.h&gt;
-#include&lt;vector&gt;
-#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;string&gt;
+#include&lt;string.h&gt;
+#include&lt;stack&gt;
+#include&lt;unordered_map&gt;
 using namespace std;
+const int MAXS=100010;
+const int sqrN=330; 
 
-struct node{                                //使用结构体存放结点 
-    int weight;                             //权值 
-    vector&lt;int&gt; child;                      //孩子结点使用数组表示 
-}Node[105];                                 //存放所有的结点，最多100个结点 
-int n,m,s;
-vector&lt;int&gt; path;                           //存放路径 
+stack&lt;int&gt; st;
+int block[sqrN]={0};
+unordered_map&lt;int,int&gt; mp;
+void Pop();
+void Push(int x);
+void PeekMedian(int mid);
 
-bool cmp(int a,int b){                      //将孩子每一层按照权值从大到小排序，这样dfs的结果才能满足路径权值从大到小 
-    return Node[a].weight&gt;Node[b].weight;
-}                                           //（也可以将所有的路径保存后排序输出 ） 
-void DFS(int index,int sum);            
 int main(void)
 {
-    scanf(&quot;%d%d%d&quot;,&amp;n,&amp;m,&amp;s);
-    for(int i=0;i&lt;n;i++)
-        scanf(&quot;%d&quot;,&amp;Node[i].weight);
-    int id,k,child;
-    for(int i=0;i&lt;m;i++){
-        scanf(&quot;%d%d&quot;,&amp;id,&amp;k);
-        for(int j=0;j&lt;k;j++){
-            scanf(&quot;%d&quot;,&amp;child);
-            Node[id].child.push_back(child);
+#ifdef ONLINE_JUDGE
+#else
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+#endif
+    int n;
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=0;i&lt;n;i++){
+        string str;
+        cin&gt;&gt;str;
+        if(str==&quot;Pop&quot;){
+            if(st.empty()==true)
+                puts(&quot;Invalid&quot;);
+            else
+                Pop();
         }
-        sort(Node[id].child.begin(),Node[id].child.end(),cmp);  //孩子读取完即排序 
-    }
-    path.push_back(0);
-    DFS(0,Node[0].weight); 
-    
-    return 0;
-} 
-void DFS(int index,int sum)
-{
-    if(sum&gt;s) return;                           //如果路径上的和大于s，不满足规则，返回 
-    else if(sum==s){
-        if(Node[index].child.size()!=0) return;//说明该结点不是叶子结点，不满足题目要求，直接返回，否则输出路径
+        else if(str==&quot;Push&quot;){
+            int num;
+            scanf(&quot;%d&quot;,&amp;num);
+            Push(num);
+        }
         else{
-            for(int i=0;i&lt;path.size();i++){
-                if(i) putchar(' ');
-                printf(&quot;%d&quot;,Node[path[i]].weight);
+            if(st.empty()==true)
+                puts(&quot;Invalid&quot;);
+            else{
+                int mid=st.size();
+                mid=(mid%2==0)?mid/2:(mid+1)/2;
+                PeekMedian(mid);
             }
-            putchar('\n');
-            return;
-        } 
-    }
-    else{                                       //否则对其所有孩子递归dfs 
-        for(int i=0;i&lt;Node[index].child.size();i++){
-            int child=Node[index].child[i];
-            path.push_back(child);              //当前结点算入路径 
-            DFS(child,sum+Node[child].weight);  //当前孩子的递归dfs结束后，要从路径中删除，以继续进行下一个孩子的dfs 
-            path.pop_back();
         }
     }
+    return 0;
+}
+void Pop()
+{
+    int top=st.top();
+    st.pop();
+    block[top/sqrN]--;
+    mp[top]--;
+    printf(&quot;%d\n&quot;,top);
+}
+void Push(int x)
+{
+    st.push(x);
+    block[x/sqrN]++;
+    mp[x]++;
+}
+void PeekMedian(int mid)
+{
+    int sum=0,index=0;
+    while(sum+block[index]&lt;mid)
+        sum+=block[index++];
+    int num=index*sqrN;
+    while(sum+mp[num]&lt;mid)
+        sum+=mp[num++];
+    printf(&quot;%d\n&quot;,num);
 }
 </code></pre>
               
@@ -381,7 +413,7 @@ void DFS(int index,int sum)
                 
               
             
-              <span id="/2019/10/pat_a1053/" class="leancloud_visitors" data-flag-title="PAT_A1053">
+              <span id="/2019/10/pat_a1057/" class="leancloud_visitors" data-flag-title="PAT_A1057">
                 <span class="post-meta-item-text">文章阅读量 </span>
                 <span class="leancloud-visitors-count">1000000</span>
                 <p></p>
@@ -408,7 +440,7 @@ void DFS(int index,int sum)
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1052/" data-tooltip="PAT_A1052">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1056/" data-tooltip="PAT_A1056">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -416,7 +448,7 @@ void DFS(int index,int sum)
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1054/" data-tooltip="PAT_A1054">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -476,7 +508,7 @@ void DFS(int index,int sum)
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1052/" data-tooltip="PAT_A1052">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1056/" data-tooltip="PAT_A1056">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -484,7 +516,7 @@ void DFS(int index,int sum)
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1054/" data-tooltip="PAT_A1054">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -616,9 +648,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/saquarius.github.io\/2019\/10\/pat_a1053\/';
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/10\/pat_a1057\/';
           
-            this.page.identifier = '\/2019\/10\/pat_a1053\/'
+            this.page.identifier = '\/2019\/10\/pat_a1057\/'
           
         };
         (function() {
