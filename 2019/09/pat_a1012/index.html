@@ -348,9 +348,9 @@ void check(){
     else{
         int v=mp[id];
         int rank=ST[v].er; char ch='E';         //根据优先级，由低到高进行比较，节省比较次数 
-        if(ST[v].mr&lt;=rank)      rank=ST[v].mr;ch='M';
-        if(ST[v].cr&lt;=rank)      rank=ST[v].cr;ch='C';
-        if(ST[v].ar&lt;=rank)      rank=ST[v].ar;ch='A';
+        if(ST[v].mr&lt;=rank)      {rank=ST[v].mr;ch='M';} 
+        if(ST[v].cr&lt;=rank)      {rank=ST[v].cr;ch='C';} 
+        if(ST[v].ar&lt;=rank)      {rank=ST[v].ar;ch='A';} 
         printf(&quot;%d %c\n&quot;,rank,ch);
     }
 }
