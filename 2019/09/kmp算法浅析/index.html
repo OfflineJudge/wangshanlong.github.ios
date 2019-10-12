@@ -268,7 +268,7 @@
 
 <p>　　KMP算法是有Knuth、Morris、Ptatt三人合作的结果，并使用三人名字的首字母作为该算法的命名，该算法在匹配之前对模式串进行了分析，找出模式串的规律，由此大大提高了每次匹配失败后后移算法的性能，讲模式串匹配的时间复杂度提升到了O(n+m)级别。<br />
 　　对于模式串的分析，需要求出模式串的next数组，next[i]表示了，如果当前位匹配不成功时，模式串的指针需要跳转到的位置，其计算方法和表示含义如下所示：
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/nextnew.png" alt="next数组的含义" />
+<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/KMPnext.png" alt="" />
 　　由以上规则，可以很容易写出一个pattern字符串的next数组，如下示例所示：</p>
 
 <table>
