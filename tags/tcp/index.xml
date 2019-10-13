@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TCP on SAquarius的梦想屋</title>
+    <link>https://saquarius.github.io/tags/tcp/</link>
+    <description>Recent content in TCP on SAquarius的梦想屋</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 13 Oct 2019 21:40:44 +0800</lastBuildDate>
+    
+	<atom:link href="https://saquarius.github.io/tags/tcp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>抓包看TCP的“三次握手”和“四次挥手”</title>
+      <link>https://saquarius.github.io/2019/10/%E6%8A%93%E5%8C%85%E7%9C%8Btcp%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</link>
+      <pubDate>Sun, 13 Oct 2019 21:40:44 +0800</pubDate>
+      
+      <guid>https://saquarius.github.io/2019/10/%E6%8A%93%E5%8C%85%E7%9C%8Btcp%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</guid>
+      <description>&lt;p&gt;　　简单总结一下TCP协议中，如何建立并释放连接的过程，使用抓包工具，对一次TCP连接的建立和释放过程进行记录，并简单分析“三次握手”和“四次挥手”的TCP报文的内容。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
