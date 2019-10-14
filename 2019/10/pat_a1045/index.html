@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1045, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1045.
@@ -311,41 +311,41 @@ using namespace std;
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    int n;
-    scanf(&quot;%d&quot;,&amp;n);                     //过滤第一个数字，其实第一个数字没有用处 
-    scanf(&quot;%d&quot;,&amp;n);                     //读入喜欢的序列 
-    unordered_map&lt;int,int&gt; mp;          //按照升序映射 
-    for(int i=1;i&lt;=n;i++){
-        int temp;
-        scanf(&quot;%d&quot;,&amp;temp);
-        mp[temp]=i;
-    }
-    scanf(&quot;%d&quot;,&amp;n);                     //读取提供的序列 
-    vector&lt;int&gt; v;
-    for(int i=0;i&lt;n;i++){               //如果没有喜欢的直接略过，不保存 
-        int temp;
-        scanf(&quot;%d&quot;,&amp;temp);
-        if(mp.find(temp)!=mp.end())     //按照映射的方式加入序列 
-            v.push_back(mp[temp]);
-    }
-    if(v.size()==0){                    //如果没有喜欢的颜色，特判输出0 
-        cout&lt;&lt;0;
-        return 0;
-    }
-    int ans=1;                          //如果有喜欢的颜色，则至少为1 
-    vector&lt;int&gt; dp(v.size(),1);         //动态规划计算最长不下降子序列（可连续，也可以不连续） 
-    for(int i=1;i&lt;v.size();i++){
-        for(int j=0;j&lt;i;j++){
-            if(v[j]&lt;=v[i]&amp;&amp;dp[j]+1&gt;dp[i]){
-                dp[i]=dp[j]+1;
-            }
-        }
-        ans=max(ans,dp[i]);             //保存最长的序列 
-    }
-    cout&lt;&lt;ans;
-    return 0;
+	int n;
+	scanf(&quot;%d&quot;,&amp;n);						//过滤第一个数字，其实第一个数字没有用处 
+	scanf(&quot;%d&quot;,&amp;n);						//读入喜欢的序列 
+	unordered_map&lt;int,int&gt; mp;			//按照升序映射 
+	for(int i=1;i&lt;=n;i++){
+		int temp;
+		scanf(&quot;%d&quot;,&amp;temp);
+		mp[temp]=i;
+	}
+	scanf(&quot;%d&quot;,&amp;n);						//读取提供的序列 
+	vector&lt;int&gt; v;
+	for(int i=0;i&lt;n;i++){				//如果没有喜欢的直接略过，不保存 
+		int temp;
+		scanf(&quot;%d&quot;,&amp;temp);
+		if(mp.find(temp)!=mp.end())		//按照映射的方式加入序列 
+			v.push_back(mp[temp]);
+	}
+	if(v.size()==0){					//如果没有喜欢的颜色，特判输出0 
+		cout&lt;&lt;0;
+		return 0;
+	}
+	int ans=1;							//如果有喜欢的颜色，则至少为1 
+	vector&lt;int&gt; dp(v.size(),1);			//动态规划计算最长不下降子序列（可连续，也可以不连续） 
+	for(int i=1;i&lt;v.size();i++){
+		for(int j=0;j&lt;i;j++){
+			if(v[j]&lt;=v[i]&amp;&amp;dp[j]+1&gt;dp[i]){
+				dp[i]=dp[j]+1;
+			}
+		}
+		ans=max(ans,dp[i]);				//保存最长的序列 
+	}
+	cout&lt;&lt;ans;
+	return 0;
 } 
 </code></pre>
               
@@ -392,17 +392,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1044/" data-tooltip="PAT_A1044">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1046/" data-tooltip="PAT_A1046">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1046/" data-tooltip="PAT_A1046">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1044/" data-tooltip="PAT_A1044">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -460,17 +460,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1044/" data-tooltip="PAT_A1044">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1046/" data-tooltip="PAT_A1046">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1046/" data-tooltip="PAT_A1046">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1044/" data-tooltip="PAT_A1044">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>

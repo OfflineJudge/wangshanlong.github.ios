@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1060, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1060.
@@ -385,62 +385,62 @@
 using namespace std;
 int n;
 string trans(string str,int &amp;e){
-    string ret=&quot;&quot;;                      //ret为返回值，表示有效字段，e表示指数 
-    int tag=0;                          //是否为0的标记   
-    for(int i=0;i&lt;str.size();i++){      //判断是不是0（凡是没有非零数字的都是0，比如0  0.00） 
-        if(str[i]!='0'&amp;&amp;str[i]!='.'){
-            tag=1;break;                //如果不是0，修改标记tag为1 
-        }
-    } 
-    if(tag==0){                         //如果是0，有效字段为n个0，并且指数为0 
-        for(int i=0;i&lt;n;i++)
-            ret+='0';   
-        e=0; 
-    }
-    else{
-        while(1){                           //去除前导0 
-            if(str[0]!='0')
-                break;
-            else str.erase(str.begin());
-        }
-        int pos=str.find('.');          //查找点的下标 
-        if(pos==string::npos)           //如果没有点 ，则是整数，e为字符串长度 
-            e=str.size();
-        else if(pos==0){                    //如果第一个是点，则这个数小于1，e&lt;=0; 
-            e=0; str.erase(str.begin());
-            while(str[0]=='0'){         //如果小数点和第一个非零数字之间还有0，则e--，并清除这些0 
-                str.erase(str.begin());
-                e--;
-            }
-        }
-        else{
-            e=pos;                      //如果该数大于1，则指数等于点的下标 比如1234.56 
-            str.erase(pos,1);           //删除点 
-        } 
-        for(int i=0;i&lt;n;i++){           //获取n位有效数字 
-            if(i&lt;str.size())
-                ret+=str[i];
-            else                        //如果字符串不够n位，补齐为0 
-                ret+='0';
-        }
-    }
-    return ret; 
+	string ret=&quot;&quot;;						//ret为返回值，表示有效字段，e表示指数 
+	int tag=0;							//是否为0的标记 	
+	for(int i=0;i&lt;str.size();i++){		//判断是不是0（凡是没有非零数字的都是0，比如0  0.00） 
+		if(str[i]!='0'&amp;&amp;str[i]!='.'){
+			tag=1;break;				//如果不是0，修改标记tag为1 
+		}
+	} 
+	if(tag==0){							//如果是0，有效字段为n个0，并且指数为0 
+		for(int i=0;i&lt;n;i++)
+			ret+='0';	
+		e=0; 
+	}
+	else{
+		while(1){							//去除前导0 
+			if(str[0]!='0')
+				break;
+			else str.erase(str.begin());
+		}
+		int pos=str.find('.');			//查找点的下标 
+		if(pos==string::npos)			//如果没有点 ，则是整数，e为字符串长度 
+			e=str.size();
+		else if(pos==0){					//如果第一个是点，则这个数小于1，e&lt;=0; 
+			e=0; str.erase(str.begin());
+			while(str[0]=='0'){			//如果小数点和第一个非零数字之间还有0，则e--，并清除这些0 
+				str.erase(str.begin());
+				e--;
+			}
+		}
+		else{
+			e=pos;						//如果该数大于1，则指数等于点的下标 比如1234.56 
+			str.erase(pos,1);			//删除点 
+		} 
+		for(int i=0;i&lt;n;i++){			//获取n位有效数字 
+			if(i&lt;str.size())
+				ret+=str[i];
+			else						//如果字符串不够n位，补齐为0 
+				ret+='0';
+		}
+	}
+	return ret;	
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    string a,b;
-    int ea,eb;
-    ea=eb=0;
-    cin&gt;&gt;n&gt;&gt;a&gt;&gt;b;
-    a=trans(a,ea);  b=trans(b,eb);
-    if(a==b)
-        printf(&quot;YES 0.%s*10^%d&quot;,a.c_str(),ea);
-    else
-        printf(&quot;NO 0.%s*10^%d 0.%s*10^%d&quot;,a.c_str(),ea,b.c_str(),eb);
-    return 0;
+	string a,b;
+	int ea,eb;
+	ea=eb=0;
+	cin&gt;&gt;n&gt;&gt;a&gt;&gt;b;
+	a=trans(a,ea);	b=trans(b,eb);
+	if(a==b)
+		printf(&quot;YES 0.%s*10^%d&quot;,a.c_str(),ea);
+	else
+		printf(&quot;NO 0.%s*10^%d 0.%s*10^%d&quot;,a.c_str(),ea,b.c_str(),eb);
+	return 0;
 } 
 </code></pre>
               
@@ -487,17 +487,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1059/" data-tooltip="PAT_A1059">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/%E6%8A%93%E5%8C%85%E7%9C%8Btcp%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" data-tooltip="抓包看TCP的“三次握手”和“四次挥手”">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/%E6%8A%93%E5%8C%85%E7%9C%8Btcp%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" data-tooltip="抓包看TCP的“三次握手”和“四次挥手”">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1059/" data-tooltip="PAT_A1059">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -555,17 +555,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1059/" data-tooltip="PAT_A1059">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/%E6%8A%93%E5%8C%85%E7%9C%8Btcp%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" data-tooltip="抓包看TCP的“三次握手”和“四次挥手”">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/%E6%8A%93%E5%8C%85%E7%9C%8Btcp%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" data-tooltip="抓包看TCP的“三次握手”和“四次挥手”">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1059/" data-tooltip="PAT_A1059">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>

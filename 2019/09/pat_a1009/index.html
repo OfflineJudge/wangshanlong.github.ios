@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1009, C, C&#43;&#43;, PAT">
 <meta name="description" content="　　PAT甲级1009.">
@@ -305,33 +305,33 @@ using namespace std;
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    map&lt;int,double&gt; a,ans;
-    int n;
-    scanf(&quot;%d&quot;,&amp;n);
-    for(int i=0;i&lt;n;i++){                       //输入，使用a存放第一个式子 
-        int e;
-        double c;
-        scanf(&quot;%d%lf&quot;,&amp;e,&amp;c);
-        a[e]=c;
-    }
-    scanf(&quot;%d&quot;,&amp;n);                             //读入第二个式子，每次读一项，边读入边处理 
-    for(int i=0;i&lt;n;i++){
-        int e;
-        double c;
-        scanf(&quot;%d%lf&quot;,&amp;e,&amp;c);
-        for(auto it=a.begin();it!=a.end();it++){    //把当前项乘入式子a，即指数增加e，系数乘以c，然后并入ans中 
-            ans[it-&gt;first+e]+=it-&gt;second*c;
-            if(ans[it-&gt;first+e]==0)                 //系数为0时，剔除 
-                ans.erase(it-&gt;first+e);
-        }
-    }
-    printf(&quot;%d&quot;,ans.size());                        //输出结果 
-    for(auto it=ans.rbegin();it!=ans.rend();it++){
-        printf(&quot; %d %.1f&quot;,it-&gt;first,it-&gt;second);
-    }
-    return 0;
+	map&lt;int,double&gt; a,ans;
+	int n;
+	scanf(&quot;%d&quot;,&amp;n);
+	for(int i=0;i&lt;n;i++){						//输入，使用a存放第一个式子 
+		int e;
+		double c;
+		scanf(&quot;%d%lf&quot;,&amp;e,&amp;c);
+		a[e]=c;
+	}
+	scanf(&quot;%d&quot;,&amp;n);								//读入第二个式子，每次读一项，边读入边处理 
+	for(int i=0;i&lt;n;i++){
+		int e;
+		double c;
+		scanf(&quot;%d%lf&quot;,&amp;e,&amp;c);
+		for(auto it=a.begin();it!=a.end();it++){	//把当前项乘入式子a，即指数增加e，系数乘以c，然后并入ans中 
+			ans[it-&gt;first+e]+=it-&gt;second*c;
+			if(ans[it-&gt;first+e]==0)					//系数为0时，剔除 
+				ans.erase(it-&gt;first+e);
+		}
+	}
+	printf(&quot;%d&quot;,ans.size());						//输出结果 
+	for(auto it=ans.rbegin();it!=ans.rend();it++){
+		printf(&quot; %d %.1f&quot;,it-&gt;first,it-&gt;second);
+	}
+	return 0;
 } 
 </code></pre>
               
@@ -378,17 +378,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1008/" data-tooltip="PAT_A1008">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1010/" data-tooltip="PAT_A1010">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1010/" data-tooltip="PAT_A1010">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1008/" data-tooltip="PAT_A1008">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -446,17 +446,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1008/" data-tooltip="PAT_A1008">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1010/" data-tooltip="PAT_A1010">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1010/" data-tooltip="PAT_A1010">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1008/" data-tooltip="PAT_A1008">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1042, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1042.
@@ -307,42 +307,42 @@
 #include&lt;set&gt;
 #include&lt;stack&gt;
 using namespace std;
-typedef struct node{                        //牌的结构体 
-    string id;
-    int order;
+typedef struct node{						//牌的结构体 
+	string id;
+	int order;
 }Node;
-bool cmp(Node a,Node b){                    //排序函数 
-    return a.order&lt;b.order;
+bool cmp(Node a,Node b){					//排序函数 
+	return a.order&lt;b.order;
 }
 string cards[55]={&quot;&quot;,&quot;S1&quot;,&quot;S2&quot;,&quot;S3&quot;,&quot;S4&quot;,&quot;S5&quot;,&quot;S6&quot;,&quot;S7&quot;,&quot;S8&quot;,&quot;S9&quot;,&quot;S10&quot;,&quot;S11&quot;,&quot;S12&quot;,&quot;S13&quot;,
-                &quot;H1&quot;,&quot;H2&quot;,&quot;H3&quot;,&quot;H4&quot;,&quot;H5&quot;,&quot;H6&quot;,&quot;H7&quot;,&quot;H8&quot;,&quot;H9&quot;,&quot;H10&quot;,&quot;H11&quot;,&quot;H12&quot;,&quot;H13&quot;,
-                &quot;C1&quot;,&quot;C2&quot;,&quot;C3&quot;,&quot;C4&quot;,&quot;C5&quot;,&quot;C6&quot;,&quot;C7&quot;,&quot;C8&quot;,&quot;C9&quot;,&quot;C10&quot;,&quot;C11&quot;,&quot;C12&quot;,&quot;C13&quot;,
-                &quot;D1&quot;,&quot;D2&quot;,&quot;D3&quot;,&quot;D4&quot;,&quot;D5&quot;,&quot;D6&quot;,&quot;D7&quot;,&quot;D8&quot;,&quot;D9&quot;,&quot;D10&quot;,&quot;D11&quot;,&quot;D12&quot;,&quot;D13&quot;,
-                &quot;J1&quot;,&quot;J2&quot;};
+				&quot;H1&quot;,&quot;H2&quot;,&quot;H3&quot;,&quot;H4&quot;,&quot;H5&quot;,&quot;H6&quot;,&quot;H7&quot;,&quot;H8&quot;,&quot;H9&quot;,&quot;H10&quot;,&quot;H11&quot;,&quot;H12&quot;,&quot;H13&quot;,
+				&quot;C1&quot;,&quot;C2&quot;,&quot;C3&quot;,&quot;C4&quot;,&quot;C5&quot;,&quot;C6&quot;,&quot;C7&quot;,&quot;C8&quot;,&quot;C9&quot;,&quot;C10&quot;,&quot;C11&quot;,&quot;C12&quot;,&quot;C13&quot;,
+				&quot;D1&quot;,&quot;D2&quot;,&quot;D3&quot;,&quot;D4&quot;,&quot;D5&quot;,&quot;D6&quot;,&quot;D7&quot;,&quot;D8&quot;,&quot;D9&quot;,&quot;D10&quot;,&quot;D11&quot;,&quot;D12&quot;,&quot;D13&quot;,
+				&quot;J1&quot;,&quot;J2&quot;};
 int shuff[55]={0};
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    int k;
-    scanf(&quot;%d&quot;,&amp;k);
-    vector&lt;Node&gt; v(55);
-    for(int i=1;i&lt;=54;i++){                 //一遍读入顺序，一遍初始化牌面 
-        v[i].id=cards[i];
-        scanf(&quot;%d&quot;,&amp;shuff[i]);
-    } 
-    for(int i=0;i&lt;k;i++){                   //进行k次重新定数顺序并排序 
-        for(int j=1;j&lt;=54;j++){
-            v[j].order=shuff[j];
-        }
-        sort(v.begin()+1,v.end(),cmp);
-    }
-    for(int i=1;i&lt;=54;i++){                 //输出结果 
-        if(i!=1) putchar(' ');
-        cout&lt;&lt;v[i].id;
-    }
-    return 0;
+	int k;
+	scanf(&quot;%d&quot;,&amp;k);
+	vector&lt;Node&gt; v(55);
+	for(int i=1;i&lt;=54;i++){					//一遍读入顺序，一遍初始化牌面 
+		v[i].id=cards[i];
+		scanf(&quot;%d&quot;,&amp;shuff[i]);
+	} 
+	for(int i=0;i&lt;k;i++){					//进行k次重新定数顺序并排序 
+		for(int j=1;j&lt;=54;j++){
+			v[j].order=shuff[j];
+		}
+		sort(v.begin()+1,v.end(),cmp);
+	}
+	for(int i=1;i&lt;=54;i++){					//输出结果 
+		if(i!=1) putchar(' ');
+		cout&lt;&lt;v[i].id;
+	}
+	return 0;
 } 
 </code></pre>
               
@@ -389,17 +389,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1041/" data-tooltip="PAT_A1041">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1043/" data-tooltip="PAT_A1043">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1043/" data-tooltip="PAT_A1043">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1041/" data-tooltip="PAT_A1041">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -457,17 +457,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1041/" data-tooltip="PAT_A1041">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1043/" data-tooltip="PAT_A1043">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1043/" data-tooltip="PAT_A1043">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1041/" data-tooltip="PAT_A1041">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>

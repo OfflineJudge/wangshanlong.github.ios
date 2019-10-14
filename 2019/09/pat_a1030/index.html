@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1030, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1030.
@@ -313,67 +313,67 @@
 using namespace std;
 #define MAXN 505
 #define INF 0x3fffffff
-int n,m,s,d;                            //参数 
-int dis[MAXN],cost[MAXN],pre[MAXN];     //最短距离数组，最小花费数组，路径前驱数组 
-int G[MAXN][MAXN];                      //图 
-int C[MAXN][MAXN];                      //花费 
-bool vis[MAXN]={false};                 //访问标记 
-void D(){                               //两个参数的Dijkstra算法模板 
-    fill(dis,dis+MAXN,INF);
-    fill(cost,cost+MAXN,INF);
-    dis[s]=cost[s]=0;
-    for(int i=0;i&lt;n;i++){
-        int u=-1,MIN=INF;
-        for(int j=0;j&lt;n;j++){
-            if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
-                u=j;
-                MIN=dis[j];
-            }
-        }
-        if(u==-1) return;
-        vis[u]=true;
-        for(int v=0;v&lt;n;v++){
-            if(vis[v]==false&amp;&amp;G[u][v]!=INF){
-                if(dis[u]+G[u][v]&lt;dis[v]){
-                    dis[v]=dis[u]+G[u][v];
-                    cost[v]=cost[u]+C[u][v];
-                    pre[v]=u;
-                }
-                else if(dis[u]+G[u][v]==dis[v]&amp;&amp;cost[u]+C[u][v]&lt;cost[v]){
-                    cost[v]=cost[u]+C[u][v];
-                    pre[v]=u;
-                }
-            }
-        }
-    }
+int n,m,s,d;							//参数 
+int dis[MAXN],cost[MAXN],pre[MAXN];		//最短距离数组，最小花费数组，路径前驱数组 
+int G[MAXN][MAXN];						//图 
+int C[MAXN][MAXN];						//花费 
+bool vis[MAXN]={false};					//访问标记 
+void D(){								//两个参数的Dijkstra算法模板 
+	fill(dis,dis+MAXN,INF);
+	fill(cost,cost+MAXN,INF);
+	dis[s]=cost[s]=0;
+	for(int i=0;i&lt;n;i++){
+		int u=-1,MIN=INF;
+		for(int j=0;j&lt;n;j++){
+			if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
+				u=j;
+				MIN=dis[j];
+			}
+		}
+		if(u==-1) return;
+		vis[u]=true;
+		for(int v=0;v&lt;n;v++){
+			if(vis[v]==false&amp;&amp;G[u][v]!=INF){
+				if(dis[u]+G[u][v]&lt;dis[v]){
+					dis[v]=dis[u]+G[u][v];
+					cost[v]=cost[u]+C[u][v];
+					pre[v]=u;
+				}
+				else if(dis[u]+G[u][v]==dis[v]&amp;&amp;cost[u]+C[u][v]&lt;cost[v]){
+					cost[v]=cost[u]+C[u][v];
+					pre[v]=u;
+				}
+			}
+		}
+	}
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    fill(G[0],G[0]+MAXN*MAXN,INF);                      //初始化 
-    fill(C[0],C[0]+MAXN*MAXN,INF);
-    fill(pre,pre+MAXN,-1);
-    scanf(&quot;%d%d%d%d&quot;,&amp;n,&amp;m,&amp;s,&amp;d);                      //读入数据 
-    for(int i=0;i&lt;m;i++){                               
-        int a,b,d,c;
-        scanf(&quot;%d%d&quot;,&amp;a,&amp;b);
-        scanf(&quot;%d%d&quot;,&amp;G[a][b],&amp;C[a][b]);
-        G[b][a]=G[a][b];    C[b][a]=C[a][b];        
-    } 
-    D();
-    vector&lt;int&gt; out;                                    //保存并输出路径 
-    out.push_back(cost[d]); out.push_back(dis[d]);      //最短距离和最小花费一并放入输出结果的数组中 
-    while(d!=-1){
-        out.push_back(d);
-        d=pre[d];
-    }
-    for(int i=out.size()-1;i&gt;=0;i--){
-        if(i!=out.size()-1) putchar(' ');
-        printf(&quot;%d&quot;,out[i]);
-    }
-    return 0;
+	fill(G[0],G[0]+MAXN*MAXN,INF);						//初始化 
+	fill(C[0],C[0]+MAXN*MAXN,INF);
+	fill(pre,pre+MAXN,-1);
+	scanf(&quot;%d%d%d%d&quot;,&amp;n,&amp;m,&amp;s,&amp;d);						//读入数据 
+	for(int i=0;i&lt;m;i++){								
+		int a,b,d,c;
+		scanf(&quot;%d%d&quot;,&amp;a,&amp;b);
+		scanf(&quot;%d%d&quot;,&amp;G[a][b],&amp;C[a][b]);
+		G[b][a]=G[a][b];	C[b][a]=C[a][b];		
+	} 
+	D();
+	vector&lt;int&gt; out;									//保存并输出路径 
+	out.push_back(cost[d]);	out.push_back(dis[d]);		//最短距离和最小花费一并放入输出结果的数组中 
+	while(d!=-1){
+		out.push_back(d);
+		d=pre[d];
+	}
+	for(int i=out.size()-1;i&gt;=0;i--){
+		if(i!=out.size()-1) putchar(' ');
+		printf(&quot;%d&quot;,out[i]);
+	}
+	return 0;
 } 
 </code></pre>
               
@@ -420,17 +420,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1029/" data-tooltip="PAT_A1029">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1031/" data-tooltip="PAT_A1031">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1031/" data-tooltip="PAT_A1031">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1029/" data-tooltip="PAT_A1029">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -488,17 +488,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1029/" data-tooltip="PAT_A1029">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1031/" data-tooltip="PAT_A1031">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1031/" data-tooltip="PAT_A1031">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1029/" data-tooltip="PAT_A1029">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>

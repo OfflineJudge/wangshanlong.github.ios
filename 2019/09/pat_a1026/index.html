@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1026, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1026.
@@ -330,82 +330,82 @@ using namespace std;
 #define st 8*3600
 #define ed 21*3600
 
-typedef struct table{                   //桌子结构体 
-    int edtime,cnt,tag;                 //当前服务的结束时间，服务人数统计，vip标记 
-    table():edtime(st),cnt(0),tag(0){}  //初始化 
+typedef struct table{					//桌子结构体 
+	int edtime,cnt,tag;					//当前服务的结束时间，服务人数统计，vip标记 
+	table():edtime(st),cnt(0),tag(0){}	//初始化 
 }Table;
 void Print(int i){
-    printf(&quot;%02d:%02d:%02d&quot;,i/3600,i/60%60,i%60);   //打印时间 
+	printf(&quot;%02d:%02d:%02d&quot;,i/3600,i/60%60,i%60);	//打印时间 
 }
-vector&lt;Table&gt; T;                        //桌子的数组 
-map&lt;int,int&gt; mpo,mpv;                   //map表示的顾客服务队列 
-void check(int j,int time,map&lt;int,int&gt; &amp;mp){    //使用传引用的方式，对不同的队列进行判断是都要从中取出顾客进行服务 
-    if(mp.size()){                      //非空 
-        auto it=mp.begin();                 
-        if(it-&gt;first&lt;=time){            //队头顾客已经在等待，进行服务，打印并更新队列参数 
-            T[j].edtime=time+it-&gt;second;
-            T[j].cnt++;
-            Print(it-&gt;first); putchar(' ');
-            Print(time);          putchar(' '); 
-            printf(&quot;%d\n&quot;,(time-it-&gt;first+30)/60);
-            mp.erase(it);
-        }
-    }
+vector&lt;Table&gt; T;						//桌子的数组 
+map&lt;int,int&gt; mpo,mpv;					//map表示的顾客服务队列 
+void check(int j,int time,map&lt;int,int&gt; &amp;mp){	//使用传引用的方式，对不同的队列进行判断是都要从中取出顾客进行服务 
+	if(mp.size()){						//非空 
+		auto it=mp.begin();					
+		if(it-&gt;first&lt;=time){			//队头顾客已经在等待，进行服务，打印并更新队列参数 
+			T[j].edtime=time+it-&gt;second;
+			T[j].cnt++;
+			Print(it-&gt;first); putchar(' ');
+			Print(time); 		  putchar(' '); 
+			printf(&quot;%d\n&quot;,(time-it-&gt;first+30)/60);
+			mp.erase(it);
+		}
+	}
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    int n;
-    scanf(&quot;%d&quot;,&amp;n);
-    for(int i=0;i&lt;n;i++){               //读入 
-        int hh,mm,ss,cost,tag;
-        scanf(&quot;%d:%d:%d %d %d&quot;,&amp;hh,&amp;mm,&amp;ss,&amp;cost,&amp;tag);
-        cost=cost&gt;120?120*60:cost*60;
-        if(tag==0)
-            mpo[hh*3600+mm*60+ss]=cost; //普通用户入队 
-        else    
-            mpv[hh*3600+mm*60+ss]=cost; //vip用户入队 
-    }
-    int k,m;
-    scanf(&quot;%d %d&quot;,&amp;k,&amp;m);
-    T.resize(k);
-    for(int i=0;i&lt;m;i++){               //vip桌子的标记 
-        int temp;
-        scanf(&quot;%d&quot;,&amp;temp);
-        T[temp-1].tag=1;
-    }
-    for(int i=st;i&lt;ed;i++){
-        for(int j=0;j&lt;k;j++){           //优先遍历一遍为vip顾客进行服务判定 
-            if(T[j].edtime&lt;=i&amp;&amp;T[j].tag==1){
-                check(j,i,mpv);
-                if(mpv.size()==0) break;    //vip服务全部完成时，提前结束循环 
-            }
-        }
-        for(int j=0;j&lt;k;j++){           //安排了vip只有，全员进行判定 
-            if(T[j].edtime&lt;=i){
-                if(mpo.size()&amp;&amp;mpv.size()){                     //如果都不空，取来的早的进行判定 
-                    auto it=mpo.begin(),itv=mpv.begin();
-                    if(it-&gt;first&lt;itv-&gt;first)
-                        check(j,i,mpo);
-                    else if(it-&gt;first&gt;itv-&gt;first)
-                        check(j,i,mpv);
-                }
-                else if(mpo.size())                             //如果有一个空，非空的进行判定 
-                    check(j,i,mpo);
-                else if(mpv.size())
-                    check(j,i,mpv);
-                else break;                                     //都空则，提前结束，表示顾客已经服务完毕 
-            }
-        }
-        if(mpo.size()==0&amp;&amp;mpv.size()==0)    break;
-    }
-    for(int i=0;i&lt;k;i++){                                       //打印服务人数 
-        if(i) putchar(' ');
-        printf(&quot;%d&quot;,T[i].cnt);
-    }
-    return 0;
+	int n;
+	scanf(&quot;%d&quot;,&amp;n);
+	for(int i=0;i&lt;n;i++){				//读入 
+		int hh,mm,ss,cost,tag;
+		scanf(&quot;%d:%d:%d %d %d&quot;,&amp;hh,&amp;mm,&amp;ss,&amp;cost,&amp;tag);
+		cost=cost&gt;120?120*60:cost*60;
+		if(tag==0)
+			mpo[hh*3600+mm*60+ss]=cost;	//普通用户入队 
+		else	
+			mpv[hh*3600+mm*60+ss]=cost;	//vip用户入队 
+	}
+	int k,m;
+	scanf(&quot;%d %d&quot;,&amp;k,&amp;m);
+	T.resize(k);
+	for(int i=0;i&lt;m;i++){				//vip桌子的标记 
+		int temp;
+		scanf(&quot;%d&quot;,&amp;temp);
+		T[temp-1].tag=1;
+	}
+	for(int i=st;i&lt;ed;i++){
+		for(int j=0;j&lt;k;j++){			//优先遍历一遍为vip顾客进行服务判定 
+			if(T[j].edtime&lt;=i&amp;&amp;T[j].tag==1){
+				check(j,i,mpv);
+				if(mpv.size()==0) break;	//vip服务全部完成时，提前结束循环 
+			}
+		}
+		for(int j=0;j&lt;k;j++){			//安排了vip只有，全员进行判定 
+			if(T[j].edtime&lt;=i){
+				if(mpo.size()&amp;&amp;mpv.size()){						//如果都不空，取来的早的进行判定 
+					auto it=mpo.begin(),itv=mpv.begin();
+					if(it-&gt;first&lt;itv-&gt;first)
+						check(j,i,mpo);
+					else if(it-&gt;first&gt;itv-&gt;first)
+						check(j,i,mpv);
+				}
+				else if(mpo.size())								//如果有一个空，非空的进行判定 
+					check(j,i,mpo);
+				else if(mpv.size())
+					check(j,i,mpv);
+				else break;										//都空则，提前结束，表示顾客已经服务完毕 
+			}
+		}
+		if(mpo.size()==0&amp;&amp;mpv.size()==0)	break;
+	}
+	for(int i=0;i&lt;k;i++){										//打印服务人数 
+		if(i) putchar(' ');
+		printf(&quot;%d&quot;,T[i].cnt);
+	}
+	return 0;
 } 
 </code></pre>
               
@@ -452,17 +452,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1025/" data-tooltip="PAT_A1025">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1027/" data-tooltip="PAT_A1027">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1027/" data-tooltip="PAT_A1027">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1025/" data-tooltip="PAT_A1025">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -520,17 +520,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1025/" data-tooltip="PAT_A1025">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1027/" data-tooltip="PAT_A1027">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1027/" data-tooltip="PAT_A1027">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1025/" data-tooltip="PAT_A1025">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1033, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1033.
@@ -336,65 +336,65 @@
 #include&lt;set&gt;
 #include&lt;stack&gt;
 using namespace std;
-typedef struct gas{                                     //汽油站结构体，距离和价格 
-    double pric,dis;
+typedef struct gas{										//汽油站结构体，距离和价格 
+	double pric,dis;
 }Gas;
-bool cmp(Gas a,Gas b){                                  //按照距离排序 
-    return a.dis&lt;b.dis;
+bool cmp(Gas a,Gas b){									//按照距离排序 
+	return a.dis&lt;b.dis;
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    double c,ds,dv;
-    int n;
-    scanf(&quot;%lf%lf%lf%d&quot;,&amp;c,&amp;ds,&amp;dv,&amp;n);
-    vector&lt;Gas&gt; v(n+1);
-    for(int i=0;i&lt;n;i++){
-        scanf(&quot;%lf %lf&quot;,&amp;v[i].pric,&amp;v[i].dis);
-    }
-    v[n].pric=0;    v[n].dis=ds;                        //将目的地作为一个价格为0的加油站 
-    sort(v.begin(),v.end(),cmp);
-    if(v[0].dis!=0){                                    //特判起点没有加油站 
-        printf(&quot;The maximum travel distance = 0.00&quot;);
-        return 0;
-    }
-    double tank=0,maxd=c*dv,sum=0;                      //tank表示当前油箱储量，maxd表示满油箱时候的最大行程，sum表示价格总数 
-    int now=0;                                          //now表示现在的站点 
-    while(1){
-        int next=-1;                                    //next表示下一站 
-        double min=0x3fffffff;                          //记录下一站的最低价格 
-        for(int i=now+1;i&lt;=n&amp;&amp;v[now].dis+maxd&gt;=v[i].dis;i++){   //在满油箱能到达的范围内寻找价格最低的 
-            if(v[i].pric&lt;min){                          
-                min=v[i].pric;
-                next=i;
-                if(min&lt;v[now].pric)                     //如果最低价格低于当前，则直接去这个，更便宜 
-                    break;
-            }
-        } 
-        if(next==-1){                                   //如果下一站不可到达，终止并输出 
-            printf(&quot;The maximum travel distance = %.2f&quot;,v[now].dis+maxd);
-            break;
-        }
-        double need=(v[next].dis-v[now].dis)/dv;        //need表示当前站到下一站的距离所需要的油耗 
-        if(min&lt;v[now].pric){                            //如果下一站的价格低于当前，则只要能到下一站即可 
-            if(tank&lt;need){                              //如果需要加 
-                sum+=(need-tank)*v[now].pric;
-                tank=0;                                 //更新到下一站时候的剩余量 
-            }
-            else tank-=need;                            //如果不需要加油，直接去 
-        }
-        else{
-            sum+=(c-tank)*v[now].pric;                  //如果下一站比较贵，在这一站直接加满 
-            tank=c-need;
-        }
-        now=next;                                       //更新当前站 
-        if(next==n){                                    //如果下一站就是终点，则输出结果，停止循环 
-            printf(&quot;%.2f&quot;,sum); break;
-        }
-    }
-    return 0;
+	double c,ds,dv;
+	int n;
+	scanf(&quot;%lf%lf%lf%d&quot;,&amp;c,&amp;ds,&amp;dv,&amp;n);
+	vector&lt;Gas&gt; v(n+1);
+	for(int i=0;i&lt;n;i++){
+		scanf(&quot;%lf %lf&quot;,&amp;v[i].pric,&amp;v[i].dis);
+	}
+	v[n].pric=0;	v[n].dis=ds;						//将目的地作为一个价格为0的加油站 
+	sort(v.begin(),v.end(),cmp);
+	if(v[0].dis!=0){									//特判起点没有加油站 
+		printf(&quot;The maximum travel distance = 0.00&quot;);
+		return 0;
+	}
+	double tank=0,maxd=c*dv,sum=0;						//tank表示当前油箱储量，maxd表示满油箱时候的最大行程，sum表示价格总数 
+	int now=0;											//now表示现在的站点 
+	while(1){
+		int next=-1;									//next表示下一站 
+		double min=0x3fffffff;							//记录下一站的最低价格 
+		for(int i=now+1;i&lt;=n&amp;&amp;v[now].dis+maxd&gt;=v[i].dis;i++){	//在满油箱能到达的范围内寻找价格最低的 
+			if(v[i].pric&lt;min){							
+				min=v[i].pric;
+				next=i;
+				if(min&lt;v[now].pric)						//如果最低价格低于当前，则直接去这个，更便宜 
+					break;
+			}
+		} 
+		if(next==-1){									//如果下一站不可到达，终止并输出 
+			printf(&quot;The maximum travel distance = %.2f&quot;,v[now].dis+maxd);
+			break;
+		}
+		double need=(v[next].dis-v[now].dis)/dv;		//need表示当前站到下一站的距离所需要的油耗 
+		if(min&lt;v[now].pric){							//如果下一站的价格低于当前，则只要能到下一站即可 
+			if(tank&lt;need){								//如果需要加 
+				sum+=(need-tank)*v[now].pric;
+				tank=0;									//更新到下一站时候的剩余量 
+			}
+			else tank-=need;							//如果不需要加油，直接去 
+		}
+		else{
+			sum+=(c-tank)*v[now].pric;					//如果下一站比较贵，在这一站直接加满 
+			tank=c-need;
+		}
+		now=next;										//更新当前站 
+		if(next==n){									//如果下一站就是终点，则输出结果，停止循环 
+			printf(&quot;%.2f&quot;,sum); break;
+		}
+	}
+	return 0;
 } 
 </code></pre>
               
@@ -441,17 +441,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1032/" data-tooltip="PAT_A1032">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1034/" data-tooltip="PAT_A1034">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1034/" data-tooltip="PAT_A1034">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1032/" data-tooltip="PAT_A1032">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -509,17 +509,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1032/" data-tooltip="PAT_A1032">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1034/" data-tooltip="PAT_A1034">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1034/" data-tooltip="PAT_A1034">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1032/" data-tooltip="PAT_A1032">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>

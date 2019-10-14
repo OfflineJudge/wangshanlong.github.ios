@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1018, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1018.
@@ -315,88 +315,88 @@
 using namespace std;
 #define MAXN 505
 #define INF 0x3fffffff
-int G[MAXN][MAXN];                  //图 
-bool vis[MAXN]={false};             //遍历标记 
-int dis[MAXN];                      //距离数组 
-int c,n,sp,m;                        
-int biken[MAXN]={INF};              //每个站点的自行车数量，0号站记为无穷大，其实用不到，但是为了避免误用，这样初始化易于发现错误 
-vector&lt;int&gt; path,temppath;          //路径数组和前驱数组 
+int G[MAXN][MAXN];					//图 
+bool vis[MAXN]={false};				//遍历标记 
+int dis[MAXN];						//距离数组 
+int c,n,sp,m;						 
+int biken[MAXN]={INF};				//每个站点的自行车数量，0号站记为无穷大，其实用不到，但是为了避免误用，这样初始化易于发现错误 
+vector&lt;int&gt; path,temppath;			//路径数组和前驱数组 
 vector&lt;int&gt; pre[MAXN];
-int op1=INF,op2=INF;                //第二和第三尺度优化
-void D(){                           //dijkstra算法模板 
-    fill(dis,dis+MAXN,INF);
-    dis[0]=0;
-    for(int i=0;i&lt;n+1;i++){
-        int u=-1,MIN=INF;
-        for(int j=0;j&lt;n+1;j++){
-            if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
-                u=j;
-                MIN=dis[j];
-            }
-        }
-        if(u==-1) return;
-        vis[u]=true;
-        for(int v=0;v&lt;=n+1;v++){
-            if(vis[v]==false&amp;&amp;G[u][v]!=INF){
-                if(dis[u]+G[u][v]&lt;dis[v]){
-                    dis[v]=dis[u]+G[u][v];
-                    pre[v].clear();
-                    pre[v].push_back(u);
-                }
-                else if(dis[u]+G[u][v]==dis[v])
-                    pre[v].push_back(u);
-            }
-        }
-    }
+int op1=INF,op2=INF;				//第二和第三尺度优化
+void D(){							//dijkstra算法模板 
+	fill(dis,dis+MAXN,INF);
+	dis[0]=0;
+	for(int i=0;i&lt;n+1;i++){
+		int u=-1,MIN=INF;
+		for(int j=0;j&lt;n+1;j++){
+			if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
+				u=j;
+				MIN=dis[j];
+			}
+		}
+		if(u==-1) return;
+		vis[u]=true;
+		for(int v=0;v&lt;=n+1;v++){
+			if(vis[v]==false&amp;&amp;G[u][v]!=INF){
+				if(dis[u]+G[u][v]&lt;dis[v]){
+					dis[v]=dis[u]+G[u][v];
+					pre[v].clear();
+					pre[v].push_back(u);
+				}
+				else if(dis[u]+G[u][v]==dis[v])
+					pre[v].push_back(u);
+			}
+		}
+	}
 }
-void dfs(int u){                    //对获得的每一条路径进行dfs方式遍历 
-    if(u==0){                       //得到一条路径时进行优化 （dfs边界） 
-        int bring=0,cnt=0;          //临时的优化变量 
-        for(int i=temppath.size()-1;i&gt;=0;i--){
-            cnt+=biken[temppath[i]]-c/2;
-            bring=min(bring,cnt);
-        }
-        bring=bring&gt;=0?0:-bring;    //计算需要带的自行车 
-        cnt+=bring;                 //需要带回的自行车 
-        if(bring&lt;op1){              //如果更优，则保存更优结果 
-            path=temppath;
-            op1=bring; op2=cnt;
-        }
-        else if(bring=op1&amp;&amp;cnt&lt;op2){
-            path=temppath;
-            op2=cnt;
-        }
-        return;
-    }
-    temppath.push_back(u);          //dfs模板 
-    for(int i=0;i&lt;pre[u].size();i++){
-        dfs(pre[u][i]);
-    }
-    temppath.pop_back();
+void dfs(int u){					//对获得的每一条路径进行dfs方式遍历 
+	if(u==0){						//得到一条路径时进行优化 （dfs边界） 
+		int bring=0,cnt=0;			//临时的优化变量 
+		for(int i=temppath.size()-1;i&gt;=0;i--){
+			cnt+=biken[temppath[i]]-c/2;
+			bring=min(bring,cnt);
+		}
+		bring=bring&gt;=0?0:-bring;	//计算需要带的自行车 
+		cnt+=bring;					//需要带回的自行车 
+		if(bring&lt;op1){				//如果更优，则保存更优结果 
+			path=temppath;
+			op1=bring; op2=cnt;
+		}
+		else if(bring=op1&amp;&amp;cnt&lt;op2){
+			path=temppath;
+			op2=cnt;
+		}
+		return;
+	}
+	temppath.push_back(u);			//dfs模板 
+	for(int i=0;i&lt;pre[u].size();i++){
+		dfs(pre[u][i]);
+	}
+	temppath.pop_back();
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    fill(G[0],G[0]+MAXN*MAXN,INF);
-    scanf(&quot;%d%d%d%d&quot;,&amp;c,&amp;n,&amp;sp,&amp;m);
-    for(int i=1;i&lt;=n;i++){
-        scanf(&quot;%d&quot;,&amp;biken[i]);
-    }
-    for(int i=0;i&lt;m;i++){
-        int a,b,c;
-        scanf(&quot;%d%d%d&quot;,&amp;a,&amp;b,&amp;c);
-        G[a][b]=G[b][a]=c;
-    }
-    D();
-    dfs(sp);
-    printf(&quot;%d 0&quot;,op1);             //输出最终结果 
-    for(int i=path.size()-1;i&gt;=0;i--){
-        printf(&quot;-&gt;%d&quot;,path[i]);
-    }
-    printf(&quot; %d&quot;,op2);
-    return 0;
+	fill(G[0],G[0]+MAXN*MAXN,INF);
+	scanf(&quot;%d%d%d%d&quot;,&amp;c,&amp;n,&amp;sp,&amp;m);
+	for(int i=1;i&lt;=n;i++){
+		scanf(&quot;%d&quot;,&amp;biken[i]);
+	}
+	for(int i=0;i&lt;m;i++){
+		int a,b,c;
+		scanf(&quot;%d%d%d&quot;,&amp;a,&amp;b,&amp;c);
+		G[a][b]=G[b][a]=c;
+	}
+	D();
+	dfs(sp);
+	printf(&quot;%d 0&quot;,op1);				//输出最终结果 
+	for(int i=path.size()-1;i&gt;=0;i--){
+		printf(&quot;-&gt;%d&quot;,path[i]);
+	}
+	printf(&quot; %d&quot;,op2);
+	return 0;
 } 
 </code></pre>
               
@@ -443,17 +443,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1017/" data-tooltip="PAT_A1017">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1019/" data-tooltip="PAT_A1019">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1019/" data-tooltip="PAT_A1019">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1017/" data-tooltip="PAT_A1017">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -511,17 +511,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1017/" data-tooltip="PAT_A1017">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1019/" data-tooltip="PAT_A1019">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1019/" data-tooltip="PAT_A1019">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1017/" data-tooltip="PAT_A1017">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>

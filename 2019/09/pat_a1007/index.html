@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1007, C, C&#43;&#43;, PAT">
 <meta name="description" content="　　PAT甲级1007.">
@@ -308,38 +308,38 @@ using namespace std;
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    int n,dp,tdp,st,ed,_st,_ed;     //tdp _st _ed临时存放最优子问题，dp st ed存放最后结果 
-    int first,last;                 //记录特判的情况 
-    scanf(&quot;%d&quot;,&amp;n);
-    dp=tdp=-0x3fffffff;             //初始化 
-    for(int i=0;i&lt;n;i++){
-        int temp;
-        scanf(&quot;%d&quot;,&amp;temp);
-        if(i==0) first=temp;
-        if(i==n-1) last=temp;
+	int n,dp,tdp,st,ed,_st,_ed;		//tdp _st _ed临时存放最优子问题，dp st ed存放最后结果 
+	int first,last;					//记录特判的情况 
+	scanf(&quot;%d&quot;,&amp;n);
+	dp=tdp=-0x3fffffff;				//初始化 
+	for(int i=0;i&lt;n;i++){
+		int temp;
+		scanf(&quot;%d&quot;,&amp;temp);
+		if(i==0) first=temp;
+		if(i==n-1) last=temp;
 
-        //动态规划转移方程 dp[i]=max(A[i],dp[i-1]+A[i])
+		//动态规划转移方程 dp[i]=max(A[i],dp[i-1]+A[i])
 
-        if(temp&gt;tdp+temp){           //如果当前构成一个单独的最优子序列，该序列只有1个元素 
-            tdp=temp;
-            _st=temp;_ed=temp; 
-        }
-        else{                       //如果当前位加入前一位的最优子序列，更新临时的tdp，结尾为当前位 
-            tdp+=temp;
-            _ed=temp;
-        }
-        if(tdp&gt;dp){                 //筛选每一个子问题，找到最优解 
-            dp=tdp;
-            st=_st;ed=_ed;
-        }   
-    }
-    if(dp&lt;0){                       //特判 
-        dp=0;st=first;ed=last;
-    } 
-    printf(&quot;%d %d %d&quot;,dp,st,ed);
-    return 0;
+		if(temp&gt;tdp+temp){			 //如果当前构成一个单独的最优子序列，该序列只有1个元素 
+			tdp=temp;
+			_st=temp;_ed=temp; 
+		}
+		else{						//如果当前位加入前一位的最优子序列，更新临时的tdp，结尾为当前位 
+			tdp+=temp;
+			_ed=temp;
+		}
+		if(tdp&gt;dp){					//筛选每一个子问题，找到最优解 
+			dp=tdp;
+			st=_st;ed=_ed;
+		}	
+	}
+	if(dp&lt;0){						//特判 
+		dp=0;st=first;ed=last;
+	} 
+	printf(&quot;%d %d %d&quot;,dp,st,ed);
+	return 0;
 } 
 </code></pre>
               
@@ -386,17 +386,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1006/" data-tooltip="PAT_A1006">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1008/" data-tooltip="PAT_A1008">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1008/" data-tooltip="PAT_A1008">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1006/" data-tooltip="PAT_A1006">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -454,17 +454,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1006/" data-tooltip="PAT_A1006">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1008/" data-tooltip="PAT_A1008">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1008/" data-tooltip="PAT_A1008">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1006/" data-tooltip="PAT_A1006">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>

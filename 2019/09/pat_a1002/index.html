@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, A1002, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1002.
@@ -312,31 +312,31 @@ using namespace std;
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    int a,b;
-    map&lt;int,double&gt; mp;
-    cin&gt;&gt;a;
-    for(int i=0;i&lt;a;i++){
-        int e;
-        double c;
-        cin&gt;&gt;e&gt;&gt;c;
-        mp[e]=c;
-    }
-    cin&gt;&gt;b;
-    for(int i=0;i&lt;b;i++){
-        int e;
-        double c;
-        cin&gt;&gt;e&gt;&gt;c;
-        mp[e]+=c;
-        if(mp[e]==0)            //如果系数相加后为0 ，则剔除这一项 
-            mp.erase(e);
-    }
-    cout&lt;&lt;mp.size();
-    for(auto it=mp.rbegin();it!=mp.rend();it++){
-        printf(&quot; %d %.1f&quot;,it-&gt;first,it-&gt;second);
-    }
-    return 0;
+	int a,b;
+	map&lt;int,double&gt; mp;
+	cin&gt;&gt;a;
+	for(int i=0;i&lt;a;i++){
+		int e;
+		double c;
+		cin&gt;&gt;e&gt;&gt;c;
+		mp[e]=c;
+	}
+	cin&gt;&gt;b;
+	for(int i=0;i&lt;b;i++){
+		int e;
+		double c;
+		cin&gt;&gt;e&gt;&gt;c;
+		mp[e]+=c;
+		if(mp[e]==0)			//如果系数相加后为0 ，则剔除这一项 
+			mp.erase(e);
+	}
+	cout&lt;&lt;mp.size();
+	for(auto it=mp.rbegin();it!=mp.rend();it++){
+		printf(&quot; %d %.1f&quot;,it-&gt;first,it-&gt;second);
+	}
+	return 0;
 } 
 </code></pre>
               
@@ -383,17 +383,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1001/" data-tooltip="PAT_A1001">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1003/" data-tooltip="PAT_A1003">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1003/" data-tooltip="PAT_A1003">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1001/" data-tooltip="PAT_A1001">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -451,17 +451,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1001/" data-tooltip="PAT_A1001">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1003/" data-tooltip="PAT_A1003">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1003/" data-tooltip="PAT_A1003">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1001/" data-tooltip="PAT_A1001">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>

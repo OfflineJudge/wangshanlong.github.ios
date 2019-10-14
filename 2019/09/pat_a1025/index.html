@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1025, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1025.
@@ -326,73 +326,73 @@
 #include&lt;set&gt;
 #include&lt;stack&gt;
 using namespace std;
-typedef struct node{                    //学生结构体 
-    string id;
-    int score,local,lr;
+typedef struct node{					//学生结构体 
+	string id;
+	int score,local,lr;
 }Node;
 vector&lt;Node&gt; v;
-vector&lt;int&gt; idsort;                     //用于按照下标排序 
+vector&lt;int&gt; idsort;						//用于按照下标排序 
 int tag=1;
-bool cmp(int i,int j){                  //多级排序，tag=1时，优先按照考场排，然后确定考场排名 
-    if(tag==1){
-        if(v[i].local!=v[j].local) return v[i].local&lt;v[j].local;
-        else if(v[i].score!=v[j].score) return v[i].score&gt;v[j].score;
-        else    return v[i].id&lt;v[j].id;
-    }
-    else{
-        if(v[i].score!=v[j].score)  return v[i].score&gt;v[j].score;
-        else return v[i].id&lt;v[j].id;    //tag不等于1时，采用总排名的规则 
-    }
+bool cmp(int i,int j){					//多级排序，tag=1时，优先按照考场排，然后确定考场排名 
+	if(tag==1){
+		if(v[i].local!=v[j].local) return v[i].local&lt;v[j].local;
+		else if(v[i].score!=v[j].score) return v[i].score&gt;v[j].score;
+		else 	return v[i].id&lt;v[j].id;
+	}
+	else{
+		if(v[i].score!=v[j].score)	return v[i].score&gt;v[j].score;
+		else return v[i].id&lt;v[j].id;	//tag不等于1时，采用总排名的规则 
+	}
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    int n,k,cnt=0;;
-    scanf(&quot;%d&quot;,&amp;n);
-    for(int i=1;i&lt;=n;i++){
-        scanf(&quot;%d&quot;,&amp;k);
-        for(int j=0;j&lt;k;j++){
-            Node temp;
-            cin&gt;&gt;temp.id;
-            scanf(&quot;%d&quot;,&amp;temp.score);
-            temp.local=i;
-            idsort.push_back(cnt++);
-            v.push_back(temp);
-        }
-    }
-    sort(idsort.begin(),idsort.end(),cmp);  
-    int pre=idsort[0]; v[pre].lr=1; cnt=1;      //第一个优先处理 ，cnt用于更新排名 
-    for(int i=1;i&lt;idsort.size();i++){
-        int index=idsort[i];
-        cnt++;
-        if(v[index].local==v[pre].local){       //如果当前的与前边同一考场 
-            if(v[index].score==v[pre].score)
-                v[index].lr=v[pre].lr;
-            else
-                v[index].lr=cnt;
-        }
-        else{                                   //如果不同考场 
-            v[index].lr=1;  cnt=1;
-        }
-        pre=index;
-    }
-    tag=0;
-    sort(idsort.begin(),idsort.end(),cmp);      //总排名一遍输出，一遍确定名次 
-    cnt=1;
-    printf(&quot;%d\n&quot;,idsort.size());
-    pre=idsort[0];
-    cout&lt;&lt;v[pre].id&lt;&lt;' '&lt;&lt;1&lt;&lt;' '&lt;&lt;v[pre].local&lt;&lt;' '&lt;&lt;1&lt;&lt;'\n';
-    for(int i=1;i&lt;idsort.size();i++){
-        int index=idsort[i];
-        cout&lt;&lt;v[index].id&lt;&lt;' ';
-        if(v[index].score!=v[pre].score)
-            cnt=i+1;
-        printf(&quot;%d %d %d\n&quot;,cnt,v[index].local,v[index].lr);
-        pre=index;
-    }
-    return 0;
+	int n,k,cnt=0;;
+	scanf(&quot;%d&quot;,&amp;n);
+	for(int i=1;i&lt;=n;i++){
+		scanf(&quot;%d&quot;,&amp;k);
+		for(int j=0;j&lt;k;j++){
+			Node temp;
+			cin&gt;&gt;temp.id;
+			scanf(&quot;%d&quot;,&amp;temp.score);
+			temp.local=i;
+			idsort.push_back(cnt++);
+			v.push_back(temp);
+		}
+	}
+	sort(idsort.begin(),idsort.end(),cmp);	
+	int pre=idsort[0]; v[pre].lr=1; cnt=1;		//第一个优先处理 ，cnt用于更新排名 
+	for(int i=1;i&lt;idsort.size();i++){
+		int index=idsort[i];
+		cnt++;
+		if(v[index].local==v[pre].local){		//如果当前的与前边同一考场 
+			if(v[index].score==v[pre].score)
+				v[index].lr=v[pre].lr;
+			else
+				v[index].lr=cnt;
+		}
+		else{									//如果不同考场 
+			v[index].lr=1;	cnt=1;
+		}
+		pre=index;
+	}
+	tag=0;
+	sort(idsort.begin(),idsort.end(),cmp);		//总排名一遍输出，一遍确定名次 
+	cnt=1;
+	printf(&quot;%d\n&quot;,idsort.size());
+	pre=idsort[0];
+	cout&lt;&lt;v[pre].id&lt;&lt;' '&lt;&lt;1&lt;&lt;' '&lt;&lt;v[pre].local&lt;&lt;' '&lt;&lt;1&lt;&lt;'\n';
+	for(int i=1;i&lt;idsort.size();i++){
+		int index=idsort[i];
+		cout&lt;&lt;v[index].id&lt;&lt;' ';
+		if(v[index].score!=v[pre].score)
+			cnt=i+1;
+		printf(&quot;%d %d %d\n&quot;,cnt,v[index].local,v[index].lr);
+		pre=index;
+	}
+	return 0;
 } 
 </code></pre>
               
@@ -439,17 +439,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1024/" data-tooltip="PAT_A1024">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1026/" data-tooltip="PAT_A1026">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1026/" data-tooltip="PAT_A1026">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1024/" data-tooltip="PAT_A1024">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -507,17 +507,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1024/" data-tooltip="PAT_A1024">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1026/" data-tooltip="PAT_A1026">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1026/" data-tooltip="PAT_A1026">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1024/" data-tooltip="PAT_A1024">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>

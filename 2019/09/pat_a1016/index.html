@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1016, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1016.
@@ -330,61 +330,61 @@ Total amount: $638.80
 #include&lt;set&gt;
 #include&lt;stack&gt;
 using namespace std;
-vector&lt;string&gt; v[1005];                                     //记录数据的二维数组，第一维是序号，第二维是每一个人的记录数组 
-int rate[24];                                               //分段计费标准 
-int print_c(string a,string b){                             //计算两条记录的费用 
-    double ret=0;
-    int mn,dn,hn,mm;
-    sscanf(a.c_str(),&quot;%d:%d:%d:%d&quot;,&amp;mn,&amp;dn,&amp;hn,&amp;mm);        //读取起始时间和结束时间 
-    int st=(dn-1)*24*60+hn*60+mm;
-    sscanf(b.c_str(),&quot;%d:%d:%d:%d&quot;,&amp;mn,&amp;dn,&amp;hn,&amp;mm);
-    int ed=(dn-1)*24*60+hn*60+mm;
-    for(int i=st;i&lt;ed;i++){                                 //根据样例，计费规则，左开右闭 
-        ret+=rate[i/60%24];
-    }
-    printf(&quot;%s %s %d $%.2f\n&quot;,a.substr(3,8).c_str(),b.substr(3,8).c_str(),ed-st,ret/100);
-    return ret;                                             //输出结果，并返回词条记录的计费加入到总计中 
+vector&lt;string&gt; v[1005];										//记录数据的二维数组，第一维是序号，第二维是每一个人的记录数组 
+int rate[24];												//分段计费标准 
+int print_c(string a,string b){								//计算两条记录的费用 
+	double ret=0;
+	int mn,dn,hn,mm;
+	sscanf(a.c_str(),&quot;%d:%d:%d:%d&quot;,&amp;mn,&amp;dn,&amp;hn,&amp;mm);		//读取起始时间和结束时间 
+	int st=(dn-1)*24*60+hn*60+mm;
+	sscanf(b.c_str(),&quot;%d:%d:%d:%d&quot;,&amp;mn,&amp;dn,&amp;hn,&amp;mm);
+	int ed=(dn-1)*24*60+hn*60+mm;
+	for(int i=st;i&lt;ed;i++){									//根据样例，计费规则，左开右闭 
+		ret+=rate[i/60%24];
+	}
+	printf(&quot;%s %s %d $%.2f\n&quot;,a.substr(3,8).c_str(),b.substr(3,8).c_str(),ed-st,ret/100);
+	return ret;												//输出结果，并返回词条记录的计费加入到总计中 
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    for(int i=0;i&lt;24;i++){
-        scanf(&quot;%d&quot;,&amp;rate[i]);
-    }
-    int n;      scanf(&quot;%d&quot;,&amp;n);
-    map&lt;string,int&gt; mpdex;                                  //map映射每一个id对应记录的位置 
-    int k=0;    string mon;                                 //记录不同记录的位置和 记录的月份 
-    for(int i=0;i&lt;n;i++){
-        string id,time,tag;
-        cin&gt;&gt;id&gt;&gt;time&gt;&gt;tag;
-        if(i==0)    mon=time.substr(0,2);                   //月份是一样的，获得一次就够了 
-        if(mpdex.find(id)==mpdex.end()){                    //分配每一个新纪录id在记录数组的下标 
-            mpdex[id]=k++;
-        }
-        int j=mpdex[id];
-        if(tag==&quot;on-line&quot;) v[j].push_back(time+&quot;+&quot;);        //添加记录标记 
-        else            v[j].push_back(time+&quot;-&quot;);   
-    }
-    for(auto it=mpdex.begin();it!=mpdex.end();it++){        //mp自身有序，一次遍历输出 
-        int cnt=0;                                          //控制是否有消费记录 
-        int j=it-&gt;second;
-        double total=0;
-        sort(v[j].begin(),v[j].end());                      //排序当前顾客的消费记录 
-        for(int i=0;i&lt;v[j].size()-1;){
-            if(v[j][i].back()=='+'&amp;&amp;v[j][i+1].back()=='-'){ //如果有有效记录，则输出 
-                if(cnt++==0)
-                    cout&lt;&lt;it-&gt;first&lt;&lt;' '&lt;&lt;mon&lt;&lt;'\n';
-                total+=print_c(v[j][i],v[j][i+1]);          //输出记录并累加 
-                i+=2;                                       //处理一对儿有效记录后移两位 
-            }
-            else i++;                                       //否则移动一位 
-        }
-        if(cnt)
-            printf(&quot;Total amount: $%.2f\n&quot;,total/100);      //输出当前顾客的总计 
-    }
-    return 0;
+	for(int i=0;i&lt;24;i++){
+		scanf(&quot;%d&quot;,&amp;rate[i]);
+	}
+	int n;		scanf(&quot;%d&quot;,&amp;n);
+	map&lt;string,int&gt; mpdex;									//map映射每一个id对应记录的位置 
+	int k=0;	string mon;									//记录不同记录的位置和 记录的月份 
+	for(int i=0;i&lt;n;i++){
+		string id,time,tag;
+		cin&gt;&gt;id&gt;&gt;time&gt;&gt;tag;
+		if(i==0)	mon=time.substr(0,2);					//月份是一样的，获得一次就够了 
+		if(mpdex.find(id)==mpdex.end()){					//分配每一个新纪录id在记录数组的下标 
+			mpdex[id]=k++;
+		}
+		int j=mpdex[id];
+		if(tag==&quot;on-line&quot;) v[j].push_back(time+&quot;+&quot;);		//添加记录标记 
+		else			v[j].push_back(time+&quot;-&quot;);	
+	}
+	for(auto it=mpdex.begin();it!=mpdex.end();it++){		//mp自身有序，一次遍历输出 
+		int cnt=0;											//控制是否有消费记录 
+		int j=it-&gt;second;
+		double total=0;
+		sort(v[j].begin(),v[j].end());						//排序当前顾客的消费记录 
+		for(int i=0;i&lt;v[j].size()-1;){
+			if(v[j][i].back()=='+'&amp;&amp;v[j][i+1].back()=='-'){ //如果有有效记录，则输出 
+				if(cnt++==0)
+					cout&lt;&lt;it-&gt;first&lt;&lt;' '&lt;&lt;mon&lt;&lt;'\n';
+				total+=print_c(v[j][i],v[j][i+1]);			//输出记录并累加 
+				i+=2;										//处理一对儿有效记录后移两位 
+			}
+			else i++;										//否则移动一位 
+		}
+		if(cnt)
+        	printf(&quot;Total amount: $%.2f\n&quot;,total/100);		//输出当前顾客的总计 
+	}
+	return 0;
 } 
 </code></pre>
               
@@ -431,17 +431,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1015/" data-tooltip="PAT_A1015">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1017/" data-tooltip="PAT_A1017">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1017/" data-tooltip="PAT_A1017">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1015/" data-tooltip="PAT_A1015">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -499,17 +499,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1015/" data-tooltip="PAT_A1015">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1017/" data-tooltip="PAT_A1017">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1017/" data-tooltip="PAT_A1017">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1015/" data-tooltip="PAT_A1015">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>

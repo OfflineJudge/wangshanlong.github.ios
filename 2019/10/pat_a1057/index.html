@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1057, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1057.
@@ -341,59 +341,59 @@ int main(void)
 {
 #ifdef ONLINE_JUDGE
 #else
-    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    int n;
-    scanf(&quot;%d&quot;,&amp;n);
-    for(int i=0;i&lt;n;i++){
-        string str;
-        cin&gt;&gt;str;
-        if(str==&quot;Pop&quot;){
-            if(st.empty()==true)
-                puts(&quot;Invalid&quot;);
-            else
-                Pop();
-        }
-        else if(str==&quot;Push&quot;){
-            int num;
-            scanf(&quot;%d&quot;,&amp;num);
-            Push(num);
-        }
-        else{
-            if(st.empty()==true)
-                puts(&quot;Invalid&quot;);
-            else{
-                int mid=st.size();
-                mid=(mid%2==0)?mid/2:(mid+1)/2;
-                PeekMedian(mid);
-            }
-        }
-    }
-    return 0;
+	int n;
+	scanf(&quot;%d&quot;,&amp;n);
+	for(int i=0;i&lt;n;i++){
+		string str;
+		cin&gt;&gt;str;
+		if(str==&quot;Pop&quot;){
+			if(st.empty()==true)
+				puts(&quot;Invalid&quot;);
+			else
+				Pop();
+		}
+		else if(str==&quot;Push&quot;){
+			int num;
+			scanf(&quot;%d&quot;,&amp;num);
+			Push(num);
+		}
+		else{
+			if(st.empty()==true)
+				puts(&quot;Invalid&quot;);
+			else{
+				int mid=st.size();
+				mid=(mid%2==0)?mid/2:(mid+1)/2;
+				PeekMedian(mid);
+			}
+		}
+	}
+	return 0;
 }
 void Pop()
 {
-    int top=st.top();
-    st.pop();
-    block[top/sqrN]--;
-    mp[top]--;
-    printf(&quot;%d\n&quot;,top);
+	int top=st.top();
+	st.pop();
+	block[top/sqrN]--;
+	mp[top]--;
+	printf(&quot;%d\n&quot;,top);
 }
 void Push(int x)
 {
-    st.push(x);
-    block[x/sqrN]++;
-    mp[x]++;
+	st.push(x);
+	block[x/sqrN]++;
+	mp[x]++;
 }
 void PeekMedian(int mid)
 {
-    int sum=0,index=0;
-    while(sum+block[index]&lt;mid)
-        sum+=block[index++];
-    int num=index*sqrN;
-    while(sum+mp[num]&lt;mid)
-        sum+=mp[num++];
-    printf(&quot;%d\n&quot;,num);
+	int sum=0,index=0;
+	while(sum+block[index]&lt;mid)
+		sum+=block[index++];
+	int num=index*sqrN;
+	while(sum+mp[num]&lt;mid)
+		sum+=mp[num++];
+	printf(&quot;%d\n&quot;,num);
 }
 </code></pre>
               
@@ -440,17 +440,17 @@ void PeekMedian(int mid)
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1056/" data-tooltip="PAT_A1056">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1058/" data-tooltip="PAT_A1058">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1058/" data-tooltip="PAT_A1058">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1056/" data-tooltip="PAT_A1056">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -508,17 +508,17 @@ void PeekMedian(int mid)
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1056/" data-tooltip="PAT_A1056">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1058/" data-tooltip="PAT_A1058">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1058/" data-tooltip="PAT_A1058">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1056/" data-tooltip="PAT_A1056">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>

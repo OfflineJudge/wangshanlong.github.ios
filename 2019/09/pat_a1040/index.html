@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1040, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1040.
@@ -306,34 +306,34 @@
 #include&lt;set&gt;
 #include&lt;stack&gt;
 using namespace std;
-int dp[1002][1002]={0};                     //dp数组，dp[i][j]表示从下标i-j的串是不是回文串，是为1，否为0； 
+int dp[1002][1002]={0};						//dp数组，dp[i][j]表示从下标i-j的串是不是回文串，是为1，否为0； 
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    string s;
-    getline(cin,s);
-    int len=s.size(),ans=1;
-    for(int i=0;i&lt;len;i++){                 //初始化dp数组 
-        dp[i][i]=1;
-        if(i&lt;len-1){
-            if(s[i]==s[i+1]){
-                dp[i][i+1]=1;ans=2;
-            }
-        }
-    } 
-    for(int L=3;L&lt;=len;L++){                //每次取不同的长度，从0开始更新dp数组 
-        for(int i=0;i+L-1&lt;len;i++){
-            int j=i+L-1;
-            if(s[i]==s[j]&amp;&amp;dp[i+1][j-1]==1){
-                dp[i][j]=1;
-                ans=L;
-            }
-        }
-    }
-    cout&lt;&lt;ans;
-    return 0;
+	string s;
+	getline(cin,s);
+	int len=s.size(),ans=1;
+	for(int i=0;i&lt;len;i++){					//初始化dp数组 
+		dp[i][i]=1;
+		if(i&lt;len-1){
+			if(s[i]==s[i+1]){
+				dp[i][i+1]=1;ans=2;
+			}
+		}
+	} 
+	for(int L=3;L&lt;=len;L++){				//每次取不同的长度，从0开始更新dp数组 
+		for(int i=0;i+L-1&lt;len;i++){
+			int j=i+L-1;
+			if(s[i]==s[j]&amp;&amp;dp[i+1][j-1]==1){
+				dp[i][j]=1;
+				ans=L;
+			}
+		}
+	}
+	cout&lt;&lt;ans;
+	return 0;
 } 
 </code></pre>
               
@@ -380,17 +380,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1039/" data-tooltip="PAT_A1039">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1041/" data-tooltip="PAT_A1041">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1041/" data-tooltip="PAT_A1041">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1039/" data-tooltip="PAT_A1039">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -448,17 +448,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1039/" data-tooltip="PAT_A1039">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1041/" data-tooltip="PAT_A1041">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1041/" data-tooltip="PAT_A1041">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1039/" data-tooltip="PAT_A1039">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>

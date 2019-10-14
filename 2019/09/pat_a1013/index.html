@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1013, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1013.
@@ -315,44 +315,44 @@ using namespace std;
 int n,m,k;
 vector&lt;int&gt; G[MAXN];
 bool vis[MAXN];
-void dfs(int u){                            //dfs遍历 
-    vis[u]=true;
-    for(int i=0;i&lt;G[u].size();i++){
-        int v=G[u][i];
-        if(vis[v]==false)
-            dfs(v);
-    }
+void dfs(int u){							//dfs遍历 
+	vis[u]=true;
+	for(int i=0;i&lt;G[u].size();i++){
+		int v=G[u][i];
+		if(vis[v]==false)
+			dfs(v);
+	}
 }
-int dfsTrave(int x){                        //dfs驱动函数 
-    fill(vis,vis+MAXN,false);               //初始化访问标记数组 
-    vis[x]=true;                            //将已被攻占的城市提前标记为已访问 
-    int cnt=0;
-    for(int u=1;u&lt;=n;u++){
-        if(vis[u]==false){
-            dfs(u);                         //dfs遍历每一个连通分量 
-            cnt++;                          //连通分量数统计 
-        }
-    }
-    return cnt;
+int dfsTrave(int x){						//dfs驱动函数 
+	fill(vis,vis+MAXN,false);				//初始化访问标记数组 
+	vis[x]=true;							//将已被攻占的城市提前标记为已访问 
+	int cnt=0;
+	for(int u=1;u&lt;=n;u++){
+		if(vis[u]==false){
+			dfs(u);							//dfs遍历每一个连通分量 
+			cnt++;							//连通分量数统计 
+		}
+	}
+	return cnt;
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    scanf(&quot;%d%d%d&quot;,&amp;n,&amp;m,&amp;k);
-    for(int i=0;i&lt;m;i++){
-        int a,b;
-        scanf(&quot;%d%d&quot;,&amp;a,&amp;b);
-        G[a].push_back(b);
-        G[b].push_back(a);
-    }
-    for(int i=0;i&lt;k;i++){                   //多次查询并输出 
-        int v;
-        scanf(&quot;%d&quot;,&amp;v);
-        printf(&quot;%d\n&quot;,dfsTrave(v)-1);
-    }
-    return 0;
+	scanf(&quot;%d%d%d&quot;,&amp;n,&amp;m,&amp;k);
+	for(int i=0;i&lt;m;i++){
+		int a,b;
+		scanf(&quot;%d%d&quot;,&amp;a,&amp;b);
+		G[a].push_back(b);
+		G[b].push_back(a);
+	}
+	for(int i=0;i&lt;k;i++){					//多次查询并输出 
+		int v;
+		scanf(&quot;%d&quot;,&amp;v);
+		printf(&quot;%d\n&quot;,dfsTrave(v)-1);
+	}
+	return 0;
 } 
 </code></pre>
               
@@ -399,17 +399,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1012/" data-tooltip="PAT_A1012">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1014/" data-tooltip="PAT_A1014">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1014/" data-tooltip="PAT_A1014">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1012/" data-tooltip="PAT_A1012">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -467,17 +467,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1012/" data-tooltip="PAT_A1012">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1014/" data-tooltip="PAT_A1014">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1014/" data-tooltip="PAT_A1014">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1012/" data-tooltip="PAT_A1012">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1051, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1051.
@@ -322,31 +322,31 @@ int main(){
 #else    
     freopen(&quot;1.txt&quot;, &quot;r&quot;, stdin);    
 #endif    
-    int m,n,k,cnt=0;
-    cin&gt;&gt;m&gt;&gt;n&gt;&gt;k;
-    int a[n];
-    for(int i=0;i&lt;k;i++){
-        stack&lt;int&gt; s;
-        cnt=0;                                      //出栈得到1-n序列的逆序时候的计数器 
-        int index=n-1;                              //序列判定的下标遍历指针 
-        for(int j=0;j&lt;n;j++){                       //读入一组序列 
-            scanf(&quot;%d&quot;,&amp;a[j]);
-        }
-        while(index&gt;=0){                            //逆序遍历给定的序列 
-            if(s.empty()||s.top()&lt;a[index]){
-                if(s.size()==m)     break;          //栈溢出，不可得到 
-                s.push(a[index]);
-                index--;
-            }
-            else{
-                if(s.top()!=n-cnt) break;           //不是按照1-n的顺序入栈，不可得到 
-                s.pop();
-                cnt++;
-            }   
-        }
-        if(index&lt;0)     puts(&quot;YES&quot;);                //如果可以正常的反向进行进出栈模拟，认定可以 
-        else            puts(&quot;NO&quot;);                 //如果中途判定不可逆，并且终止循环，认定不可得 
-    } 
+	int m,n,k,cnt=0;
+	cin&gt;&gt;m&gt;&gt;n&gt;&gt;k;
+	int a[n];
+	for(int i=0;i&lt;k;i++){
+		stack&lt;int&gt; s;
+		cnt=0;										//出栈得到1-n序列的逆序时候的计数器 
+		int index=n-1;								//序列判定的下标遍历指针 
+		for(int j=0;j&lt;n;j++){						//读入一组序列 
+			scanf(&quot;%d&quot;,&amp;a[j]);
+		}
+		while(index&gt;=0){							//逆序遍历给定的序列 
+			if(s.empty()||s.top()&lt;a[index]){
+				if(s.size()==m)		break;			//栈溢出，不可得到 
+				s.push(a[index]);
+				index--;
+			}
+			else{
+				if(s.top()!=n-cnt) break;			//不是按照1-n的顺序入栈，不可得到 
+				s.pop();
+				cnt++;
+			}	
+		}
+		if(index&lt;0)		puts(&quot;YES&quot;);				//如果可以正常的反向进行进出栈模拟，认定可以 
+		else			puts(&quot;NO&quot;);					//如果中途判定不可逆，并且终止循环，认定不可得 
+	} 
     return 0;    
 }
 </code></pre>
@@ -394,17 +394,17 @@ int main(){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1050/" data-tooltip="PAT_A1050">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1052/" data-tooltip="PAT_A1052">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1052/" data-tooltip="PAT_A1052">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1050/" data-tooltip="PAT_A1050">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -462,17 +462,17 @@ int main(){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1050/" data-tooltip="PAT_A1050">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1052/" data-tooltip="PAT_A1052">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1052/" data-tooltip="PAT_A1052">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1050/" data-tooltip="PAT_A1050">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>

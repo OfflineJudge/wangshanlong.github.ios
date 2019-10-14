@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="数据结构, 二叉树, 相同二叉树的比较, 同构二叉树的比较, 二叉树的遍历, 二叉搜索树, 平衡二叉树, C, C&#43;&#43;, PAT">
 <meta name="description" content="　　总结一下树和二叉树的基本操作和应用，算是一个总结的笔记整理。大致包括树与二叉树的表示、储存、遍历、以及相关的其他操作的伪代码或C&#43;&#43;代码。
@@ -484,12 +484,12 @@ Node* Creat(int data[],int n){
 
 <pre><code>bool Campare(Node* root1, Node* root2)
 {
-    bool ret=false;                             //单一的返回出口，默认为false，默认两棵树不相同
-    if(root1==NULL&amp;&amp;root2==NULL)                //如果两棵树都是空树，判断两棵树相同
-        ret=true;
-    else if(root1!=NULL&amp;&amp;root2!=NULL&amp;&amp;root1-&gt;data==root2-&gt;data)         //如果两棵树都不会空，且结点值相同，递归判定左右子树是否都相同
-        ret=Campare(root1-&gt;lchild,root2-l&gt;child)&amp;&amp;Campare(root1-&gt;rchild,root2-&gt;rchild);         //当左右子树都相同时才判断两棵树相同
-    return ret;
+	bool ret=false;                             //单一的返回出口，默认为false，默认两棵树不相同
+	if(root1==NULL&amp;&amp;root2==NULL)                //如果两棵树都是空树，判断两棵树相同
+		ret=true;
+	else if(root1!=NULL&amp;&amp;root2!=NULL&amp;&amp;root1-&gt;data==root2-&gt;data)         //如果两棵树都不会空，且结点值相同，递归判定左右子树是否都相同
+		ret=Campare(root1-&gt;lchild,root2-l&gt;child)&amp;&amp;Campare(root1-&gt;rchild,root2-&gt;rchild);         //当左右子树都相同时才判断两棵树相同
+	return ret;
 }
 </code></pre>
 
@@ -511,45 +511,45 @@ using namespace std;
 //使用并查集判断树的同构,以上头文件是PAT刷题模板，为了尽可能包含所有可能用到的头文件
 //本例采用数组的方式用并查集记录父子关系，然后转化为用map存储，由于map会自动排序，方便比较。
 typedef struct{
-    char data;                          //结点的值
-    int fa;                             //该结点父节点在数组中的下标
+	char data;                          //结点的值
+	int fa;                             //该结点父节点在数组中的下标
 }Node;
-map&lt;char,char&gt; mp1;                     //使用map记录两棵树每个结点指向父节点的映射 
+map&lt;char,char&gt; mp1;			            //使用map记录两棵树每个结点指向父节点的映射 
 map&lt;char,char&gt; mp2;
 void CreatTree(map&lt;char,char&gt; &amp;mp);     //根据树，建立map记录
 int main(){      
-    CreatTree(mp1);
-    CreatTree(mp2);
-    if(mp1==mp2)                        //如果两个map记录的父子对应关系完全相同，说明两棵树同构，否则不同构
-        puts(&quot;Yes&quot;);
-    else
-        puts(&quot;No&quot;);
+	CreatTree(mp1);
+	CreatTree(mp2);
+	if(mp1==mp2)                        //如果两个map记录的父子对应关系完全相同，说明两棵树同构，否则不同构
+		puts(&quot;Yes&quot;);
+	else
+		puts(&quot;No&quot;);
     return 0;    
 }
 void CreatTree(map&lt;char,char&gt; &amp;mp)
 {
-    int n;
-    char a,b,c;
-    cin&gt;&gt;n;
-    vector&lt;Node&gt; v(n);                  //使用并查集记录二叉树结点的父节点的编号
-    getchar();                          //吸收多余的回车字符
-    for(int i=0;i&lt;n;i++){               //初始化父结点为-1
-        v[i].fa=-1;
-    }
-    for(int i=0;i&lt;n;i++){
-        scanf(&quot;%c %c %c&quot;,&amp;a,&amp;b,&amp;c);
-        getchar();
-        v[i].data=a;
-        if(b!='-')  v[b-'0'].fa=i;      //当有左右孩子时，给其孩子添加父节点标记
-        if(c!='-')  v[c-'0'].fa=i;
-    }
-    for(int i=0;i&lt;n;i++){               //用map容器记录父子关系
-        int index=v[i].fa;
-        if(index==-1)                   //如果没有父节点就是根节点，映射为特殊字符# 
-            mp[v[i].data]='#';
-        else
-            mp[v[i].data]=v[index].data;//如果有父节点，就映射为其父节点的值
-    }
+	int n;
+	char a,b,c;
+	cin&gt;&gt;n;
+	vector&lt;Node&gt; v(n);                  //使用并查集记录二叉树结点的父节点的编号
+	getchar();                          //吸收多余的回车字符
+	for(int i=0;i&lt;n;i++){               //初始化父结点为-1
+		v[i].fa=-1;
+	}
+	for(int i=0;i&lt;n;i++){
+		scanf(&quot;%c %c %c&quot;,&amp;a,&amp;b,&amp;c);
+		getchar();
+		v[i].data=a;
+		if(b!='-')	v[b-'0'].fa=i;      //当有左右孩子时，给其孩子添加父节点标记
+		if(c!='-')	v[c-'0'].fa=i;
+	}
+	for(int i=0;i&lt;n;i++){               //用map容器记录父子关系
+		int index=v[i].fa;
+		if(index==-1)				    //如果没有父节点就是根节点，映射为特殊字符# 
+			mp[v[i].data]='#';
+		else
+			mp[v[i].data]=v[index].data;//如果有父节点，就映射为其父节点的值
+	}
 }
 
 /*
@@ -972,12 +972,12 @@ void L(Node *&amp;root){                //因为需要修改指针，因此要�
 <pre><code>//右旋
 void R(Node * &amp;root)
 {
-    Node *temp=root-&gt;lchild;
-    root-&gt;lchild=root-&gt;rchild;
-    temp-&gt;rchild=root;              //步骤1
-    updatehigh(root);               //步骤2
-    updatehigh(temp);
-    root=temp;                      //步骤3
+	Node *temp=root-&gt;lchild;
+	root-&gt;lchild=root-&gt;rchild;
+	temp-&gt;rchild=root;              //步骤1
+	updatehigh(root);               //步骤2
+	updatehigh(temp);
+	root=temp;                      //步骤3
 }
 </code></pre>
 
@@ -997,34 +997,34 @@ void R(Node * &amp;root)
 
 <pre><code>void Insert(Node * &amp;root,int x)
 {
-    if(root==NULL){
-        root=newnode(x);
-        return;
-    }
-    if(x&lt;root-&gt;data){                           //插入到左子树 
-        Insert(root-&gt;lchild,x);
-        updatehigh(root);
-        if(getbf(root)==2){
-            if(getbf(root-&gt;lchild)==1)          //LL型 
-                R(root);
-            else if(getbf(root-&gt;lchild)==-1){   //LR型 
-                L(root-&gt;lchild);
-                R(root);
-            }
-        }
-    }
-    else{
-        Insert(root-&gt;rchild,x);
-        updatehigh(root);
-         if(getbf(root)==-2){
-            if(getbf(root-&gt;rchild)==-1)         //RR型 
-                L(root);
-            else if(getbf(root-&gt;rchild)==1){        //RL型 
-                R(root-&gt;rchild);
-                L(root);
-            }
-        }
-    }
+	if(root==NULL){
+		root=newnode(x);
+		return;
+	}
+	if(x&lt;root-&gt;data){		                    //插入到左子树 
+		Insert(root-&gt;lchild,x);
+		updatehigh(root);
+		if(getbf(root)==2){
+			if(getbf(root-&gt;lchild)==1)	        //LL型 
+				R(root);
+			else if(getbf(root-&gt;lchild)==-1){	//LR型 
+				L(root-&gt;lchild);
+				R(root);
+			}
+		}
+	}
+	else{
+		Insert(root-&gt;rchild,x);
+		updatehigh(root);
+		 if(getbf(root)==-2){
+			if(getbf(root-&gt;rchild)==-1)	        //RR型 
+				L(root);
+			else if(getbf(root-&gt;rchild)==1){	    //RL型 
+				R(root-&gt;rchild);
+				L(root);
+			}
+		}
+	}
 }
 </code></pre>
 
@@ -1128,17 +1128,17 @@ Node * CreatAVL(){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10/" data-tooltip="Hugo&#43;github搭建个人博客（windows10）">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/github%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%AD%A5%E5%88%B0coding%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E5%8F%8C%E7%BA%BF%E8%A7%A3%E6%9E%90/" data-tooltip="Github博客同步到Coding,自定义域名双线解析">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/github%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%AD%A5%E5%88%B0coding%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E5%8F%8C%E7%BA%BF%E8%A7%A3%E6%9E%90/" data-tooltip="Github博客同步到Coding,自定义域名双线解析">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10/" data-tooltip="Hugo&#43;github搭建个人博客（windows10）">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -1196,17 +1196,17 @@ Node * CreatAVL(){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10/" data-tooltip="Hugo&#43;github搭建个人博客（windows10）">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/github%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%AD%A5%E5%88%B0coding%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E5%8F%8C%E7%BA%BF%E8%A7%A3%E6%9E%90/" data-tooltip="Github博客同步到Coding,自定义域名双线解析">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/github%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%AD%A5%E5%88%B0coding%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E5%8F%8C%E7%BA%BF%E8%A7%A3%E6%9E%90/" data-tooltip="Github博客同步到Coding,自定义域名双线解析">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10/" data-tooltip="Hugo&#43;github搭建个人博客（windows10）">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1036, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1036.
@@ -333,41 +333,41 @@ NA
 #include&lt;stack&gt;
 using namespace std;
 typedef struct node{
-    string name,id;                     //学生结构体 
-    int score;
-    node(){
-        name=&quot;&quot;;                        //姓名初始化为空字符，用于最后的判定 
-    }   
+	string name,id;						//学生结构体 
+	int score;
+	node(){
+		name=&quot;&quot;;						//姓名初始化为空字符，用于最后的判定 
+	}	
 }Node;
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    Node m,w;
-    m.score=101;w.score=-1;
-    int n;
-    scanf(&quot;%d&quot;,&amp;n);
-    for(int i=0;i&lt;n;i++){
-        Node temp;
-        string tag;
-        cin&gt;&gt;temp.name&gt;&gt;tag&gt;&gt;temp.id&gt;&gt;temp.score;   //读入并按照性别记录 
-        if(tag==&quot;F&quot;){
-            if(temp.score&gt;w.score)
-                w=temp;
-        }
-        else{
-            if(temp.score&lt;m.score)
-                m=temp;
-        }
-    }
-    if(w.name==&quot;&quot;)  puts(&quot;Absent&quot;);                 //判定输出 
-    else cout&lt;&lt;w.name&lt;&lt;' '&lt;&lt;w.id&lt;&lt;'\n';
-    if(m.name==&quot;&quot;)  puts(&quot;Absent&quot;);
-    else cout&lt;&lt;m.name&lt;&lt;' '&lt;&lt;m.id&lt;&lt;'\n';
-    if(w.name==&quot;&quot;||m.name==&quot;&quot;)  puts(&quot;NA&quot;);
-    else cout&lt;&lt;(w.score-m.score);
-    return 0;
+	Node m,w;
+	m.score=101;w.score=-1;
+	int n;
+	scanf(&quot;%d&quot;,&amp;n);
+	for(int i=0;i&lt;n;i++){
+		Node temp;
+		string tag;
+		cin&gt;&gt;temp.name&gt;&gt;tag&gt;&gt;temp.id&gt;&gt;temp.score;	//读入并按照性别记录 
+		if(tag==&quot;F&quot;){
+			if(temp.score&gt;w.score)
+				w=temp;
+		}
+		else{
+			if(temp.score&lt;m.score)
+				m=temp;
+		}
+	}
+	if(w.name==&quot;&quot;)	puts(&quot;Absent&quot;);					//判定输出 
+	else cout&lt;&lt;w.name&lt;&lt;' '&lt;&lt;w.id&lt;&lt;'\n';
+	if(m.name==&quot;&quot;)	puts(&quot;Absent&quot;);
+	else cout&lt;&lt;m.name&lt;&lt;' '&lt;&lt;m.id&lt;&lt;'\n';
+	if(w.name==&quot;&quot;||m.name==&quot;&quot;)	puts(&quot;NA&quot;);
+	else cout&lt;&lt;(w.score-m.score);
+	return 0;
 } 
 </code></pre>
               
@@ -414,17 +414,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1035/" data-tooltip="PAT_A1035">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1037/" data-tooltip="PAT_A1037">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1037/" data-tooltip="PAT_A1037">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1035/" data-tooltip="PAT_A1035">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -482,17 +482,17 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1035/" data-tooltip="PAT_A1035">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1037/" data-tooltip="PAT_A1037">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1037/" data-tooltip="PAT_A1037">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1035/" data-tooltip="PAT_A1035">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>

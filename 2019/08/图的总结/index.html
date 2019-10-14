@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="数据结构, 图, 图的表示, 图的遍历, 最短路径, 最小生成树, C, C&#43;&#43;, PAT">
 <meta name="description" content="　　对于数据结构中图的基本基本知识进行总结。具体内容大致包括图的邻接表和邻接矩阵表示方法、图的遍历求解图的单源最短路径和多元最短路径、图的最小生成树、图的拓扑排序、求解关键路径等经典算法的实现。">
@@ -490,25 +490,25 @@ void DFSTrave(){                                //DFS驱动函数
 　　算法思想，使用队列实现广度优先遍历，同样考虑到多个连通分量的情况，除了BFS还需要一个BFS的驱动函数，其伪代码如下：</p>
 
 <pre><code>BFS(u){
-    queue q;
+	queue q;
     q.push(u);                                  //起始顶点入队并标记
-    vis[u]=ture;
-    while(队列q不空){
-        取出队首元素u进行访问;
-        for(从U出发可达到的所有顶点v){
-            if(vis[v]==false){                  //如果v未曾加入过队列，入队并标记 
-                将v入队;
-                vis[v]=ture; 
-            }
-        } 
-    } 
+	vis[u]=ture;
+	while(队列q不空){
+		取出队首元素u进行访问;
+		for(从U出发可达到的所有顶点v){
+			if(vis[v]==false){                  //如果v未曾加入过队列，入队并标记 
+				将v入队;
+				vis[v]=ture; 
+			}
+		} 
+	} 
 } 
 BFSTrave(G){
-    for(G的所有顶点u，依此访问){
-        if(vis[u]==false){
-            BFS(u);
-        }
-    } 
+	for(G的所有顶点u，依此访问){
+		if(vis[u]==false){
+			BFS(u);
+		}
+	} 
 } 
 </code></pre>
 
@@ -521,27 +521,27 @@ int n,G[MAXV][MAXV];                            //n为顶点数，G为邻接矩�
 bool vis[MAXV]={false};                         //是否在队列的标记数组，初始化为false
 
 void BFS(int u){
-    queue&lt;int&gt; q;                               //起始顶点入队
-    q.push(u); 
-    vis[u]=true;                                //标记并访问
-    while(!q.empty()){                          //当队不空时进行循环
-        int u=q.front();                        //取出队头元素u
-        q.pop();
-        visit(u);                               //访问函数，视实际需求而定
-        for(int v=0;v&lt;n;v++){                   //枚举u所有的未访问且可到达顶点
-            if(vis[v]==false&amp;&amp;G[u][v]!=INF){    
-                q.push(v);                      //入队并修改访问标记
-                vis[v]=true;
-            }
-        }
-    }
+	queue&lt;int&gt; q;                               //起始顶点入队
+	q.push(u); 
+	vis[u]=true;                                //标记并访问
+	while(!q.empty()){                          //当队不空时进行循环
+		int u=q.front();                        //取出队头元素u
+		q.pop();
+		visit(u);                               //访问函数，视实际需求而定
+		for(int v=0;v&lt;n;v++){                   //枚举u所有的未访问且可到达顶点
+			if(vis[v]==false&amp;&amp;G[u][v]!=INF){    
+				q.push(v);                      //入队并修改访问标记
+				vis[v]=true;
+			}
+		}
+	}
 } 
 void BFSTrave(){                                //BFS的驱动函数
-    for(int u=0;u&lt;n;u++){
-        if(vis[u]==false){
-            BFS(u);
-        }
-    }
+	for(int u=0;u&lt;n;u++){
+		if(vis[u]==false){
+			BFS(u);
+		}
+	}
 }
 </code></pre>
 
@@ -555,28 +555,28 @@ int n;                                          //n为顶点数
 bool vis[MAXV]={false};                         //是否在队列的标记数组，初始化为false
 
 void BFS(int u){
-    queue&lt;int&gt; q;                               //起始顶点入队
-    q.push(u); 
-    vis[u]=true;                                //标记并访问
-    while(!q.empty()){                          //当队不空时进行循环
-        int u=q.front();                        //取出队头元素u
-        q.pop();
-        visit(u);                               //访问函数，视实际需求而定
-        for(int i=0;i&lt;Adj[u].size();i++){       //枚举u边表中的所有边
+	queue&lt;int&gt; q;                               //起始顶点入队
+	q.push(u); 
+	vis[u]=true;                                //标记并访问
+	while(!q.empty()){                          //当队不空时进行循环
+		int u=q.front();                        //取出队头元素u
+		q.pop();
+		visit(u);                               //访问函数，视实际需求而定
+		for(int i=0;i&lt;Adj[u].size();i++){       //枚举u边表中的所有边
             int v=Adj[u][v];                    //读取边所连通的所有顶点
-            if(vis[v]==false){                  //如果未被访问
-                q.push(v);                      //入队并修改访问标记
-                vis[v]=true;
-            }
-        }
-    }
+			if(vis[v]==false){                  //如果未被访问
+				q.push(v);                      //入队并修改访问标记
+				vis[v]=true;
+			}
+		}
+	}
 } 
 void BFSTrave(){                                //BFS的驱动函数
-    for(int u=0;u&lt;n;u++){
-        if(vis[u]==false){
-            BFS(u);
-        }
-    }
+	for(int u=0;u&lt;n;u++){
+		if(vis[u]==false){
+			BFS(u);
+		}
+	}
 }
 </code></pre>
 
@@ -586,25 +586,25 @@ void BFSTrave(){                                //BFS的驱动函数
 
 <pre><code>//BFS与层数
 BFS(u){
-    queue q;
+	queue q;
     q.push(u);
-    vis[u]=ture;
+	vis[u]=ture;
     int level=0,last=u;                         //layer表示层数，起始顶点为0层，last表示当前层的最后一个，用于判断是否该层结束，初始化为起始顶点u
     int tail=u;                                 //tail用于跟踪当前顶点u的下一层顶点，该层结束后，变成该层的最后一个，用于更新last的值
-    while(队列q不空){
-        取出队首元素u进行访问;
-        for(从U出发可达到的所有顶点v){
-            if(vis[v]==false){                  //如果v未曾加入过队列，入队并标记 
-                将v入队;
-                vis[v]=ture;
+	while(队列q不空){
+		取出队首元素u进行访问;
+		for(从U出发可达到的所有顶点v){
+			if(vis[v]==false){                  //如果v未曾加入过队列，入队并标记 
+				将v入队;
+				vis[v]=ture;
                 tali=v; 
-            }
-        }
+			}
+		}
         if(u==last){
             level++;                            //当前层结束，层数加一，统计进入下一层
             last=tail;                          //last更新为新一层的最后一个
         } 
-    } 
+	} 
 } 
 </code></pre>
 
@@ -635,16 +635,16 @@ BFS(u){
 
 <pre><code>//G表示图，可使用全局变量，数组dis表示从起始顶点到其他顶点的最短路径
 Dijkstra(G,dis[],s){
-    初始化；                                    //初始化dis数组为无穷大，并将起点s的dis初始为0；
-    for(循环n次){
-        u=使dis[u]最小的还未被访问的顶点的编号
-        记u被访问；
-        for(从u出发所能到达的所有顶点v){
-            if(v未被访问&amp;&amp;以u为中介点使s到v的最短距离dis[v]更优){
-                优化dis[v];
-            }
-        }
-    }
+	初始化；									//初始化dis数组为无穷大，并将起点s的dis初始为0；
+	for(循环n次){
+		u=使dis[u]最小的还未被访问的顶点的编号
+		记u被访问；
+		for(从u出发所能到达的所有顶点v){
+			if(v未被访问&amp;&amp;以u为中介点使s到v的最短距离dis[v]更优){
+				优化dis[v];
+			}
+		}
+	}
 }
 </code></pre>
 
@@ -652,66 +652,66 @@ Dijkstra(G,dis[],s){
 　　<strong>Dijkstra算法的邻接矩阵写法:</strong></p>
 
 <pre><code>//Dijkstra算法的邻接矩阵写法
-int n,G[MAXV][MAXV];                    //图的顶点个数和邻接矩阵表示
-int dis[MAXV];                          //记录距离的数组
-bool vis[MAXV]={false};                 //访问标记数组
+int n,G[MAXV][MAXV];					//图的顶点个数和邻接矩阵表示
+int dis[MAXV];							//记录距离的数组
+bool vis[MAXV]={false};					//访问标记数组
 
-void Dijkstra(int s){                   //参数为单源起点s
-    fill（dis,dis+MAXV,INF);         //初始化dis数组为无穷大
-    dis[s]=0;                           //起始顶点s到自身的距离为0
-    for(int i=0;i&lt;n;i++){               //执行n次循环，每次把一个新的顶点纳入顶点集S
-        int u=-1,MIN=INF;               //u使得dis[u]最小，并用MIN记录dis[u]
-        for(int j=0;j&lt;n;j++){
-            if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
-                u=j;
-                MIN=dis[j];
-            }
-        }
-        if(u==-1) return;               //如果找不到这样的u，说明不连通或者已经遍历结束，则返回
-        vis[u]=true;                    //标记u为已访问
-        for(int v=0;v&lt;n;v++){           //对u能到达的顶点v进行优化
-            if(vis[v]==false&amp;&amp;G[u][v]!=INF&amp;&amp;dis[u]+G[u][v]&lt;dis[v]){
-                dis[v]=dis[u]+G[u][v];
-            }
-        }
-    }   
+void Dijkstra(int s){					//参数为单源起点s
+	fill（dis,dis+MAXV,INF);			//初始化dis数组为无穷大
+	dis[s]=0;							//起始顶点s到自身的距离为0
+	for(int i=0;i&lt;n;i++){				//执行n次循环，每次把一个新的顶点纳入顶点集S
+		int u=-1,MIN=INF;				//u使得dis[u]最小，并用MIN记录dis[u]
+		for(int j=0;j&lt;n;j++){
+			if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
+				u=j;
+				MIN=dis[j];
+			}
+		}
+		if(u==-1) return;				//如果找不到这样的u，说明不连通或者已经遍历结束，则返回
+		vis[u]=true;					//标记u为已访问
+		for(int v=0;v&lt;n;v++){			//对u能到达的顶点v进行优化
+			if(vis[v]==false&amp;&amp;G[u][v]!=INF&amp;&amp;dis[u]+G[u][v]&lt;dis[v]){
+				dis[v]=dis[u]+G[u][v];
+			}
+		}
+	}	
 }
 </code></pre>
 
 <p>　　<strong>Dijkstra算法的邻接表写法：</strong></p>
 
 <pre><code>//Dijkstra算法的邻接表写法
-typedef struct egd{                     //邻接表边结点的结构体定义
-    int v;                              //v为边的目标顶点，d为边的权值
-    int d;
+typedef struct egd{						//邻接表边结点的结构体定义
+	int v;								//v为边的目标顶点，d为边的权值
+	int d;
 }Edg;
-int n;                                  //图的顶点个数和邻接表
+int n;									//图的顶点个数和邻接表
 vector&lt;Edg&gt; Adj[MAXV];
-int dis[MAXV];                          //记录距离的数组
-bool vis[MAXV]={false};                 //访问标记数组,初始化全为否
+int dis[MAXV];							//记录距离的数组
+bool vis[MAXV]={false};					//访问标记数组,初始化全为否
 
-void Dijkstra(int s){                   //参数为单源起点s
-    fill（dis,dis+MAXV,INF);         //初始化dis数组为无穷大
-    dis[s]=0;                           //起始顶点s到自身的距离为0
-    for(int i=0;i&lt;n;i++){               //执行n次循环，每次把一个新的顶点纳入顶点集S
-        int u=-1,MIN=INF;               //u使得dis[u]最小，并用MIN记录dis[u]
-        for(int j=0;j&lt;n;j++){
-            if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
-                u=j;
-                MIN=dis[j];
-            }
-        }
-        if(u==-1) return;               //如果找不到这样的u，说明不连通或者已经遍历结束，则返回
-        vis[u]=true;                    //标记u为已访问
+void Dijkstra(int s){					//参数为单源起点s
+	fill（dis,dis+MAXV,INF);			//初始化dis数组为无穷大
+	dis[s]=0;							//起始顶点s到自身的距离为0
+	for(int i=0;i&lt;n;i++){				//执行n次循环，每次把一个新的顶点纳入顶点集S
+		int u=-1,MIN=INF;				//u使得dis[u]最小，并用MIN记录dis[u]
+		for(int j=0;j&lt;n;j++){
+			if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
+				u=j;
+				MIN=dis[j];
+			}
+		}
+		if(u==-1) return;				//如果找不到这样的u，说明不连通或者已经遍历结束，则返回
+		vis[u]=true;					//标记u为已访问
 
-        //只有这里的for循环和邻接矩阵的写法有所不同
-        for(int j=0;j&lt;Adj[u].size();j++){           //对u能到达的顶点v进行优化
-            int v=Adj[u][j].v;
-            if(vis[v]==falsed&amp;&amp;is[u]+Adj[u][j].d&lt;dis[v]){
-                dis[v]=dis[u]+Adj[u][j].d;
-            }
-        }
-    }   
+		//只有这里的for循环和邻接矩阵的写法有所不同
+		for(int j=0;j&lt;Adj[u].size();j++){			//对u能到达的顶点v进行优化
+			int v=Adj[u][j].v;
+			if(vis[v]==falsed&amp;&amp;is[u]+Adj[u][j].d&lt;dis[v]){
+				dis[v]=dis[u]+Adj[u][j].d;
+			}
+		}
+	}	
 }
 </code></pre>
 
@@ -722,57 +722,57 @@ void Dijkstra(int s){                   //参数为单源起点s
 　　实现方法：使用一个path数组记录每次优化时，优化的结点的前驱结点，然后从最短路径的重点开始递归读取path数组获得路径，或者使用栈的方式，入栈再出栈，将倒着找到的最短路径顺序输出。伪代码如下：</p>
 
 <pre><code>if(v未被访问&amp;&amp;以u为中介点使s到v的最短距离dis[v]更优){
-    优化dis[v];
-    令v的前驱结点为u;
+	优化dis[v];
+	令v的前驱结点为u;
 }
 </code></pre>
 
 <p>　　这里以邻接矩阵的实现为举例：</p>
 
 <pre><code>//Dijkstra算法的邻接矩阵写法(带路径)
-int n,G[MAXV][MAXV];                    //图的顶点个数和邻接矩阵表示
-int dis[MAXV];                          //记录距离的数组
-bool vis[MAXV]={false};                 //访问标记数组
+int n,G[MAXV][MAXV];					//图的顶点个数和邻接矩阵表示
+int dis[MAXV];							//记录距离的数组
+bool vis[MAXV]={false};					//访问标记数组
 
-int path[MAXV];                         //（新）记录路径的数组，path[v]记录最短路径上v的前驱顶点
+int path[MAXV];							//（新）记录路径的数组，path[v]记录最短路径上v的前驱顶点
 
-void Dijkstra(int s){                   //参数为单源起点s
-    fill（dis,dis+MAXV,INF);         //初始化dis数组为无穷大
+void Dijkstra(int s){					//参数为单源起点s
+	fill（dis,dis+MAXV,INF);			//初始化dis数组为无穷大
 
-    fill(path,path+MAXV,-1)             //（新）路径数组初始化前驱节点-1
+	fill(path,path+MAXV,-1)				//（新）路径数组初始化前驱节点-1
 
-    dis[s]=0;                           //起始顶点s到自身的距离为0
-    for(int i=0;i&lt;n;i++){               //执行n次循环，每次把一个新的顶点纳入顶点集S
-        int u=-1,MIN=INF;               //u使得dis[u]最小，并用MIN记录dis[u]
-        for(int j=0;j&lt;n;j++){
-            if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
-                u=j;
-                MIN=dis[j];
-            }
-        }
-        if(u==-1) return;               //如果找不到这样的u，说明不连通或者已经遍历结束，则返回
-        vis[u]=true;                    //标记u为已访问
-        for(int v=0;v&lt;n;v++){           //对u能到达的顶点v进行优化
-            if(vis[v]==false&amp;&amp;G[u][v]!=INF&amp;&amp;dis[u]+G[u][v]&lt;dis[v]){
-                dis[v]=dis[u]+G[u][v];
+	dis[s]=0;							//起始顶点s到自身的距离为0
+	for(int i=0;i&lt;n;i++){				//执行n次循环，每次把一个新的顶点纳入顶点集S
+		int u=-1,MIN=INF;				//u使得dis[u]最小，并用MIN记录dis[u]
+		for(int j=0;j&lt;n;j++){
+			if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
+				u=j;
+				MIN=dis[j];
+			}
+		}
+		if(u==-1) return;				//如果找不到这样的u，说明不连通或者已经遍历结束，则返回
+		vis[u]=true;					//标记u为已访问
+		for(int v=0;v&lt;n;v++){			//对u能到达的顶点v进行优化
+			if(vis[v]==false&amp;&amp;G[u][v]!=INF&amp;&amp;dis[u]+G[u][v]&lt;dis[v]){
+				dis[v]=dis[u]+G[u][v];
 
-                path[v]=u;              //（新）如果进行了优化，则记录v的前驱顶点为u
+				path[v]=u;				//（新）如果进行了优化，则记录v的前驱顶点为u
 
-            }
-        }
-    }   
+			}
+		}
+	}	
 }
 
 //输出最短路径
-void Print_Path(int s,int v){           //s为起始顶点，v为最短路径的终点
-    stack&lt;int&gt;  pathout;                //定义用于输出的栈pathout
-    while(v!=-1){                       //递归入栈
-        pathout.push(v);
-        v=path[v];
-    }
-    for(int i=pathout.size()-1;i&gt;=0;i--){   //栈中路径倒序输出
-        cout&lt;&lt;pathout[i]&lt;&lt;' ';
-    }
+void Print_Path(int s,int v){			//s为起始顶点，v为最短路径的终点
+	stack&lt;int&gt;  pathout;				//定义用于输出的栈pathout
+	while(v!=-1){						//递归入栈
+		pathout.push(v);
+		v=path[v];
+	}
+	for(int i=pathout.size()-1;i&gt;=0;i--){	//栈中路径倒序输出
+		cout&lt;&lt;pathout[i]&lt;&lt;' ';
+	}
 }
 
 </code></pre>
@@ -780,67 +780,67 @@ void Print_Path(int s,int v){           //s为起始顶点，v为最短路径的
 <p>　　<strong>2.多尺度优化</strong><br />
 　　<strong>①新增边权</strong>：边权有两个，一个代表距离花费，一个代表时间花费。这是需要增加另外记录时间花费，比如新开二维数组<code>cost[u][v]</code>记录时间花费，然后新增数组<code>c[]</code>记录起始顶点到各个顶点的时间花费，在Dijkstra算法中进行更新，假如：距离最短时优先选择最短距离，最短距离相同时，选择时间花费最短的路径，其代码如下所示：</p>
 
-<pre><code>int G[MAXV][MAXV];                      //图的距离权值
-int cost[MAXV][MAXV];                   //图的时间花费权值
+<pre><code>int G[MAXV][MAXV];						//图的距离权值
+int cost[MAXV][MAXV];					//图的时间花费权值
 
 //最短距离和最短时间，除起始顶点自身初始化为0以外，其他全部初始化为INF
-int dis[MAXV];                          //最短距离数组
-int c[MAXV];                            //最短花费数组
+int dis[MAXV];							//最短距离数组
+int c[MAXV];							//最短花费数组
 
 </code></pre>
 
 <pre><code>//优化代码
 for(int v=0;v&lt;n;v++){
-    if(vis[v]==false&amp;&amp;G[u][v]!=INF){    //u的可到达未访问顶点
-        if(dis[u]+G[u][v]&lt;dis[v]){
-            dis[v]=dis[u]+G[u][v];
-            c[v]=c[u]+cost[u][v];       //距离最优时，同时优化距离和时间
-        }
-        else if(dis[u]+G[u][v]==dis[v]&amp;&amp;c[u]+cost[u][v]&lt;c[v]){
-            c[v]=c[u]+cost[u][v];       //距离相同时，看时间是否最优
-        }
-    }
+	if(vis[v]==false&amp;&amp;G[u][v]!=INF){	//u的可到达未访问顶点
+		if(dis[u]+G[u][v]&lt;dis[v]){
+			dis[v]=dis[u]+G[u][v];
+			c[v]=c[u]+cost[u][v];		//距离最优时，同时优化距离和时间
+		}
+		else if(dis[u]+G[u][v]==dis[v]&amp;&amp;c[u]+cost[u][v]&lt;c[v]){
+			c[v]=c[u]+cost[u][v];		//距离相同时，看时间是否最优
+		}
+	}
 }
 </code></pre>
 
 <p>　　<strong>②新增点权</strong>：对于新增点权的情况来说，一般顶点的权值代表了顶点的资源多少，这时需要增加一个<code>weight[]</code>数组来记录每一个顶点的资源数目，类似于新增了时间花费的写法一样，对于优先更新第一优化尺度——距离，如果距离相同，优化第二尺度——顶点资源。其优化代码如下：</p>
 
-<pre><code>int G[MAXV][MAXV];                      //图的距离权值
-int weight[MAXV];                       //顶点的资源权值,
+<pre><code>int G[MAXV][MAXV];						//图的距离权值
+int weight[MAXV];						//顶点的资源权值,
 
 //最短距离和最短时间，除起始顶点自身初始化为0以外，其他全部初始化为INF
-int dis[MAXV];                          //最短距离数组
-int w[MAXV];                            //w[u]表示从起始顶点开始到达顶点u能够收集到的资源
-                                        //w数组中除了起始顶点初始化为自身顶点的资源weight[s]以外，其他顶点都初始化为0
+int dis[MAXV];							//最短距离数组
+int w[MAXV];							//w[u]表示从起始顶点开始到达顶点u能够收集到的资源
+										//w数组中除了起始顶点初始化为自身顶点的资源weight[s]以外，其他顶点都初始化为0
 
 //优化代码
 for(int v=0;v&lt;n;v++){
-    if(vis[v]==false&amp;&amp;G[u][v]!=INF){    //u的可到达未访问顶点
-        if(dis[u]+G[u][v]&lt;dis[v]){
-            dis[v]=dis[u]+G[u][v];
-            w[v]=w[u]+weight[v];        //距离最优时，同时优化距离和资源
-        }
-        else if(dis[u]+G[u][v]==dis[v]&amp;&amp;w[u]+weight[u][v]&gt;w[v]){
-            w[v]=w[u]+weight[v];        //距离相同时，看资源能够更优，这里以能够带更多的资源为更优
-        }
-    }
+	if(vis[v]==false&amp;&amp;G[u][v]!=INF){	//u的可到达未访问顶点
+		if(dis[u]+G[u][v]&lt;dis[v]){
+			dis[v]=dis[u]+G[u][v];
+			w[v]=w[u]+weight[v];		//距离最优时，同时优化距离和资源
+		}
+		else if(dis[u]+G[u][v]==dis[v]&amp;&amp;w[u]+weight[u][v]&gt;w[v]){
+			w[v]=w[u]+weight[v];		//距离相同时，看资源能够更优，这里以能够带更多的资源为更优
+		}
+	}
 }
 </code></pre>
 
 <p>　　<strong>③求最短路径的条数</strong>：统计路径条数，只需要另外增加一个记录路径条数的数组<code>num[]</code>即可，用num[u]表示从起始顶点s到顶点u之间的路径条数，其中num[s]初始化为1，其他初始化为0，然后在更新路径时，如果以u为中介点可以使s到v距离更优，那么<code>num[v]</code>继承<code>num[u]</code>即可，但是如果遇到通过u为中介点使s到u的距离相同，这时把<code>num[u]</code>加到<code>num[v]</code>上。代码如下：</p>
 
-<pre><code>int num[MAXV];                          //路径条数数组，初始化起点的num[s]=1,其他初始化为0
+<pre><code>int num[MAXV];							//路径条数数组，初始化起点的num[s]=1,其他初始化为0
 //优化代码
 for(int v=0;v&lt;n;v++){
-    if(vis[v]==false&amp;&amp;G[u][v]!=INF){    //u的可到达未访问顶点
-        if(dis[u]+G[u][v]&lt;dis[v]){
-            dis[v]=dis[u]+G[u][v];
-            num[v]=num[u];              //距离最优时，路径条数继承
-        }
-        else if(dis[u]+G[u][v]==dis[v]){
-            num[v]+=num[u];             //距离相同时，路径条数累加
-        }
-    }
+	if(vis[v]==false&amp;&amp;G[u][v]!=INF){	//u的可到达未访问顶点
+		if(dis[u]+G[u][v]&lt;dis[v]){
+			dis[v]=dis[u]+G[u][v];
+			num[v]=num[u];				//距离最优时，路径条数继承
+		}
+		else if(dis[u]+G[u][v]==dis[v]){
+			num[v]+=num[u];				//距离相同时，路径条数累加
+		}
+	}
 }
 </code></pre>
 
@@ -850,68 +850,68 @@ for(int v=0;v&lt;n;v++){
 　　算法的实现分为两个主要部分：<br />
 　　第一步是通用的Dijkstra算法的最短路径求解。由于有可能有多条路径，所以用于记录前驱结点的path数组需要扩展为vector类型的数组<code>vector&lt;int&gt; path[MAXV]</code>，这样对于每一个顶点u来说都能在<code>path[u]</code>这个边长数组中存储前驱结点，但是此时<code>path[v]</code>的更新方法上有所不同，详细可见代码注释：</p>
 
-<pre><code>int n,G[MAXV][MAXV];                    //图的顶点个数和邻接矩阵表示
-int dis[MAXV];                          //记录距离的数组
-bool vis[MAXV]={false};                 //访问标记数组
+<pre><code>int n,G[MAXV][MAXV];					//图的顶点个数和邻接矩阵表示
+int dis[MAXV];							//记录距离的数组
+bool vis[MAXV]={false};					//访问标记数组
 
-vector&lt;int&gt; path[MAXV];                 //（新）使用边长数组记录每个顶点的前驱
+vector&lt;int&gt; path[MAXV];					//（新）使用边长数组记录每个顶点的前驱
 
-void Dijkstra(int s){                   //参数为单源起点s
-    fill（dis,dis+MAXV,INF);         //初始化dis数组为无穷大
-    dis[s]=0;                           //起始顶点s到自身的距离为0
-    for(int i=0;i&lt;n;i++){               //执行n次循环，每次把一个新的顶点纳入顶点集S
-        int u=-1,MIN=INF;               //u使得dis[u]最小，并用MIN记录dis[u]
-        for(int j=0;j&lt;n;j++){
-            if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
-                u=j;
-                MIN=dis[j];
-            }
-        }
-        if(u==-1) return;               //如果找不到这样的u，说明不连通或者已经遍历结束，则返回
-        vis[u]=true;                    //标记u为已访问
-        for(int v=0;v&lt;n;v++){           //对u能到达的顶点v进行优化
-            if(vis[v]==false&amp;&amp;G[u][v]!=INF){
-                if(dis[u]+G[u][v]&lt;dis[v]){      //当能够以u为中介点进行优化时
-                    dis[v]=dis[u]+G[u][v];      //进行优化
-                    path[v].clear();            //path中的前驱使用覆盖式更新，即先清空，后更新  
-                    path[v].push_back(u);
-                }
-                esle if(dis[u]+G[u][v]==dis[v]){
-                    path[v].push_back(u);       //当出现相同长度的路径时，采用添加式更新，不清除
-                }
-                
-            }
-        }
-    }   
+void Dijkstra(int s){					//参数为单源起点s
+	fill（dis,dis+MAXV,INF);			//初始化dis数组为无穷大
+	dis[s]=0;							//起始顶点s到自身的距离为0
+	for(int i=0;i&lt;n;i++){				//执行n次循环，每次把一个新的顶点纳入顶点集S
+		int u=-1,MIN=INF;				//u使得dis[u]最小，并用MIN记录dis[u]
+		for(int j=0;j&lt;n;j++){
+			if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
+				u=j;
+				MIN=dis[j];
+			}
+		}
+		if(u==-1) return;				//如果找不到这样的u，说明不连通或者已经遍历结束，则返回
+		vis[u]=true;					//标记u为已访问
+		for(int v=0;v&lt;n;v++){			//对u能到达的顶点v进行优化
+			if(vis[v]==false&amp;&amp;G[u][v]!=INF){
+				if(dis[u]+G[u][v]&lt;dis[v]){		//当能够以u为中介点进行优化时
+					dis[v]=dis[u]+G[u][v];		//进行优化
+					path[v].clear();			//path中的前驱使用覆盖式更新，即先清空，后更新	
+					path[v].push_back(u);
+				}
+				esle if(dis[u]+G[u][v]==dis[v]){
+					path[v].push_back(u);		//当出现相同长度的路径时，采用添加式更新，不清除
+				}
+				
+			}
+		}
+	}	
 }
 </code></pre>
 
 <p>　　第二步，对记录的每一条路径进行DFS，然后统计第二优化尺度，选出符合要求的路径进行输出，这时候需要一个数组临时存放枚举的每一条完整的路径temppath，还需要一个保存完整的最终输出的数组pathout，然后对对Dijkstra算法生成的所有最短路径做递归的DFS遍历，获得符合要求的输出结果，代码如下：</p>
 
-<pre><code>int optvalue;                                   //第二尺度最优值，根据实际情况进行初始化
-vector&lt;int&gt; path[MAXV];                         //保留路径上每个顶点的前驱顶点
-vector&lt;int&gt; pathout,temppath;                   //保存完整的输出路径和临时的最优路径
+<pre><code>int optvalue;									//第二尺度最优值，根据实际情况进行初始化
+vector&lt;int&gt; path[MAXV];							//保留路径上每个顶点的前驱顶点
+vector&lt;int&gt; pathout,temppath;					//保存完整的输出路径和临时的最优路径
 
-void DFS(int v){                                //v为当前访问的顶点
-    //递归边界
-    if(v==s){                                   //如果到达顶点，则表示已经生成了一条临时路径
-        temppath.push_back(s);                  //加入起始顶点，补全路径
-        int value;                              //临时存放第二尺度的值
-        计算临时路径上的第二尺度的值，例如时间花费或者顶点资源数量等（见注释）;
-        if(value由于optvalue){                    //如果是较为优化的路径，就记录给pathou和optvalue
-            optvalue=value;
-            pathout=temppath;
-        }
-        temppath.pop_back();                    //将刚加入的结点删除，返回继续向另外的分支进行递归
-        return；
-    }
+void DFS(int v){								//v为当前访问的顶点
+	//递归边界
+	if(v==s){									//如果到达顶点，则表示已经生成了一条临时路径
+		temppath.push_back(s);					//加入起始顶点，补全路径
+		int value;								//临时存放第二尺度的值
+		计算临时路径上的第二尺度的值，例如时间花费或者顶点资源数量等（见注释）;
+		if(value由于optvalue){					//如果是较为优化的路径，就记录给pathou和optvalue
+			optvalue=value;
+			pathout=temppath;
+		}
+		temppath.pop_back();					//将刚加入的结点删除，返回继续向另外的分支进行递归
+		return；
+	}
 
-    //递归式
-    temppath.push_back(v);
-    for(int i=0;i&lt;path[v].size();i++){
-        DFS(path[v][i]);
-    }
-    temppath.pop_back();                        //完成本层递归的所有遍历后，删除当前结点v返回上一层继续转向另外的分支进行递归
+	//递归式
+	temppath.push_back(v);
+	for(int i=0;i&lt;path[v].size();i++){
+		DFS(path[v][i]);
+	}
+	temppath.pop_back();						//完成本层递归的所有遍历后，删除当前结点v返回上一层继续转向另外的分支进行递归
 }
 
 </code></pre>
@@ -925,29 +925,29 @@ void DFS(int v){                                //v为当前访问的顶点
 <p>　　Floyd算法的思路相当简洁，对于整个图来讲，任意的顶点i和j如果存在一个中间顶点k使得顶点i到j的路径变得更短，就用k来优化i到j的路径，这样显然枚举所有的n个顶点，是他们分别作为中间顶点 优化每一对顶点之间的距离，就获得了任意两点之间的最短路径，这就是多源路径最短的Floyd算法的思想。其伪代码如下：</p>
 
 <pre><code>for(枚举所有n个顶点，然他们依此充当中间顶点k){
-    for(以k为中介点，枚举所有的定点对i和j，i∈[0,n-1],j∈[0,n-1]){        //此处为两重循环，遍历所有的顶点对儿
-        if(以k为中间顶点，使距离更优){
-            更新i到j的距离；
-        }
-    }
+	for(以k为中介点，枚举所有的定点对i和j，i∈[0,n-1],j∈[0,n-1]){		//此处为两重循环，遍历所有的顶点对儿
+		if(以k为中间顶点，使距离更优){
+			更新i到j的距离；
+		}
+	}
 }
 
 </code></pre>
 
 <p>　　Floyd算法的实现代码如下：</p>
 
-<pre><code>int dis[MAXV][MAXV];                                    //图任意两顶点之间的距离二维数组（即图的初始状态），如果图只需要一遍处理的话，可以直接在图上执行Floyd算法
+<pre><code>int dis[MAXV][MAXV];									//图任意两顶点之间的距离二维数组（即图的初始状态），如果图只需要一遍处理的话，可以直接在图上执行Floyd算法
 //Floyd算法
 void Floyd(){
-    for(int k=0;k&lt;n;k++){
-        for(int i=0;i&lt;n;i++){
-            for(int j=0;j&lt;n;j++){
-                if(dis[i][k]!=INF&amp;&amp;dis[k][j]!=INF&amp;&amp;dis[i][k]+dis[k][j]&lt;dis[i][j]){
-                    dis[i][j]=dis[i][k]+dis[k][j];      //如果i，j之间可以用k做中介点，并且k使得i，j之间距离更优，则更新dis[i][j]
-                }
-            }
-        }
-    }
+	for(int k=0;k&lt;n;k++){
+		for(int i=0;i&lt;n;i++){
+			for(int j=0;j&lt;n;j++){
+				if(dis[i][k]!=INF&amp;&amp;dis[k][j]!=INF&amp;&amp;dis[i][k]+dis[k][j]&lt;dis[i][j]){
+					dis[i][j]=dis[i][k]+dis[k][j];		//如果i，j之间可以用k做中介点，并且k使得i，j之间距离更优，则更新dis[i][j]
+				}
+			}
+		}
+	}
 }
 </code></pre>
 
@@ -965,48 +965,48 @@ void Floyd(){
 
 <pre><code>//G位图，数组dis[u]表示顶点u距离点集S的距离   dis数组的含义与Dijkstra算法是有区别的
 Prim(G,dis[]){
-    初始化；
-    for(循环n次){
-        u=使dis[u]最小的顶点编号；
-        记u已被访问；
-        for(从u出发能访问到的顶点v){
-            if(v未被访问&amp;&amp;以u为中介点使得v到点集S的距离更优){
-                将G[u][v]赋值给v与点集S的最短距离d[v];
-            }
-        }
-    }
+	初始化；
+	for(循环n次){
+		u=使dis[u]最小的顶点编号；
+		记u已被访问；
+		for(从u出发能访问到的顶点v){
+			if(v未被访问&amp;&amp;以u为中介点使得v到点集S的距离更优){
+				将G[u][v]赋值给v与点集S的最短距离d[v];
+			}
+		}
+	}
 }
 </code></pre>
 
 <p>　　由伪代码可以很容易写出邻接矩阵和邻接表表示的算法代码，这里仅给出邻接矩阵的写法，邻接表的写法只在判定条件的写法上有所不同：</p>
 
 <pre><code>//Prim算法的邻接矩阵写法
-int n,G[MAXV][MAXV];                    //图的顶点个数和邻接矩阵表示
-int dis[MAXV];                          //记录每一个顶点到点集S的距离数组，除了起始顶点初始化为0以外，其他初始化为无穷大
-bool vis[MAXV]={false};                 //访问标记数组
+int n,G[MAXV][MAXV];					//图的顶点个数和邻接矩阵表示
+int dis[MAXV];							//记录每一个顶点到点集S的距离数组，除了起始顶点初始化为0以外，其他初始化为无穷大
+bool vis[MAXV]={false};					//访问标记数组
 
-int Prim(int s){                        //参数为最小生成树的根结点，即起点s，返回值为树的权值
-    int ans=0;                          //用于记录最小生成树的边权之和
-    fill（dis,dis+MAXV,INF);         //初始化dis数组为无穷大
-    dis[s]=0;                           //起始顶点s到点集S的距离为0
-    for(int i=0;i&lt;n;i++){               //执行n次循环，每次把一个新的顶点纳入顶点集S
-        int u=-1,MIN=INF;               //u使得dis[u]最小，并用MIN记录dis[u]
-        for(int j=0;j&lt;n;j++){
-            if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
-                u=j;
-                MIN=dis[j];
-        
-        }
-        if(u==-1) return -1;            //如果找不到这样的u，说明不连通，则构不成最小生成树，返回-1；
-        vis[u]=true;                    //标记u为已访问
-        ans+=dis[u];                    //将u加入点集S，并将其到达点集S的距离加入最小生成树
-        for(int v=0;v&lt;n;v++){           //对u能到达的顶点v进行优化
-            if(vis[v]==false&amp;&amp;G[u][v]!=INF&amp;&amp;G[u][v]&lt;dis[v]){
-                dis[v]=G[u][v];         //如果通过u能使v到达点集S的距离更优，则将u——v这条边赋值给dis[v]
-            }
-        }
-    }   
-    return ans;                         //返回最小生成树的边权之和
+int Prim(int s){						//参数为最小生成树的根结点，即起点s，返回值为树的权值
+	int ans=0;							//用于记录最小生成树的边权之和
+	fill（dis,dis+MAXV,INF);			//初始化dis数组为无穷大
+	dis[s]=0;							//起始顶点s到点集S的距离为0
+	for(int i=0;i&lt;n;i++){				//执行n次循环，每次把一个新的顶点纳入顶点集S
+		int u=-1,MIN=INF;				//u使得dis[u]最小，并用MIN记录dis[u]
+		for(int j=0;j&lt;n;j++){
+			if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
+				u=j;
+				MIN=dis[j];
+		
+		}
+		if(u==-1) return -1;			//如果找不到这样的u，说明不连通，则构不成最小生成树，返回-1；
+		vis[u]=true;					//标记u为已访问
+		ans+=dis[u];					//将u加入点集S，并将其到达点集S的距离加入最小生成树
+		for(int v=0;v&lt;n;v++){			//对u能到达的顶点v进行优化
+			if(vis[v]==false&amp;&amp;G[u][v]!=INF&amp;&amp;G[u][v]&lt;dis[v]){
+				dis[v]=G[u][v];			//如果通过u能使v到达点集S的距离更优，则将u——v这条边赋值给dis[v]
+			}
+		}
+	}	
+	return ans;							//返回最小生成树的边权之和
 }
 </code></pre>
 
@@ -1015,66 +1015,66 @@ int Prim(int s){                        //参数为最小生成树的根结点�
 <p>　　kruskal算法的思路是选边，每次从未被选中的边中选出最小的边，如果选中的边不构成回路，就加入到最小生成树中去，直到选中的边数等于顶点个数减一，即n-1的时候结束循环。其伪代码如下：</p>
 
 <pre><code>int kruskal(){
-    用ans记录最小生成树的边权之和，用edgnum记录以选中的边的数量；
-    将所有的边按权值从小到大排列；
-    for(从小到大枚举所有的边){
-        if(边的两个顶点不在同一个连通块中){            //判断是否会形成回路
-            将该边加入到最小生成树中；
-            ans+=测试边的权值；
-            最小生成树的边计数edgnum加一；
-            if(edgnum==n-1){
-                当已经选中n-1条边时结束循环；
-            }
-        }
-    }
-    return　ans;
+	用ans记录最小生成树的边权之和，用edgnum记录以选中的边的数量；
+	将所有的边按权值从小到大排列；
+	for(从小到大枚举所有的边){
+		if(边的两个顶点不在同一个连通块中){			//判断是否会形成回路
+			将该边加入到最小生成树中；
+			ans+=测试边的权值；
+			最小生成树的边计数edgnum加一；
+			if(edgnum==n-1){
+				当已经选中n-1条边时结束循环；
+			}
+		}
+	}
+	return　ans;
 }
 </code></pre>
 
 <p>　　实际代码的实现有两个问题，首先如何判断两个顶点是否在同一个连通块中，其次，如何将边加入到最小生成树中。解决这个问题可以使用<strong>并查集</strong>，并查集可以很容易的辨别两个点是否在同一个连通块中，同时将测试边的两个端点所在的并查集合并，就能达到将边加入到最小生成树的效果。因此，需要增加一个并查集数组，一个查询两个顶点所属的并查集的查询函数，其代码如下：</p>
 
-<pre><code>int father[N];                          //并查集数组，全部初始化为-1
-int find_father(int i){ 
-    while(father[i]!=-1){               //如果一个元素的父节点下标是-1，其绝对值表示该并查集的元素个数，那么这个结点便是这个并查集的根
-        i=father[i];
-    }
-    return i;                           //返回并查集的根
+<pre><code>int father[N];							//并查集数组，全部初始化为-1
+int find_father(int i){	
+	while(father[i]!=-1){				//如果一个元素的父节点下标是-1，其绝对值表示该并查集的元素个数，那么这个结点便是这个并查集的根
+		i=father[i];
+	}
+	return i;							//返回并查集的根
 }
 
 //kruskal算法
-typedef struct edg{                     //定义边的结构体
-    int st,ed;                          //边连接的开始顶点st和结尾顶点ed
-    int v;                              //边的权值
+typedef struct edg{						//定义边的结构体
+	int st,ed;							//边连接的开始顶点st和结尾顶点ed
+	int v;								//边的权值
 }Edg;
 
-vector&lt;Edg&gt; edgv;                       //存放边的数组
+vector&lt;Edg&gt; edgv;						//存放边的数组
 
 bool cmp(Edg a,Edg b){
-    return a.v&lt;b.v;                     //按照边的权值从小到大排序
+	return a.v&lt;b.v;						//按照边的权值从小到大排序
 }
-int kruskal(int n,vector&lt;Edg&gt; &amp;egdv ){      //n表示顶点个数,v传引用存放边的数组
-    int ans=0,edgnum=0;
-    fill(father,father+N,-1);           //初始化并查集数组
-    sort(edgv.begin(),edgv.end(),cmp)           //边按权值从小到大排序
-    for(int i=0;i&lt;edgv.size();i++){
-        int fst=find_father(edgv[i].st);
-        int fed=find_father(edgv[i].ed);
-        if(fst!=fed){                   //如果两个顶点不在同一个并查集，合并集合
-            if(father[fst]&lt;father[fed]){//这里为了保证并查集的合并的规模平衡，优先采用小的合并到大的并查集中
-                father[fst]+=father[fed];
-                father[fed]=fst;
-            }
-            else{
-                father[fed]+=father[fst];
-                father[fst]=fed;
-            }
-            ans+=edgv[i].v;             //将该边权值计入最小生成树
-            edgnum++；                   //最小生成树的边数加一
-            if(edgnum==n-1) break;      //当选够n-1条边时结束算法
-        }
-    }
-    if(edgnum!=n-1)     return -1;      //如果循环结束时无法连通，返回-1，无法得到最小生成树
-    else return ans;                    //返回最小生成树的边权之和
+int kruskal(int n,vector&lt;Edg&gt; &amp;egdv ){		//n表示顶点个数,v传引用存放边的数组
+	int ans=0,edgnum=0;
+	fill(father,father+N,-1);			//初始化并查集数组
+	sort(edgv.begin(),edgv.end(),cmp)			//边按权值从小到大排序
+	for(int i=0;i&lt;edgv.size();i++){
+		int fst=find_father(edgv[i].st);
+		int fed=find_father(edgv[i].ed);
+		if(fst!=fed){					//如果两个顶点不在同一个并查集，合并集合
+			if(father[fst]&lt;father[fed]){//这里为了保证并查集的合并的规模平衡，优先采用小的合并到大的并查集中
+				father[fst]+=father[fed];
+				father[fed]=fst;
+			}
+			else{
+				father[fed]+=father[fst];
+				father[fst]=fed;
+			}
+			ans+=edgv[i].v;				//将该边权值计入最小生成树
+			edgnum++；					//最小生成树的边数加一
+			if(edgnum==n-1)	break;		//当选够n-1条边时结束算法
+		}
+	}
+	if(edgnum!=n-1)		return -1;		//如果循环结束时无法连通，返回-1，无法得到最小生成树
+	else return ans;					//返回最小生成树的边权之和
 }
 </code></pre>
 
@@ -1091,31 +1091,31 @@ int kruskal(int n,vector&lt;Edg&gt; &amp;egdv ){      //n表示顶点个数,v传
 <p>　　拓扑排序的算法思想是，对于某个有向无环图（DAG图）从某一个没有前驱的顶点开始（即入度为0的顶点），将它归入拓扑序列后，将它所有的边全部删除，然后继续从剩余的顶点中选出入度为0的顶点，继续循环，直到取完全部的顶点，便可以得到一个拓扑序列。显然，当入度为0的顶点不止一个的时候，选取的不同的点就会得到不同的拓扑序列，可见<strong>拓扑序列不是唯一的</strong>。<br />
 　　拓扑排序的实现需要记录每一个顶点的入度，以判断入度是否为0，其算法的代码实现如下：</p>
 
-<pre><code>vector&lt;int&gt; G[MAXV];                    //使用不带权值的图的邻接表的表示方法
-int n,m,indegree[MAXV];                 //n表示顶点个数，m表示边的条数，indegree用于记录每个顶点的入度
+<pre><code>vector&lt;int&gt; G[MAXV];					//使用不带权值的图的邻接表的表示方法
+int n,m,indegree[MAXV];					//n表示顶点个数，m表示边的条数，indegree用于记录每个顶点的入度
 bool topsort(){
-    int num=0;                          //用于统计拓扑序列中的顶点个数，如果最后不能包含全部n个顶点，说明不能得到拓扑排序，此图不是有向无环图
-    queue&lt;int&gt; q;                       //类似于层次遍历的方法，借助队列实现遍历所有的顶点
-    for(int i=0;i&lt;n;i++){               //将所有的入度为0的顶点加入到队列中
-        if(indegree[i]==0){
-            q.push(i);
-        }
-    }
-    while(!q.empty()){                  //读取每一个入度为0的顶点
-        int u=q.front();
-        q.pop();
-        printf(&quot;%d &quot;,u );               //输出拓扑排序的顶点
-        for(int i=0;i&lt;G[u].size();i++){ //然后将它的后继顶点的入度全部减一
-            int v=G[u][v];
-            indegree[v]--;
-            if(indegree[v]==0){         //如果顶点入度变成了0，也入队
-                q.push(v);
-            }
-        }
-        num++;                          //拓扑排序中的顶点个数加一
-    }
-    if(num==n)  return true;            //如果能够得到拓扑排序返回真
-    else        return false;           //否则说明无法生成拓扑排序，此图不是有向无环图
+	int num=0;							//用于统计拓扑序列中的顶点个数，如果最后不能包含全部n个顶点，说明不能得到拓扑排序，此图不是有向无环图
+	queue&lt;int&gt; q;						//类似于层次遍历的方法，借助队列实现遍历所有的顶点
+	for(int i=0;i&lt;n;i++){				//将所有的入度为0的顶点加入到队列中
+		if(indegree[i]==0){
+			q.push(i);
+		}
+	}
+	while(!q.empty()){					//读取每一个入度为0的顶点
+		int u=q.front();
+		q.pop();
+		printf(&quot;%d &quot;,u );				//输出拓扑排序的顶点
+		for(int i=0;i&lt;G[u].size();i++){	//然后将它的后继顶点的入度全部减一
+			int v=G[u][v];
+			indegree[v]--;
+			if(indegree[v]==0){			//如果顶点入度变成了0，也入队
+				q.push(v);
+			}
+		}
+		num++;							//拓扑排序中的顶点个数加一
+	}
+	if(num==n)	return true;			//如果能够得到拓扑排序返回真
+	else 		return false;			//否则说明无法生成拓扑排序，此图不是有向无环图
 }
 </code></pre>
 
@@ -1149,51 +1149,51 @@ AOE转化成AOV网：<br />
 　　显然，想要球的ve[j]就必须直到前置事件的ve，这里借助拓扑排序来实现，这样保证了遇到事件V<sub>j</sub>的时候，所有的前置事件的ve已全部求出，只需找到ve[i1]+lengh[r1]~ve[ik]+lengh[rk]的最大值即可，代码实现如下所示：</p>
 
 <pre><code>//图以及求解关键路径时使用的容器的定义和声明
-typedef struct {                            //活动结点 
-    int st,ed;                              //活动的开始事件顶点和结束事件顶点 
-    int e,l;                                //活动的最早开始时间和最晚开始时间 
-    int id,len;                             //活动的编号和活动的花费 
+typedef struct {							//活动结点 
+	int st,ed;								//活动的开始事件顶点和结束事件顶点 
+	int e,l;								//活动的最早开始时间和最晚开始时间 
+	int id,len;								//活动的编号和活动的花费 
 }Act;
-int n,m;                                    //图的顶点个数和边数
-int G[MAXV][MAXV];                          //记录图 
-int inDegree[MAXV]={0};                     //结点的入度数组 
-vector&lt;Act&gt; v;                              //记录边的容器 
-int ve[MAXV]={0}, vl[MAXV];                 //活动的最早开始时间和最晚开始时间，ve
+int n,m;									//图的顶点个数和边数
+int G[MAXV][MAXV];							//记录图 
+int inDegree[MAXV]={0};						//结点的入度数组 
+vector&lt;Act&gt; v;								//记录边的容器 
+int ve[MAXV]={0}, vl[MAXV];					//活动的最早开始时间和最晚开始时间，ve
 初始化为0，vl初始化为关键路径长度 
-stack&lt;int&gt; toporder;                        //存放拓扑序列 
+stack&lt;int&gt; toporder;						//存放拓扑序列 
 </code></pre>
 
 <pre><code>//利用拓扑排序实现ve数组的求解
-int topsort()                               //拓扑排序 
+int topsort()								//拓扑排序 
 {
-    queue&lt;int&gt; q;
-    for(int i=1;i&lt;=n;i++){                  //把所有入度为0顶点的入队 
-        if(inDegree[i]==0){
-            q.push(i);
-        }
-    }
-    int u;
-    int maxlen=0;                           //记录最大的ve  就是整个工程的最短时间 
-    while(!q.empty()){
-        u=q.front();                        //从队列中取出一个结点 
-        q.pop();
-        toporder.push(u);
-        for(int i=1;i&lt;=n;i++){              // 将他的后继结点的入度减一 
-            if(G[u][i]!=INF){
-                inDegree[i]--;
-                if(inDegree[i]==0)          //如果入度也变为0，入队 
-                    q.push(i);
-                //更新u的后序结点的ve值 
-                if(ve[u]+G[u][i]&gt;ve[i]){
-                    ve[i]=ve[u]+G[u][i];
-                    if(ve[i]&gt;maxlen)        //更新过后，寻找最短时间，即关键路径的长度 
-                        maxlen=ve[i];       //关键路径长度等于汇点活动的最早开始时间的最大值
-                }   
-            }
-        }
-    }
-    if(toporder.size()==n)  return  maxlen; //如果是有向无环图，返回关键路径的长度vl求解函数用于初始化vl数组 
-    else return -1;                         //否则返回-1，表示图中有环，整个工程调度不可行
+	queue&lt;int&gt; q;
+	for(int i=1;i&lt;=n;i++){					//把所有入度为0顶点的入队 
+		if(inDegree[i]==0){
+			q.push(i);
+		}
+	}
+	int u;
+	int maxlen=0;							//记录最大的ve  就是整个工程的最短时间 
+	while(!q.empty()){
+		u=q.front();						//从队列中取出一个结点 
+		q.pop();
+		toporder.push(u);
+		for(int i=1;i&lt;=n;i++){				// 将他的后继结点的入度减一 
+			if(G[u][i]!=INF){
+				inDegree[i]--;
+				if(inDegree[i]==0)			//如果入度也变为0，入队 
+					q.push(i);
+				//更新u的后序结点的ve值 
+				if(ve[u]+G[u][i]&gt;ve[i]){
+					ve[i]=ve[u]+G[u][i];
+					if(ve[i]&gt;maxlen)		//更新过后，寻找最短时间，即关键路径的长度 
+						maxlen=ve[i];		//关键路径长度等于汇点活动的最早开始时间的最大值
+				}	
+			}
+		}
+	}
+	if(toporder.size()==n)	return  maxlen;	//如果是有向无环图，返回关键路径的长度vl求解函数用于初始化vl数组 
+	else return -1;							//否则返回-1，表示图中有环，整个工程调度不可行
 }
 </code></pre>
 
@@ -1203,33 +1203,33 @@ int topsort()                               //拓扑排序
 <img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/get_vl.png" alt="vl的求解" /><br />
 　　这里与ve求解不同之处在于，需要先直到后继事件的vl值，因此，使用<strong>拓扑序列的逆序</strong>来处理，这个时候，将记录了拓扑序列的栈按顺序出栈便是拓扑排序的逆序，由此从后往前推算vl数组，代码实现如下：</p>
 
-<pre><code>void get_vl(int maxlen)                     //拓扑排序得到的关键路径长度
-    fill(vl,vl+MAXV,maxlen);                //初始化vl数组为关键路径的长度 
-    while(!toporder.empty()){               //拓扑序列出栈，逆过程更新vl 
-        int u=toporder.top();
-        toporder.pop();
+<pre><code>void get_vl(int maxlen)						//拓扑排序得到的关键路径长度
+	fill(vl,vl+MAXV,maxlen);				//初始化vl数组为关键路径的长度 
+	while(!toporder.empty()){				//拓扑序列出栈，逆过程更新vl 
+		int u=toporder.top();
+		toporder.pop();
 
-        for(int i=1;i&lt;=n;i++){              //用u的后继结点的vl值来更新vl[u]
-            if(G[u][i]!=INF){
-                if(vl[i]-G[u][i]&lt;vl[u]){    //vl[u]为其前驱活动开始的最小值 
-                    vl[u]=vl[i]-G[u][i];
-                }
-            }
-        }
-    }
+		for(int i=1;i&lt;=n;i++){				//用u的后继结点的vl值来更新vl[u]
+			if(G[u][i]!=INF){
+				if(vl[i]-G[u][i]&lt;vl[u]){	//vl[u]为其前驱活动开始的最小值 
+					vl[u]=vl[i]-G[u][i];
+				}
+			}
+		}
+	}
 </code></pre>
 
 <p>　　<strong>③计算每个活动的e和l</strong></p>
 
 <pre><code>void get_path{
-    for(int i=0;i&lt;m;i++){                   //遍历所有的边，计算每一个活动的e和l 
-        v[i].e=ve[v[i].st];
-        v[i].l=vl[v[i].ed]-v[i].len;
+	for(int i=0;i&lt;m;i++){					//遍历所有的边，计算每一个活动的e和l 
+		v[i].e=ve[v[i].st];
+		v[i].l=vl[v[i].ed]-v[i].len;
 
-        if(v[i].e==v[i].l){                 //如果是关键路径则输出
-            printf(&quot;%d-%d\n&quot;,v[i].st,v[i].ed);
-        }
-    }
+		if(v[i].e==v[i].l){					//如果是关键路径则输出
+			printf(&quot;%d-%d\n&quot;,v[i].st,v[i].ed);
+		}
+	}
 }
 </code></pre>
 
@@ -1245,54 +1245,54 @@ int topsort()                               //拓扑排序
 <img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/DAG_.png" alt="DAG的dp数组" /><br />
 　　为了让算法变得简洁，可以采用递归的写法获得dp数组的求解，代码如下：</p>
 
-<pre><code>int dp[MAXV]={0};               //由于递归求解最后一层是图的汇点，从它出发的最长路径便是0，因此dp数组初始化为0，作为递归的边界
-int choice[MAXV];               //记录每个结点的后继，初始化为-1
+<pre><code>int dp[MAXV]={0};				//由于递归求解最后一层是图的汇点，从它出发的最长路径便是0，因此dp数组初始化为0，作为递归的边界
+int choice[MAXV];				//记录每个结点的后继，初始化为-1
 
-fill(choice,choice+MAXV,-1);    //提前在外部，初始化路径数组
+fill(choice,choice+MAXV,-1);	//提前在外部，初始化路径数组
 int DP(int i){
 
-    if(dp[i]&gt;0) return  dp[i];  //如果dp已经求得，直接返回结果
-    for(int j=0;j&lt;n;j++){       //对i的所有后继顶点进行遍历
-        if(G[i][j]!=INF){       //令dp[i]等于dp[j1]+length[r1]~dp[jk]+length[rk]的最大值
-            int temp=DP[j]+G[i][j];
-            if(temp&gt;dp[i]){     //如果更新了dp[i]，则更新i在路径上的后继
-                dp[i]=temp;
-                choice[i]=j;
-            }
-        }
-    }
-    return dp[i];
+	if(dp[i]&gt;0)	return  dp[i];	//如果dp已经求得，直接返回结果
+	for(int j=0;j&lt;n;j++){		//对i的所有后继顶点进行遍历
+		if(G[i][j]!=INF){		//令dp[i]等于dp[j1]+length[r1]~dp[jk]+length[rk]的最大值
+			int temp=DP[j]+G[i][j];
+			if(temp&gt;dp[i]){		//如果更新了dp[i]，则更新i在路径上的后继
+				dp[i]=temp;
+				choice[i]=j;
+			}
+		}
+	}
+	return dp[i];
 }
 //求个dp数组后将dp数组中的最大值(即关键路径长度)的下标i交给打印函数，用于打印路径
 void Print_path(int i){
-    printf(&quot;%d&quot;,i);             //打印路径的起始顶点
-    while(choice[i]!=-1){       //当不到汇点的时候进行循环
-        i=choice[i];            //i往后一步成为其后继
-        printf(&quot;-&gt;%d&quot;,i)        //打印路径
-    }
+	printf(&quot;%d&quot;,i);				//打印路径的起始顶点
+	while(choice[i]!=-1){		//当不到汇点的时候进行循环
+		i=choice[i];			//i往后一步成为其后继
+		printf(&quot;-&gt;%d&quot;,i)		//打印路径
+	}
 }
 </code></pre>
 
 <p>　　以上算法，由于遍历的时候后继顶点的遍历是从编号从小到大进行的，因此实现了得到路径的字典序最小的方案。如果有更多条路径，choice数组可以改为vector二维数组，向Dijkstra+DFS一样得到多条路径，并按照要求选择。<br />
 　　接下来考虑，限定终点的条件下，如何求解。限定了顶点Ｔ为结束顶点时，则需要递归边界在T处停止，因此初始化，dp[T]=0，其他初始化为一个很大的负数 -INF，以表示不可到达，只能达到T，同时加入访问标记数组，使得其他顶点不会因为多次访问是的dp值变得影响dp[T],其他的代码同上类似，只不过dp数组的含义，因为初始化的限制条件，dp[i]变为了从i到达终点T的最长路径：</p>
 
-<pre><code>fill(choice,choice+MAXV,-INF);  //初始化路径数组
+<pre><code>fill(choice,choice+MAXV,-INF);	//初始化路径数组
 dp[T]=0;
 vis[MAXV]={false};
 int DP(int i){
 
-    if(vis[i])  return  dp[i];  //如果dp已经求得，直接返回结果
-    vis[i]=true;
-    for(int j=0;j&lt;n;j++){       //对i的所有后继顶点进行遍历
-        if(G[i][j]!=INF){       //令dp[i]等于dp[j1]+length[r1]~dp[jk]+length[rk]的最大值
-            int temp=DP[j]+G[i][j];
-            if(temp&gt;dp[i]){     //如果更新了dp[i]，则更新i在路径上的后继
-                dp[i]=temp;
-                choice[i]=j;
-            }
-        }
-    }
-    return dp[i];
+	if(vis[i])	return  dp[i];	//如果dp已经求得，直接返回结果
+	vis[i]=true;
+	for(int j=0;j&lt;n;j++){		//对i的所有后继顶点进行遍历
+		if(G[i][j]!=INF){		//令dp[i]等于dp[j1]+length[r1]~dp[jk]+length[rk]的最大值
+			int temp=DP[j]+G[i][j];
+			if(temp&gt;dp[i]){		//如果更新了dp[i]，则更新i在路径上的后继
+				dp[i]=temp;
+				choice[i]=j;
+			}
+		}
+	}
+	return dp[i];
 }
 </code></pre>
 
@@ -1343,17 +1343,17 @@ int DP(int i){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/%E7%BB%99hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE/" data-tooltip="给Hugo博客添加网易云音乐外链">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/08/pat%E6%80%BB%E7%BB%93/" data-tooltip="PAT总结">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/08/pat%E6%80%BB%E7%BB%93/" data-tooltip="PAT总结">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/%E7%BB%99hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE/" data-tooltip="给Hugo博客添加网易云音乐外链">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -1411,17 +1411,17 @@ int DP(int i){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/%E7%BB%99hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE/" data-tooltip="给Hugo博客添加网易云音乐外链">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/08/pat%E6%80%BB%E7%BB%93/" data-tooltip="PAT总结">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/08/pat%E6%80%BB%E7%BB%93/" data-tooltip="PAT总结">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/%E7%BB%99hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE/" data-tooltip="给Hugo博客添加网易云音乐外链">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
