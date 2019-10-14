@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1047, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1047.
@@ -352,30 +352,30 @@ using namespace std;
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	int n,k;
-	scanf(&quot;%d%d&quot;,&amp;n,&amp;k);
-	vector&lt;string&gt; v[k+1];
-	for(int i=0;i&lt;n;i++){
-		string name;
-		int m;
-		cin&gt;&gt;name; scanf(&quot;%d&quot;,&amp;m);		//读入数据 
-		for(int j=0;j&lt;m;j++){
-			int id;
-			scanf(&quot;%d&quot;,&amp;id);
-			v[id].push_back(name);		//插入到相应的课程名单中 
-		}
-	}
-	for(int i=1;i&lt;=k;i++){
-		int size=v[i].size();
-		printf(&quot;%d %d\n&quot;,i,size);
-		if(size) sort(v[i].begin(),v[i].end());	//如果不空排序输出 
-		for(int j=0;j&lt;size;j++){
-			printf(&quot;%s\n&quot;,v[i][j].c_str());
-		}
-	}
-	return 0;
+    int n,k;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;k);
+    vector&lt;string&gt; v[k+1];
+    for(int i=0;i&lt;n;i++){
+        string name;
+        int m;
+        cin&gt;&gt;name; scanf(&quot;%d&quot;,&amp;m);      //读入数据 
+        for(int j=0;j&lt;m;j++){
+            int id;
+            scanf(&quot;%d&quot;,&amp;id);
+            v[id].push_back(name);      //插入到相应的课程名单中 
+        }
+    }
+    for(int i=1;i&lt;=k;i++){
+        int size=v[i].size();
+        printf(&quot;%d %d\n&quot;,i,size);
+        if(size) sort(v[i].begin(),v[i].end()); //如果不空排序输出 
+        for(int j=0;j&lt;size;j++){
+            printf(&quot;%s\n&quot;,v[i][j].c_str());
+        }
+    }
+    return 0;
 } 
 </code></pre>
               

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1044, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1044.
@@ -330,40 +330,40 @@
 #include&lt;set&gt;
 #include&lt;stack&gt;
 using namespace std;
-int n,pay,cnt=0;					//pay为需要支付的数值，cnt用于等于pay的计数 
-vector&lt;int&gt; sum;					//保存数据，sum[0]初始化为0 
+int n,pay,cnt=0;                    //pay为需要支付的数值，cnt用于等于pay的计数 
+vector&lt;int&gt; sum;                    //保存数据，sum[0]初始化为0 
 int find(int p){
-	int i=0,j=1,first=1000000000;
-	for(;i&lt;=j&amp;&amp;j&lt;sum.size();){		//两点法 i，j指针以前一后 
-		int temp=sum[j]-sum[i];		//计算i-j区间内的数值 
-		if(temp&lt;p)					//如果小于pay，j++ 
-			j++;
-		else if(temp==p){			//如果等于pay，输出并计数 
-			printf(&quot;%d-%d\n&quot;,i+1,j);j++;cnt++; 
-		}
-		else{						//如果大于pay，i++，同时记录可能的新方案 
-			first=min(first,temp);
-			i++;
-		}	 
-	}
-	return first;
+    int i=0,j=1,first=1000000000;
+    for(;i&lt;=j&amp;&amp;j&lt;sum.size();){      //两点法 i，j指针以前一后 
+        int temp=sum[j]-sum[i];     //计算i-j区间内的数值 
+        if(temp&lt;p)                  //如果小于pay，j++ 
+            j++;
+        else if(temp==p){           //如果等于pay，输出并计数 
+            printf(&quot;%d-%d\n&quot;,i+1,j);j++;cnt++; 
+        }
+        else{                       //如果大于pay，i++，同时记录可能的新方案 
+            first=min(first,temp);
+            i++;
+        }    
+    }
+    return first;
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	scanf(&quot;%d%d&quot;,&amp;n,&amp;pay);
-	sum.resize(n+1);sum[0]=0;
-	for(int i=1;i&lt;=n;i++){			//直接读入并计算和记录sum 
-		int temp;
-		scanf(&quot;%d&quot;,&amp;temp);
-		sum[i]=sum[i-1]+temp;
-	} 
-	int newpay=find(pay);			//输出，并获得可能的新支付方案 
-	if(cnt==0)						//如果pay的支付不存在，按照新的支付方案进行查询，此处的左值newpay只是为了接应新方案的返回值 
-		newpay=find(newpay);
-	return 0;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;pay);
+    sum.resize(n+1);sum[0]=0;
+    for(int i=1;i&lt;=n;i++){          //直接读入并计算和记录sum 
+        int temp;
+        scanf(&quot;%d&quot;,&amp;temp);
+        sum[i]=sum[i-1]+temp;
+    } 
+    int newpay=find(pay);           //输出，并获得可能的新支付方案 
+    if(cnt==0)                      //如果pay的支付不存在，按照新的支付方案进行查询，此处的左值newpay只是为了接应新方案的返回值 
+        newpay=find(newpay);
+    return 0;
 } 
 </code></pre>
               

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1035, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1035.
@@ -346,46 +346,46 @@ team220 abcdefg333
 #include&lt;stack&gt;
 using namespace std;
 void check(string &amp;str,int &amp;flag){
-	for(int i=0;i&lt;str.size();i++){
-		switch(str[i]){
-			case '1':str[i]='@';flag=1;break;
-			case '0':str[i]='%';flag=1;break;
-			case 'l':str[i]='L';flag=1;break;
-			case 'O':str[i]='o';flag=1;break;
-		}
-	}
+    for(int i=0;i&lt;str.size();i++){
+        switch(str[i]){
+            case '1':str[i]='@';flag=1;break;
+            case '0':str[i]='%';flag=1;break;
+            case 'l':str[i]='L';flag=1;break;
+            case 'O':str[i]='o';flag=1;break;
+        }
+    }
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	int n,cnt=0;
-	vector&lt;string&gt; out;
-	scanf(&quot;%d&quot;,&amp;n);
-	for(int i=0;i&lt;n;i++){
-		string name,passw;
-		cin&gt;&gt;name&gt;&gt;passw;
-		int flag=0;
-		check(passw,flag);
-		if(flag==1){
-			cnt++;
-			out.push_back(name+' '+passw);
-		}
-	} 
-	if(cnt==0){
-		if(n==1)
-			puts(&quot;There is 1 account and no account is modified&quot;);
-		else
-			printf(&quot;There are %d accounts and no account is modified&quot;,n);
-	}
-	else{
-		cout&lt;&lt;cnt&lt;&lt;'\n';
-		for(int i=0;i&lt;cnt;i++){
-			cout&lt;&lt;out[i]&lt;&lt;'\n';
-		}
-	}
-	return 0;
+    int n,cnt=0;
+    vector&lt;string&gt; out;
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=0;i&lt;n;i++){
+        string name,passw;
+        cin&gt;&gt;name&gt;&gt;passw;
+        int flag=0;
+        check(passw,flag);
+        if(flag==1){
+            cnt++;
+            out.push_back(name+' '+passw);
+        }
+    } 
+    if(cnt==0){
+        if(n==1)
+            puts(&quot;There is 1 account and no account is modified&quot;);
+        else
+            printf(&quot;There are %d accounts and no account is modified&quot;,n);
+    }
+    else{
+        cout&lt;&lt;cnt&lt;&lt;'\n';
+        for(int i=0;i&lt;cnt;i++){
+            cout&lt;&lt;out[i]&lt;&lt;'\n';
+        }
+    }
+    return 0;
 } 
 </code></pre>
               

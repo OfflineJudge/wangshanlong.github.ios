@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1005, C, C&#43;&#43;, PAT">
 <meta name="description" content="　　PAT甲级1005.">
@@ -305,22 +305,22 @@ using namespace std;
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	string shu[10]={&quot;zero&quot;,&quot;one&quot;,&quot;two&quot;,&quot;three&quot;,&quot;four&quot;,&quot;five&quot;,&quot;six&quot;,&quot;seven&quot;,&quot;eight&quot;,&quot;nine&quot;};
-	string str;
-	int ans=0;
-	cin&gt;&gt;str;
-	for(int i=0;i&lt;str.size();i++){
-		ans+=str[i]-'0';
-	}
-	if(ans&gt;=100)
-		cout&lt;&lt;shu[ans/100]&lt;&lt;' '&lt;&lt;shu[ans/10%10]&lt;&lt;' '&lt;&lt;shu[ans%10];
-	else if(ans&gt;=10)
-		cout&lt;&lt;shu[ans/10]&lt;&lt;' '&lt;&lt;shu[ans%10];
-	else
-		cout&lt;&lt;shu[ans];
-	return 0;
+    string shu[10]={&quot;zero&quot;,&quot;one&quot;,&quot;two&quot;,&quot;three&quot;,&quot;four&quot;,&quot;five&quot;,&quot;six&quot;,&quot;seven&quot;,&quot;eight&quot;,&quot;nine&quot;};
+    string str;
+    int ans=0;
+    cin&gt;&gt;str;
+    for(int i=0;i&lt;str.size();i++){
+        ans+=str[i]-'0';
+    }
+    if(ans&gt;=100)
+        cout&lt;&lt;shu[ans/100]&lt;&lt;' '&lt;&lt;shu[ans/10%10]&lt;&lt;' '&lt;&lt;shu[ans%10];
+    else if(ans&gt;=10)
+        cout&lt;&lt;shu[ans/10]&lt;&lt;' '&lt;&lt;shu[ans%10];
+    else
+        cout&lt;&lt;shu[ans];
+    return 0;
 } 
 </code></pre>
               

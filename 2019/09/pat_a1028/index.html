@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1028, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1028.
@@ -358,40 +358,40 @@
 using namespace std;
 int n,c;
 typedef struct node{
-	string id,name;
-	int score;
+    string id,name;
+    int score;
 }Node;
 vector&lt;Node&gt; v;
 vector&lt;int&gt; idsort;
 bool cmp(int a,int b){
-	if(c==1)
-		return v[a].id&lt;v[b].id;
-	else if(c==2){
-		if(v[a].name!=v[b].name)	return v[a].name&lt;v[b].name;
-		else						return v[a].id&lt;v[b].id;
-	}
-	else{
-		if(v[a].score!=v[b].score)	return v[a].score&lt;v[b].score;
-		else						return v[a].id&lt;v[b].id;
-	}
+    if(c==1)
+        return v[a].id&lt;v[b].id;
+    else if(c==2){
+        if(v[a].name!=v[b].name)    return v[a].name&lt;v[b].name;
+        else                        return v[a].id&lt;v[b].id;
+    }
+    else{
+        if(v[a].score!=v[b].score)  return v[a].score&lt;v[b].score;
+        else                        return v[a].id&lt;v[b].id;
+    }
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	scanf(&quot;%d%d&quot;,&amp;n,&amp;c);
-	v.resize(n); idsort.resize(n);
-	for(int i=0;i&lt;n;i++){
-		idsort[i]=i;
-		cin&gt;&gt;v[i].id&gt;&gt;v[i].name&gt;&gt;v[i].score;		
-	} 
-	sort(idsort.begin(),idsort.end(),cmp);
-	for(int i=0;i&lt;n;i++){
-		int k=idsort[i];
-		cout&lt;&lt;v[k].id&lt;&lt;' '&lt;&lt;v[k].name&lt;&lt;' '&lt;&lt;v[k].score&lt;&lt;'\n';
-	}
-	return 0;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;c);
+    v.resize(n); idsort.resize(n);
+    for(int i=0;i&lt;n;i++){
+        idsort[i]=i;
+        cin&gt;&gt;v[i].id&gt;&gt;v[i].name&gt;&gt;v[i].score;        
+    } 
+    sort(idsort.begin(),idsort.end(),cmp);
+    for(int i=0;i&lt;n;i++){
+        int k=idsort[i];
+        cout&lt;&lt;v[k].id&lt;&lt;' '&lt;&lt;v[k].name&lt;&lt;' '&lt;&lt;v[k].score&lt;&lt;'\n';
+    }
+    return 0;
 } 
 </code></pre>
               

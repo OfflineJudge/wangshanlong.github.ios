@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1059, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1059.
@@ -310,42 +310,42 @@
 using namespace std;
 #define MAXN 10000
 bool Prime[MAXN];
-void getprime(){							// 筛选法获得素数表 
-	fill(Prime,Prime+MAXN,true);
-	Prime[0]=Prime[1]=false;
-	for(int i=2;i&lt;MAXN;i++){
-		if(Prime[i]){
-			for(int j=i+i;j&lt;MAXN;j+=i)
-				Prime[j]=false;
-		}
-	}
+void getprime(){                            // 筛选法获得素数表 
+    fill(Prime,Prime+MAXN,true);
+    Prime[0]=Prime[1]=false;
+    for(int i=2;i&lt;MAXN;i++){
+        if(Prime[i]){
+            for(int j=i+i;j&lt;MAXN;j+=i)
+                Prime[j]=false;
+        }
+    }
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	getprime();
-	int n,tag=0;							//tag为控制*号的标记 
-	cin&gt;&gt;n;
-	if(n==1) {printf(&quot;1=1&quot;); return 0;}		//特判1的情况 （坑点所在，第三个测试点） 
-	printf(&quot;%d=&quot;,n);						//打印算式的头部 
-	for(int i=2;;i++){						//因数从2开始 
-		int cnt=0;							//用于因数的计数 
-		if(Prime[i]){						//如果该因数是素数 
-			while(n%i==0){					//每次除以因数（直到不能整除），进行分解计数 
-				n/=i;	cnt++;
-			}
-		}
-		if(cnt){							//如果有因数 
-			if(tag) putchar('*');			//如果是第一次打印，不需要* 
-			tag=1;							//修改标记 
-			if(cnt==1)	printf(&quot;%d&quot;,i);		//如果因数个数为1，不打印个数 
-			else 		printf(&quot;%d^%d&quot;,i,cnt);
-		}
-		if(n==1)	break;					//当n分解完成时结束循环 
-	}
-	return 0;
+    getprime();
+    int n,tag=0;                            //tag为控制*号的标记 
+    cin&gt;&gt;n;
+    if(n==1) {printf(&quot;1=1&quot;); return 0;}     //特判1的情况 （坑点所在，第三个测试点） 
+    printf(&quot;%d=&quot;,n);                        //打印算式的头部 
+    for(int i=2;;i++){                      //因数从2开始 
+        int cnt=0;                          //用于因数的计数 
+        if(Prime[i]){                       //如果该因数是素数 
+            while(n%i==0){                  //每次除以因数（直到不能整除），进行分解计数 
+                n/=i;   cnt++;
+            }
+        }
+        if(cnt){                            //如果有因数 
+            if(tag) putchar('*');           //如果是第一次打印，不需要* 
+            tag=1;                          //修改标记 
+            if(cnt==1)  printf(&quot;%d&quot;,i);     //如果因数个数为1，不打印个数 
+            else        printf(&quot;%d^%d&quot;,i,cnt);
+        }
+        if(n==1)    break;                  //当n分解完成时结束循环 
+    }
+    return 0;
 } 
 </code></pre>
               

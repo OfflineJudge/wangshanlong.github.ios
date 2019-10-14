@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1022, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1022.
@@ -352,54 +352,54 @@ Not Found
 #include&lt;set&gt;
 #include&lt;stack&gt;
 using namespace std;
-unordered_map&lt;string,set&lt;int&gt; &gt; title,name,key,pu,py;				//查询要用到的索引表 
-void getans(unordered_map&lt;string,set&lt;int&gt; &gt; &amp;mp,string &amp;check){		//查询函数，传引用，对不同的查询字进行查询 
-	if(mp.find(check)==mp.end())									//如果找不到 
-		puts(&quot;Not Found&quot;);
-	else{
-		for(auto it=mp[check].begin();it!=mp[check].end();it++)		//如果找到，则遍历输出，set自身有序 
-			printf(&quot;%07d\n&quot;,*it);
-	}
+unordered_map&lt;string,set&lt;int&gt; &gt; title,name,key,pu,py;               //查询要用到的索引表 
+void getans(unordered_map&lt;string,set&lt;int&gt; &gt; &amp;mp,string &amp;check){     //查询函数，传引用，对不同的查询字进行查询 
+    if(mp.find(check)==mp.end())                                    //如果找不到 
+        puts(&quot;Not Found&quot;);
+    else{
+        for(auto it=mp[check].begin();it!=mp[check].end();it++)     //如果找到，则遍历输出，set自身有序 
+            printf(&quot;%07d\n&quot;,*it);
+    }
 }
-void getbook(){														//读取一本书的记录 
-	int id;
-	string _title,_name,_key,_pu,_py;								
-	scanf(&quot;%d&quot;,&amp;id);	getchar();									//读取id后，要过滤换行符 
-	getline(cin,_title);	title[_title].insert(id);				//整行读取书名和人名 
-	getline(cin,_name);		name[_name].insert(id);
-	while(1){														//分别读取关键词，并单独处理 
-		cin&gt;&gt;_key;	key[_key].insert(id);		
-		char ch=getchar();											//吸收空格，如果到了结尾的回车，关键字读取结束 
-		if(ch=='\n')	break;
-	}
-	getline(cin,_pu);	pu[_pu].insert(id);							//整行读取出版商和出版时间 
-	getline(cin,_py);	py[_py].insert(id);
+void getbook(){                                                     //读取一本书的记录 
+    int id;
+    string _title,_name,_key,_pu,_py;                               
+    scanf(&quot;%d&quot;,&amp;id);    getchar();                                  //读取id后，要过滤换行符 
+    getline(cin,_title);    title[_title].insert(id);               //整行读取书名和人名 
+    getline(cin,_name);     name[_name].insert(id);
+    while(1){                                                       //分别读取关键词，并单独处理 
+        cin&gt;&gt;_key;  key[_key].insert(id);       
+        char ch=getchar();                                          //吸收空格，如果到了结尾的回车，关键字读取结束 
+        if(ch=='\n')    break;
+    }
+    getline(cin,_pu);   pu[_pu].insert(id);                         //整行读取出版商和出版时间 
+    getline(cin,_py);   py[_py].insert(id);
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	int n;
-	scanf(&quot;%d&quot;,&amp;n);	getchar();
-	for(int i=0;i&lt;n;i++){
-		getbook();
-	}
-	scanf(&quot;%d&quot;,&amp;n);	getchar();
-	for(int i=0;i&lt;n;i++){
-		string str;
-		getline(cin,str);											//整行读入查询语句 
-		cout&lt;&lt;str&lt;&lt;'\n';
-		string check=str.substr(3,str.size()-3);					//摘取查询字 
-		switch(str[0]){												//根据查询类型分类查询 
-			case '1':getans(title,check);break;
-			case '2':getans(name,check);break;
-			case '3':getans(key,check);break;
-			case '4':getans(pu,check);break;
-			case '5':getans(py,check);break;
-		}	
-	}
-	return 0;
+    int n;
+    scanf(&quot;%d&quot;,&amp;n); getchar();
+    for(int i=0;i&lt;n;i++){
+        getbook();
+    }
+    scanf(&quot;%d&quot;,&amp;n); getchar();
+    for(int i=0;i&lt;n;i++){
+        string str;
+        getline(cin,str);                                           //整行读入查询语句 
+        cout&lt;&lt;str&lt;&lt;'\n';
+        string check=str.substr(3,str.size()-3);                    //摘取查询字 
+        switch(str[0]){                                             //根据查询类型分类查询 
+            case '1':getans(title,check);break;
+            case '2':getans(name,check);break;
+            case '3':getans(key,check);break;
+            case '4':getans(pu,check);break;
+            case '5':getans(py,check);break;
+        }   
+    }
+    return 0;
 } 
 </code></pre>
               

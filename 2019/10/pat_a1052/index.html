@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1052, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1052.
@@ -320,40 +320,40 @@
 #include&lt;stack&gt;
 using namespace std;
 typedef struct node{
-	int id,data,next;
+    int id,data,next;
 }Node;
 Node all[100005];
 bool cmp(Node a,Node b){
-	return a.data&lt;b.data;
+    return a.data&lt;b.data;
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	int n,head;
-	scanf(&quot;%d%d&quot;,&amp;n,&amp;head);
-	vector&lt;Node&gt; v;
-	for(int i=0;i&lt;n;i++){
-		int id;
-		scanf(&quot;%d&quot;,&amp;id);
-		all[id].id=id;
-		scanf(&quot;%d%d&quot;,&amp;all[id].data,&amp;all[id].next);
-	}
-	for(int i=head;i!=-1;i=all[i].next)					//将链表重新整合进一个数组中 
-		v.push_back(all[i]);
-	sort(v.begin(),v.end(),cmp);						//按要求排序 
-	if(v.size()==0){									//特判如果0个有效结点 
-		printf(&quot;0 -1&quot;);
-		return 0;
-	}
-    printf(&quot;%d %05d\n&quot;,v.size(),v[0].id);				//输出结果 
-	int i=0;
-	for(i=0;i&lt;v.size()-1;i++){							//下一个next指针，即后边一个的id 
-		printf(&quot;%05d %d %05d\n&quot;,v[i].id,v[i].data,v[i+1].id);
-	} 
-	printf(&quot;%05d %d -1&quot;,v[i].id,v[i].data);
-	return 0; 
+    int n,head;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;head);
+    vector&lt;Node&gt; v;
+    for(int i=0;i&lt;n;i++){
+        int id;
+        scanf(&quot;%d&quot;,&amp;id);
+        all[id].id=id;
+        scanf(&quot;%d%d&quot;,&amp;all[id].data,&amp;all[id].next);
+    }
+    for(int i=head;i!=-1;i=all[i].next)                 //将链表重新整合进一个数组中 
+        v.push_back(all[i]);
+    sort(v.begin(),v.end(),cmp);                        //按要求排序 
+    if(v.size()==0){                                    //特判如果0个有效结点 
+        printf(&quot;0 -1&quot;);
+        return 0;
+    }
+    printf(&quot;%d %05d\n&quot;,v.size(),v[0].id);               //输出结果 
+    int i=0;
+    for(i=0;i&lt;v.size()-1;i++){                          //下一个next指针，即后边一个的id 
+        printf(&quot;%05d %d %05d\n&quot;,v[i].id,v[i].data,v[i+1].id);
+    } 
+    printf(&quot;%05d %d -1&quot;,v[i].id,v[i].data);
+    return 0; 
 } 
 </code></pre>
               

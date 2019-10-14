@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1041, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1041.
@@ -328,27 +328,27 @@ int main(){
 #else    
     freopen(&quot;1.txt&quot;, &quot;r&quot;, stdin);    
 #endif    
-	int n;
-	unordered_map&lt;int,int&gt; mp,mpout;		//mp用于计数，mpout用于备选输出答案，记录出现的次序 
-	scanf(&quot;%d&quot;,&amp;n);
-	for(int i=0;i&lt;n;i++){
-		int num;
-		scanf(&quot;%d&quot;,&amp;num);
-		mp[num]++;
-		if(mp[num]==1)						//如果只有一个则加入备选，，并记录次序 
-			mpout[num]=i;
-		else
-			mpout.erase(num);				//如果不只有一个，则从被选中删除 
-	}
-	int win,min=n;							//从备选的输出项中选出次序最小的，也就是第一次出现的答案 
-	for(auto it=mpout.begin();it!=mpout.end();it++){
-		if(it-&gt;second&lt;min){
-			win=it-&gt;first;
-			min=it-&gt;second;
-		}
-	}
-	if(mpout.size()==0) puts(&quot;None&quot;);		//如果最终没有答案，输出None 
-	else cout&lt;&lt;win;
+    int n;
+    unordered_map&lt;int,int&gt; mp,mpout;        //mp用于计数，mpout用于备选输出答案，记录出现的次序 
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=0;i&lt;n;i++){
+        int num;
+        scanf(&quot;%d&quot;,&amp;num);
+        mp[num]++;
+        if(mp[num]==1)                      //如果只有一个则加入备选，，并记录次序 
+            mpout[num]=i;
+        else
+            mpout.erase(num);               //如果不只有一个，则从被选中删除 
+    }
+    int win,min=n;                          //从备选的输出项中选出次序最小的，也就是第一次出现的答案 
+    for(auto it=mpout.begin();it!=mpout.end();it++){
+        if(it-&gt;second&lt;min){
+            win=it-&gt;first;
+            min=it-&gt;second;
+        }
+    }
+    if(mpout.size()==0) puts(&quot;None&quot;);       //如果最终没有答案，输出None 
+    else cout&lt;&lt;win;
     return 0;    
 }
 </code></pre>

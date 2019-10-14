@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1021, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1021.
@@ -338,75 +338,75 @@ using namespace std;
 vector&lt;int&gt; G[MAXN];
 int n;
 bool vis[MAXN];
-int bfs(int u){							//bfs遍历，得到最大层数，也就是深度 
-	queue&lt;int&gt; q;
-	q.push(u);
-	vis[u]=true;
-	int layer=0,last=u,tail=u;			//layer表示层数，last表示当前层的最后一个，tail表示下一层的最后一个 
-	while(!q.empty()){
-		int now=q.front();
-		q.pop();
-		int i;
-		for(i=0;i&lt;G[now].size();i++){
-			int v=G[now][i];
-			if(vis[v]==false){
-				q.push(v);
-				vis[v]=true;
-				tail=v;
-			}
-		}
-		if(now==last){					//当前层结束后，更新层数 
-			layer++;
-			last=tail;
-		}
-	}
-	return layer;
+int bfs(int u){                         //bfs遍历，得到最大层数，也就是深度 
+    queue&lt;int&gt; q;
+    q.push(u);
+    vis[u]=true;
+    int layer=0,last=u,tail=u;          //layer表示层数，last表示当前层的最后一个，tail表示下一层的最后一个 
+    while(!q.empty()){
+        int now=q.front();
+        q.pop();
+        int i;
+        for(i=0;i&lt;G[now].size();i++){
+            int v=G[now][i];
+            if(vis[v]==false){
+                q.push(v);
+                vis[v]=true;
+                tail=v;
+            }
+        }
+        if(now==last){                  //当前层结束后，更新层数 
+            layer++;
+            last=tail;
+        }
+    }
+    return layer;
 }
-int bfsTrave(){							//bfs驱动函数，返回连通分量 
-	int cnt=0;
-	for(int i=1;i&lt;=n;i++){
-		if(vis[i]==false){
-			cnt++;
-			bfs(i);
-		}
-	}
-	return cnt;
+int bfsTrave(){                         //bfs驱动函数，返回连通分量 
+    int cnt=0;
+    for(int i=1;i&lt;=n;i++){
+        if(vis[i]==false){
+            cnt++;
+            bfs(i);
+        }
+    }
+    return cnt;
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	scanf(&quot;%d&quot;,&amp;n);
-	for(int i=0;i&lt;n-1;i++){
-		int a,b;
-		scanf(&quot;%d%d&quot;,&amp;a,&amp;b);
-		G[a].push_back(b);
-		G[b].push_back(a);
-	}
-	int cnt=bfsTrave();
-	if(cnt&gt;1){							//不连通时 
-		printf(&quot;Error: %d components&quot;,cnt);
-	}
-	else{								//连通时计算结果 
-		vector&lt;int&gt; v;
-		int maxlayer=-1;
-		for(int i=1;i&lt;=n;i++){
-			fill(vis,vis+MAXN,false);	//每次初始化访问标记数组 
-			int temp=bfs(i);
-			if(temp&gt;maxlayer){			//如果得到了更高的层数，更新结果数组 
-				v.clear();
-				v.push_back(i);
-				maxlayer=temp;
-			}
-			else if(temp==maxlayer)		//如果等于当前最高的层数，则保存结果 
-				v.push_back(i);
-		}
-		for(int i=0;i&lt;v.size();i++){
-			printf(&quot;%d\n&quot;,v[i]);
-		}
-	}
-	return 0;
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=0;i&lt;n-1;i++){
+        int a,b;
+        scanf(&quot;%d%d&quot;,&amp;a,&amp;b);
+        G[a].push_back(b);
+        G[b].push_back(a);
+    }
+    int cnt=bfsTrave();
+    if(cnt&gt;1){                          //不连通时 
+        printf(&quot;Error: %d components&quot;,cnt);
+    }
+    else{                               //连通时计算结果 
+        vector&lt;int&gt; v;
+        int maxlayer=-1;
+        for(int i=1;i&lt;=n;i++){
+            fill(vis,vis+MAXN,false);   //每次初始化访问标记数组 
+            int temp=bfs(i);
+            if(temp&gt;maxlayer){          //如果得到了更高的层数，更新结果数组 
+                v.clear();
+                v.push_back(i);
+                maxlayer=temp;
+            }
+            else if(temp==maxlayer)     //如果等于当前最高的层数，则保存结果 
+                v.push_back(i);
+        }
+        for(int i=0;i&lt;v.size();i++){
+            printf(&quot;%d\n&quot;,v[i]);
+        }
+    }
+    return 0;
 } 
 </code></pre>
               

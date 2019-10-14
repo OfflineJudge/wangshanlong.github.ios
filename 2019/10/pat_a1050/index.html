@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1050, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1050.
@@ -311,21 +311,21 @@ using namespace std;
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	unordered_map&lt;char,bool&gt; mp;
-	string s;
-	getline(cin,s);
-	char ch;
-	while((ch=getchar())!='\n'){
-		mp[ch]=true;
-	}
-	for(int i=0;i&lt;s.size();i++){
-		if(mp[s[i]])
-			continue;
-		putchar(s[i]);
-	}
-	return 0;
+    unordered_map&lt;char,bool&gt; mp;
+    string s;
+    getline(cin,s);
+    char ch;
+    while((ch=getchar())!='\n'){
+        mp[ch]=true;
+    }
+    for(int i=0;i&lt;s.size();i++){
+        if(mp[s[i]])
+            continue;
+        putchar(s[i]);
+    }
+    return 0;
 } 
 </code></pre>
               

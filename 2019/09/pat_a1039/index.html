@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1039, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1039.
@@ -327,41 +327,41 @@ NON9 0
 #include&lt;set&gt;
 #include&lt;stack&gt;
 using namespace std;
-unordered_map&lt;string,vector&lt;int&gt; &gt; mp;					//每个学生对应一个数组 
-void check(string str){									//查询函数 
-	if(mp.find(str)==mp.end())							//如果没有记录则输出0 
-		printf(&quot;%s 0&quot;,str.c_str());
-	else{
-		sort(mp[str].begin(),mp[str].end());			//如果有记录，先排序，再输出 
-		printf(&quot;%s %d&quot;,str.c_str(),mp[str].size());
-		for(int i=0;i&lt;mp[str].size();i++){
-			printf(&quot; %d&quot;,mp[str][i]);
-		}
-	}
-	putchar('\n');
+unordered_map&lt;string,vector&lt;int&gt; &gt; mp;                  //每个学生对应一个数组 
+void check(string str){                                 //查询函数 
+    if(mp.find(str)==mp.end())                          //如果没有记录则输出0 
+        printf(&quot;%s 0&quot;,str.c_str());
+    else{
+        sort(mp[str].begin(),mp[str].end());            //如果有记录，先排序，再输出 
+        printf(&quot;%s %d&quot;,str.c_str(),mp[str].size());
+        for(int i=0;i&lt;mp[str].size();i++){
+            printf(&quot; %d&quot;,mp[str][i]);
+        }
+    }
+    putchar('\n');
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	int n,k;
-	scanf(&quot;%d%d&quot;,&amp;n,&amp;k);
-	for(int i=0;i&lt;k;i++){
-		int id,num;
-		scanf(&quot;%d%d&quot;,&amp;id,&amp;num);
-		for(int j=0;j&lt;num;j++){
-			string name;
-			cin&gt;&gt;name;
-			mp[name].push_back(id);
-		}
-	}
-	for(int i=0;i&lt;n;i++){
-		string temp;
-		cin&gt;&gt;temp;
-		check(temp);
-	}
-	return 0;
+    int n,k;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;k);
+    for(int i=0;i&lt;k;i++){
+        int id,num;
+        scanf(&quot;%d%d&quot;,&amp;id,&amp;num);
+        for(int j=0;j&lt;num;j++){
+            string name;
+            cin&gt;&gt;name;
+            mp[name].push_back(id);
+        }
+    }
+    for(int i=0;i&lt;n;i++){
+        string temp;
+        cin&gt;&gt;temp;
+        check(temp);
+    }
+    return 0;
 } 
 </code></pre>
               

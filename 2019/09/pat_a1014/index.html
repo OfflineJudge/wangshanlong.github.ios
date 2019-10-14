@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1014, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1014.
@@ -318,65 +318,65 @@ Sorry
 using namespace std;
 #define st 8*60
 #define ed 17*60
-void prt(int x){							//输出查询结果 
-	if(x==-1) puts(&quot;Sorry&quot;);				//未被服务的情况 
-	else printf(&quot;%02d:%02d\n&quot;,x/60,x%60);
+void prt(int x){                            //输出查询结果 
+    if(x==-1) puts(&quot;Sorry&quot;);                //未被服务的情况 
+    else printf(&quot;%02d:%02d\n&quot;,x/60,x%60);
 }
-typedef struct wind{						//窗口结构体 
-	int endtime=8*60;
-	queue&lt;int&gt; q;
+typedef struct wind{                        //窗口结构体 
+    int endtime=8*60;
+    queue&lt;int&gt; q;
 }WIN;
-typedef struct cust{						//顾客结构体 
-	int cost;
-	int endt=-1;
+typedef struct cust{                        //顾客结构体 
+    int cost;
+    int endt=-1;
 }CU;
 int n,m,k,q;
-vector&lt;WIN&gt; window;							//窗口数组 
-vector&lt;CU&gt; cus;								//顾客数组 
+vector&lt;WIN&gt; window;                         //窗口数组 
+vector&lt;CU&gt; cus;                             //顾客数组 
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	scanf(&quot;%d%d%d%d&quot;,&amp;n,&amp;m,&amp;k,&amp;q);
-	window.resize(n);	cus.resize(k);
-	for(int i=0;i&lt;k;i++){					//读入时间花费 
-		scanf(&quot;%d&quot;,&amp;cus[i].cost);
-	}
-	int cnt=0;
-	for(cnt=0;cnt&lt;n*m&amp;&amp;cnt&lt;k;cnt++){		//分配顾客到队列,全部填满或者顾客全部分配完时结束循环 
-		window[cnt%n].q.push(cnt);
-	}
-	for(int i=0;i&lt;n;i++){					//初始化分配后第一位顾客的服务时间 
-		if(!window[i].q.empty()){
-			int now=window[i].q.front();
-			window[i].endtime=cus[now].endt=st+cus[now].cost;
-		}
-	} 
-	for(int i=st;i&lt;ed;i++){					//时间从8点开始走到17点结束 
-		int flag=0;							//空队列计数器 
-		for(int j=0;j&lt;n;j++){
-			if(!window[j].q.empty()){		//如果队列不空，则处理 
-				if(window[j].endtime==i){	//如果当前业务刚好结束 ，弹出队首的顾客 
-					window[j].q.pop();		 	
-					if(cnt&lt;k)		window[j].q.push(cnt++);	//如果等待区还有顾客，则入队 
-					// 与上一步顺序不能换，比如队列一次只接受一人，pop后为空，所以要不空时更新
-					if(!window[j].q.empty()){					//如果此时队列仍然有人，更新队列的服务结束时间， 
-						int now=window[j].q.front();
-						window[j].endtime=cus[now].endt=i+cus[now].cost;
-					}	
-				}	
-			}
-			if(window[j].q.empty())	flag++;	//如果队列空，则统计
-		} 
-		if(flag==n)	break;					//如果队列全空，提前结束
-	}
-	for(int i=0;i&lt;q;i++){
-		int temp;
-		scanf(&quot;%d&quot;,&amp;temp);
-		prt(cus[temp-1].endt);
-	}
-	return 0;
+    scanf(&quot;%d%d%d%d&quot;,&amp;n,&amp;m,&amp;k,&amp;q);
+    window.resize(n);   cus.resize(k);
+    for(int i=0;i&lt;k;i++){                   //读入时间花费 
+        scanf(&quot;%d&quot;,&amp;cus[i].cost);
+    }
+    int cnt=0;
+    for(cnt=0;cnt&lt;n*m&amp;&amp;cnt&lt;k;cnt++){        //分配顾客到队列,全部填满或者顾客全部分配完时结束循环 
+        window[cnt%n].q.push(cnt);
+    }
+    for(int i=0;i&lt;n;i++){                   //初始化分配后第一位顾客的服务时间 
+        if(!window[i].q.empty()){
+            int now=window[i].q.front();
+            window[i].endtime=cus[now].endt=st+cus[now].cost;
+        }
+    } 
+    for(int i=st;i&lt;ed;i++){                 //时间从8点开始走到17点结束 
+        int flag=0;                         //空队列计数器 
+        for(int j=0;j&lt;n;j++){
+            if(!window[j].q.empty()){       //如果队列不空，则处理 
+                if(window[j].endtime==i){   //如果当前业务刚好结束 ，弹出队首的顾客 
+                    window[j].q.pop();          
+                    if(cnt&lt;k)       window[j].q.push(cnt++);    //如果等待区还有顾客，则入队 
+                    // 与上一步顺序不能换，比如队列一次只接受一人，pop后为空，所以要不空时更新
+                    if(!window[j].q.empty()){                   //如果此时队列仍然有人，更新队列的服务结束时间， 
+                        int now=window[j].q.front();
+                        window[j].endtime=cus[now].endt=i+cus[now].cost;
+                    }   
+                }   
+            }
+            if(window[j].q.empty()) flag++; //如果队列空，则统计
+        } 
+        if(flag==n) break;                  //如果队列全空，提前结束
+    }
+    for(int i=0;i&lt;q;i++){
+        int temp;
+        scanf(&quot;%d&quot;,&amp;temp);
+        prt(cus[temp-1].endt);
+    }
+    return 0;
 } 
 </code></pre>
               

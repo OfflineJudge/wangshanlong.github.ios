@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, A1004, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1004.
@@ -313,44 +313,44 @@ int laycnt[MAXN]={0};
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	int n,m;
-	cin&gt;&gt;n&gt;&gt;m;
-	for(int i=0;i&lt;m;i++){
-		int id,k;
-		scanf(&quot;%d%d&quot;,&amp;id,&amp;k);
-		for(int j=0;j&lt;k;j++){
-			int temp;
-			scanf(&quot;%d&quot;,&amp;temp);
-			f[id].push_back(temp);
-		}
-	}
-	queue&lt;int&gt; q;
-	int layer=0,last=1,tail;
-	q.push(1);
-	while(!q.empty()){
-		int now=q.front();
-		q.pop();
-		if(f[now].size()==0)
-			laycnt[layer]++;
-		else{
-			int i;
-			for(i=0;i&lt;f[now].size();i++){
-				q.push(f[now][i]);
-			}
-			tail=f[now][i-1];
-		}
-		if(now==last){
-			layer++;
-			last=tail;
-		}
-	}
-	for(int i=0;i&lt;layer;i++){
-		if(i) putchar(' ');
-		printf(&quot;%d&quot;,laycnt[i]);
-	}
-	return 0;
+    int n,m;
+    cin&gt;&gt;n&gt;&gt;m;
+    for(int i=0;i&lt;m;i++){
+        int id,k;
+        scanf(&quot;%d%d&quot;,&amp;id,&amp;k);
+        for(int j=0;j&lt;k;j++){
+            int temp;
+            scanf(&quot;%d&quot;,&amp;temp);
+            f[id].push_back(temp);
+        }
+    }
+    queue&lt;int&gt; q;
+    int layer=0,last=1,tail;
+    q.push(1);
+    while(!q.empty()){
+        int now=q.front();
+        q.pop();
+        if(f[now].size()==0)
+            laycnt[layer]++;
+        else{
+            int i;
+            for(i=0;i&lt;f[now].size();i++){
+                q.push(f[now][i]);
+            }
+            tail=f[now][i-1];
+        }
+        if(now==last){
+            layer++;
+            last=tail;
+        }
+    }
+    for(int i=0;i&lt;layer;i++){
+        if(i) putchar(' ');
+        printf(&quot;%d&quot;,laycnt[i]);
+    }
+    return 0;
 } 
 </code></pre>
               

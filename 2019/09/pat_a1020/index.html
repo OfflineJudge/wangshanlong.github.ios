@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1020, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1020.
@@ -309,57 +309,57 @@
 #include&lt;stack&gt;
 using namespace std;
 typedef struct node{
-	int data;
-	struct node *right,*left;
-	node(){
-		right=left=NULL;
-	}
+    int data;
+    struct node *right,*left;
+    node(){
+        right=left=NULL;
+    }
 }Node;
 vector&lt;int&gt; post,in;
-void layorder(Node *root){					//层序遍历 
-	int cnt=0;
-	queue&lt;Node*&gt; q;
-	q.push(root);
-	while(!q.empty()){
-		Node *now=q.front();
-		q.pop();
-		if(cnt++) putchar(' ');
-		printf(&quot;%d&quot;,now-&gt;data);
-		if(now-&gt;left)	q.push(now-&gt;left);
-		if(now-&gt;right)	q.push(now-&gt;right);
-	}
+void layorder(Node *root){                  //层序遍历 
+    int cnt=0;
+    queue&lt;Node*&gt; q;
+    q.push(root);
+    while(!q.empty()){
+        Node *now=q.front();
+        q.pop();
+        if(cnt++) putchar(' ');
+        printf(&quot;%d&quot;,now-&gt;data);
+        if(now-&gt;left)   q.push(now-&gt;left);
+        if(now-&gt;right)  q.push(now-&gt;right);
+    }
 }
-Node * creat(int pl,int pr,int il,int ir){	//根据中序和后序序列递归建树 
-	if(pl&gt;pr)	return NULL;				//递归边界，序列中没有结点时 
-	Node *root=new node;
-	root-&gt;data=post[pr];					//根结点赋值 
-	int k;
-	for(k=il;k&lt;=ir;k++){					//找到根结点在中序的位置 
-		if(post[pr]==in[k])
-			break;
-	}
-	int lnum=k-il;							//计算左子树的结点个数 
-	root-&gt;left=creat(pl,pl+lnum-1,il,k-1);	//递归建立左右子树 
-	root-&gt;right=creat(pl+lnum,pr-1,k+1,ir);
-	return root;							//返回建成的树 
+Node * creat(int pl,int pr,int il,int ir){  //根据中序和后序序列递归建树 
+    if(pl&gt;pr)   return NULL;                //递归边界，序列中没有结点时 
+    Node *root=new node;
+    root-&gt;data=post[pr];                    //根结点赋值 
+    int k;
+    for(k=il;k&lt;=ir;k++){                    //找到根结点在中序的位置 
+        if(post[pr]==in[k])
+            break;
+    }
+    int lnum=k-il;                          //计算左子树的结点个数 
+    root-&gt;left=creat(pl,pl+lnum-1,il,k-1);  //递归建立左右子树 
+    root-&gt;right=creat(pl+lnum,pr-1,k+1,ir);
+    return root;                            //返回建成的树 
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	int n;
-	scanf(&quot;%d&quot;,&amp;n);
-	post.resize(n); in.resize(n);
-	for(int i=0;i&lt;n;i++){
-		scanf(&quot;%d&quot;,&amp;post[i]);
-	}
-	for(int i=0;i&lt;n;i++){
-		scanf(&quot;%d&quot;,&amp;in[i]);
-	}
-	Node *root=creat(0,n-1,0,n-1);
-	layorder(root);
-	return 0;
+    int n;
+    scanf(&quot;%d&quot;,&amp;n);
+    post.resize(n); in.resize(n);
+    for(int i=0;i&lt;n;i++){
+        scanf(&quot;%d&quot;,&amp;post[i]);
+    }
+    for(int i=0;i&lt;n;i++){
+        scanf(&quot;%d&quot;,&amp;in[i]);
+    }
+    Node *root=creat(0,n-1,0,n-1);
+    layorder(root);
+    return 0;
 } 
 </code></pre>
               

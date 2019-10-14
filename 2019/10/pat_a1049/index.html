@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1049, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1049.
@@ -318,23 +318,23 @@ int main(){
 #else    
     freopen(&quot;1.txt&quot;, &quot;r&quot;, stdin);    
 #endif    
-	int n;
-	cin&gt;&gt;n;
-	int ans=0;
-	int a=1;					//a表示当前位的权值，初始化为1 
-	while(n/a){					//依次循环取每一位 
-		int left=n/(a*10);		//取左边的数字 
-		int right=n%a;			//取右边的数字 
-		int now=n/a%10;			//去当前位 
-		if(now==0)				//当前位等于0时 
-			ans+=left*a;
-		else if(now==1)			//当前位等于1时 
-			ans+=left*a+right+1;
-		else 					//当前位大于1时 
-			ans+=(left+1)*a;
-		a*=10;					//权值扩大，为下一位判定做准备 
-	}
-	cout&lt;&lt;ans;
+    int n;
+    cin&gt;&gt;n;
+    int ans=0;
+    int a=1;                    //a表示当前位的权值，初始化为1 
+    while(n/a){                 //依次循环取每一位 
+        int left=n/(a*10);      //取左边的数字 
+        int right=n%a;          //取右边的数字 
+        int now=n/a%10;         //去当前位 
+        if(now==0)              //当前位等于0时 
+            ans+=left*a;
+        else if(now==1)         //当前位等于1时 
+            ans+=left*a+right+1;
+        else                    //当前位大于1时 
+            ans+=(left+1)*a;
+        a*=10;                  //权值扩大，为下一位判定做准备 
+    }
+    cout&lt;&lt;ans;
     return 0;    
 }
 </code></pre>
@@ -346,29 +346,29 @@ int main(){
 using namespace std;
 
 int main(void){
-	int i=1;
-	vector&lt;int&gt; v1,v2,v3,v4;
-	for(int i=1;i&lt;=1014;i++){
-		if(i%10==1) v1.push_back(i);
-		if(i/10%10==1) v2.push_back(i);
-		if(i/100%10==1) v3.push_back(i);
-		if(i/1000==1) v4.push_back(i);
-	}
-	int id1,id2,id3,id4;
-	id1=id2=id3=id4=0;
-	while(1){
-		if(id1&lt;v1.size()) printf(&quot;%04d &quot;,v1[id1++]);
-		else 	printf(&quot;     &quot;);
-		if(id2&lt;v2.size()) printf(&quot;%04d &quot;,v2[id2++]);
-		else 	printf(&quot;     &quot;);
-		if(id3&lt;v3.size()) printf(&quot;%04d &quot;,v3[id3++]);
-		else 	printf(&quot;     &quot;);
-		if(id4&lt;v4.size()) printf(&quot;%04d &quot;,v4[id4++]);
-		else 	printf(&quot;     &quot;);
-		putchar('\n');
-		if(id1==v1.size()&amp;&amp;id2==v2.size()&amp;&amp;id3==v3.size()&amp;&amp;id4==v4.size())	
-			break;
-	}
+    int i=1;
+    vector&lt;int&gt; v1,v2,v3,v4;
+    for(int i=1;i&lt;=1014;i++){
+        if(i%10==1) v1.push_back(i);
+        if(i/10%10==1) v2.push_back(i);
+        if(i/100%10==1) v3.push_back(i);
+        if(i/1000==1) v4.push_back(i);
+    }
+    int id1,id2,id3,id4;
+    id1=id2=id3=id4=0;
+    while(1){
+        if(id1&lt;v1.size()) printf(&quot;%04d &quot;,v1[id1++]);
+        else    printf(&quot;     &quot;);
+        if(id2&lt;v2.size()) printf(&quot;%04d &quot;,v2[id2++]);
+        else    printf(&quot;     &quot;);
+        if(id3&lt;v3.size()) printf(&quot;%04d &quot;,v3[id3++]);
+        else    printf(&quot;     &quot;);
+        if(id4&lt;v4.size()) printf(&quot;%04d &quot;,v4[id4++]);
+        else    printf(&quot;     &quot;);
+        putchar('\n');
+        if(id1==v1.size()&amp;&amp;id2==v2.size()&amp;&amp;id3==v3.size()&amp;&amp;id4==v4.size())  
+            break;
+    }
 }
 </code></pre>
               

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1029, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1029.
@@ -330,41 +330,41 @@ using namespace std;
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	vector&lt;int&gt; a,b;
-	int la,lb,k,cnt=0;
-	scanf(&quot;%d&quot;,&amp;la);	a.resize(la);
-	for(int i=0;i&lt;la;i++)
-		scanf(&quot;%d&quot;,&amp;a[i]);
-	scanf(&quot;%d&quot;,&amp;lb);	b.resize(lb);
-	for(int i=0;i&lt;lb;i++)
-		scanf(&quot;%d&quot;,&amp;b[i]);
-	if(la==1&amp;&amp;lb==1){							//特判每一个序列只有一个数的情况 
-		printf(&quot;%d&quot;,min(a[0],b[0]));
-		return 0;
-	}
-	sort(a.begin(),a.end());					//对两个序列进行排序 
-	sort(b.begin(),b.end());
-	int i=0,j=0;
-	k=(la+lb)%2==0?(la+lb)/2:(la+lb+1)/2;		//算出中位数在数列中位于第几个，从1开始算的第k个 
-	while(1){
-		if(i&lt;la&amp;&amp;j&lt;lb){							//如果两个表都未到头，弹出小的那一个 
-			if(a[i]&lt;=b[j])	i++;
-			else j++;
-		}
-		else if(i&lt;la)	i++;					//如果有任意一个空了，则从不空的里边弹出一个 
-		else if (j&lt;lb) 	j++;
-		cnt++;
-		if(cnt==k-1) break;						//当弹出k-1个的时候，下一个就是第k个了 
-	}
-	if(i&lt;la&amp;&amp;j&lt;lb)								//找到第k个的元素在哪个序列中 
-		printf(&quot;%d&quot;,min(a[i],b[j]));
-	else if(i&lt;la)
-		printf(&quot;%d&quot;,a[i]);
-	else if(j&lt;lb)
-		printf(&quot;%d&quot;,b[j]);
-	return 0;
+    vector&lt;int&gt; a,b;
+    int la,lb,k,cnt=0;
+    scanf(&quot;%d&quot;,&amp;la);    a.resize(la);
+    for(int i=0;i&lt;la;i++)
+        scanf(&quot;%d&quot;,&amp;a[i]);
+    scanf(&quot;%d&quot;,&amp;lb);    b.resize(lb);
+    for(int i=0;i&lt;lb;i++)
+        scanf(&quot;%d&quot;,&amp;b[i]);
+    if(la==1&amp;&amp;lb==1){                           //特判每一个序列只有一个数的情况 
+        printf(&quot;%d&quot;,min(a[0],b[0]));
+        return 0;
+    }
+    sort(a.begin(),a.end());                    //对两个序列进行排序 
+    sort(b.begin(),b.end());
+    int i=0,j=0;
+    k=(la+lb)%2==0?(la+lb)/2:(la+lb+1)/2;       //算出中位数在数列中位于第几个，从1开始算的第k个 
+    while(1){
+        if(i&lt;la&amp;&amp;j&lt;lb){                         //如果两个表都未到头，弹出小的那一个 
+            if(a[i]&lt;=b[j])  i++;
+            else j++;
+        }
+        else if(i&lt;la)   i++;                    //如果有任意一个空了，则从不空的里边弹出一个 
+        else if (j&lt;lb)  j++;
+        cnt++;
+        if(cnt==k-1) break;                     //当弹出k-1个的时候，下一个就是第k个了 
+    }
+    if(i&lt;la&amp;&amp;j&lt;lb)                              //找到第k个的元素在哪个序列中 
+        printf(&quot;%d&quot;,min(a[i],b[j]));
+    else if(i&lt;la)
+        printf(&quot;%d&quot;,a[i]);
+    else if(j&lt;lb)
+        printf(&quot;%d&quot;,b[j]);
+    return 0;
 } 
 </code></pre>
               

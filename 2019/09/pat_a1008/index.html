@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1008, C, C&#43;&#43;, PAT">
 <meta name="description" content="　　PAT甲级1008.">
@@ -307,23 +307,23 @@ using namespace std;
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	int n,ans=0,pre=0;
-	scanf(&quot;%d&quot;,&amp;n);
-	ans+=n*st;                  //直接计算等待时间
-	for(int i=0;i&lt;n;i++){
-		int temp;
-		scanf(&quot;%d&quot;,&amp;temp);
-		int k=temp-pre;
-		if(k&gt;0)                 //模拟过程
-			ans+=ut*k;
-		else if(k&lt;0)
-			ans+=dt*(-k);
-		pre=temp;
-	}
-	cout&lt;&lt;ans;
-	return 0;
+    int n,ans=0,pre=0;
+    scanf(&quot;%d&quot;,&amp;n);
+    ans+=n*st;                  //直接计算等待时间
+    for(int i=0;i&lt;n;i++){
+        int temp;
+        scanf(&quot;%d&quot;,&amp;temp);
+        int k=temp-pre;
+        if(k&gt;0)                 //模拟过程
+            ans+=ut*k;
+        else if(k&lt;0)
+            ans+=dt*(-k);
+        pre=temp;
+    }
+    cout&lt;&lt;ans;
+    return 0;
 } 
 </code></pre>
               

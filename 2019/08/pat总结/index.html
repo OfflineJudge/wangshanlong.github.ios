@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, C&#43;&#43;, Programing Abilit Test, 刷题总结, stl使用, 素数的筛选法, 结构体的初始化, C, C&#43;&#43;, PAT">
 <meta name="description" content="　　PAT（Programing Ability Test）是浙江大学设立的计算机编程能力测试。为了准备PAT测试，将PAT刷题时候的一些心得，常用的操作或者函数、模板等等总结如下。">
@@ -801,8 +801,8 @@ putchar(ch);            //输出单个字符
 
 //使用技巧之————过滤字符
 //为了过滤掉空字符，如空格或者换行，可以使用getchar()的输入特性，吸收字符
-while((ch=getchar())!='\n')	//一个空循环，一直读到回车处结束
-	continue;
+while((ch=getchar())!='\n') //一个空循环，一直读到回车处结束
+continue;
 </code></pre></li>
 
 <li><p>字符串的输入和输出</p>
@@ -893,9 +893,9 @@ v.push_back(num);               //将num插入到v的尾部，对结构体数组
 v.pop_back();                   //删除vector尾部的元素
 v.size();                       //返回数组v的大小
 v.clear();                      //将v清空
-v.back();						//取容器尾部的元素
-v.resize(n);					//把容器大小需修改为n
-v.reserve(n);					//把容器的存储能力修改到n，但是size不变
+v.back();                       //取容器尾部的元素
+v.resize(n);                    //把容器大小需修改为n
+v.reserve(n);                   //把容器的存储能力修改到n，但是size不变
 
 vector&lt;int&gt;:: iterator it=v.begin()+3;  //定义一个数组v的迭代器指向第三个位置
 v.insert(it,13);                //在迭代器it指向的位置插入元素13
@@ -1109,10 +1109,10 @@ sort_heap(v1.begin(), v1.end());    //sort_heap于make_heap要使用同样的排
 bool is_heap( RandomIt first, RandomIt last );
 bool is_heap( RandomIt first, RandomIt last, Compare comp );
 //带有比较函数的堆判定写法,以int型的vector数组v为例
-is_heap(v.begin(),v.end(),less&lt;int&gt;());		//判断v是不是大根堆
-is_heap(v.begin(),v.end(),greater&lt;int&gt;());	//判断v是不是小根堆
+is_heap(v.begin(),v.end(),less&lt;int&gt;());     //判断v是不是大根堆
+is_heap(v.begin(),v.end(),greater&lt;int&gt;());  //判断v是不是小根堆
 //is_heap_until第一个不满足堆的位置的迭代器（C++11）
-is_heap_until(v.begin(),v.end());		//判断容器中第一个不满足的位置，可用默认比较函数，或者自定义比较函数
+is_heap_until(v.begin(),v.end());       //判断容器中第一个不满足的位置，可用默认比较函数，或者自定义比较函数
 is_heap_until(v.begin(),v.end(),cmp);
 </code></pre>
 
@@ -1124,12 +1124,12 @@ is_heap_until(v.begin(),v.end(),cmp);
 
 <pre><code>max(a,b);                       //返回a和b中的最大值，参数可以是浮点数
 min(a,b);                       //返回a和b中的最小值，参数可以是浮点数
-tolower(char ch);				//将字符型变量ch的大写转换为小写，其他不变
-toupper(char ch);				//将字符型变量ch的小写转换为大写，其他不变 
-isdigit(char ch);				//判定一个字符是不是0~9的数字，参数是int型，这里为了好理解写成char
-isalpha(char ch);				//判断一个字符是不是字母，参数是int型，这里为了好理解写成char	
-islower(char ch);				//判断是不是小写，参数是int型，这里为了好理解写成char
-isupper(char ch);				//判断是不是大写，参数是int型，这里为了好理解写成char
+tolower(char ch);               //将字符型变量ch的大写转换为小写，其他不变
+toupper(char ch);               //将字符型变量ch的小写转换为大写，其他不变 
+isdigit(char ch);               //判定一个字符是不是0~9的数字，参数是int型，这里为了好理解写成char
+isalpha(char ch);               //判断一个字符是不是字母，参数是int型，这里为了好理解写成char 
+islower(char ch);               //判断是不是小写，参数是int型，这里为了好理解写成char
+isupper(char ch);               //判断是不是大写，参数是int型，这里为了好理解写成char
 abs(x);                         //返回x的绝对值，参数x必须是整数
 swap(a,b);                      //交换a，b的值，不会损失精度
 reverse(it1,it2);               //对迭代器[it1,it2)范围内的所有元素进行反转
@@ -1200,10 +1200,10 @@ double round(double x);                         //四舍五入到最近的整数
 <p>　　结构体在C++中的实现，已经接近于类的实现，因此对于需要在定义时就初始化的情况，或者为了方便快速的调用，在结构体的定义中加入构造函数，方便初始化，使用示例如下:</p>
 
 <pre><code>//简单的初始化和重载的初始化
-typedef struct node{					//定义一个点的坐标结构体
-		int x,y;							
-		node():x(0),y(0){}					//默认的构造函数，初始化为x=0,y=0 
-		node(int _x,int _y):x(_x),y(_y){}	//重载的构造函数，使用两个参数初始化x，y 
+typedef struct node{                    //定义一个点的坐标结构体
+        int x,y;                            
+        node():x(0),y(0){}                  //默认的构造函数，初始化为x=0,y=0 
+        node(int _x,int _y):x(_x),y(_y){}   //重载的构造函数，使用两个参数初始化x，y 
 }Node; 
 
 //使用示例
@@ -1212,22 +1212,22 @@ Node b=node(3,4);                       //使用重载的构造函数，初始�
 
 //复杂类型的初始化，在默认构造函数中实现初始化
 typedef struct st{                      //学生结构体
-    	string id;                          //学生id
-    	int score[10];                      //记录10门课程成绩的数组，-1表示缺考
-    	bool pass;                          //是否合格的标记
-    	st(){
-        	pass=true;                      //默认合格，不合格时修改标记
-        	fill(score,score+n;-1);         //初始化为-1，表示缺考
-    	}
+        string id;                          //学生id
+        int score[10];                      //记录10门课程成绩的数组，-1表示缺考
+        bool pass;                          //是否合格的标记
+        st(){
+            pass=true;                      //默认合格，不合格时修改标记
+            fill(score,score+n;-1);         //初始化为-1，表示缺考
+        }
 }                                       //默认构造函数，定义时便完成初始化
 
 //结构体比较，对 &lt; 的重载
 struct node{
-	int x,y;
-	friend bool operator &lt; (node a,node b){		//重载小于号，用于构建优先级关系，或者在set或者堆中的大小关系
-		if(a.x!=b.x)	return a.x&lt;b.x;
-		else			return a.y&lt;b.y;
-	}
+    int x,y;
+    friend bool operator &lt; (node a,node b){     //重载小于号，用于构建优先级关系，或者在set或者堆中的大小关系
+        if(a.x!=b.x)    return a.x&lt;b.x;
+        else            return a.y&lt;b.y;
+    }
 }
 typedef strcut node Node;
 </code></pre>
@@ -1333,41 +1333,41 @@ while(x!=0){
 //这里采用   &quot;mm:dd:hh:mimi mm:dd:hh:mimi&quot;的字符串格式表示一条输入记录，计算第一个时间到第二个时间之间的分钟数
 double paycount(string s)
 {
-	string out=s.substr(3,8)+&quot; &quot;+s.substr(16,8);    //截取记录的时间用于输出 
-	int cnt=0;
-	int pay=0;
-	double ret;
-	int mon1,d1,h1,min1,mon2,d2,h2,min2;
-	sscanf(s.c_str(),&quot;%d:%d:%d:%d %d:%d:%d:%d&quot;,&amp;mon1,&amp;d1,&amp;h1,&amp;min1,&amp;mon2,&amp;d2,&amp;h2,&amp;min2);
+    string out=s.substr(3,8)+&quot; &quot;+s.substr(16,8);    //截取记录的时间用于输出 
+    int cnt=0;
+    int pay=0;
+    double ret;
+    int mon1,d1,h1,min1,mon2,d2,h2,min2;
+    sscanf(s.c_str(),&quot;%d:%d:%d:%d %d:%d:%d:%d&quot;,&amp;mon1,&amp;d1,&amp;h1,&amp;min1,&amp;mon2,&amp;d2,&amp;h2,&amp;min2);
 
-	if(d1==d2){                                     //如果是同一天内 
-		if(h1==h2){                                 //如果是同一个小时内，直接相减计算 
-			cnt=min2-min1;
-		}
-		else{                                       //否则开始时间向后推算到下一个整点，结束时间向前计算到当前整点，然后进行整点统计 
-			cnt+=(60-min1+min2); 
-			pay+=(rate[h1]*(60-min1)+rate[h2]*min2);
-			for(h1++;h1&lt;h2;h1++){
-				cnt+=60;
-			}
-		}
-	}
-	else{                                           //如果不在同一天 
-		cnt+=(60-min1+min2);                        //开始时间向后推算到下一个整点，结束时间向前计算到当前整点
-		
-		for(h1++;h1&lt;24;h1++){                       //开始时间推算到下一个整天，且天数加一 
-			cnt+=60;
-		}
-		d1++;                                       //推算后天数加一 
-		for(int i=0;i&lt;h2;i++){                      //结尾时间向前推算到当前的整天 
-			cnt+=60;
-		}
-			
-		cnt+=(d2-d1)*60*24;                         //计算整天时间               
-	} 
-	cout&lt;&lt;out&lt;&lt;' '&lt;&lt;cnt&lt;&lt;' ';                       //输出该条记录，并输出总的分钟数
+    if(d1==d2){                                     //如果是同一天内 
+        if(h1==h2){                                 //如果是同一个小时内，直接相减计算 
+            cnt=min2-min1;
+        }
+        else{                                       //否则开始时间向后推算到下一个整点，结束时间向前计算到当前整点，然后进行整点统计 
+            cnt+=(60-min1+min2); 
+            pay+=(rate[h1]*(60-min1)+rate[h2]*min2);
+            for(h1++;h1&lt;h2;h1++){
+                cnt+=60;
+            }
+        }
+    }
+    else{                                           //如果不在同一天 
+        cnt+=(60-min1+min2);                        //开始时间向后推算到下一个整点，结束时间向前计算到当前整点
+        
+        for(h1++;h1&lt;24;h1++){                       //开始时间推算到下一个整天，且天数加一 
+            cnt+=60;
+        }
+        d1++;                                       //推算后天数加一 
+        for(int i=0;i&lt;h2;i++){                      //结尾时间向前推算到当前的整天 
+            cnt+=60;
+        }
+            
+        cnt+=(d2-d1)*60*24;                         //计算整天时间               
+    } 
+    cout&lt;&lt;out&lt;&lt;' '&lt;&lt;cnt&lt;&lt;' ';                       //输出该条记录，并输出总的分钟数
 
-	return cnt;                                     //返回分钟数
+    return cnt;                                     //返回分钟数
 }
 </code></pre>
 
@@ -1400,44 +1400,44 @@ int main(){
     freopen(&quot;1.txt&quot;, &quot;r&quot;, stdin);    
 #endif 
     //数字位读法
-	string shu[10]={&quot;ling&quot;,&quot;yi&quot;,&quot;er&quot;,&quot;san&quot;,&quot;si&quot;,&quot;wu&quot;,&quot;liu&quot;,&quot;qi&quot;,&quot;ba&quot;,&quot;jiu&quot;};
+    string shu[10]={&quot;ling&quot;,&quot;yi&quot;,&quot;er&quot;,&quot;san&quot;,&quot;si&quot;,&quot;wu&quot;,&quot;liu&quot;,&quot;qi&quot;,&quot;ba&quot;,&quot;jiu&quot;};
     //位数的读法
-	string wei[10]={&quot;0&quot;,&quot;0&quot;,&quot;Shi&quot;,&quot;Bai&quot;,&quot;Qian&quot;,&quot;Wan&quot;,&quot;Shi&quot;,&quot;Bai&quot;,&quot;Qian&quot;,&quot;Yi&quot;};
-	int n;					//读入要处理的数 
-	int tag=0;				//正负数标记，1表示负数，0表示正数 
-	cin&gt;&gt;n;
-	vector&lt;string&gt; v;		//用于存放最终结果，最后倒序输出 
-	int now,numcnt=0,pre;	//now记录当前位的数字，pre记录前一位的数字，numcnt记录当前数字的位数 
-    if(n==0) {				//特判0 
-    	puts(&quot;ling&quot;); return 0;
-	}
-	if(n&lt;0){
-    	tag=1;n=-n;			//修改正负号标记，改为正数统一处理 
-	}
-	while(n){
-		now=n%10;
-		n/=10;
-		numcnt++;
-		if(now){			//如果当前为不是0 
-			if(numcnt&gt;1)	//如果当前为不是个位，则需要单位 
-				v.push_back(wei[numcnt]);		//如果需要单位，放入对应的单位
-			v.push_back(shu[now]);				//存入数字的读法 		
-		}
-		else{				//如果是0，考虑读不读0 
-			if(numcnt==5)	//如果是万位，则加入万的单位 
-				v.push_back(wei[numcnt]);
-			else if(pre!=0&amp;&amp;numcnt!=9&amp;&amp;numcnt!=1)		//如果前一位不是0，且不是亿位，万位和个位的时候读0 
-				v.push_back(shu[now]);
-		} 
-		pre=now;			//更新pre 
-	}
-	if(tag==1) v.push_back(&quot;Fu&quot;);
-	for(int i=v.size()-1;i&gt;=0;i--){
-		if(i!=v.size()-1) putchar(' ');
-		cout&lt;&lt;v[i];
-	}
-	
-	return 0;    
+    string wei[10]={&quot;0&quot;,&quot;0&quot;,&quot;Shi&quot;,&quot;Bai&quot;,&quot;Qian&quot;,&quot;Wan&quot;,&quot;Shi&quot;,&quot;Bai&quot;,&quot;Qian&quot;,&quot;Yi&quot;};
+    int n;                  //读入要处理的数 
+    int tag=0;              //正负数标记，1表示负数，0表示正数 
+    cin&gt;&gt;n;
+    vector&lt;string&gt; v;       //用于存放最终结果，最后倒序输出 
+    int now,numcnt=0,pre;   //now记录当前位的数字，pre记录前一位的数字，numcnt记录当前数字的位数 
+    if(n==0) {              //特判0 
+        puts(&quot;ling&quot;); return 0;
+    }
+    if(n&lt;0){
+        tag=1;n=-n;         //修改正负号标记，改为正数统一处理 
+    }
+    while(n){
+        now=n%10;
+        n/=10;
+        numcnt++;
+        if(now){            //如果当前为不是0 
+            if(numcnt&gt;1)    //如果当前为不是个位，则需要单位 
+                v.push_back(wei[numcnt]);       //如果需要单位，放入对应的单位
+            v.push_back(shu[now]);              //存入数字的读法       
+        }
+        else{               //如果是0，考虑读不读0 
+            if(numcnt==5)   //如果是万位，则加入万的单位 
+                v.push_back(wei[numcnt]);
+            else if(pre!=0&amp;&amp;numcnt!=9&amp;&amp;numcnt!=1)       //如果前一位不是0，且不是亿位，万位和个位的时候读0 
+                v.push_back(shu[now]);
+        } 
+        pre=now;            //更新pre 
+    }
+    if(tag==1) v.push_back(&quot;Fu&quot;);
+    for(int i=v.size()-1;i&gt;=0;i--){
+        if(i!=v.size()-1) putchar(' ');
+        cout&lt;&lt;v[i];
+    }
+    
+    return 0;    
 }
 </code></pre>
 
@@ -1453,16 +1453,16 @@ song music word keyword bike book
 <p>　　使用整行读取，然后分别取词；</p>
 
 <pre><code>string temp,str;
-getline(cin,str);						//整行读入
-for(int i=0;i&lt;str.size();i++){			//遍历取词
-	if(str[i]==' '||i==str.size()-1){	//如果遇到空格或者结束，获得一个单词
-		if(i==str.size()-1)				//如果是结束，需要吧结尾的字符加入单词
-			temp+=str[i];
-		dealwith(temp);					//处理获得单词，具体操作函数视情况而定
-		temp.clear();					//temp清空，准备接收下一个字符
-	}
-	else 
-		temp+=str[i];
+getline(cin,str);                       //整行读入
+for(int i=0;i&lt;str.size();i++){          //遍历取词
+    if(str[i]==' '||i==str.size()-1){   //如果遇到空格或者结束，获得一个单词
+        if(i==str.size()-1)             //如果是结束，需要吧结尾的字符加入单词
+            temp+=str[i];
+        dealwith(temp);                 //处理获得单词，具体操作函数视情况而定
+        temp.clear();                   //temp清空，准备接收下一个字符
+    }
+    else 
+        temp+=str[i];
 }
 </code></pre>
 
@@ -1470,11 +1470,11 @@ for(int i=0;i&lt;str.size();i++){			//遍历取词
 
 <p>　　使用string和char类型混合输入，char字符用于辨别最后换行结束：</p>
 
-<pre><code>while(1){						
-	cin&gt;&gt;word;							//读入一个单词
-	char ch=getchar();					//吸收空格字符
-	dealwith(word);						//处理获得的单词
-	if(ch=='\n')	break;				//到换行处结束
+<pre><code>while(1){                       
+    cin&gt;&gt;word;                          //读入一个单词
+    char ch=getchar();                  //吸收空格字符
+    dealwith(word);                     //处理获得的单词
+    if(ch=='\n')    break;              //到换行处结束
 }
 </code></pre>
 

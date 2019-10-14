@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1015, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1015.
@@ -313,44 +313,44 @@ No
 #define MAXN 100005
 using namespace std;
 bool prime[MAXN];
-void getprime() {								//筛选法，获取素数表 
-	fill(prime,prime+MAXN,true);
-	prime[0]=prime[1]=false;
-	for(int i=2;i&lt;MAXN;i++){
-		if(prime[i]){
-			for(int j=i+i;j&lt;MAXN;j+=i)
-				prime[j]=false;
-		}
-	}
+void getprime() {                               //筛选法，获取素数表 
+    fill(prime,prime+MAXN,true);
+    prime[0]=prime[1]=false;
+    for(int i=2;i&lt;MAXN;i++){
+        if(prime[i]){
+            for(int j=i+i;j&lt;MAXN;j+=i)
+                prime[j]=false;
+        }
+    }
 }
-int torever(int n,int r){						//获得逆转数的十进制 
-	int ret=0;
-	do{											//按照转化为r进制数的方法，获取每一位，然后同时转化为对应的十进制 
-		ret=ret*r+n%r;
-		n/=r;
-	}while(n!=0);
-	return ret;
+int torever(int n,int r){                       //获得逆转数的十进制 
+    int ret=0;
+    do{                                         //按照转化为r进制数的方法，获取每一位，然后同时转化为对应的十进制 
+        ret=ret*r+n%r;
+        n/=r;
+    }while(n!=0);
+    return ret;
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	getprime();
-	while(1){
-		int n,r;
-		scanf(&quot;%d&quot;,&amp;n);
-		if(n&gt;=0){								//符合条件时进行判定，不符合输入条件时直接结束循环 
-			scanf(&quot;%d&quot;,&amp;r);
-			if(prime[n]&amp;&amp;prime[torever(n,r)])
-				puts(&quot;Yes&quot;);
-			else
-				puts(&quot;No&quot;);
-		}
-		else
-			break;
-	} 
-	return 0;
+    getprime();
+    while(1){
+        int n,r;
+        scanf(&quot;%d&quot;,&amp;n);
+        if(n&gt;=0){                               //符合条件时进行判定，不符合输入条件时直接结束循环 
+            scanf(&quot;%d&quot;,&amp;r);
+            if(prime[n]&amp;&amp;prime[torever(n,r)])
+                puts(&quot;Yes&quot;);
+            else
+                puts(&quot;No&quot;);
+        }
+        else
+            break;
+    } 
+    return 0;
 } 
 </code></pre>
               

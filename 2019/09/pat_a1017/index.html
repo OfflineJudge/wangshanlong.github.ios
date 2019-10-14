@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1017, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1017.
@@ -321,46 +321,46 @@ int main(){
 #else    
     freopen(&quot;1.txt&quot;, &quot;r&quot;, stdin);    
 #endif
-	int n,k;
-	cin&gt;&gt;n&gt;&gt;k;
-	map&lt;int,int&gt; custom;    					//顾客队列 
-	vector&lt;int&gt; window(k,st);					//窗口模拟 
-	for(int i=0;i&lt;n;i++){						//输入 
-		int h,m,s,cost;
-		scanf(&quot;%d:%d:%d %d&quot;,&amp;h,&amp;m,&amp;s,&amp;cost);
-		int begin=h*3600+m*60+s;
-		if(begin&lt;=ed){							//有效记录才保存 
-			cost=cost&gt;60?3600:cost*60;			//服务时间上界判定 
-			custom[begin]=cost;					//保存记录 
-		}
-	}
-	if(custom.size()==0){						//队列如果没有人特判，因为0人无法平均 
-		cout&lt;&lt;&quot;0.0&quot;;
-	}
-	else{
-		n=custom.size();
-		int cnt=0;
-		int flag=0;
-		for(int time=st;;time++){				//判定终点应该是顾客队列位空，而不是银行关门时间 
-			for(int i=0;i&lt;k;i++){
-				if(custom.size()==0){			//队列空是退出循环 
-					flag=1;break;
-				}
-				if(window[i]&lt;=time){			//窗口时间到时且队列中有人时 
-					auto it=custom.begin();		//去队首顾客进行服务 
-					if(it-&gt;first&lt;=time){
-						cnt+=time-it-&gt;first;	//计算等待时间 
-						window[i]=time+it-&gt;second;		//更新窗口结束时间 
-						custom.erase(it);		//将纳入服务的顾客移出队列 
-					}
-				}
-			}
-			if(flag==1)							//循环结束判定，两层，因此判定两次 
-				break;
-		}
-		
-		printf(&quot;%.1f&quot;,1.0*cnt/(60*n));			
-	}
+    int n,k;
+    cin&gt;&gt;n&gt;&gt;k;
+    map&lt;int,int&gt; custom;                        //顾客队列 
+    vector&lt;int&gt; window(k,st);                   //窗口模拟 
+    for(int i=0;i&lt;n;i++){                       //输入 
+        int h,m,s,cost;
+        scanf(&quot;%d:%d:%d %d&quot;,&amp;h,&amp;m,&amp;s,&amp;cost);
+        int begin=h*3600+m*60+s;
+        if(begin&lt;=ed){                          //有效记录才保存 
+            cost=cost&gt;60?3600:cost*60;          //服务时间上界判定 
+            custom[begin]=cost;                 //保存记录 
+        }
+    }
+    if(custom.size()==0){                       //队列如果没有人特判，因为0人无法平均 
+        cout&lt;&lt;&quot;0.0&quot;;
+    }
+    else{
+        n=custom.size();
+        int cnt=0;
+        int flag=0;
+        for(int time=st;;time++){               //判定终点应该是顾客队列位空，而不是银行关门时间 
+            for(int i=0;i&lt;k;i++){
+                if(custom.size()==0){           //队列空是退出循环 
+                    flag=1;break;
+                }
+                if(window[i]&lt;=time){            //窗口时间到时且队列中有人时 
+                    auto it=custom.begin();     //去队首顾客进行服务 
+                    if(it-&gt;first&lt;=time){
+                        cnt+=time-it-&gt;first;    //计算等待时间 
+                        window[i]=time+it-&gt;second;      //更新窗口结束时间 
+                        custom.erase(it);       //将纳入服务的顾客移出队列 
+                    }
+                }
+            }
+            if(flag==1)                         //循环结束判定，两层，因此判定两次 
+                break;
+        }
+        
+        printf(&quot;%.1f&quot;,1.0*cnt/(60*n));          
+    }
     return 0;    
 }
 </code></pre>

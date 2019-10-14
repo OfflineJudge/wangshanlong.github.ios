@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1012, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1012.
@@ -325,88 +325,88 @@ N/A
 #include&lt;set&gt;
 #include&lt;stack&gt;
 using namespace std;
-typedef struct node{				//学生结构体 
-	int id,c,m,e,a;					//成绩 
-	int ar,cr,mr,er;				//排名 
+typedef struct node{                //学生结构体 
+    int id,c,m,e,a;                 //成绩 
+    int ar,cr,mr,er;                //排名 
 }Node;
 vector&lt;Node&gt; ST;
-map&lt;int,int&gt; mp;					//记录是否存在该记录 
-vector&lt;int&gt; sidx;					//结构体数据量较大，使用下标排序，减少时间 
-char tag;	
-bool cmp(int i,int j){				//比较函数，使用全局标记控制 
-	switch(tag){
-		case 'A' :return ST[i].a&gt;ST[j].a;break;
-		case 'C' :return ST[i].c&gt;ST[j].c;break;
-		case 'M' :return ST[i].m&gt;ST[j].m;break;
-		case 'E' :return ST[i].e&gt;ST[j].e;break;
-	}
+map&lt;int,int&gt; mp;                    //记录是否存在该记录 
+vector&lt;int&gt; sidx;                   //结构体数据量较大，使用下标排序，减少时间 
+char tag;   
+bool cmp(int i,int j){              //比较函数，使用全局标记控制 
+    switch(tag){
+        case 'A' :return ST[i].a&gt;ST[j].a;break;
+        case 'C' :return ST[i].c&gt;ST[j].c;break;
+        case 'M' :return ST[i].m&gt;ST[j].m;break;
+        case 'E' :return ST[i].e&gt;ST[j].e;break;
+    }
 }
 void check(){
-	int id;
-	scanf(&quot;%d&quot;,&amp;id);							//输出结果 
-	if(mp.find(id)==mp.end())	puts(&quot;N/A&quot;);
-	else{
-		int v=mp[id];
-		int rank=ST[v].er; char ch='E';			//根据优先级，由低到高进行比较，节省比较次数 
-		if(ST[v].mr&lt;=rank)		{rank=ST[v].mr;ch='M';} 
-		if(ST[v].cr&lt;=rank)		{rank=ST[v].cr;ch='C';} 
-		if(ST[v].ar&lt;=rank)		{rank=ST[v].ar;ch='A';} 
-		printf(&quot;%d %c\n&quot;,rank,ch);
-	}
+    int id;
+    scanf(&quot;%d&quot;,&amp;id);                            //输出结果 
+    if(mp.find(id)==mp.end())   puts(&quot;N/A&quot;);
+    else{
+        int v=mp[id];
+        int rank=ST[v].er; char ch='E';         //根据优先级，由低到高进行比较，节省比较次数 
+        if(ST[v].mr&lt;=rank)      {rank=ST[v].mr;ch='M';} 
+        if(ST[v].cr&lt;=rank)      {rank=ST[v].cr;ch='C';} 
+        if(ST[v].ar&lt;=rank)      {rank=ST[v].ar;ch='A';} 
+        printf(&quot;%d %c\n&quot;,rank,ch);
+    }
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	int n,k;
-	scanf(&quot;%d%d&quot;,&amp;n,&amp;k);
-	ST.resize(n);	sidx.resize(n);
-	for(int i=0;i&lt;n;i++){
-		scanf(&quot;%d%d%d%d&quot;,&amp;ST[i].id,&amp;ST[i].c,&amp;ST[i].m,&amp;ST[i].e);
-		mp[ST[i].id]=i;	sidx[i]=i;
-		ST[i].a=ST[i].c+ST[i].m+ST[i].e;
-	}
-	tag='A';
-	sort(sidx.begin(),sidx.end(),cmp);					//排序 
-	int pre=sidx[0];	ST[pre].ar=1;					//初始化第一个排名 
-	for(int i=1;i&lt;n;i++){
-		int v=sidx[i];									//后序排名由上一个决定，分数相同，排名相同 
-		if(ST[v].a==ST[pre].a)	ST[v].ar=ST[pre].ar;
-		else	ST[v].ar=i+1;							//如果不同，更新为排名 
-		pre=v; 
-	}
-	tag='C';
-	sort(sidx.begin(),sidx.end(),cmp);
-	pre=sidx[0];	ST[pre].cr=1;
-	for(int i=1;i&lt;n;i++){
-		int v=sidx[i];
-		if(ST[v].c==ST[pre].c)	ST[v].cr=ST[pre].cr;
-		else	ST[v].cr=i+1;
-		pre=v;
-	}
-	tag='M';
-	sort(sidx.begin(),sidx.end(),cmp);
-	pre=sidx[0];	ST[pre].mr=1;
-	for(int i=1;i&lt;n;i++){
-		int v=sidx[i];
-		if(ST[v].m==ST[pre].m)	ST[v].mr=ST[pre].mr;
-		else	ST[v].mr=i+1;
-		pre=v;
-	}
-	tag='E';
-	sort(sidx.begin(),sidx.end(),cmp);
-	pre=sidx[0];	ST[pre].er=1;
-	for(int i=1;i&lt;n;i++){
-		int v=sidx[i];
-		if(ST[v].e==ST[pre].e)	ST[v].er=ST[pre].er;
-		else	ST[v].er=i+1;
-		pre=v;
-	}
-	for(int i=0;i&lt;k;i++){
-		check();
-	}
-	return 0;
+    int n,k;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;k);
+    ST.resize(n);   sidx.resize(n);
+    for(int i=0;i&lt;n;i++){
+        scanf(&quot;%d%d%d%d&quot;,&amp;ST[i].id,&amp;ST[i].c,&amp;ST[i].m,&amp;ST[i].e);
+        mp[ST[i].id]=i; sidx[i]=i;
+        ST[i].a=ST[i].c+ST[i].m+ST[i].e;
+    }
+    tag='A';
+    sort(sidx.begin(),sidx.end(),cmp);                  //排序 
+    int pre=sidx[0];    ST[pre].ar=1;                   //初始化第一个排名 
+    for(int i=1;i&lt;n;i++){
+        int v=sidx[i];                                  //后序排名由上一个决定，分数相同，排名相同 
+        if(ST[v].a==ST[pre].a)  ST[v].ar=ST[pre].ar;
+        else    ST[v].ar=i+1;                           //如果不同，更新为排名 
+        pre=v; 
+    }
+    tag='C';
+    sort(sidx.begin(),sidx.end(),cmp);
+    pre=sidx[0];    ST[pre].cr=1;
+    for(int i=1;i&lt;n;i++){
+        int v=sidx[i];
+        if(ST[v].c==ST[pre].c)  ST[v].cr=ST[pre].cr;
+        else    ST[v].cr=i+1;
+        pre=v;
+    }
+    tag='M';
+    sort(sidx.begin(),sidx.end(),cmp);
+    pre=sidx[0];    ST[pre].mr=1;
+    for(int i=1;i&lt;n;i++){
+        int v=sidx[i];
+        if(ST[v].m==ST[pre].m)  ST[v].mr=ST[pre].mr;
+        else    ST[v].mr=i+1;
+        pre=v;
+    }
+    tag='E';
+    sort(sidx.begin(),sidx.end(),cmp);
+    pre=sidx[0];    ST[pre].er=1;
+    for(int i=1;i&lt;n;i++){
+        int v=sidx[i];
+        if(ST[v].e==ST[pre].e)  ST[v].er=ST[pre].er;
+        else    ST[v].er=i+1;
+        pre=v;
+    }
+    for(int i=0;i&lt;k;i++){
+        check();
+    }
+    return 0;
 } 
 </code></pre>
               

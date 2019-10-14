@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1043, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1043.
@@ -343,76 +343,76 @@
 #include&lt;set&gt;
 #include&lt;stack&gt;
 using namespace std;
-int cnt=0;							//后序输出时候空格控制的计数器 
+int cnt=0;                          //后序输出时候空格控制的计数器 
 typedef struct node{
-	int data;
-	struct node *left,*right;
+    int data;
+    struct node *left,*right;
 }Node;
-vector&lt;int&gt; pre,mpre;				//保存建立的一般树和镜像树的前序序列 
-int tag=0;							//tag全局变量用于控制对一般树或者镜像树的操作，tag=0，对应一般树，tag=1对应镜像树 
-void preorder(Node *root){			//前序遍历 
-	if(root==NULL) return;
-	if(tag==0)
-		pre.push_back(root-&gt;data);
-	else
-		mpre.push_back(root-&gt;data);
-	preorder(root-&gt;left);
-	preorder(root-&gt;right);
+vector&lt;int&gt; pre,mpre;               //保存建立的一般树和镜像树的前序序列 
+int tag=0;                          //tag全局变量用于控制对一般树或者镜像树的操作，tag=0，对应一般树，tag=1对应镜像树 
+void preorder(Node *root){          //前序遍历 
+    if(root==NULL) return;
+    if(tag==0)
+        pre.push_back(root-&gt;data);
+    else
+        mpre.push_back(root-&gt;data);
+    preorder(root-&gt;left);
+    preorder(root-&gt;right);
 }
-void postorder(Node *root){			//中序遍历 
-	if(root==NULL) return;
-	postorder(root-&gt;left);
-	postorder(root-&gt;right);
-	if(cnt) putchar(' ');
-	printf(&quot;%d&quot;,root-&gt;data);
-	cnt++;
+void postorder(Node *root){         //中序遍历 
+    if(root==NULL) return;
+    postorder(root-&gt;left);
+    postorder(root-&gt;right);
+    if(cnt) putchar(' ');
+    printf(&quot;%d&quot;,root-&gt;data);
+    cnt++;
 }
-void Insert(Node *&amp;root,int x){		//插入建树 
-	if(root==NULL){
-		root=new Node;
-		root-&gt;data=x;
-		root-&gt;left=root-&gt;right=NULL;
-		return;
-	}
-	if(x&lt;root-&gt;data){
-		if(tag==0) Insert(root-&gt;left,x);
-		else	Insert(root-&gt;right,x);
-	}
-	else{
-		if(tag==0) Insert(root-&gt;right,x);
-		else	Insert(root-&gt;left,x);
-	}
+void Insert(Node *&amp;root,int x){     //插入建树 
+    if(root==NULL){
+        root=new Node;
+        root-&gt;data=x;
+        root-&gt;left=root-&gt;right=NULL;
+        return;
+    }
+    if(x&lt;root-&gt;data){
+        if(tag==0) Insert(root-&gt;left,x);
+        else    Insert(root-&gt;right,x);
+    }
+    else{
+        if(tag==0) Insert(root-&gt;right,x);
+        else    Insert(root-&gt;left,x);
+    }
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	Node *root,*mroot;
-	root=mroot=NULL;
-	int n;
-	scanf(&quot;%d&quot;,&amp;n);
-	vector&lt;int&gt; a(n);
-	for(int i=0;i&lt;n;i++){
-		scanf(&quot;%d&quot;,&amp;a[i]);
-		tag=0;Insert(root,a[i]);
-		tag=1;Insert(mroot,a[i]);
-	} 
-	tag=0;preorder(root);			//获取一般树的前序序列 
-	tag=1;preorder(mroot);			//获取镜像树的前序序列 
-	if(pre==a){						//若有其中一个符合则按照求输出对应的后序序列 
-		puts(&quot;YES&quot;);
-		tag=0;
-		postorder(root);
-	}
-	else if(mpre==a){
-		puts(&quot;YES&quot;);
-		tag=1;
-		postorder(mroot);
-	}
-	else							//如果都不是输出NO 
-		puts(&quot;NO&quot;);
-	return 0;
+    Node *root,*mroot;
+    root=mroot=NULL;
+    int n;
+    scanf(&quot;%d&quot;,&amp;n);
+    vector&lt;int&gt; a(n);
+    for(int i=0;i&lt;n;i++){
+        scanf(&quot;%d&quot;,&amp;a[i]);
+        tag=0;Insert(root,a[i]);
+        tag=1;Insert(mroot,a[i]);
+    } 
+    tag=0;preorder(root);           //获取一般树的前序序列 
+    tag=1;preorder(mroot);          //获取镜像树的前序序列 
+    if(pre==a){                     //若有其中一个符合则按照求输出对应的后序序列 
+        puts(&quot;YES&quot;);
+        tag=0;
+        postorder(root);
+    }
+    else if(mpre==a){
+        puts(&quot;YES&quot;);
+        tag=1;
+        postorder(mroot);
+    }
+    else                            //如果都不是输出NO 
+        puts(&quot;NO&quot;);
+    return 0;
 } 
 </code></pre>
               

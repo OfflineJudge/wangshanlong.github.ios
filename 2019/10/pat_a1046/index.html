@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1046, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1046.
@@ -318,26 +318,26 @@ using namespace std;
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	int n;
-	scanf(&quot;%d&quot;,&amp;n);
-	vector&lt;int&gt; v(n+1); 	v[0]=0;		//v数组用于从放i~i+1的路径长度，其中v[0]用于存放总的路径长度 
-	for(int i=1;i&lt;=n;i++){
-		scanf(&quot;%d&quot;,&amp;v[i]);
-		v[0]+=v[i];
-	}
-	scanf(&quot;%d&quot;,&amp;n);
-	for(int i=0;i&lt;n;i++){
-		int a,b,dis=0;
-		scanf(&quot;%d%d&quot;,&amp;a,&amp;b);			//没队儿进行判定 
-		if(a&gt;b) swap(a,b);				//从小到大的结点顺序 
-		for(int j=a;j&lt;b;j++){			//计算从小到大的路径长度 
-			dis+=v[j];
-		}
-		printf(&quot;%d\n&quot;,min(dis,v[0]-dis));	//数组最小的值 
-	}
-	return 0;
+    int n;
+    scanf(&quot;%d&quot;,&amp;n);
+    vector&lt;int&gt; v(n+1);     v[0]=0;     //v数组用于从放i~i+1的路径长度，其中v[0]用于存放总的路径长度 
+    for(int i=1;i&lt;=n;i++){
+        scanf(&quot;%d&quot;,&amp;v[i]);
+        v[0]+=v[i];
+    }
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=0;i&lt;n;i++){
+        int a,b,dis=0;
+        scanf(&quot;%d%d&quot;,&amp;a,&amp;b);            //没队儿进行判定 
+        if(a&gt;b) swap(a,b);              //从小到大的结点顺序 
+        for(int j=a;j&lt;b;j++){           //计算从小到大的路径长度 
+            dis+=v[j];
+        }
+        printf(&quot;%d\n&quot;,min(dis,v[0]-dis));   //数组最小的值 
+    }
+    return 0;
 } 
 </code></pre>
               

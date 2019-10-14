@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, A1001, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1003.
@@ -323,70 +323,70 @@ vector&lt;int&gt; pre[MAXN];
 int st,ed,n,m,ansnum=0,answ=0;
 vector&lt;int&gt; temppath;
 void Dijkstra(){
-	fill(dis,dis+MAXN,INF);
-	dis[st]=0;
-	for(int i=0;i&lt;n;i++){
-		int u=-1,MIN=INF;
-		for(int j=0;j&lt;n;j++){
-			if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
-				u=j;
-				MIN=dis[j];
-			}
-		}
-		if(u==-1) return;
-		vis[u]=true;
-		for(int v=0;v&lt;n;v++){
-			if(vis[v]==false&amp;&amp;G[u][v]!=INF){
-				if(dis[u]+G[u][v]&lt;dis[v]){
-					dis[v]=dis[u]+G[u][v];
-					pre[v].clear();
-					pre[v].push_back(u);
-				}
-				else if(dis[u]+G[u][v]==dis[v]){
-					pre[v].push_back(u);
-				}
-			}
-		}
-	}
+    fill(dis,dis+MAXN,INF);
+    dis[st]=0;
+    for(int i=0;i&lt;n;i++){
+        int u=-1,MIN=INF;
+        for(int j=0;j&lt;n;j++){
+            if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
+                u=j;
+                MIN=dis[j];
+            }
+        }
+        if(u==-1) return;
+        vis[u]=true;
+        for(int v=0;v&lt;n;v++){
+            if(vis[v]==false&amp;&amp;G[u][v]!=INF){
+                if(dis[u]+G[u][v]&lt;dis[v]){
+                    dis[v]=dis[u]+G[u][v];
+                    pre[v].clear();
+                    pre[v].push_back(u);
+                }
+                else if(dis[u]+G[u][v]==dis[v]){
+                    pre[v].push_back(u);
+                }
+            }
+        }
+    }
 
 }
 void dfs(int s){
-	if(s==st){
-		ansnum++;
-		temppath.push_back(s);
-		int val=0;
-		for(int i=0;i&lt;temppath.size();i++){
-			val+=weight[temppath[i]];
-		}
-		answ=max(answ,val);
-		temppath.pop_back();
-		return;
-	}
-	temppath.push_back(s);
-	for(int i=0;i&lt;pre[s].size();i++){
-		dfs(pre[s][i]);
-	}
-	temppath.pop_back();
+    if(s==st){
+        ansnum++;
+        temppath.push_back(s);
+        int val=0;
+        for(int i=0;i&lt;temppath.size();i++){
+            val+=weight[temppath[i]];
+        }
+        answ=max(answ,val);
+        temppath.pop_back();
+        return;
+    }
+    temppath.push_back(s);
+    for(int i=0;i&lt;pre[s].size();i++){
+        dfs(pre[s][i]);
+    }
+    temppath.pop_back();
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	fill(G[0],G[0]+MAXN*MAXN,INF);
-	cin&gt;&gt;n&gt;&gt;m&gt;&gt;st&gt;&gt;ed;
-	for(int i=0;i&lt;n;i++){
-		scanf(&quot;%d&quot;,&amp;weight[i]);
-	}
-	for(int i=0;i&lt;m;i++){
-		int a,b,c;
-		scanf(&quot;%d%d%d&quot;,&amp;a,&amp;b,&amp;c);
-		G[a][b]=G[b][a]=c;
-	}
-	Dijkstra();
-	dfs(ed);
-	cout&lt;&lt;ansnum&lt;&lt;' '&lt;&lt;answ;
-	return 0;
+    fill(G[0],G[0]+MAXN*MAXN,INF);
+    cin&gt;&gt;n&gt;&gt;m&gt;&gt;st&gt;&gt;ed;
+    for(int i=0;i&lt;n;i++){
+        scanf(&quot;%d&quot;,&amp;weight[i]);
+    }
+    for(int i=0;i&lt;m;i++){
+        int a,b,c;
+        scanf(&quot;%d%d%d&quot;,&amp;a,&amp;b,&amp;c);
+        G[a][b]=G[b][a]=c;
+    }
+    Dijkstra();
+    dfs(ed);
+    cout&lt;&lt;ansnum&lt;&lt;' '&lt;&lt;answ;
+    return 0;
 } 
 </code></pre>
               

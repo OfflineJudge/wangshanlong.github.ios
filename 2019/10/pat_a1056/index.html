@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
 <meta name="keywords" content="PAT, PAT甲级, PATA1056, C, C&#43;&#43;, PAT">
 <meta name="description" content="PAT甲级1056.
@@ -310,52 +310,52 @@
 #include&lt;stack&gt;
 using namespace std;
 typedef struct node{
-	int w,rank;
+    int w,rank;
 }Node;
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
-	freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-	int n,m;
-	scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-	vector&lt;Node&gt; v(n);
-	queue&lt;int&gt; q;
-	for(int i=0;i&lt;n;i++)						//读取重量 
-		scanf(&quot;%d&quot;,&amp;v[i].w);
-	for(int i=0;i&lt;n;i++){						//读入第一轮的序列，直接进队 
-		int temp;
-		scanf(&quot;%d&quot;,&amp;temp);
-		q.push(temp);
-	}
-	while(1){									//比赛进行 
-		if(q.size()==1){						//直到产生冠军时停止，冠军排名为1 
-			v[q.front()].rank=1; break;
-		}
-		int num=q.size();						//记录本轮参赛的选手个数 
-		int rank=num%m?num/m+2:num/m+1;			//计算本次一共有多少组，并未晋级选手的排名为rank 
-		int cnt=0;								//选手总数的计数器 
-		for(int i=0;i&lt;rank-1;i++){				//每次取出一组，共rank-1组 
-			int maxid=q.front();				//maxid用于记录最重的编号 
-			int maxw=v[maxid].w;				//maxw记录最重的重量 
-			for(int j=0;j&lt;m&amp;&amp;cnt&lt;num;j++){		//每次从中取出一组，共m个，最后一组由cnt计数器作为边界 
-				int now=q.front();				//每次取出一个 
-				cnt++; q.pop();					//计数并pop出队列 
-				if(v[now].w&gt;maxw){				//如果更大，则更新最大的记录 
-					v[maxid].rank=rank;			//将之前的记录淘汰，即确定排名 
-					maxid=now;maxw=v[now].w;
-				}
-				else							//否则直接淘汰，确定排名 
-					v[now].rank=rank;
-			}
-			q.push(maxid);						//将每组的获胜者进队，参与下一轮的比赛 
-		}
-	}
-	for(int i=0;i&lt;n;i++){						//输出结果 
-		if(i) putchar(' ');
-		printf(&quot;%d&quot;,v[i].rank);
-	}
-	return 0;
+    int n,m;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    vector&lt;Node&gt; v(n);
+    queue&lt;int&gt; q;
+    for(int i=0;i&lt;n;i++)                        //读取重量 
+        scanf(&quot;%d&quot;,&amp;v[i].w);
+    for(int i=0;i&lt;n;i++){                       //读入第一轮的序列，直接进队 
+        int temp;
+        scanf(&quot;%d&quot;,&amp;temp);
+        q.push(temp);
+    }
+    while(1){                                   //比赛进行 
+        if(q.size()==1){                        //直到产生冠军时停止，冠军排名为1 
+            v[q.front()].rank=1; break;
+        }
+        int num=q.size();                       //记录本轮参赛的选手个数 
+        int rank=num%m?num/m+2:num/m+1;         //计算本次一共有多少组，并未晋级选手的排名为rank 
+        int cnt=0;                              //选手总数的计数器 
+        for(int i=0;i&lt;rank-1;i++){              //每次取出一组，共rank-1组 
+            int maxid=q.front();                //maxid用于记录最重的编号 
+            int maxw=v[maxid].w;                //maxw记录最重的重量 
+            for(int j=0;j&lt;m&amp;&amp;cnt&lt;num;j++){      //每次从中取出一组，共m个，最后一组由cnt计数器作为边界 
+                int now=q.front();              //每次取出一个 
+                cnt++; q.pop();                 //计数并pop出队列 
+                if(v[now].w&gt;maxw){              //如果更大，则更新最大的记录 
+                    v[maxid].rank=rank;         //将之前的记录淘汰，即确定排名 
+                    maxid=now;maxw=v[now].w;
+                }
+                else                            //否则直接淘汰，确定排名 
+                    v[now].rank=rank;
+            }
+            q.push(maxid);                      //将每组的获胜者进队，参与下一轮的比赛 
+        }
+    }
+    for(int i=0;i&lt;n;i++){                       //输出结果 
+        if(i) putchar(' ');
+        printf(&quot;%d&quot;,v[i].rank);
+    }
+    return 0;
 } 
 </code></pre>
               
