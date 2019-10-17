@@ -7,30 +7,30 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
-<meta name="keywords" content="PAT, PAT甲级, PATA1064, C, C&#43;&#43;, PAT">
-<meta name="description" content="PAT甲级1064.
+<meta name="keywords" content="PAT, PAT甲级, PATA1067, C, C&#43;&#43;, PAT">
+<meta name="description" content="PAT甲级1067.
 ">
 
 
-<meta property="og:description" content="PAT甲级1064.
+<meta property="og:description" content="PAT甲级1067.
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT_A1064">
-<meta name="twitter:title" content="PAT_A1064">
-<meta property="og:url" content="https://saquarius.github.io/2019/10/pat_a1064/">
-<meta property="twitter:url" content="https://saquarius.github.io/2019/10/pat_a1064/">
+<meta property="og:title" content="PAT_A1067">
+<meta name="twitter:title" content="PAT_A1067">
+<meta property="og:url" content="https://saquarius.github.io/2019/10/pat_a1067/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/10/pat_a1067/">
 <meta property="og:site_name" content="SAquarius的梦想屋">
-<meta property="og:description" content="PAT甲级1064.
+<meta property="og:description" content="PAT甲级1067.
 ">
-<meta name="twitter:description" content="PAT甲级1064.
+<meta name="twitter:description" content="PAT甲级1067.
 ">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2019-10-14T22:50:45">
+    <meta property="article:published_time" content="2019-10-17T22:14:41">
   
   
-    <meta property="article:modified_time" content="2019-10-14T22:50:45">
+    <meta property="article:modified_time" content="2019-10-17T22:14:41">
   
   
   
@@ -66,14 +66,14 @@
   <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
 
 
-    <title>PAT_A1064</title>
+    <title>PAT_A1067</title>
 
     <link rel="icon" href="https://saquarius.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://saquarius.github.io/2019/10/pat_a1064/">
+    <link rel="canonical" href="https://saquarius.github.io/2019/10/pat_a1067/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -224,15 +224,15 @@
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      PAT_A1064
+      PAT_A1067
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-10-14T22:50:45&#43;08:00">
+      <time itemprop="datePublished" datetime="2019-10-17T22:14:41&#43;08:00">
         
-  十月 14, 2019
+  十月 17, 2019
 
       </time>
     
@@ -253,12 +253,12 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <pre><code>PAT甲级1064.
+              <pre><code>PAT甲级1067.
 </code></pre>
 
 <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
 <ul>
-<li><a href="#a1064">A1064</a>
+<li><a href="#a1067">A1067</a>
 <ul>
 <li><a href="#题目">题目</a></li>
 <li><a href="#样例">样例</a></li>
@@ -268,28 +268,36 @@
 </ul>
 </nav>  
 
-<h1 id="a1064">A1064</h1>
+<h1 id="a1067">A1067</h1>
 
 <h2 id="题目">题目</h2>
 
-<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1064.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1067.png" alt="" /></p>
 
 <h2 id="样例">样例</h2>
 
 <p>输入:</p>
 
 <pre><code>10
-1 2 3 4 5 6 7 8 9 0
+3 5 7 2 6 4 9 0 8 1
 </code></pre>
 
 <p>输出:</p>
 
-<pre><code>6 3 8 1 5 7 9 0 2 4
+<pre><code>9
 </code></pre>
 
 <h2 id="思路和坑点">思路和坑点</h2>
 
-<p>　　二叉搜索树的中序遍历是有序的，因此排序后，根据次该性质进行计算。完全二叉树的结构可以通过结点数来确定，可以计算出左右子树的结点个数，从而确定树的根结点在中序中的位置，然后递归解决左子树和右子树的根，由于层次序列的整体顺序为<code>root,2*root+1（左子树的根）,2*root+2（右子树的根）</code>，因此可以在递归中直接得出层次序列的结点顺序。</p>
+<p>　　表排序。给出的序列，由若干个环组成。由于和0交换，因此根据环的特征分三类：</p>
+
+<ul>
+<li>单独一个元素构成一个环，即自己在自己的位置上，不需要交换，交换次数为0<br /></li>
+<li>包含0的环，这样的环只和0交换，假设环中有n个元素，则需要交换n-1次<br /></li>
+<li>不包含0的换，由于只能和0交换，因此将任意一个环中的元素和0交换，将其纳入环中再进行交换，假设环中有n个元素，则需要n+1次交换<br /></li>
+</ul>
+
+<p>　　具体的解释参见代码注释或者参考<a href="https://www.icourse163.org/learn/ZJU-93001?tid=1206471203#/learn/content?type=detail&amp;id=1211167126">MOOC陈越姥姥的讲解swap(0,*)</a></p>
 
 <h2 id="ac代码">AC代码</h2>
 
@@ -307,41 +315,35 @@
 #include&lt;set&gt;
 #include&lt;stack&gt;
 using namespace std;
-vector&lt;int&gt; L,v;                            //用于存放数据，L为最终的层次输出序列，v为输入序列 
-int getroot(int l,int r){                   //计算输入序列中下标l~r中字数的根，并返回其下标 
-    int num=r+1-l,layer=0;                  //num为l~n中的元素个数，layer为该区间元素构成完全二叉树的层数 
-    while((int)pow(1.0*2,layer)-1&lt;=num)     //计算layer表示为最大整层数+1 
-        layer++;
-    layer--;                                //循环结束，把layer取到最大整层数 
-    int flnum=num-((int)pow(1.0*2,layer)-1);//flnum为最后一层的结点个数 
-    int tag=pow(1.0*2,layer-1),leftnum;     //tag为满二叉时，最后一层结点数的一半，leftnum为l~n区间构成的树的左子树元素个数 
-    if(flnum&lt;=tag)  leftnum=tag-1+flnum;    //如果最后一层不满一半，计算左子树元素个数 
-    else            leftnum=2*tag-1;        //如果满一半，计算左子树个数 
-    return leftnum+l;                       //返回根结点所在的下标 
-}
-void solve(int l,int r,int root){           //将l~n区间中的根结点放置在层次序列的对应位置上 
-    if(l&gt;r) return;                         //如果该区间没有元素，直接返回 
-    int index=getroot(l,r);                 //计算根在输入序列中的位置 
-    L[root]=v[index];                       //将根放在层次序列的位置上 
-    solve(l,index-1,2*root+1);              //递归求解右子树的根 
-    solve(index+1,r,2*root+2);              //递归求解右子树的根 
-}
+
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
     freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    int n;
-    scanf(&quot;%d&quot;,&amp;n);
-    v.resize(n);    L.resize(n);
-    for(int i=0;i&lt;n;i++)
-        scanf(&quot;%d&quot;,&amp;v[i]);
-    sort(v.begin(),v.end());                //排序，搜索树的中序序列是有序的 
-    solve(0,n-1,0);                         //递归的起始参数 
-    for(int i=0;i&lt;n;i++){                   //输出结果 
-        if(i) putchar(' ');
-        printf(&quot;%d&quot;,L[i]);
-    }   
+    int n,ans=0;
+    cin&gt;&gt;n;
+    vector&lt;int&gt; v(n);                   //存储数据 
+    vector&lt;bool&gt; vis(n,false);          //访问标记 
+    for(int i=0;i&lt;n;i++){               //读取输入 
+        cin&gt;&gt;v[i];
+    } 
+    for(int i=0;i&lt;n;i++){               //遍历数组，统计环，并计算 
+        if(vis[i]==false){
+            int flag=0,cnt=0,k=i;       //flag表示有没有0，如果是0表示没有，否则表示有，cnt统计环中元素个数 
+            while(vis[k]==false){       //使用k做指针，遍历环并标记环上的元素为已访问 
+                if(v[k]==0) flag=1;
+                vis[k]=true; cnt++;     //统计环上元素个数 
+                k=v[k];
+            }
+            if(cnt&gt;1){                  //如果环中的个数超过1 
+                if(flag) ans+=cnt-1;    //如果有0，则需要和0交换cnt-1 次 
+                else ans+=cnt+1;        //如果没有0，需要先把0任意交换进环中，然后此时共cnt+1个数，需要交换cnt+1-1=cnt次
+                                        //加上交换进去0的一次共cnt+1次 
+            }
+        }
+    }
+    cout&lt;&lt;ans;
     return 0;
 } 
 </code></pre>
@@ -362,7 +364,7 @@ int main(void){
                 
               
             
-              <span id="/2019/10/pat_a1064/" class="leancloud_visitors" data-flag-title="PAT_A1064">
+              <span id="/2019/10/pat_a1067/" class="leancloud_visitors" data-flag-title="PAT_A1067">
                 <span class="post-meta-item-text">文章阅读量 </span>
                 <span class="leancloud-visitors-count">1000000</span>
                 <p></p>
@@ -389,7 +391,7 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1065/" data-tooltip="PAT_A1065">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1068/" data-tooltip="PAT_A1068">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -397,7 +399,7 @@ int main(void){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1063/" data-tooltip="PAT_A1063">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1066/" data-tooltip="PAT_A1066">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -457,7 +459,7 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1065/" data-tooltip="PAT_A1065">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1068/" data-tooltip="PAT_A1068">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -465,7 +467,7 @@ int main(void){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1063/" data-tooltip="PAT_A1063">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1066/" data-tooltip="PAT_A1066">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -597,9 +599,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/saquarius.github.io\/2019\/10\/pat_a1064\/';
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/10\/pat_a1067\/';
           
-            this.page.identifier = '\/2019\/10\/pat_a1064\/'
+            this.page.identifier = '\/2019\/10\/pat_a1067\/'
           
         };
         (function() {

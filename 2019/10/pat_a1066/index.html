@@ -7,30 +7,30 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
-<meta name="keywords" content="PAT, PAT甲级, PATA1064, C, C&#43;&#43;, PAT">
-<meta name="description" content="PAT甲级1064.
+<meta name="keywords" content="PAT, PAT甲级, PATA1066, C, C&#43;&#43;, PAT">
+<meta name="description" content="PAT甲级1066.
 ">
 
 
-<meta property="og:description" content="PAT甲级1064.
+<meta property="og:description" content="PAT甲级1066.
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT_A1064">
-<meta name="twitter:title" content="PAT_A1064">
-<meta property="og:url" content="https://saquarius.github.io/2019/10/pat_a1064/">
-<meta property="twitter:url" content="https://saquarius.github.io/2019/10/pat_a1064/">
+<meta property="og:title" content="PAT_A1066">
+<meta name="twitter:title" content="PAT_A1066">
+<meta property="og:url" content="https://saquarius.github.io/2019/10/pat_a1066/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/10/pat_a1066/">
 <meta property="og:site_name" content="SAquarius的梦想屋">
-<meta property="og:description" content="PAT甲级1064.
+<meta property="og:description" content="PAT甲级1066.
 ">
-<meta name="twitter:description" content="PAT甲级1064.
+<meta name="twitter:description" content="PAT甲级1066.
 ">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2019-10-14T22:50:45">
+    <meta property="article:published_time" content="2019-10-17T22:06:29">
   
   
-    <meta property="article:modified_time" content="2019-10-14T22:50:45">
+    <meta property="article:modified_time" content="2019-10-17T22:06:29">
   
   
   
@@ -66,14 +66,14 @@
   <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
 
 
-    <title>PAT_A1064</title>
+    <title>PAT_A1066</title>
 
     <link rel="icon" href="https://saquarius.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://saquarius.github.io/2019/10/pat_a1064/">
+    <link rel="canonical" href="https://saquarius.github.io/2019/10/pat_a1066/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -224,15 +224,15 @@
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      PAT_A1064
+      PAT_A1066
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-10-14T22:50:45&#43;08:00">
+      <time itemprop="datePublished" datetime="2019-10-17T22:06:29&#43;08:00">
         
-  十月 14, 2019
+  十月 17, 2019
 
       </time>
     
@@ -253,43 +253,64 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <pre><code>PAT甲级1064.
+              <pre><code>PAT甲级1066.
 </code></pre>
 
 <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
 <ul>
-<li><a href="#a1064">A1064</a>
+<li><a href="#a1066">A1066</a>
 <ul>
 <li><a href="#题目">题目</a></li>
-<li><a href="#样例">样例</a></li>
+<li><a href="#样例">样例</a>
+<ul>
+<li><a href="#样例1">样例1</a></li>
+<li><a href="#样例2">样例2</a></li>
+</ul></li>
 <li><a href="#思路和坑点">思路和坑点</a></li>
 <li><a href="#ac代码">AC代码</a></li>
 </ul></li>
 </ul>
 </nav>  
 
-<h1 id="a1064">A1064</h1>
+<h1 id="a1066">A1066</h1>
 
 <h2 id="题目">题目</h2>
 
-<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1064.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1066.png" alt="" /></p>
 
 <h2 id="样例">样例</h2>
 
+<h3 id="样例1">样例1</h3>
+
 <p>输入:</p>
 
-<pre><code>10
-1 2 3 4 5 6 7 8 9 0
+<pre><code>5
+88 70 61 96 120
 </code></pre>
 
 <p>输出:</p>
 
-<pre><code>6 3 8 1 5 7 9 0 2 4
+<pre><code>70
+</code></pre>
+
+<h3 id="样例2">样例2</h3>
+
+<p>输入:</p>
+
+<pre><code>7
+88 70 61 96 120 90 65
+</code></pre>
+
+<p>输出:</p>
+
+<pre><code>88
 </code></pre>
 
 <h2 id="思路和坑点">思路和坑点</h2>
 
-<p>　　二叉搜索树的中序遍历是有序的，因此排序后，根据次该性质进行计算。完全二叉树的结构可以通过结点数来确定，可以计算出左右子树的结点个数，从而确定树的根结点在中序中的位置，然后递归解决左子树和右子树的根，由于层次序列的整体顺序为<code>root,2*root+1（左子树的根）,2*root+2（右子树的根）</code>，因此可以在递归中直接得出层次序列的结点顺序。</p>
+<p>　　AVL树的建树，直接使用AVL树的模板即可，一定要会写AVL树的调整函数。<br />
+　　AVL树的总结可以参加之前的博文<a href="http://https://saquarius.com/2019/07/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/" title="树与二叉树的总结">树与二叉树的总结</a>中关于AVL树部分的总结。<br />
+　　注意：根据题目要求调整插入的方法。</p>
 
 <h2 id="ac代码">AC代码</h2>
 
@@ -307,41 +328,82 @@
 #include&lt;set&gt;
 #include&lt;stack&gt;
 using namespace std;
-vector&lt;int&gt; L,v;                            //用于存放数据，L为最终的层次输出序列，v为输入序列 
-int getroot(int l,int r){                   //计算输入序列中下标l~r中字数的根，并返回其下标 
-    int num=r+1-l,layer=0;                  //num为l~n中的元素个数，layer为该区间元素构成完全二叉树的层数 
-    while((int)pow(1.0*2,layer)-1&lt;=num)     //计算layer表示为最大整层数+1 
-        layer++;
-    layer--;                                //循环结束，把layer取到最大整层数 
-    int flnum=num-((int)pow(1.0*2,layer)-1);//flnum为最后一层的结点个数 
-    int tag=pow(1.0*2,layer-1),leftnum;     //tag为满二叉时，最后一层结点数的一半，leftnum为l~n区间构成的树的左子树元素个数 
-    if(flnum&lt;=tag)  leftnum=tag-1+flnum;    //如果最后一层不满一半，计算左子树元素个数 
-    else            leftnum=2*tag-1;        //如果满一半，计算左子树个数 
-    return leftnum+l;                       //返回根结点所在的下标 
+typedef struct node{                        //结点的定义和初始化 
+    int data;
+    int high=1;                             //高度初始化 
+    struct node *left=NULL,*right=NULL;     //左右孩子初始化为空 
+}Node;
+int gethigh(Node *root){                    //获取树的高度 
+    if(root==NULL) return 0;
+    else return root-&gt;high;
+} 
+int getbf(Node *root){                      //获取结点的平衡因子 
+    return gethigh(root-&gt;left)-gethigh(root-&gt;right);
 }
-void solve(int l,int r,int root){           //将l~n区间中的根结点放置在层次序列的对应位置上 
-    if(l&gt;r) return;                         //如果该区间没有元素，直接返回 
-    int index=getroot(l,r);                 //计算根在输入序列中的位置 
-    L[root]=v[index];                       //将根放在层次序列的位置上 
-    solve(l,index-1,2*root+1);              //递归求解右子树的根 
-    solve(index+1,r,2*root+2);              //递归求解右子树的根 
+void updatahigh(Node *root){                //更新结点的平衡因子 
+    root-&gt;high=max(gethigh(root-&gt;left),gethigh(root-&gt;right))+1;
+}
+void L(Node *&amp;root){                        //左旋 
+    Node *temp=root-&gt;right;
+    root-&gt;right=temp-&gt;left;
+    temp-&gt;left=root;
+    updatahigh(root);
+    updatahigh(temp);
+    root=temp;
+}
+void R(Node *&amp;root){                        //右旋 
+    Node *temp=root-&gt;left;
+    root-&gt;left=temp-&gt;right;
+    temp-&gt;right=root;
+    updatahigh(root);
+    updatahigh(temp);
+    root=temp;
+}
+void Insert(Node *&amp;root,int x){             //插入 
+    if(root==NULL){
+        root=new Node;
+        root-&gt;data=x;
+        return;
+    }
+    if(x&lt;root-&gt;data){
+        Insert(root-&gt;left,x);
+        updatahigh(root);
+        if(getbf(root)==2){
+            if(getbf(root-&gt;left)==1)
+                R(root);
+            else if(getbf(root-&gt;left)==-1){
+                L(root-&gt;left);
+                R(root);
+            }
+        }
+    }
+    else{
+        Insert(root-&gt;right,x);
+        updatahigh(root);
+        if(getbf(root)==-2){
+            if(getbf(root-&gt;right)==-1)
+                L(root);
+            else if(getbf(root-&gt;right)==1){
+                R(root-&gt;right);
+                L(root);
+            }
+        }
+    }
 }
 int main(void){
 #ifdef ONLINE_JUDGE
 #else
     freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
+    Node *root=NULL;
     int n;
-    scanf(&quot;%d&quot;,&amp;n);
-    v.resize(n);    L.resize(n);
-    for(int i=0;i&lt;n;i++)
-        scanf(&quot;%d&quot;,&amp;v[i]);
-    sort(v.begin(),v.end());                //排序，搜索树的中序序列是有序的 
-    solve(0,n-1,0);                         //递归的起始参数 
-    for(int i=0;i&lt;n;i++){                   //输出结果 
-        if(i) putchar(' ');
-        printf(&quot;%d&quot;,L[i]);
-    }   
+    cin&gt;&gt;n;
+    for(int i=0;i&lt;n;i++){
+        int temp;
+        cin&gt;&gt;temp;
+        Insert(root,temp);
+    }
+    cout&lt;&lt;root-&gt;data;
     return 0;
 } 
 </code></pre>
@@ -362,7 +424,7 @@ int main(void){
                 
               
             
-              <span id="/2019/10/pat_a1064/" class="leancloud_visitors" data-flag-title="PAT_A1064">
+              <span id="/2019/10/pat_a1066/" class="leancloud_visitors" data-flag-title="PAT_A1066">
                 <span class="post-meta-item-text">文章阅读量 </span>
                 <span class="leancloud-visitors-count">1000000</span>
                 <p></p>
@@ -389,7 +451,7 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1065/" data-tooltip="PAT_A1065">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1067/" data-tooltip="PAT_A1067">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -397,7 +459,7 @@ int main(void){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1063/" data-tooltip="PAT_A1063">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1065/" data-tooltip="PAT_A1065">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -457,7 +519,7 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1065/" data-tooltip="PAT_A1065">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1067/" data-tooltip="PAT_A1067">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -465,7 +527,7 @@ int main(void){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1063/" data-tooltip="PAT_A1063">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1065/" data-tooltip="PAT_A1065">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -597,9 +659,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/saquarius.github.io\/2019\/10\/pat_a1064\/';
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/10\/pat_a1066\/';
           
-            this.page.identifier = '\/2019\/10\/pat_a1064\/'
+            this.page.identifier = '\/2019\/10\/pat_a1066\/'
           
         };
         (function() {
