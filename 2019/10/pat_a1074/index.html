@@ -7,30 +7,30 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
-<meta name="keywords" content="PAT, PAT甲级, PATA1072, C, C&#43;&#43;, PAT">
-<meta name="description" content="PAT甲级1072.
+<meta name="keywords" content="PAT, PAT甲级, PATA1074, C, C&#43;&#43;, PAT">
+<meta name="description" content="PAT甲级1074.
 ">
 
 
-<meta property="og:description" content="PAT甲级1072.
+<meta property="og:description" content="PAT甲级1074.
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT_A1072">
-<meta name="twitter:title" content="PAT_A1072">
-<meta property="og:url" content="https://saquarius.github.io/2019/10/pat_a1072/">
-<meta property="twitter:url" content="https://saquarius.github.io/2019/10/pat_a1072/">
+<meta property="og:title" content="PAT_A1074">
+<meta name="twitter:title" content="PAT_A1074">
+<meta property="og:url" content="https://saquarius.github.io/2019/10/pat_a1074/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/10/pat_a1074/">
 <meta property="og:site_name" content="SAquarius的梦想屋">
-<meta property="og:description" content="PAT甲级1072.
+<meta property="og:description" content="PAT甲级1074.
 ">
-<meta name="twitter:description" content="PAT甲级1072.
+<meta name="twitter:description" content="PAT甲级1074.
 ">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2019-10-19T22:17:41">
+    <meta property="article:published_time" content="2019-10-21T23:05:23">
   
   
-    <meta property="article:modified_time" content="2019-10-19T22:17:41">
+    <meta property="article:modified_time" content="2019-10-21T23:05:23">
   
   
   
@@ -44,7 +44,7 @@
     
       <meta property="article:tag" content="PAT">
     
-      <meta property="article:tag" content="最短路径">
+      <meta property="article:tag" content="链表">
     
   
 
@@ -68,14 +68,14 @@
   <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
 
 
-    <title>PAT_A1072</title>
+    <title>PAT_A1074</title>
 
     <link rel="icon" href="https://saquarius.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://saquarius.github.io/2019/10/pat_a1072/">
+    <link rel="canonical" href="https://saquarius.github.io/2019/10/pat_a1074/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -226,15 +226,15 @@
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      PAT_A1072
+      PAT_A1074
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-10-19T22:17:41&#43;08:00">
+      <time itemprop="datePublished" datetime="2019-10-21T23:05:23&#43;08:00">
         
-  十月 19, 2019
+  十月 21, 2019
 
       </time>
     
@@ -255,78 +255,107 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <pre><code>PAT甲级1072.
+              <pre><code>PAT甲级1074.
 </code></pre>
 
 <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
 <ul>
-<li><a href="#a1072">A1072</a>
+<li><a href="#a1074">A1074</a>
 <ul>
 <li><a href="#题目">题目</a></li>
-<li><a href="#样例">样例</a>
-<ul>
-<li><a href="#样例1">样例1</a></li>
-<li><a href="#样例2">样例2</a></li>
-</ul></li>
+<li><a href="#样例">样例</a></li>
 <li><a href="#思路和坑点">思路和坑点</a></li>
-<li><a href="#ac代码">AC代码</a></li>
+<li><a href="#ac代码-数组实现">AC代码（数组实现）</a></li>
+<li><a href="#ac代码-链表实现">AC代码（链表实现）</a></li>
 </ul></li>
 </ul>
 </nav>  
 
-<h1 id="a1072">A1072</h1>
+<h1 id="a1074">A1074</h1>
 
 <h2 id="题目">题目</h2>
 
-<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1072.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1074.png" alt="" /></p>
 
 <h2 id="样例">样例</h2>
 
-<h3 id="样例1">样例1</h3>
-
 <p>输入:</p>
 
-<pre><code>4 3 11 5
-1 2 2
-1 4 2
-1 G1 4
-1 G2 3
-2 3 2
-2 G2 1
-3 4 2
-3 G3 2
-4 G1 3
-G2 G1 1
-G3 G2 2
+<pre><code>00100 6 4
+00000 4 99999
+00100 1 12309
+68237 6 -1
+33218 3 00000
+99999 5 68237
+12309 2 33218
 </code></pre>
 
 <p>输出:</p>
 
-<pre><code>G1
-2.0 3.3
-</code></pre>
-
-<h3 id="样例2">样例2</h3>
-
-<p>输入:</p>
-
-<pre><code>2 1 2 10
-1 G1 9
-2 G1 20
-</code></pre>
-
-<p>输出:</p>
-
-<pre><code>No Solution
+<pre><code>00000 4 33218
+33218 3 12309
+12309 2 00100
+00100 1 99999
+99999 5 68237
+68237 6 -1
 </code></pre>
 
 <h2 id="思路和坑点">思路和坑点</h2>
 
-<p>　　对每一个加油站，使用dijkstra算法求解单源最短距离，然后计算每一个加油站的各项要求指标，将符合的备选方案存放在数组中，按照要求排序输出符合最终结果的一个。<br />
+<p>　　有两种思路。<br />
+　　第一种：将链表存放在数组中，然后每K个逆置，结尾不足k个不逆置。<br />
+　　第二种：没k个进行一组链表的头插，实现逆置。<br />
 　　<strong>坑点:</strong><br />
-　　读入数据的时候要区分居民点和加油站，需要把加油站映射成为图中的顶点。</p>
+　　如果使用数组的方法，需要过滤掉不属于链表中的多余结点。</p>
 
-<h2 id="ac代码">AC代码</h2>
+<h2 id="ac代码-数组实现">AC代码（数组实现）</h2>
+
+<pre><code>#include&lt;iostream&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;math.h&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+#include&lt;string&gt;
+#include&lt;map&gt;
+#include&lt;unordered_map&gt;
+#include&lt;queue&gt;
+#include&lt;set&gt;
+#include&lt;stack&gt;
+using namespace std;
+#define MAXN 100005
+typedef struct node{                //结点结构体 
+    int id,data,next;
+}Node;
+vector&lt;Node&gt; all(MAXN);             //存放所有输入结点 
+int main(void){
+#ifdef ONLINE_JUDGE
+#else
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+#endif
+    int head,n,k;
+    scanf(&quot;%d%d%d&quot;,&amp;head,&amp;n,&amp;k);    
+    for(int i=0;i&lt;n;i++){           //读取输入 
+        int id;
+        scanf(&quot;%d&quot;,&amp;id);
+        all[id].id=id;
+        scanf(&quot;%d%d&quot;,&amp;all[id].data,&amp;all[id].next);
+    }
+    vector&lt;Node&gt; List;              //用数组存放有效结点 
+    for(int i=head;i!=-1;i=all[i].next)
+        List.push_back(all[i]);     //有效结点存入数组 
+    for(int i=0;i&lt;List.size()/k;i++)//每K个逆序 
+        reverse(List.begin()+i*k,List.begin()+(i+1)*k);
+    int i;
+    for(i=0;i&lt;List.size()-1;i++)    //输出 ，每一个的next是下一个的id，最后一个特殊处理 
+        printf(&quot;%05d %d %05d\n&quot;,List[i].id,List[i].data,List[i+1].id);
+    printf(&quot;%05d %d -1&quot;,List[i].id,List[i].data);
+    return 0;
+} 
+</code></pre>
+
+<h2 id="ac代码-链表实现">AC代码（链表实现）</h2>
 
 <pre><code>#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
@@ -338,117 +367,53 @@ G3 G2 2
 #include&lt;unordered_map&gt;
 #include&lt;vector&gt;
 #include&lt;queue&gt; 
-#include&lt;stack&gt;
-#include&lt;string&gt;
-
+#include&lt;string&gt; 
 using namespace std;
-#define MAXV 1015
-#define INF 0x3fffffff
-
-typedef struct gas{                                     //加油站结构体 
-    string id;                                          //id 
-    int mindis;                                         //到城市的最短距离 
-    double ad;                                          //到城市的平均距离 
-}Gas;
-typedef struct node{                                    //邻接表储存图 
-    int v,w;
-    node(int _v,int _w):v(_v),w(_w){}
+typedef struct{
+    int id,data,next;
 }Node;
-vector&lt;Node&gt; G[MAXV];
-vector&lt;Gas&gt; gasout;                                     //保存符合条件的加油站
-bool vis[MAXV];                                         //访问标记数组 
-int n,m,k,d;                                            
-void D(int s);                                          //Dijkstra求单源最短路径 
-void getdis(int &amp;a,int &amp;b,int &amp;c);                      //读取一条边的信息 
-bool cmp(Gas a,Gas b){                                  //对答案进行排序
-    if(a.mindis!=b.mindis)  return a.mindis&gt;b.mindis;   //按照最小距离尽可能远 
-    else if(a.ad!=b.ad)     return a.ad&lt;b.ad;           //按照平均距离尽可能小 
-    else                    return a.id&lt;b.id;           //按照编号尽可能小 
-}
+Node List[100005]; 
 int main(){    
 #ifdef ONLINE_JUDGE    
 #else    
     freopen(&quot;1.txt&quot;, &quot;r&quot;, stdin);    
 #endif    
-    scanf(&quot;%d%d%d%d&quot;,&amp;n,&amp;m,&amp;k,&amp;d);
-    for(int i=0;i&lt;k;i++){
-        int a,b,c;
-        getdis(a,b,c);                                  //读入一条边信息 
-        G[a].push_back(node(b,c));                      //构建图 
-        G[b].push_back(node(a,c));
+    int n,k;                        //n为所谓的节点数量 ，k为逆转数 
+    int cnt=0;                      //用于记录已经处理的节点数量 
+    int L=100001;                   //链表表头的空结点 
+    int head,temp,r,rear;           //head为链表第一个结点 ，temp为保证链表不掉链，r用于最后的遍历输出，rear用于记录每次链表的尾巴，每k次需要从尾巴处头插 
+    cin&gt;&gt;head&gt;&gt;n&gt;&gt;k;
+    for(int i=0;i&lt;n;i++){           //读入数据 
+        int index;
+        scanf(&quot;%d&quot;,&amp;index);
+        scanf(&quot;%d%d&quot;,&amp;List[index].data,&amp;List[index].next);
     }
-    for(int i=1;i&lt;=m;i++){                              //对每一个加油站求解单源最短路径 
-        D(n+i);
+    n=0;                            //统计排除多余结点 
+    for(int i=head;i!=-1;i=List[i].next){
+        n++;
     }
-    if(gasout.size()==0)    puts(&quot;No Solution&quot;);        //如果没有答案 
-    else{
-        sort(gasout.begin(),gasout.end(),cmp);          //排序后输出第一个 
-        cout&lt;&lt;gasout[0].id;
-        printf(&quot;\n%.1f %.1f&quot;,gasout[0].mindis*1.0,gasout[0].ad);
+    List[L].next=-1;                //摘下空的头结点，开始头插 
+    rear=head;                      //每次第一个头插的结点会成为链表的尾巴 
+    while(cnt!=n-n%k){              //如果不是k的整数倍个结点只需要处理前n-n%k个结点 
+        temp=List[head].next;
+        List[head].next=List[L].next;
+        List[L].next=head;;
+        cnt++;
+        if(cnt%k==0){               //每当头插k个实现了逆序后，要更新到当前链表的尾巴处继续新一轮的头插 
+            L=rear;
+            rear=temp;
+        }
+        head=temp; 
     }
-    
+    if(cnt!=n){                     //如果有尾巴，处理尾巴 
+        List[L].next=head;
+    }
+    //输出 
+    for(r=List[100001].next;List[r].next!=-1;r=List[r].next){
+        printf(&quot;%05d %d %05d\n&quot;,r,List[r].data,List[r].next);
+    }
+    printf(&quot;%05d %d -1&quot;,r,List[r].data);
     return 0;    
-}
-void D(int s)
-{
-    int dis[MAXV];
-    fill(dis,dis+MAXV,INF);
-    fill(vis,vis+MAXV,false);
-    dis[s]=0;
-    for(int i=1;i&lt;=n+m;i++){
-        int u=-1,MIN=INF;
-        for(int j=1;j&lt;=n+m;j++){
-            if(vis[j]==false&amp;&amp;dis[j]&lt;MIN){
-                u=j;
-                MIN=dis[j];
-            }
-        }
-        if(u==-1) return;
-        vis[u]=true;
-        for(int j=0;j&lt;G[u].size();j++){
-            int v=G[u][j].v;
-            if(vis[v]==false&amp;&amp;dis[u]+G[u][j].w&lt;dis[v]){
-                dis[v]=dis[u]+G[u][j].w;
-            }
-        }
-    }
-    double sum=0;
-    int min=INF;
-    for(int i=1;i&lt;=n;i++){                              //统计加油站和居民住房的关系值 
-        if(dis[i]&gt;d)                                    //如果到居民距离超过服务距离，不能入选 
-            return;
-        sum+=dis[i]; 
-        min=dis[i]&lt;min?dis[i]:min;
-    }
-    int index=s-n;                                      //如果满足选择要求，加入最后的答案数组中 
-    string id=&quot;G&quot;;
-    if(index==10)   id=&quot;G10&quot;;                           //G10比较特殊，单独处理 
-    else id.push_back('0'+index);
-    Gas isok;
-    isok.id=id;
-    isok.ad=sum/n;
-    isok.mindis=min;
-    gasout.push_back(isok);
-}
-void getdis(int &amp;a,int &amp;b,int &amp;c)
-{
-    string st1,st2,st3;
-    cin&gt;&gt;st1&gt;&gt;st2&gt;&gt;st3;                                 //按照字符串读入 
-    if(st1[0]=='G'){                                    //如果是加油站，映射成结点n+i 
-        string temp=st1.substr(1,st1.size()-1);
-        sscanf(temp.c_str(),&quot;%d&quot;,&amp;a);
-        a+=n;
-    }
-    else
-        sscanf(st1.c_str(),&quot;%d&quot;,&amp;a);                    //如果是居民楼，直接映射成结点 
-    if(st2[0]=='G'){
-        string temp=st2.substr(1,st2.size()-1);
-        sscanf(temp.c_str(),&quot;%d&quot;,&amp;b);
-        b+=n;
-    }
-    else
-        sscanf(st2.c_str(),&quot;%d&quot;,&amp;b);
-    sscanf(st3.c_str(),&quot;%d&quot;,&amp;c);
 }
 </code></pre>
               
@@ -464,13 +429,13 @@ void getdis(int &amp;a,int &amp;b,int &amp;c)
                     
   <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/pat/">PAT</a>
 
-  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/">最短路径</a>
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E9%93%BE%E8%A1%A8/">链表</a>
 
                   </div>
                 
               
             
-              <span id="/2019/10/pat_a1072/" class="leancloud_visitors" data-flag-title="PAT_A1072">
+              <span id="/2019/10/pat_a1074/" class="leancloud_visitors" data-flag-title="PAT_A1074">
                 <span class="post-meta-item-text">文章阅读量 </span>
                 <span class="leancloud-visitors-count">1000000</span>
                 <p></p>
@@ -497,7 +462,7 @@ void getdis(int &amp;a,int &amp;b,int &amp;c)
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1073/" data-tooltip="PAT_A1073">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1075/" data-tooltip="PAT_A1075">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -505,7 +470,7 @@ void getdis(int &amp;a,int &amp;b,int &amp;c)
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1071/" data-tooltip="PAT_A1071">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1073/" data-tooltip="PAT_A1073">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -565,7 +530,7 @@ void getdis(int &amp;a,int &amp;b,int &amp;c)
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1073/" data-tooltip="PAT_A1073">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1075/" data-tooltip="PAT_A1075">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -573,7 +538,7 @@ void getdis(int &amp;a,int &amp;b,int &amp;c)
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1071/" data-tooltip="PAT_A1071">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1073/" data-tooltip="PAT_A1073">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -705,9 +670,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/saquarius.github.io\/2019\/10\/pat_a1072\/';
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/10\/pat_a1074\/';
           
-            this.page.identifier = '\/2019\/10\/pat_a1072\/'
+            this.page.identifier = '\/2019\/10\/pat_a1074\/'
           
         };
         (function() {
