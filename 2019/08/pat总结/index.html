@@ -1258,7 +1258,7 @@ typedef strcut node Node;
 
 <pre><code>//素数判定方法
 bool isprime(int n){            //判定n是不是素数
-    if(x&lt;1)     return false;   //特判
+    if(x&lt;=1)     return false;   //特判
     int sqr=(int)sqrt(1.0*n);   //得到根号n，sqrt函数在c++中参数必须是浮点型
     for(int i=2;i&lt;=sqr;i++){    //如果n有除了自身和1以外的因子，则不是素数
         if(n%i==0)
