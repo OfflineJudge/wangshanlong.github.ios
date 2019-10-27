@@ -7,30 +7,30 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
-<meta name="keywords" content="PAT, PAT甲级, PATA1080, C, C&#43;&#43;, PAT">
-<meta name="description" content="PAT甲级1080.
+<meta name="keywords" content="PAT, PAT甲级, PATA1083, C, C&#43;&#43;, PAT">
+<meta name="description" content="PAT甲级1083.
 ">
 
 
-<meta property="og:description" content="PAT甲级1080.
+<meta property="og:description" content="PAT甲级1083.
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT_A1080">
-<meta name="twitter:title" content="PAT_A1080">
-<meta property="og:url" content="https://saquarius.github.io/2019/10/pat_a1080/">
-<meta property="twitter:url" content="https://saquarius.github.io/2019/10/pat_a1080/">
+<meta property="og:title" content="PAT_A1083">
+<meta name="twitter:title" content="PAT_A1083">
+<meta property="og:url" content="https://saquarius.github.io/2019/10/pat_a1083/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/10/pat_a1083/">
 <meta property="og:site_name" content="SAquarius的梦想屋">
-<meta property="og:description" content="PAT甲级1080.
+<meta property="og:description" content="PAT甲级1083.
 ">
-<meta name="twitter:description" content="PAT甲级1080.
+<meta name="twitter:description" content="PAT甲级1083.
 ">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2019-10-25T23:02:40">
+    <meta property="article:published_time" content="2019-10-27T21:41:36">
   
   
-    <meta property="article:modified_time" content="2019-10-25T23:02:40">
+    <meta property="article:modified_time" content="2019-10-27T21:41:36">
   
   
   
@@ -45,8 +45,6 @@
       <meta property="article:tag" content="PAT">
     
       <meta property="article:tag" content="排序">
-    
-      <meta property="article:tag" content="模拟">
     
   
 
@@ -70,14 +68,14 @@
   <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
 
 
-    <title>PAT_A1080</title>
+    <title>PAT_A1083</title>
 
     <link rel="icon" href="https://saquarius.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://saquarius.github.io/2019/10/pat_a1080/">
+    <link rel="canonical" href="https://saquarius.github.io/2019/10/pat_a1083/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -228,15 +226,15 @@
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      PAT_A1080
+      PAT_A1083
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-10-25T23:02:40&#43;08:00">
+      <time itemprop="datePublished" datetime="2019-10-27T21:41:36&#43;08:00">
         
-  十月 25, 2019
+  十月 27, 2019
 
       </time>
     
@@ -257,162 +255,122 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <pre><code>PAT甲级1080.
+              <pre><code>PAT甲级1083.
 </code></pre>
 
 <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
 <ul>
-<li><a href="#a1080">A1080</a>
+<li><a href="#a1083">A1083</a>
 <ul>
 <li><a href="#题目">题目</a></li>
-<li><a href="#样例">样例</a></li>
+<li><a href="#样例">样例</a>
+<ul>
+<li><a href="#样例1">样例1</a></li>
+<li><a href="#样例2">样例2</a></li>
+</ul></li>
 <li><a href="#思路和坑点">思路和坑点</a></li>
 <li><a href="#ac代码">AC代码</a></li>
 </ul></li>
 </ul>
 </nav>  
 
-<h1 id="a1080">A1080</h1>
+<h1 id="a1083">A1083</h1>
 
 <h2 id="题目">题目</h2>
 
-<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1080.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1083.png" alt="" /></p>
 
 <h2 id="样例">样例</h2>
 
+<h3 id="样例1">样例1</h3>
+
 <p>输入:</p>
 
-<pre><code>11 6 3
-2 1 2 2 2 3
-100 100 0 1 2
-60 60 2 3 5
-100 90 0 3 4
-90 100 1 2 0
-90 90 5 1 3
-80 90 1 0 2
-80 80 0 1 2
-80 80 0 1 2
-80 70 1 3 2
-70 80 1 2 3
-100 100 0 2 4
+<pre><code>4
+Tom CS000001 59
+Joe Math990112 89
+Mike CS991301 100
+Mary EE990830 95
+60 100
 </code></pre>
 
 <p>输出:</p>
 
-<pre><code>0 10
-3
-5 6 7
-2 8
+<pre><code>Mike CS991301
+Mary EE990830
+Joe Math990112
+</code></pre>
 
-1 4
+<h3 id="样例2">样例2</h3>
+
+<p>输入:</p>
+
+<pre><code>2
+Jean AA980920 60
+Ann CS01 80
+90 95
+</code></pre>
+
+<p>输出:</p>
+
+<pre><code>NONE
 </code></pre>
 
 <h2 id="思路和坑点">思路和坑点</h2>
 
-<p>　　录取规则：</p>
-
-<ul>
-<li>按照总成绩排序，如果总成绩相同，按照ge成绩排序，如果两项都相同，则排名相同。</li>
-<li>所有申请按照排名依次进行录取。</li>
-<li>对于每一个申请来说，对于其申请的学校，按照申请的志愿顺序进行录取。如果志愿学校没有录取满，则录取；如果申请的学校录取满，但是该学生和此学校上一个录取的学生同排名，则超额录取；否则，按顺序考虑下一个志愿。如果所有志愿都未能被录取，则该申请无法被录取。<br /></li>
-</ul>
-
-<p>　　对学生按照要求进行排序，然后遍历计算排名。之后按照录取要求，一个一个的录取，直到最后，并输出结果。</p>
+<p>　　对学生按照成绩从高到低排序，然后遍历查询输出符合条件的学生，为了优化排序的时间，使用下标排序的方法。</p>
 
 <h2 id="ac代码">AC代码</h2>
 
 <pre><code>#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
 #include&lt;stdlib.h&gt;
-#include&lt;math.h&gt;
+#include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
-#include&lt;algorithm&gt; 
+#include&lt;math.h&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+#include&lt;string&gt;
 #include&lt;map&gt;
 #include&lt;unordered_map&gt;
-#include&lt;vector&gt;
-#include&lt;queue&gt; 
+#include&lt;queue&gt;
+#include&lt;set&gt;
 #include&lt;stack&gt;
-#include&lt;string&gt;
 using namespace std;
-#define MAXA 40009
-#define MAXS 105
-typedef struct school{      //学校结构体 
-    int num;                //招收人数 
-    vector&lt;int&gt; get;        //录取结果数组 
-}SC;
-typedef struct app{         //学生申请的结构体 
-    int rank;               //排名 
-    int ge,gi;              //成绩 
-    int final;              //总成绩 
-    vector&lt;int&gt; choice;     //申请的学校数组 
-}AP;
-SC sch[MAXS];               //学校数组 
-AP apps[MAXA];              //学生数组 ，由于使用下标排序，因此定义成全局变量 
-vector&lt;int&gt; sindex;         //用于学生的下标排序 
-int n,m,k;
-bool cmp(int a,int b){      //排序规则，先按总成绩从高到低排序，在按照ge成绩从高往低排序 
-    if(apps[a].final!=apps[b].final)    return apps[a].final&gt;apps[b].final;
-    else        return apps[a].ge&gt;apps[b].ge;
+typedef struct node{            //学生结构体 
+    string name,id;
+    int score;
+}Node;
+vector&lt;Node&gt; v;
+vector&lt;int&gt; sid;                            //排序用的下标数组 
+bool cmp(int a,int b){                      //排序函数 
+    return v[a].score&gt;v[b].score;
 }
-int main(){    
-#ifdef ONLINE_JUDGE    
-#else    
-    freopen(&quot;1.txt&quot;, &quot;r&quot;, stdin);    
-#endif    
-    scanf(&quot;%d%d%d&quot;,&amp;n,&amp;m,&amp;k);
-    for(int i=0;i&lt;m;i++){                                   //读入学校信息 
-        scanf(&quot;%d&quot;,&amp;sch[i].num);
+int main(void){
+#ifdef ONLINE_JUDGE
+#else
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+#endif
+    int n; scanf(&quot;%d&quot;,&amp;n);
+    v.resize(n); sid.resize(n);             //初始化结构体数组大小和下标数组大小 
+    for(int i=0;i&lt;n;i++){
+        sid[i]=i;                           //初始化下标数组 
+        cin&gt;&gt;v[i].name&gt;&gt;v[i].id;            //读入学生数据 
+        scanf(&quot;%d&quot;,&amp;v[i].score);
     }
-    for(int i=0;i&lt;n;i++){                                   //读入申请信息 
-        sindex.push_back(i);
-        scanf(&quot;%d%d&quot;,&amp;apps[i].ge,&amp;apps[i].gi);
-        apps[i].final=apps[i].ge+apps[i].gi;                //计算总成绩 
-        for(int j=0;j&lt;k;j++){                               //读入想要申请的学校 
-            int num;
-            scanf(&quot;%d&quot;,&amp;num);
-            apps[i].choice.push_back(num);
+    sort(sid.begin(),sid.end(),cmp);        //排序 
+    int a,b,cnt=0;
+    scanf(&quot;%d%d&quot;,&amp;a,&amp;b);                    //读取上下限，cnt用于计数 
+    for(int i=0;i&lt;n;i++){
+        int k=sid[i];
+        if(v[k].score&gt;=a&amp;&amp;v[k].score&lt;=b){   //如果满足要求，输出并计数 
+            printf(&quot;%s %s\n&quot;,v[k].name.c_str(),v[k].id.c_str());
+            cnt++;
         }
+        else if(v[k].score&lt;a) break;        //由于分数从高到低排序，所以一旦分数低于下届，结束循环 
     }
-    sort(sindex.begin(),sindex.end(),cmp);                  //学生申请排序 
-
-    apps[sindex[0]].rank=0;                                 //构建排名，这里从0开始，同排名模式0，1，1，2，2，3，4 类似的方式 
-    for(int i=1;i&lt;sindex.size();i++){
-        int v=sindex[i];                                    //当前学生申请的序号 
-        int pre=sindex[i-1];                                //前一个学生的序号 
-        if(apps[v].final==apps[pre].final&amp;&amp;apps[v].ge==apps[pre].ge)
-            apps[v].rank=apps[pre].rank;                    //如果和前一个学生并列，则排名相同 
-        else
-            apps[v].rank=apps[pre].rank+1;                  //否则在前一个排名的基础上+1 
-    }
-    for(int i=0;i&lt;sindex.size();i++){                       //遍历所有的申请，开始录取环节 
-        int v=sindex[i];
-        for(int j=0;j&lt;k;j++){                               //遍历申请的每一个选择 
-            int ch=apps[v].choice[j];                       //获取申请学校的编号 
-            if(sch[ch].get.size()&lt;sch[ch].num){             //如果申请的学校没有招满，则收入 
-                sch[ch].get.push_back(v);
-                break;
-            }
-            else{                                           //如果已经招满，但该学生和此学校最后收入的学生同排名，则超额录取 
-                int tail=sch[ch].get.back();
-                if(apps[v].rank==apps[tail].rank){
-                    sch[ch].get.push_back(v);
-                    break;
-                }       
-            }
-        }
-    }
-    for(int i=0;i&lt;m;i++){                                   //输出结果 
-        if(sch[i].get.size()!=0){
-            sort(sch[i].get.begin(),sch[i].get.end());
-            for(int j=0;j&lt;sch[i].get.size();j++){
-                if(j) putchar(' ');
-                printf(&quot;%d&quot;,sch[i].get[j]);
-            }
-        }
-        putchar('\n');
-    }
-    return 0;    
-}
+    if(cnt==0) puts(&quot;NONE&quot;);                //如果不存在给定范围内的学生，输出NONE 
+    return 0;
+} 
 </code></pre>
               
             </div>
@@ -429,13 +387,11 @@ int main(){
 
   <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E6%8E%92%E5%BA%8F/">排序</a>
 
-  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E6%A8%A1%E6%8B%9F/">模拟</a>
-
                   </div>
                 
               
             
-              <span id="/2019/10/pat_a1080/" class="leancloud_visitors" data-flag-title="PAT_A1080">
+              <span id="/2019/10/pat_a1083/" class="leancloud_visitors" data-flag-title="PAT_A1083">
                 <span class="post-meta-item-text">文章阅读量 </span>
                 <span class="leancloud-visitors-count">1000000</span>
                 <p></p>
@@ -462,7 +418,7 @@ int main(){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1081/" data-tooltip="PAT_A1081">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -470,7 +426,7 @@ int main(){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1079/" data-tooltip="PAT_A1079">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1082/" data-tooltip="PAT_A1082">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -530,7 +486,7 @@ int main(){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1081/" data-tooltip="PAT_A1081">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -538,7 +494,7 @@ int main(){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1079/" data-tooltip="PAT_A1079">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/10/pat_a1082/" data-tooltip="PAT_A1082">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -670,9 +626,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/saquarius.github.io\/2019\/10\/pat_a1080\/';
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/10\/pat_a1083\/';
           
-            this.page.identifier = '\/2019\/10\/pat_a1080\/'
+            this.page.identifier = '\/2019\/10\/pat_a1083\/'
           
         };
         (function() {
