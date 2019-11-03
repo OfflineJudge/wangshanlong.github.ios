@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="SAquarius">
+<meta name="keywords" content="PAT, PAT甲级, PATA1088, C, C&#43;&#43;, PAT">
+<meta name="description" content="PAT甲级1088.
+">
+
+
+<meta property="og:description" content="PAT甲级1088.
+">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT_A1088">
+<meta name="twitter:title" content="PAT_A1088">
+<meta property="og:url" content="https://saquarius.github.io/2019/11/pat_a1088/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/11/pat_a1088/">
+<meta property="og:site_name" content="SAquarius的梦想屋">
+<meta property="og:description" content="PAT甲级1088.
+">
+<meta name="twitter:description" content="PAT甲级1088.
+">
+<meta property="og:locale" content="zh-cn">
+
+  
+    <meta property="article:published_time" content="2019-11-03T23:22:54">
+  
+  
+    <meta property="article:modified_time" content="2019-11-03T23:22:54">
+  
+  
+  
+    
+      <meta property="article:section" content="PAT">
+    
+      <meta property="article:section" content="PAT甲级">
+    
+  
+  
+    
+      <meta property="article:tag" content="PAT">
+    
+      <meta property="article:tag" content="数学模拟">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://saquarius.github.io/images/PAT_A.png">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/PAT_A.png">
+
+
+
+
+
+  <meta property="og:image" content="https://saquarius.github.io/images/touxiang.png">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
+
+
+    <title>PAT_A1088</title>
+
+    <link rel="icon" href="https://saquarius.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://saquarius.github.io/2019/11/pat_a1088/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://saquarius.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://saquarius.github.io/">SAquarius的梦想屋</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://saquarius.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://saquarius.github.io/images/touxiang.png" alt="作者的图片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://saquarius.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://saquarius.github.io/images/touxiang.png" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">SAquarius</h4>
+        
+          <h5 class="sidebar-profile-bio">All in or nothing, now or never!</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">类别</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">归档</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/SAquarius" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+  <iframe frameborder="no" marginwidth="0" marginheight="0" width=230 height=52 src="//music.163.com/outchain/player?type=0&id=2896870368&auto=1&height=32"></iframe>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      PAT_A1088
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2019-11-03T23:22:54&#43;08:00">
+        
+  十一月 3, 2019
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://saquarius.github.io/categories/pat">PAT</a>, 
+    
+      <a class="category-link" href="https://saquarius.github.io/categories/pat%e7%94%b2%e7%ba%a7">PAT甲级</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <pre><code>PAT甲级1088.
+</code></pre>
+
+<h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#a1088">A1088</a>
+<ul>
+<li><a href="#题目">题目</a></li>
+<li><a href="#样例">样例</a>
+<ul>
+<li><a href="#样例1">样例1</a></li>
+<li><a href="#样例2">样例2</a></li>
+</ul></li>
+<li><a href="#思路和坑点">思路和坑点</a></li>
+<li><a href="#ac代码">AC代码</a></li>
+</ul></li>
+</ul>
+</nav>  
+
+<h1 id="a1088">A1088</h1>
+
+<h2 id="题目">题目</h2>
+
+<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1088.png" alt="" /></p>
+
+<h2 id="样例">样例</h2>
+
+<h3 id="样例1">样例1</h3>
+
+<p>输入:</p>
+
+<pre><code>2/3 -4/2
+</code></pre>
+
+<p>输出:</p>
+
+<pre><code>2/3 + (-2) = (-1 1/3)
+2/3 - (-2) = 2 2/3
+2/3 * (-2) = (-1 1/3)
+2/3 / (-2) = (-1/3)
+</code></pre>
+
+<h3 id="样例2">样例2</h3>
+
+<p>输入:</p>
+
+<pre><code>5/3 0/6
+</code></pre>
+
+<p>输出:</p>
+
+<pre><code>1 2/3 + 0 = 1 2/3
+1 2/3 - 0 = 1 2/3
+1 2/3 * 0 = 0
+1 2/3 / 0 = Inf
+</code></pre>
+
+<h2 id="思路和坑点">思路和坑点</h2>
+
+<p>　　分数的运算。使用结构体表示一个分数。按照分数的计算方法进行计算。<br />
+　　<strong>坑点:</strong><br />
+　　一、分数的表示，即分数的打印，需要考虑真分数，假分数，还有整数已经正负号问题。<br />
+　　二、分数的运算中，需要时时刻刻注意化简分子和分母，另外求解分子和分母的公约数的时候要分别加上绝对值只有再求。</p>
+
+<h2 id="ac代码">AC代码</h2>
+
+<pre><code>#include&lt;iostream&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;math.h&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+#include&lt;string&gt;
+#include&lt;map&gt;
+#include&lt;unordered_map&gt;
+#include&lt;queue&gt;
+#include&lt;set&gt;
+#include&lt;stack&gt;
+using namespace std;
+typedef struct{                         //分数结构体 
+    long long up;
+    long long down;
+}FEN;
+long long gcd(long long a,long long b){//求最小公约数 
+    return !b?a:gcd(b,a%b);
+}
+void yuefen(FEN *py){                   //约分成最简形式 
+    long long y;
+    if(py-&gt;up==0)                       //如果分子是0，令分母为1 
+        py-&gt;down=1;
+    else{
+        y=gcd(abs(py-&gt;up),abs(py-&gt;down));//求分子分母绝对值的最大公约数，一定要绝对值之后求公约数 
+        py-&gt;up/=y; py-&gt;down/=y;         //约分 
+    }
+}
+void print_fen(FEN *pf){                //分数的打印 
+    long long up=pf-&gt;up,down=pf-&gt;down;
+    if(up==0){                          //如果是0，直接打0 
+        putchar('0'); return;
+    }
+    if(up&lt;0) putchar('(');              //如果是负数，打印括号 
+    if(abs(up)&gt;=down){                  //假分数 
+        printf(&quot;%d&quot;,up/down);           //先打印整数部分 
+        if(up%down)                     //如果不是整数，打印分数部分，一定要分子求绝对值 
+            printf(&quot; %d/%d&quot;,abs(up)%down,down);
+    }
+    else
+        printf(&quot;%d/%d&quot;,up%down,down);   //真分数直接打印 
+    if(up&lt;0) putchar(')');              //负数括号配对 
+}
+int main(void)
+{
+#ifdef ONLINE_JUDGE
+#else
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+#endif
+    FEN a,b,temp;
+    scanf(&quot;%lld/%lld %lld/%lld&quot;,&amp;a.up,&amp;a.down,&amp;b.up,&amp;b.down);
+    yuefen(&amp;a); yuefen(&amp;b);
+    
+    temp.down=a.down*b.down;            //加法 
+    temp.up=a.up*b.down+a.down*b.up;
+    yuefen(&amp;temp);                      //算完后要化简 
+    print_fen(&amp;a);printf(&quot; + &quot;);print_fen(&amp;b);printf(&quot; = &quot;);print_fen(&amp;temp);putchar('\n');
+    
+    temp.up=a.up*b.down-a.down*b.up;    //减法，只是分子需要重新计算 
+    yuefen(&amp;temp);
+    print_fen(&amp;a);printf(&quot; - &quot;);print_fen(&amp;b);printf(&quot; = &quot;);print_fen(&amp;temp);putchar('\n');
+    
+    temp.up=a.up*b.up;                  //乘法，只是分子需要重新计算 
+    yuefen(&amp;temp);
+    print_fen(&amp;a);printf(&quot; * &quot;);print_fen(&amp;b);printf(&quot; = &quot;);print_fen(&amp;temp);putchar('\n');
+    
+    if(b.up==0){                        //如果除0，特殊判定 
+        print_fen(&amp;a);printf(&quot; / &quot;);putchar('0');printf(&quot; = &quot;);printf(&quot;Inf&quot;);putchar('\n');
+    }
+    else{
+        temp.down=a.down*b.up;          //除法运算 
+        temp.up=a.up*b.down;
+        if(temp.down&lt;0){                //保证分子带正负号，分母总为正数 
+            temp.down=-temp.down;
+            temp.up=-temp.up;
+        }
+        yuefen(&amp;temp);                  //约分并打印结果 
+        print_fen(&amp;a);printf(&quot; / &quot;);print_fen(&amp;b);printf(&quot; = &quot;);print_fen(&amp;temp);putchar('\n');
+    }
+    return 0;
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/pat/">PAT</a>
+
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E6%95%B0%E5%AD%A6%E6%A8%A1%E6%8B%9F/">数学模拟</a>
+
+                  </div>
+                
+              
+            
+              <span id="/2019/11/pat_a1088/" class="leancloud_visitors" data-flag-title="PAT_A1088">
+                <span class="post-meta-item-text">文章阅读量 </span>
+                <span class="leancloud-visitors-count">1000000</span>
+                <p></p>
+              </span>
+              <div id="vcomments"></div>
+              <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+              <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+              <script type="text/javascript">
+                new Valine({
+                  el: '#vcomments' ,
+                  appId: 'KlN0M7Tjl5V4eppXsbRRGddm-MdYXbMMI',
+                  appKey: 'ln30tBHGmV0B5ljj24hjugN0',
+                  notify: 'true',
+                  verify: '',
+                  avatar:'mp', 
+                  placeholder: '偷偷告诉你~ 填写了邮箱会收到评论回复通知哦~~',
+                  visitor: 'true'
+                });
+              </script>
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1089/" data-tooltip="PAT_A1089">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1087/" data-tooltip="PAT_A1087">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2019 SAquarius. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1089/" data-tooltip="PAT_A1089">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1087/" data-tooltip="PAT_A1087">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://saquarius.github.io/images/touxiang.png" alt="作者的图片" />
+    
+    <h4 id="about-card-name">SAquarius</h4>
+    
+      <div id="about-card-bio">All in or nothing, now or never!</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        学生
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        武汉
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://saquarius.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://saquarius.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+  
+    <script src="https://saquarius.github.io/js/clicklove.js"></script>
+  
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/11\/pat_a1088\/';
+          
+            this.page.identifier = '\/2019\/11\/pat_a1088\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'valine';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
