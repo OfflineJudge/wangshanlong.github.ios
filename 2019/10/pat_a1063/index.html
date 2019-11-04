@@ -266,6 +266,7 @@
 <li><a href="#样例">样例</a></li>
 <li><a href="#思路和坑点">思路和坑点</a></li>
 <li><a href="#ac代码">AC代码</a></li>
+<li><a href="#ac代码-更优">AC代码（更优）</a></li>
 </ul></li>
 </ul>
 </nav>  
@@ -299,7 +300,7 @@
 
 <p>　　使用map容器筛选掉重复的数据，并且使用map映射标记，记录每一个数的归属，属于第一组数据，还是第二组数据，还是共有的。<br />
 <div class="alert warning ">
-  <p>最后一个点擦边过的时间线，根据服务器的情况可能出现超时的可能，应该有更好的解法，但是这个解法的思路清晰些。</p>
+  <p>第一种解法，最后一个擦边过的时间，可能会超时。参见第二种AC代码</p>
 </div></p>
 
 <h2 id="ac代码">AC代码</h2>
@@ -357,6 +358,67 @@ int main(void){
     }
     return 0;
 } 
+</code></pre>
+
+<h2 id="ac代码-更优">AC代码（更优）</h2>
+
+<div class="alert info ">
+  <p>感谢<strong>张勇</strong>同学提供的更优方法</p>
+</div>
+
+<pre><code>#include&lt;iostream&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;math.h&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+#include&lt;string&gt;
+#include&lt;map&gt;
+#include&lt;unordered_map&gt;
+#include&lt;queue&gt;
+#include&lt;set&gt;
+#include&lt;stack&gt;
+using namespace std;
+#define MAXN 51                         //最多有MAXN组
+unordered_map&lt;int,int&gt;G[MAXN];          //创建一个map容器的数组
+int main(void){
+#ifdef ONLINE_JUDGE
+#else
+    freopen(&quot;1.txt&quot;, &quot;r&quot;, stdin);
+#endif
+    int n;
+    scanf(&quot;%d&quot;, &amp;n);
+    for (int i = 1; i &lt;= n; i++){       //读入n组数据，记录在map中
+        int m;
+        scanf(&quot;%d&quot;, &amp;m);
+        for (int j = 0; j &lt; m; j++){
+            int num;
+            scanf(&quot;%d&quot;, &amp;num);
+            G[i][num] = 1;
+        }
+    }
+    
+    int k;
+    scanf(&quot;%d&quot;, &amp;k);
+    for (int i = 0; i &lt; k; i++){        //k组查询
+        int a, b;                       //查询的组号
+        int nc = 0,nt = 0;              //nc为共同数字个数，nt为不同数字个数   
+        scanf(&quot;%d%d&quot;, &amp;a, &amp;b);
+        nt = G[b].size();               //nt初始化为其中一个序列包含的数字个数，然后遍历第二个序列，继续统计
+        for (auto it = G[a].begin(); it != G[a].end(); it++){
+            if (G[b].find(it-&gt;first) != G[b].end())
+                nc++;                   //如果是共有的，nc加一
+            else
+                nt++;                   //如果不是共有的，nt加一
+        }
+        float ans = (1.0 * nc) / (1.0 * nt) * 100;
+        printf(&quot;%.1f&quot;, ans); puts(&quot;%&quot;);
+    }
+
+
+    return 0;
+}
 </code></pre>
               
             </div>
