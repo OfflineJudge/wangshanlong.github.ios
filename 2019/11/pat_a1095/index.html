@@ -7,30 +7,30 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
-<meta name="keywords" content="PAT, PAT甲级, PATA1091, C, C&#43;&#43;, PAT">
-<meta name="description" content="PAT甲级1091.
+<meta name="keywords" content="PAT, PAT甲级, PATA1095, C, C&#43;&#43;, PAT">
+<meta name="description" content="PAT甲级1095.
 ">
 
 
-<meta property="og:description" content="PAT甲级1091.
+<meta property="og:description" content="PAT甲级1095.
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT_A1091">
-<meta name="twitter:title" content="PAT_A1091">
-<meta property="og:url" content="https://saquarius.github.io/2019/11/pat_a1091/">
-<meta property="twitter:url" content="https://saquarius.github.io/2019/11/pat_a1091/">
+<meta property="og:title" content="PAT_A1095">
+<meta name="twitter:title" content="PAT_A1095">
+<meta property="og:url" content="https://saquarius.github.io/2019/11/pat_a1095/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/11/pat_a1095/">
 <meta property="og:site_name" content="SAquarius的梦想屋">
-<meta property="og:description" content="PAT甲级1091.
+<meta property="og:description" content="PAT甲级1095.
 ">
-<meta name="twitter:description" content="PAT甲级1091.
+<meta name="twitter:description" content="PAT甲级1095.
 ">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2019-11-03T23:36:36">
+    <meta property="article:published_time" content="2019-11-05T23:50:21">
   
   
-    <meta property="article:modified_time" content="2019-11-03T23:36:36">
+    <meta property="article:modified_time" content="2019-11-05T23:50:21">
   
   
   
@@ -44,7 +44,9 @@
     
       <meta property="article:tag" content="PAT">
     
-      <meta property="article:tag" content="BFS">
+      <meta property="article:tag" content="模拟">
+    
+      <meta property="article:tag" content="排序">
     
   
 
@@ -68,14 +70,14 @@
   <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
 
 
-    <title>PAT_A1091</title>
+    <title>PAT_A1095</title>
 
     <link rel="icon" href="https://saquarius.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://saquarius.github.io/2019/11/pat_a1091/">
+    <link rel="canonical" href="https://saquarius.github.io/2019/11/pat_a1095/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -226,15 +228,15 @@
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      PAT_A1091
+      PAT_A1095
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-11-03T23:36:36&#43;08:00">
+      <time itemprop="datePublished" datetime="2019-11-05T23:50:21&#43;08:00">
         
-  十一月 3, 2019
+  十一月 5, 2019
 
       </time>
     
@@ -255,12 +257,12 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <pre><code>PAT甲级1091.
+              <pre><code>PAT甲级1095.
 </code></pre>
 
 <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
 <ul>
-<li><a href="#a1091">A1091</a>
+<li><a href="#a1095">A1095</a>
 <ul>
 <li><a href="#题目">题目</a></li>
 <li><a href="#样例">样例</a></li>
@@ -270,124 +272,141 @@
 </ul>
 </nav>  
 
-<h1 id="a1091">A1091</h1>
+<h1 id="a1095">A1095</h1>
 
 <h2 id="题目">题目</h2>
 
-<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1091.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1095.png" alt="" /></p>
 
 <h2 id="样例">样例</h2>
 
 <p>输入:</p>
 
-<pre><code>3 4 5 2
-1 1 1 1
-1 1 1 1
-1 1 1 1
-0 0 1 1
-0 0 1 1
-0 0 1 1
-1 0 1 1
-0 1 0 0
-0 0 0 0
-1 0 1 1
-0 0 0 0
-0 0 0 0
-0 0 0 1
-0 0 0 1
-1 0 0 0
+<pre><code>16 7
+JH007BD 18:00:01 in
+ZD00001 11:30:08 out
+DB8888A 13:00:00 out
+ZA3Q625 23:59:50 out
+ZA133CH 10:23:00 in
+ZD00001 04:09:59 in
+JH007BD 05:09:59 in
+ZA3Q625 11:42:01 out
+JH007BD 05:10:33 in
+ZA3Q625 06:30:50 in
+JH007BD 12:23:42 out
+ZA3Q625 23:55:00 in
+JH007BD 12:24:23 out
+ZA133CH 17:11:22 out
+JH007BD 18:07:01 out
+DB8888A 06:30:50 in
+05:10:00
+06:30:50
+11:00:00
+12:23:42
+14:00:00
+18:00:00
+23:59:00
 </code></pre>
 
 <p>输出:</p>
 
-<pre><code>26
+<pre><code>1
+4
+5
+2
+1
+0
+1
+JH007BD ZD00001 07:20:09
 </code></pre>
 
 <h2 id="思路和坑点">思路和坑点</h2>
 
-<p>　　实际上是一个三维空间中“图”的bfs搜索，通过bfs搜索找到节点数大于指定阈值的连通分量的个数，借鉴《算法笔记》上的写法，使用增量矩阵来对一个坐标点周围的点进行遍历判别。主要在于理解题意，难点在于坐标点有效性的判定。</p>
+<p>　　主要的难点在于：筛选有效信息，大规模数据的快速排序，查询的思路。<br />
+　　筛选有效信息时，将所有信息按照先车牌号，再时间的顺序，然后寻找到一组同一车辆的对应信息作为一组有效记录。<br />
+　　大规模的数据排序，尤其是结构体，建议使用下标的方式排序。<br />
+　　查询的时候按照是时间顺序排序，然后在查询时间点之前的所以记录进行统计，进入则数量加一，出去则数量减一，由于是按照时间先后顺序进行线性查询，所以一次遍历即可，注意遍历指针的定义和初始化要在循环外。</p>
 
 <h2 id="ac代码">AC代码</h2>
 
 <pre><code>#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
 #include&lt;stdlib.h&gt;
-#include&lt;math.h&gt;
+#include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
-#include&lt;algorithm&gt; 
+#include&lt;math.h&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+#include&lt;string&gt;
 #include&lt;map&gt;
 #include&lt;unordered_map&gt;
-#include&lt;vector&gt;
-#include&lt;queue&gt; 
+#include&lt;queue&gt;
+#include&lt;set&gt;
 #include&lt;stack&gt;
-#include&lt;string&gt;
 using namespace std;
-
+#define time_int(hh,mm,ss) (hh*3600+mm*60+ss)       //将时间转化为整形，定义成宏，速度更快些 
 typedef struct node{
-    int x,y,z;
-    node():x(0),y(0),z(0){}
-    node(int _x,int _y,int _z):x(_x),y(_y),z(_z){}
-}Node;
-int n,m,slice,T;
-int G[1290][130][61];               //记录像素的坐标 
-bool inq[1290][130][61]={false};    //记录是否已被访问
-int X[6]={1,-1,0,0,0,0,};           //六个方向坐标的增量矩阵 
-int Y[6]={0,0,1,-1,0,0,};
-int Z[6]={0,0,0,0,1,-1,}; 
-bool judge(int x,int y,int z);      //判断是否应该访问该点 
-int BFS(int x,int y,int z);         //返回对该坐标BFS遍历得到的中风核心中1的个数 
-int main(){    
-#ifdef ONLINE_JUDGE    
-#else    
-    freopen(&quot;1.txt&quot;, &quot;r&quot;, stdin);    
-#endif    
-    scanf(&quot;%d%d%d%d&quot;,&amp;m,&amp;n,&amp;slice,&amp;T);
-    for(int i=0;i&lt;slice;i++){
-        for(int j=0;j&lt;m;j++){
-            for(int k=0;k&lt;n;k++){
-                scanf(&quot;%d&quot;,&amp;G[j][k][i]);
-            }
-        }
+    string id;                                      //车牌号 
+    int time,tag=1;                                 //时间和进出标记，默认1为进，0为出 
+}Car;
+int cmptag=1;                                       //排序标记 
+vector&lt;Car&gt; all;                                    //所有数据 
+vector&lt;int&gt; sid,valid;                              //sid用于第一次下标排序，valid用于保存有效信息的下标，并用于第二次的下标排序 
+map&lt;string,int&gt; parktime;                           //记录每个车的停车时间 
+bool cmp(int a,int b){                              //比较函数 
+    if(cmptag==1){                                  //第一次排序，先按照车牌号排，再按照时间先后排 
+        if(all[a].id!=all[b].id) return all[a].id&lt;all[b].id;
+        else return all[a].time&lt;all[b].time;    
     }
-    int ans=0;
-    for(int i=0;i&lt;slice;i++){
-        for(int j=0;j&lt;m;j++){
-            for(int k=0;k&lt;n;k++){
-                if(G[j][k][i]==1&amp;&amp;inq[j][k][i]==false){
-                    ans+=BFS(j,k,i);
-                }
-            }
-        }
+    else{
+        return all[a].time&lt;all[b].time;             //第二次只按照时间排序 
     }
-    cout&lt;&lt;ans;
-    return 0;    
 }
-bool judge(int x,int y,int z)       //坐标判定 
-{
-    if(x&lt;0||x&gt;=m||y&lt;0||y&gt;=n||z&lt;0||z&gt;=slice)     return false;//坐标越界不访问
-    else if(G[x][y][z]==0||inq[x][y][z]==true)  return false;//像素是0，正常区域，或者已被访问，则不访问
-    else return true;                                       //除了以上情况都进行访问 
- } 
-int BFS(int x,int y,int z){         //bfs遍历函数 
-    int total=0;                    //统计该块中1的个数
-    queue&lt;Node&gt; q;                  //BFS的队列
-    q.push(node(x,y,z));
-    inq[x][y][z]=true;
-    while(!q.empty()){
-        Node now=q.front();
-        q.pop();
-        total++;
-        for(int i=0;i&lt;6;i++){
-            int nx=now.x+X[i];  int ny=now.y+Y[i];  int nz=now.z+Z[i];
-            if(judge(nx,ny,nz)==true){
-                q.push(node(nx,ny,nz));
-                inq[nx][ny][nz]=true;
-            }
-            
+int main(void){
+#ifdef ONLINE_JUDGE
+#else
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+#endif
+    int n,k,hh,mm,ss,maxtime=-1;                    //初始化参数，maxtime表示停留的最长时间 
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;k); 
+    all.resize(n); sid.resize(n);                   //初始化容器大小 
+    for(int i=0;i&lt;n;i++){
+        sid[i]=i;                                   //初始化下标排序数组的下标 
+        cin&gt;&gt;all[i].id;                             //读入信息 
+        char temp[4];
+        scanf(&quot;%d:%d:%d %s&quot;,&amp;hh,&amp;mm,&amp;ss,temp);
+        all[i].time=time_int(hh,mm,ss);
+        if(temp[0]=='o') all[i].tag=0;              //如果是出，tag标记为0 
+    }
+    sort(sid.begin(),sid.end(),cmp);                //第一次排序 
+    for(int i=0;i&lt;n-1;i++){                         //删选有效信息 
+        int a=sid[i],b=sid[i+1];                    //从排好序的序列中，取出相邻的两条信息 
+        if(all[a].id==all[b].id&amp;&amp;all[a].tag==1&amp;&amp;all[b].tag==0){ //如果这两条是同一辆车，且前一个为进，后一个为出，表示一对有效信心 
+            valid.push_back(a); valid.push_back(b); //记录有效记录的下标 
+            int intime=all[b].time-all[a].time;     //计算停车时间 
+            parktime[all[a].id]+=intime;            //总停车时间累加 
+            maxtime=max(maxtime,parktime[all[a].id]);//更新最大停车时间 
+        }   
+    }
+    cmptag=0;                                       //修改排序标记，对有效记录，进行第二次排序 
+    sort(valid.begin(),valid.end(),cmp);
+    int j=0,numcnt=0;                               //j用于遍历有效记录，numcnt用于记录当前车辆个数 
+    for(int i=0;i&lt;k;i++){
+        scanf(&quot;%d:%d:%d&quot;,&amp;hh,&amp;mm,&amp;ss);              //读入查询信息 
+        int qtime=time_int(hh,mm,ss);
+        for(j;j&lt;valid.size();j++){                  //遍历有效信息，因为查询是按照时间顺序的，因此只需要遍历一遍 
+            int ind=valid[j];                       //取出一条有效记录的下标 
+            if(all[ind].time&gt;qtime) break;          //如果该记录在查询事件之后，则本次查询结束 
+            if(all[ind].tag==1) numcnt++;           //如果是进入，numcnt加一 
+            else numcnt--;                          //如果是出去，numcnt减一 
         }
-    } 
-    if(total&gt;=T) return total;      //如果超过阈值，返回1的个数，否则不计算在内，返回0 
-    else         return 0;
+        printf(&quot;%d\n&quot;,numcnt);                      //输出本次查询结果 
+    }
+    for(auto it=parktime.begin();it!=parktime.end();it++){
+        if(it-&gt;second==maxtime)                     //遍历停车时间的容器，并输出和maxparktime相等的车辆id 
+            printf(&quot;%s &quot;,it-&gt;first.c_str());        //map自身有序，保证了id的有序 
+    }
+    printf(&quot;%02d:%02d:%02d&quot;,maxtime/3600,maxtime%3600/60,maxtime%60);
+    return 0;
 } 
 </code></pre>
               
@@ -403,13 +422,15 @@ int BFS(int x,int y,int z){         //bfs遍历函数
                     
   <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/pat/">PAT</a>
 
-  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/bfs/">BFS</a>
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E6%A8%A1%E6%8B%9F/">模拟</a>
+
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E6%8E%92%E5%BA%8F/">排序</a>
 
                   </div>
                 
               
             
-              <span id="/2019/11/pat_a1091/" class="leancloud_visitors" data-flag-title="PAT_A1091">
+              <span id="/2019/11/pat_a1095/" class="leancloud_visitors" data-flag-title="PAT_A1095">
                 <span class="post-meta-item-text">文章阅读量 </span>
                 <span class="leancloud-visitors-count">1000000</span>
                 <p></p>
@@ -436,7 +457,7 @@ int BFS(int x,int y,int z){         //bfs遍历函数
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1092/" data-tooltip="PAT_A1092">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/%E7%BD%AE%E9%A1%B6/" data-tooltip="置顶">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -444,7 +465,7 @@ int BFS(int x,int y,int z){         //bfs遍历函数
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1090/" data-tooltip="PAT_A1090">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1094/" data-tooltip="PAT_A1094">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -504,7 +525,7 @@ int BFS(int x,int y,int z){         //bfs遍历函数
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1092/" data-tooltip="PAT_A1092">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/%E7%BD%AE%E9%A1%B6/" data-tooltip="置顶">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -512,7 +533,7 @@ int BFS(int x,int y,int z){         //bfs遍历函数
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1090/" data-tooltip="PAT_A1090">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1094/" data-tooltip="PAT_A1094">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -644,9 +665,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/saquarius.github.io\/2019\/11\/pat_a1091\/';
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/11\/pat_a1095\/';
           
-            this.page.identifier = '\/2019\/11\/pat_a1091\/'
+            this.page.identifier = '\/2019\/11\/pat_a1095\/'
           
         };
         (function() {

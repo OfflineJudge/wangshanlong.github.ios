@@ -7,30 +7,30 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
-<meta name="keywords" content="PAT, PAT甲级, PATA1091, C, C&#43;&#43;, PAT">
-<meta name="description" content="PAT甲级1091.
+<meta name="keywords" content="PAT, PAT甲级, PATA1093, C, C&#43;&#43;, PAT">
+<meta name="description" content="PAT甲级1093.
 ">
 
 
-<meta property="og:description" content="PAT甲级1091.
+<meta property="og:description" content="PAT甲级1093.
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT_A1091">
-<meta name="twitter:title" content="PAT_A1091">
-<meta property="og:url" content="https://saquarius.github.io/2019/11/pat_a1091/">
-<meta property="twitter:url" content="https://saquarius.github.io/2019/11/pat_a1091/">
+<meta property="og:title" content="PAT_A1093">
+<meta name="twitter:title" content="PAT_A1093">
+<meta property="og:url" content="https://saquarius.github.io/2019/11/pat_a1093/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/11/pat_a1093/">
 <meta property="og:site_name" content="SAquarius的梦想屋">
-<meta property="og:description" content="PAT甲级1091.
+<meta property="og:description" content="PAT甲级1093.
 ">
-<meta name="twitter:description" content="PAT甲级1091.
+<meta name="twitter:description" content="PAT甲级1093.
 ">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2019-11-03T23:36:36">
+    <meta property="article:published_time" content="2019-11-05T23:40:05">
   
   
-    <meta property="article:modified_time" content="2019-11-03T23:36:36">
+    <meta property="article:modified_time" content="2019-11-05T23:40:05">
   
   
   
@@ -44,7 +44,7 @@
     
       <meta property="article:tag" content="PAT">
     
-      <meta property="article:tag" content="BFS">
+      <meta property="article:tag" content="字符串">
     
   
 
@@ -68,14 +68,14 @@
   <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
 
 
-    <title>PAT_A1091</title>
+    <title>PAT_A1093</title>
 
     <link rel="icon" href="https://saquarius.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://saquarius.github.io/2019/11/pat_a1091/">
+    <link rel="canonical" href="https://saquarius.github.io/2019/11/pat_a1093/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -226,15 +226,15 @@
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      PAT_A1091
+      PAT_A1093
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-11-03T23:36:36&#43;08:00">
+      <time itemprop="datePublished" datetime="2019-11-05T23:40:05&#43;08:00">
         
-  十一月 3, 2019
+  十一月 5, 2019
 
       </time>
     
@@ -255,12 +255,12 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <pre><code>PAT甲级1091.
+              <pre><code>PAT甲级1093.
 </code></pre>
 
 <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
 <ul>
-<li><a href="#a1091">A1091</a>
+<li><a href="#a1093">A1093</a>
 <ul>
 <li><a href="#题目">题目</a></li>
 <li><a href="#样例">样例</a></li>
@@ -270,124 +270,65 @@
 </ul>
 </nav>  
 
-<h1 id="a1091">A1091</h1>
+<h1 id="a1093">A1093</h1>
 
 <h2 id="题目">题目</h2>
 
-<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1091.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1093.png" alt="" /></p>
 
 <h2 id="样例">样例</h2>
 
 <p>输入:</p>
 
-<pre><code>3 4 5 2
-1 1 1 1
-1 1 1 1
-1 1 1 1
-0 0 1 1
-0 0 1 1
-0 0 1 1
-1 0 1 1
-0 1 0 0
-0 0 0 0
-1 0 1 1
-0 0 0 0
-0 0 0 0
-0 0 0 1
-0 0 0 1
-1 0 0 0
+<pre><code>APPAPT
 </code></pre>
 
 <p>输出:</p>
 
-<pre><code>26
+<pre><code>2
 </code></pre>
 
 <h2 id="思路和坑点">思路和坑点</h2>
 
-<p>　　实际上是一个三维空间中“图”的bfs搜索，通过bfs搜索找到节点数大于指定阈值的连通分量的个数，借鉴《算法笔记》上的写法，使用增量矩阵来对一个坐标点周围的点进行遍历判别。主要在于理解题意，难点在于坐标点有效性的判定。</p>
+<p>　　计算字符串中的PAT个数。使用数学中的排列组合知识，对于一个序列来说，如果PPPPPPATTTTTTTT，类似的字符串中，对于每一个A来说，若左边有np个P，右边有nt个T，则从左侧挑出一个P有np种可能，右侧挑出一个T有nt种可能，则它可以组成np*nt个“PAT”。</p>
 
 <h2 id="ac代码">AC代码</h2>
 
 <pre><code>#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
 #include&lt;stdlib.h&gt;
-#include&lt;math.h&gt;
+#include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
-#include&lt;algorithm&gt; 
+#include&lt;math.h&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+#include&lt;string&gt;
 #include&lt;map&gt;
 #include&lt;unordered_map&gt;
-#include&lt;vector&gt;
-#include&lt;queue&gt; 
+#include&lt;queue&gt;
+#include&lt;set&gt;
 #include&lt;stack&gt;
-#include&lt;string&gt;
 using namespace std;
-
-typedef struct node{
-    int x,y,z;
-    node():x(0),y(0),z(0){}
-    node(int _x,int _y,int _z):x(_x),y(_y),z(_z){}
-}Node;
-int n,m,slice,T;
-int G[1290][130][61];               //记录像素的坐标 
-bool inq[1290][130][61]={false};    //记录是否已被访问
-int X[6]={1,-1,0,0,0,0,};           //六个方向坐标的增量矩阵 
-int Y[6]={0,0,1,-1,0,0,};
-int Z[6]={0,0,0,0,1,-1,}; 
-bool judge(int x,int y,int z);      //判断是否应该访问该点 
-int BFS(int x,int y,int z);         //返回对该坐标BFS遍历得到的中风核心中1的个数 
-int main(){    
-#ifdef ONLINE_JUDGE    
-#else    
-    freopen(&quot;1.txt&quot;, &quot;r&quot;, stdin);    
-#endif    
-    scanf(&quot;%d%d%d%d&quot;,&amp;m,&amp;n,&amp;slice,&amp;T);
-    for(int i=0;i&lt;slice;i++){
-        for(int j=0;j&lt;m;j++){
-            for(int k=0;k&lt;n;k++){
-                scanf(&quot;%d&quot;,&amp;G[j][k][i]);
-            }
-        }
-    }
-    int ans=0;
-    for(int i=0;i&lt;slice;i++){
-        for(int j=0;j&lt;m;j++){
-            for(int k=0;k&lt;n;k++){
-                if(G[j][k][i]==1&amp;&amp;inq[j][k][i]==false){
-                    ans+=BFS(j,k,i);
-                }
-            }
+#define mod 1000000007
+int main(void){
+#ifdef ONLINE_JUDGE
+#else
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+#endif
+    int cntP=0,cntT=0,ans=0;            //分别统计T和P的个数 
+    string pat;
+    getline(cin,pat);
+    for(int i=0;i&lt;pat.size();i++)       //统计T的个数 
+        if(pat[i]=='T') cntT++;
+    for(int i=0;i&lt;pat.size();i++){      //遍历字符串 
+        if(pat[i]=='P') cntP++;         //统计当前位置之前P的个数 
+        else if(pat[i]=='T') cntT--;    //计算当前位置之后T的个数 
+        else {
+            ans+=cntT*cntP;             //如果当前位置为A，根据排列组合的知识，组成的PAT个数为：A左侧的P的个数*A右侧的T的个数 
+            ans%=mod;                   //每次计算过后取模 
         }
     }
     cout&lt;&lt;ans;
-    return 0;    
-}
-bool judge(int x,int y,int z)       //坐标判定 
-{
-    if(x&lt;0||x&gt;=m||y&lt;0||y&gt;=n||z&lt;0||z&gt;=slice)     return false;//坐标越界不访问
-    else if(G[x][y][z]==0||inq[x][y][z]==true)  return false;//像素是0，正常区域，或者已被访问，则不访问
-    else return true;                                       //除了以上情况都进行访问 
- } 
-int BFS(int x,int y,int z){         //bfs遍历函数 
-    int total=0;                    //统计该块中1的个数
-    queue&lt;Node&gt; q;                  //BFS的队列
-    q.push(node(x,y,z));
-    inq[x][y][z]=true;
-    while(!q.empty()){
-        Node now=q.front();
-        q.pop();
-        total++;
-        for(int i=0;i&lt;6;i++){
-            int nx=now.x+X[i];  int ny=now.y+Y[i];  int nz=now.z+Z[i];
-            if(judge(nx,ny,nz)==true){
-                q.push(node(nx,ny,nz));
-                inq[nx][ny][nz]=true;
-            }
-            
-        }
-    } 
-    if(total&gt;=T) return total;      //如果超过阈值，返回1的个数，否则不计算在内，返回0 
-    else         return 0;
+    return 0;
 } 
 </code></pre>
               
@@ -403,13 +344,13 @@ int BFS(int x,int y,int z){         //bfs遍历函数
                     
   <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/pat/">PAT</a>
 
-  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/bfs/">BFS</a>
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>
 
                   </div>
                 
               
             
-              <span id="/2019/11/pat_a1091/" class="leancloud_visitors" data-flag-title="PAT_A1091">
+              <span id="/2019/11/pat_a1093/" class="leancloud_visitors" data-flag-title="PAT_A1093">
                 <span class="post-meta-item-text">文章阅读量 </span>
                 <span class="leancloud-visitors-count">1000000</span>
                 <p></p>
@@ -436,7 +377,7 @@ int BFS(int x,int y,int z){         //bfs遍历函数
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1092/" data-tooltip="PAT_A1092">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1094/" data-tooltip="PAT_A1094">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -444,7 +385,7 @@ int BFS(int x,int y,int z){         //bfs遍历函数
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1090/" data-tooltip="PAT_A1090">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1092/" data-tooltip="PAT_A1092">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -504,7 +445,7 @@ int BFS(int x,int y,int z){         //bfs遍历函数
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1092/" data-tooltip="PAT_A1092">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1094/" data-tooltip="PAT_A1094">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -512,7 +453,7 @@ int BFS(int x,int y,int z){         //bfs遍历函数
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1090/" data-tooltip="PAT_A1090">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1092/" data-tooltip="PAT_A1092">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -644,9 +585,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/saquarius.github.io\/2019\/11\/pat_a1091\/';
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/11\/pat_a1093\/';
           
-            this.page.identifier = '\/2019\/11\/pat_a1091\/'
+            this.page.identifier = '\/2019\/11\/pat_a1093\/'
           
         };
         (function() {

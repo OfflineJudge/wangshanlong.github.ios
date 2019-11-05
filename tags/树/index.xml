@@ -6,10 +6,20 @@
     <description>Recent content in 树 on SAquarius的梦想屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Nov 2019 23:34:05 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 05 Nov 2019 23:45:04 +0800</lastBuildDate>
     
 	<atom:link href="https://saquarius.github.io/tags/%E6%A0%91/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PAT_A1094</title>
+      <link>https://saquarius.github.io/2019/11/pat_a1094/</link>
+      <pubDate>Tue, 05 Nov 2019 23:45:04 +0800</pubDate>
+      
+      <guid>https://saquarius.github.io/2019/11/pat_a1094/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;PAT甲级1094.
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
     
     <item>
       <title>PAT_A1090</title>
