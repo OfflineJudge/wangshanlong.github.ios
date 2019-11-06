@@ -6,10 +6,20 @@
     <description>Recent content in 数学模拟 on SAquarius的梦想屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Nov 2019 23:22:54 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 06 Nov 2019 22:33:49 +0800</lastBuildDate>
     
 	<atom:link href="https://saquarius.github.io/tags/%E6%95%B0%E5%AD%A6%E6%A8%A1%E6%8B%9F/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PAT_A1096</title>
+      <link>https://saquarius.github.io/2019/11/pat_a1096/</link>
+      <pubDate>Wed, 06 Nov 2019 22:33:49 +0800</pubDate>
+      
+      <guid>https://saquarius.github.io/2019/11/pat_a1096/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;PAT甲级1096.
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
     
     <item>
       <title>PAT_A1088</title>

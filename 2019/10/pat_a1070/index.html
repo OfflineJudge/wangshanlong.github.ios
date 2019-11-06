@@ -321,8 +321,9 @@ int main(void){
 #else
     freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
 #endif
-    int n,d;
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;d);                //读入数据 
+    int n;
+    double d;
+    scanf(&quot;%d%lf&quot;,&amp;n,&amp;d);               //读入数据 
     vector&lt;MC&gt; v(n);
     for(int i=0;i&lt;n;i++){
         scanf(&quot;%lf&quot;,&amp;v[i].num);

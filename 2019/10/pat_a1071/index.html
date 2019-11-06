@@ -265,7 +265,8 @@
 <li><a href="#题目">题目</a></li>
 <li><a href="#样例">样例</a></li>
 <li><a href="#思路和坑点">思路和坑点</a></li>
-<li><a href="#ac代码">AC代码</a></li>
+<li><a href="#ac代码-思路一">AC代码（思路一）</a></li>
+<li><a href="#ac代码-思路二">AC代码（思路二）</a></li>
 </ul></li>
 </ul>
 </nav>  
@@ -290,11 +291,12 @@
 
 <h2 id="思路和坑点">思路和坑点</h2>
 
-<p>　　从序列中读取一个符合单词定义的字符串，使用map容器统计每一个单词的出现次数，然后取其出现次数最大者。<br />
+<p>　　思路一：从序列中读取一个符合单词定义的字符串，使用map容器统计每一个单词的出现次数，然后取其出现次数最大者。<br />
+　　思路二：将整个字符串一次性读入，然后做预处理，将所有不构成单词的字符替换为空格，然后把数组和字母全改为小写。之后，分每个单词的读出并统计
 　　<strong>坑点:</strong><br />
 　　单词的定义：连续出现的只有字母或者数字构成的混合串。这些单词是被其他字符（非组成单词的字符，或者行末和行开头）分隔开的。比如can**me或者peng3-p2ang等这种情况算所两个单词，因为其中有两个连续的混合串。</p>
 
-<h2 id="ac代码">AC代码</h2>
+<h2 id="ac代码-思路一">AC代码（思路一）</h2>
 
 <pre><code>#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
@@ -342,10 +344,73 @@ int main(){
         else 
             i++;                            //如果不是单词的开始，跳过到下一个字符 
     }
-    cout&lt;&lt;ans&lt;&lt;mp[ans];                     //输出结果 
+    cout&lt;&lt;ans&lt;&lt;' '&lt;&lt;mp[ans];                        //输出结果 
     return 0;    
 }
 
+</code></pre>
+
+<h2 id="ac代码-思路二">AC代码（思路二）</h2>
+
+<pre><code>#include&lt;iostream&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;math.h&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+#include&lt;string&gt;
+#include&lt;map&gt;
+#include&lt;unordered_map&gt;
+#include&lt;queue&gt;
+#include&lt;set&gt;
+#include&lt;stack&gt;
+using namespace std;
+
+
+int main(void){
+#ifdef ONLINE_JUDGE
+#else
+    freopen(&quot;1.txt&quot;, &quot;r&quot;, stdin);
+#endif
+    string s;
+    string temp;
+    unordered_map&lt;string, int&gt;mp;
+    getline(cin, s);
+    for (int i = 0; i &lt; s.size(); i++){
+        if (!isalpha(s[i]) &amp;&amp; !isdigit(s[i]))
+            s[i] = ' ';
+        else
+            s[i] = tolower(s[i]);
+    }
+    for (int i = 0; i &lt; s.size(); i++){
+        if (s[i] == ' ' || i == s.size() - 1){
+            if (i == s.size() - 1 &amp;&amp; s[i] != ' '){
+                temp += s[i];
+            }
+            if (temp.size()&gt;0){
+                mp[temp]++;
+            }
+            temp.clear();
+        }
+        else
+            temp += s[i];
+    }
+    string ans;
+    int cnt = 0;
+    for (auto it = mp.begin(); it != mp.end(); it++){
+        if (it-&gt;second &gt; cnt){
+            ans = it-&gt;first;
+            cnt = it-&gt;second;
+        }
+        else if (it-&gt;second == cnt &amp;&amp; it-&gt;first &lt; ans){
+            ans = it-&gt;first;
+        }
+    }
+    cout &lt;&lt; ans &lt;&lt; &quot; &quot; &lt;&lt; cnt;
+
+    return 0;
+}
 </code></pre>
               
             </div>
