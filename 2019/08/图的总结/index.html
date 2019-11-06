@@ -467,7 +467,7 @@ bool vis[MAXV]={false};                         //用于标记等点是否被访
 void DFS(int u,int depth){                      //DFS，添加了depth参数，用于记录遍历的顶点所在的层数
     vis[u]=true;                                //标记当前访问的顶点为已访问
     visit(u);                                   //此为访问函数，视实际需求而定
-    for(int i=0;v&lt;Adj[u].size();i++){           //枚举u的边表中每一条边
+    for(int i=0;i&lt;Adj[u].size();i++){           //枚举u的边表中每一条边
         int v=Adj[u][i];                        //读取边所连通的顶点
         if(vis[v]==false){                      //如果未被访问过，由于邻接表中记录的都是连通的顶点，因此不用判定是否可以到达
             DFS(v,depth+1);                     //递归访问
@@ -563,7 +563,7 @@ void BFS(int u){
         q.pop();
         visit(u);                               //访问函数，视实际需求而定
         for(int i=0;i&lt;Adj[u].size();i++){       //枚举u边表中的所有边
-            int v=Adj[u][v];                    //读取边所连通的所有顶点
+            int v=Adj[u][i];                    //读取边所连通的所有顶点
             if(vis[v]==false){                  //如果未被访问
                 q.push(v);                      //入队并修改访问标记
                 vis[v]=true;
