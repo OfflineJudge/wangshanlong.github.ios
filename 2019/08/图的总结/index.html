@@ -461,7 +461,7 @@ void DFSTrave(){                                //DFS驱动函数
 <p>　　邻接表的表示中，i号顶点的边表中边连接的顶点都是i可达到的，因此相比于邻接矩阵的写法，不需要判定是否能到达。因此只有图的表示和顶点枚举的写法上有所不同，其他都相同：</p>
 
 <pre><code>//DFS的邻接表写法
-vector&lt;int&gt; Adj;                                //邻接表存储图,此没有边权
+vector&lt;int&gt; Adj[MAXV];                                //邻接表存储图,此没有边权
 int n;                                          //图的顶点个数
 bool vis[MAXV]={false};                         //用于标记等点是否被访问过，初始化为false
 void DFS(int u,int depth){                      //DFS，添加了depth参数，用于记录遍历的顶点所在的层数
@@ -1106,7 +1106,7 @@ bool topsort(){
         q.pop();
         printf(&quot;%d &quot;,u );               //输出拓扑排序的顶点
         for(int i=0;i&lt;G[u].size();i++){ //然后将它的后继顶点的入度全部减一
-            int v=G[u][v];
+            int v=G[u][i];
             indegree[v]--;
             if(indegree[v]==0){         //如果顶点入度变成了0，也入队
                 q.push(v);
