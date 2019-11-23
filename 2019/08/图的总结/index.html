@@ -765,9 +765,9 @@ void Dijkstra(int s){                   //参数为单源起点s
 
 //输出最短路径
 void Print_Path(int s,int v){           //s为起始顶点，v为最短路径的终点
-    stack&lt;int&gt;  pathout;                //定义用于输出的栈pathout
+    vector&lt;int&gt;  pathout;               //定义用于输出的栈,pathout，这里使用vector模拟栈的使用
     while(v!=-1){                       //递归入栈
-        pathout.push(v);
+        pathout.push_back(v);
         v=path[v];
     }
     for(int i=pathout.size()-1;i&gt;=0;i--){   //栈中路径倒序输出
