@@ -303,7 +303,7 @@
 </ul></li>
 <li><a href="#最小生成树">最小生成树</a>
 <ul>
-<li><a href="#prime算法">Prime算法</a></li>
+<li><a href="#prim算法">Prim算法</a></li>
 <li><a href="#kruskal算法">Kruskal算法</a></li>
 <li><a href="#小结-2">小结</a></li>
 </ul></li>
@@ -959,7 +959,7 @@ void Floyd(){
 
 <p>　　最小生成树指的是在一个给定的无向图中求出一颗树，这棵树拥有图的所有顶点，并且树的边来自图中的边，且满足树的边权最小。求解最小生成树有两种方法：Prim算法和kruskal算法。</p>
 
-<h3 id="prime算法">Prime算法</h3>
+<h3 id="prim算法">Prim算法</h3>
 
 <p>　　Prim算法类似于Dijkstra算法的过程，从起始顶点开始，将已选中的顶点归到点集S中，每次从位访问的顶点中选择离点集最近的结点，并将其纳入点集S中，执行n次循环，直到包含整个图的所有顶点。其伪代码的实现如下：</p>
 
