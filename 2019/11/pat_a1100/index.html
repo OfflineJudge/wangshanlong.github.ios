@@ -7,30 +7,30 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
-<meta name="keywords" content="PAT, PAT甲级, PATA1099, C, C&#43;&#43;, PAT">
-<meta name="description" content="PAT甲级1099.
+<meta name="keywords" content="PAT, PAT甲级, PATA1100, C, C&#43;&#43;, PAT">
+<meta name="description" content="PAT甲级1100.
 ">
 
 
-<meta property="og:description" content="PAT甲级1099.
+<meta property="og:description" content="PAT甲级1100.
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT_A1099">
-<meta name="twitter:title" content="PAT_A1099">
-<meta property="og:url" content="https://saquarius.github.io/2019/11/pat_a1099/">
-<meta property="twitter:url" content="https://saquarius.github.io/2019/11/pat_a1099/">
+<meta property="og:title" content="PAT_A1100">
+<meta name="twitter:title" content="PAT_A1100">
+<meta property="og:url" content="https://saquarius.github.io/2019/11/pat_a1100/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/11/pat_a1100/">
 <meta property="og:site_name" content="SAquarius的梦想屋">
-<meta property="og:description" content="PAT甲级1099.
+<meta property="og:description" content="PAT甲级1100.
 ">
-<meta name="twitter:description" content="PAT甲级1099.
+<meta name="twitter:description" content="PAT甲级1100.
 ">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2019-11-06T22:51:30">
+    <meta property="article:published_time" content="2019-11-25T17:18:49">
   
   
-    <meta property="article:modified_time" content="2019-11-06T22:51:30">
+    <meta property="article:modified_time" content="2019-11-25T17:18:49">
   
   
   
@@ -43,8 +43,6 @@
   
     
       <meta property="article:tag" content="PAT">
-    
-      <meta property="article:tag" content="树">
     
   
 
@@ -68,14 +66,14 @@
   <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
 
 
-    <title>PAT_A1099</title>
+    <title>PAT_A1100</title>
 
     <link rel="icon" href="https://saquarius.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://saquarius.github.io/2019/11/pat_a1099/">
+    <link rel="canonical" href="https://saquarius.github.io/2019/11/pat_a1100/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -226,15 +224,15 @@
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      PAT_A1099
+      PAT_A1100
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-11-06T22:51:30&#43;08:00">
+      <time itemprop="datePublished" datetime="2019-11-25T17:18:49&#43;08:00">
         
-  十一月 6, 2019
+  十一月 25, 2019
 
       </time>
     
@@ -255,12 +253,12 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <pre><code>PAT甲级1099.
+              <pre><code>PAT甲级1100.
 </code></pre>
 
 <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
 <ul>
-<li><a href="#a1099">A1099</a>
+<li><a href="#a1100">A1100</a>
 <ul>
 <li><a href="#题目">题目</a></li>
 <li><a href="#样例">样例</a></li>
@@ -270,116 +268,102 @@
 </ul>
 </nav>  
 
-<h1 id="a1099">A1099</h1>
+<h1 id="a1100">A1100</h1>
 
 <h2 id="题目">题目</h2>
 
-<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1099.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1100.png" alt="" /></p>
 
 <h2 id="样例">样例</h2>
 
 <p>输入:</p>
 
-<pre><code>9
-1 6
-2 3
--1 -1
--1 4
-5 -1
--1 -1
-7 -1
--1 8
--1 -1
-73 45 11 58 82 25 67 38 42
+<pre><code>4
+29
+5
+elo nov
+tam
 </code></pre>
 
 <p>输出:</p>
 
-<pre><code>58 25 82 11 38 67 45 73 42
+<pre><code>hel mar
+may
+115
+13
 </code></pre>
 
 <h2 id="思路和坑点">思路和坑点</h2>
 
-<p>　　二叉搜索树的中序遍历结果是有序的，因此先读入树的结构，然后得到中序遍历的结果，将结点的数值排序后安排入座，最后使用层序遍历输出。要学会使用静态数组表示的二叉树的写法和操作。</p>
+<p>　　进制转换，按照字符串读入，判断第一个字符是数字还是字母，进行相应的转换，这里使用map和string类数组进行双向的映射，也可以使用遍历数组的方式完成字符串到数字的映射关系，对数字进行处理时可以使用sscanf直接将string读成数字。（所给的字符串一定要拼写正确）<br />
+　　<strong>坑点</strong><br />
+　　根据样例，如果是整13的倍数，只有高位，没有低位。</p>
 
 <h2 id="ac代码">AC代码</h2>
 
 <pre><code>#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
 #include&lt;stdlib.h&gt;
-#include&lt;math.h&gt;
+#include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
-#include&lt;algorithm&gt; 
+#include&lt;math.h&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+#include&lt;string&gt;
 #include&lt;map&gt;
 #include&lt;unordered_map&gt;
-#include&lt;vector&gt;
-#include&lt;queue&gt; 
+#include&lt;queue&gt;
+#include&lt;set&gt;
 #include&lt;stack&gt;
-#include&lt;string&gt;
 using namespace std;
-typedef struct node{    //结点结构体 
-    int data;           //数据 
-    int left,right;     //左右指针，初始化为-1 
-    node(){
-        left=-1;
-        right=-1;
-        data=0;
-    }
-}Node;
-vector&lt;Node&gt; v;                 //保存所有结点 
-vector&lt;int&gt; num;                //保存各结点的数据 
-vector&lt;int&gt; inorder;            //中序遍历序列，用于对比安放结点数据 
-void Inorder(int root);         //中序遍历 
-void laorder(int root);         //层序遍历 
-
-int main(){    
-#ifdef ONLINE_JUDGE    
-#else    
-    freopen(&quot;1.txt&quot;, &quot;r&quot;, stdin);    
-#endif    
+//字符数组 
+string low[]={&quot;tret&quot;,&quot;jan&quot;,&quot;feb&quot;,&quot;mar&quot;,&quot;apr&quot;,&quot;may&quot;,&quot;jun&quot;,&quot;jly&quot;,&quot;aug&quot;,&quot;sep&quot;,&quot;oct&quot;,&quot;nov&quot;,&quot;dec&quot;};
+string high[]={&quot;&quot;,&quot;tam&quot;,&quot;hel&quot;,&quot;maa&quot;,&quot;huh&quot;,&quot;tou&quot;,&quot;kes&quot;,&quot;hei&quot;,&quot;elo&quot;,&quot;syy&quot;,&quot;lok&quot;,&quot;mer&quot;,&quot;jou&quot;};
+map&lt;string,int&gt; lowmp,highmp;                   //字符到数字的映射 
+void string_int(string str){                    //字符转成数字 
+    int ans=0;
+    if(str.size()&lt;5){
+        if(highmp.find(str)!=highmp.end()){     //如果只是单一的高位，即13的倍数 
+            ans=13*highmp[str];
+        }
+        else
+            ans=lowmp[str];                     //如果时只有低位 
+    }                                           //如果高位和低位同时存在 
+    else ans=highmp[str.substr(0,3)]*13+lowmp[str.substr(4,3)];
+    cout&lt;&lt;ans&lt;&lt;'\n';    
+}
+void int_string(string str){                    //数字转成字符 
+    int num;
+    sscanf(str.c_str(),&quot;%d&quot;,&amp;num);
+    if(num&lt;13)                                  //小于13的只有低位 
+        cout&lt;&lt;low[num];
+    else{
+        cout&lt;&lt;high[num/13];                      
+        if(num%13) cout&lt;&lt;' '&lt;&lt;low[num%13];      //如果不是13的倍数，还需要输出低位 
+    }   
+    putchar('\n');
+}
+int main(void){
+#ifdef ONLINE_JUDGE
+#else
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+#endif
     int n;
-    scanf(&quot;%d&quot;,&amp;n);             //读入树的结构 
+    string temp;
+    for(int i=0;i&lt;13;i++){                      //初始化字符串到数字的映射 
+        lowmp[low[i]]=i;
+        highmp[high[i]]=i;
+    } 
+    cin&gt;&gt;n;
+    getchar();                                  //吸收第一行末尾的换行 
     for(int i=0;i&lt;n;i++){
-        Node temp;
-        scanf(&quot;%d%d&quot;,&amp;temp.left,&amp;temp.right);
-        v.push_back(temp);
-    }
-    for(int i=0;i&lt;n;i++){       //读入结点数值 
-        int temp;
-        scanf(&quot;%d&quot;,&amp;temp);
-        num.push_back(temp);
-    }
-    sort(num.begin(),num.end());//搜索树的中序遍历有序 
-    Inorder(0);                 //获取中序遍历序列 
-    for(int i=0;i&lt;n;i++){       //匹配各结点数值 
-        int k=inorder[i];
-        v[k].data=num[i];
-    }
-    laorder(0);                 //层序遍历 
-    return 0;    
-}
-void Inorder(int root)          //递归实现中序遍历 
-{
-    if(root==-1)    return;
-    Inorder(v[root].left);
-    inorder.push_back(root);
-    Inorder(v[root].right);
-}
-void laorder(int root)          //使用队列实现层序遍历 
-{
-    int cnt=0;
-    queue&lt;int&gt; q;
-    q.push(root);
-    while(!q.empty()){
-        int now=q.front();
-        if(cnt) putchar(' ');
-        printf(&quot;%d&quot;,v[now].data);
-        cnt++;
-        q.pop();
-        if(v[now].left!=-1) q.push(v[now].left);
-        if(v[now].right!=-1) q.push(v[now].right);   
-    }
-}
+        getline(cin,temp);                      //整行读入字符串 
+        if(isalpha(temp[0]))
+            string_int(temp);
+        else
+            int_string(temp);
+    } 
+    return 0;
+} 
 </code></pre>
               
             </div>
@@ -394,13 +378,11 @@ void laorder(int root)          //使用队列实现层序遍历
                     
   <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/pat/">PAT</a>
 
-  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E6%A0%91/">树</a>
-
                   </div>
                 
               
             
-              <span id="/2019/11/pat_a1099/" class="leancloud_visitors" data-flag-title="PAT_A1099">
+              <span id="/2019/11/pat_a1100/" class="leancloud_visitors" data-flag-title="PAT_A1100">
                 <span class="post-meta-item-text">文章阅读量 </span>
                 <span class="leancloud-visitors-count">1000000</span>
                 <p></p>
@@ -427,7 +409,7 @@ void laorder(int root)          //使用队列实现层序遍历
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1100/" data-tooltip="PAT_A1100">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -435,7 +417,7 @@ void laorder(int root)          //使用队列实现层序遍历
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1098/" data-tooltip="PAT_A1098">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1099/" data-tooltip="PAT_A1099">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -495,7 +477,7 @@ void laorder(int root)          //使用队列实现层序遍历
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1100/" data-tooltip="PAT_A1100">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -503,7 +485,7 @@ void laorder(int root)          //使用队列实现层序遍历
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1098/" data-tooltip="PAT_A1098">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1099/" data-tooltip="PAT_A1099">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -635,9 +617,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/saquarius.github.io\/2019\/11\/pat_a1099\/';
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/11\/pat_a1100\/';
           
-            this.page.identifier = '\/2019\/11\/pat_a1099\/'
+            this.page.identifier = '\/2019\/11\/pat_a1100\/'
           
         };
         (function() {
