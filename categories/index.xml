@@ -6,10 +6,28 @@
     <description>Recent content in Categories on SAquarius的梦想屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Nov 2019 17:18:49 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 25 Nov 2019 17:30:49 +0800</lastBuildDate>
     
 	<atom:link href="https://saquarius.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>文章</title>
+      <link>https://saquarius.github.io/categories/%E6%96%87%E7%AB%A0/</link>
+      <pubDate>Mon, 25 Nov 2019 17:30:49 +0800</pubDate>
+      
+      <guid>https://saquarius.github.io/categories/%E6%96%87%E7%AB%A0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>日志</title>
+      <link>https://saquarius.github.io/categories/%E6%97%A5%E5%BF%97/</link>
+      <pubDate>Mon, 25 Nov 2019 17:30:49 +0800</pubDate>
+      
+      <guid>https://saquarius.github.io/categories/%E6%97%A5%E5%BF%97/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>PAT</title>
@@ -143,15 +161,6 @@
       <pubDate>Fri, 12 Jul 2019 10:31:57 +0800</pubDate>
       
       <guid>https://saquarius.github.io/categories/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>文章</title>
-      <link>https://saquarius.github.io/categories/%E6%96%87%E7%AB%A0/</link>
-      <pubDate>Thu, 11 Jul 2019 23:04:49 +0800</pubDate>
-      
-      <guid>https://saquarius.github.io/categories/%E6%96%87%E7%AB%A0/</guid>
       <description></description>
     </item>
     
