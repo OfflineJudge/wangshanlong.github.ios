@@ -6,10 +6,20 @@
     <description>Recent content in PAT on SAquarius的梦想屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Nov 2019 17:18:49 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 29 Nov 2019 22:38:24 +0800</lastBuildDate>
     
 	<atom:link href="https://saquarius.github.io/categories/pat/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PAT_A1101</title>
+      <link>https://saquarius.github.io/2019/11/pat_a1101/</link>
+      <pubDate>Fri, 29 Nov 2019 22:38:24 +0800</pubDate>
+      
+      <guid>https://saquarius.github.io/2019/11/pat_a1101/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;PAT甲级1101.
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
     
     <item>
       <title>PAT_A1100</title>
