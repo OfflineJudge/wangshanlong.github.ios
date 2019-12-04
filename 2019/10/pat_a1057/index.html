@@ -266,6 +266,7 @@
 <li><a href="#样例">样例</a></li>
 <li><a href="#思路和坑点">思路和坑点</a></li>
 <li><a href="#ac代码">AC代码</a></li>
+<li><a href="#ac代码-对顶堆解法">AC代码（对顶堆解法）</a></li>
 </ul></li>
 </ul>
 </nav>  
@@ -396,6 +397,65 @@ void PeekMedian(int mid)
     while(sum+mp[num]&lt;mid)
         sum+=mp[num++];
     printf(&quot;%d\n&quot;,num);
+}
+</code></pre>
+
+<h2 id="ac代码-对顶堆解法">AC代码（对顶堆解法）</h2>
+
+<pre><code>#include&lt;iostream&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;stdio.h&gt;
+#include&lt;math.h&gt;
+#include&lt;string&gt;
+#include&lt;string.h&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt; 
+#include&lt;unordered_map&gt; 
+#include&lt;stack&gt;
+#include&lt;queue&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+int main(){
+#ifdef ONLINE_JUDGE
+#else
+    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+#endif                                                  
+    //使用对顶堆的思路，将数据一分为二,使用multiset来自动实现排序 
+    //由于中间值是向下取整，所以前半部分要么和后半部分元素个数相同，要么前半部分比后半部分多一个元素
+    //只需要每次操作后维护好两部分的元素个数关系即可 
+    multiset&lt;int,less&lt;int&gt; &gt; big;                       //小根堆，用于存放数值比较大的后半部分 
+    multiset&lt;int,greater&lt;int&gt; &gt; small;                  //大根堆，用于存放数值比较小的前半部分，由于是大根堆的结构，所以堆顶便是中间值 
+    stack&lt;int&gt; s;                                       //用栈模拟操作 
+    int n,x;
+    scanf(&quot;%d&quot;,&amp;n);                                     //读入数据 
+    for(int i=0;i&lt;n;i++){
+        char str[11]; scanf(&quot;%s&quot;,str);                  //读入请求的命令字符串 
+        if(str[1]=='u'){                                //如果是push，则在入栈 
+            scanf(&quot;%d&quot;,&amp;x);
+            s.push(x);                                  //如果此时前半部分是空，或者x比中间值小则放在前半部分 
+            (small.empty()||x&lt;=*small.begin())? small.insert(x):big.insert(x);
+        }                                               //由于中间值是向下取整，所以前半部分要么和后半部分元素个数相同，要么前半部分比后半部分多一个元素，故空时优先插入前半部分 
+        else{
+            if(s.empty()){                              //如果是栈空，则pop和查询中间值的操作都无效 
+                puts(&quot;Invalid&quot;); continue;
+            }
+            if(str[1]=='o'){                            //pop操作有有效时出栈 
+                x=s.top();s.pop();                      //判断x在序列中的位置，然后从相应的堆中删除 
+                (x&lt;=*small.begin())?small.erase(small.find(x)):big.erase(big.find(x));
+                printf(&quot;%d\n&quot;,x);
+            }
+            else
+                printf(&quot;%d\n&quot;,*small.begin());          //输出中间值 
+        }
+        while(small.size()&lt;big.size()){                 //调整两个堆的元素个数关系，若元素为偶数个调整到两部分相同 
+            small.insert(*big.begin());big.erase(big.begin());
+        }
+        while(big.size()+1&lt;small.size()){               //或者元素为奇数个，调整到前半部分的元素个数比后半部分多一 
+            big.insert(*small.begin());small.erase(small.begin());
+        }
+    }
+    return 0;
 }
 </code></pre>
               
