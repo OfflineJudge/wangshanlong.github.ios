@@ -7,30 +7,30 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="SAquarius">
-<meta name="keywords" content="PAT, PAT甲级, PATA1101, C, C&#43;&#43;, PAT">
-<meta name="description" content="PAT甲级1101.
+<meta name="keywords" content="PAT, PAT甲级, PATA11, C, C&#43;&#43;, PAT">
+<meta name="description" content="PAT甲级1103.
 ">
 
 
-<meta property="og:description" content="PAT甲级1101.
+<meta property="og:description" content="PAT甲级1103.
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT_A1101">
-<meta name="twitter:title" content="PAT_A1101">
-<meta property="og:url" content="https://saquarius.github.io/2019/11/pat_a1101/">
-<meta property="twitter:url" content="https://saquarius.github.io/2019/11/pat_a1101/">
+<meta property="og:title" content="PAT_A1103">
+<meta name="twitter:title" content="PAT_A1103">
+<meta property="og:url" content="https://saquarius.github.io/2019/12/pat_a1103/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/12/pat_a1103/">
 <meta property="og:site_name" content="SAquarius的梦想屋">
-<meta property="og:description" content="PAT甲级1101.
+<meta property="og:description" content="PAT甲级1103.
 ">
-<meta name="twitter:description" content="PAT甲级1101.
+<meta name="twitter:description" content="PAT甲级1103.
 ">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2019-11-29T22:38:24">
+    <meta property="article:published_time" content="2019-12-25T20:02:57">
   
   
-    <meta property="article:modified_time" content="2019-11-29T22:38:24">
+    <meta property="article:modified_time" content="2019-12-25T20:02:57">
   
   
   
@@ -44,7 +44,7 @@
     
       <meta property="article:tag" content="PAT">
     
-      <meta property="article:tag" content="排序">
+      <meta property="article:tag" content="数学模拟">
     
   
 
@@ -68,14 +68,14 @@
   <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
 
 
-    <title>PAT_A1101</title>
+    <title>PAT_A1103</title>
 
     <link rel="icon" href="https://saquarius.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://saquarius.github.io/2019/11/pat_a1101/">
+    <link rel="canonical" href="https://saquarius.github.io/2019/12/pat_a1103/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -226,15 +226,15 @@
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      PAT_A1101
+      PAT_A1103
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-11-29T22:38:24&#43;08:00">
+      <time itemprop="datePublished" datetime="2019-12-25T20:02:57&#43;08:00">
         
-  十一月 29, 2019
+  十二月 25, 2019
 
       </time>
     
@@ -255,93 +255,134 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <pre><code>PAT甲级1101.
+              <pre><code>PAT甲级1103.
 </code></pre>
 
 <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
 <ul>
-<li><a href="#a1101">A1101</a>
+<li><a href="#a1103">A1103</a>
 <ul>
 <li><a href="#题目">题目</a></li>
-<li><a href="#样例">样例</a></li>
+<li><a href="#样例">样例</a>
+<ul>
+<li><a href="#样例1">样例1</a></li>
+<li><a href="#样例2">样例2</a></li>
+</ul></li>
 <li><a href="#思路和坑点">思路和坑点</a></li>
 <li><a href="#ac代码">AC代码</a></li>
 </ul></li>
 </ul>
 </nav>  
 
-<h1 id="a1101">A1101</h1>
+<h1 id="a1103">A1103</h1>
 
 <h2 id="题目">题目</h2>
 
-<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1101.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1103.png" alt="" /></p>
 
 <h2 id="样例">样例</h2>
 
+<h3 id="样例1">样例1</h3>
+
 <p>输入:</p>
 
-<pre><code>5
-1 3 2 4 5
+<pre><code>169 5 2
 </code></pre>
 
 <p>输出:</p>
 
-<pre><code>3
-1 4 5
+<pre><code>169 = 6^2 + 6^2 + 6^2 + 6^2 + 5^2
+</code></pre>
+
+<h3 id="样例2">样例2</h3>
+
+<p>输入:</p>
+
+<pre><code>169 167 3
+</code></pre>
+
+<p>输出:</p>
+
+<pre><code>Impossible
 </code></pre>
 
 <h2 id="思路和坑点">思路和坑点</h2>
 
-<p>　　根据主元的特点，在排好序的所在位置上，且左侧的数都小于自身，右侧的数都大于自身，由于题目中的数字都不同，因此只需要验证一侧即可。排序后，遍历数组一一验证是否满足主元的特征。
-　　<strong>坑点</strong><br />
-　　最后要多加一个换行符，估计是0个的情况下，主元不用输出但是仍要占据一行。（这个真是谜之判定）</p>
+<p>　　这里的代码借鉴了柳神的代码。对一个树进行因式分解，这里使用打表的方法，构造从1~i的p次方数组。然后按照因子的从大到小的方式dfs搜索，知道找到一组可分解的结果，如果结果并列，则按照因子和的大小进行优化。（由于按照因子从大到小的结果进行的搜索，所以满足组合的大小关系要求中的大的序列优先考虑为答案）</p>
 
 <h2 id="ac代码">AC代码</h2>
 
 <pre><code>#include&lt;iostream&gt;
 #include&lt;stdlib.h&gt;
 #include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
 #include&lt;math.h&gt;
+#include&lt;string.h&gt;
 #include&lt;algorithm&gt;
-#include&lt;vector&gt;
-#include&lt;string&gt;
 #include&lt;map&gt;
 #include&lt;unordered_map&gt;
+#include&lt;vector&gt;
 #include&lt;queue&gt;
-#include&lt;set&gt;
 #include&lt;stack&gt;
+#include&lt;string&gt;
+#include&lt;set&gt;
 using namespace std;
-//快速排序的特性，最终所选的主元都在自己应该在的位置上
-//并且保证左边的都小于主元，右边的都大于主元 
-int main(void){
-#ifdef ONLINE_JUDGE
-#else
-    freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
-#endif
-    int n;
-    vector&lt;int&gt; v,s,out;
-    scanf(&quot;%d&quot;,&amp;n);
-    v.resize(n); s.resize(n);
-    for(int i=0;i&lt;n;i++){           //读入数据 
-        scanf(&quot;%d&quot;,&amp;v[i]);
-        s[i]=v[i];
-    } 
-    int max=-1;                     //记录左侧的最大值 
-    sort(s.begin(),s.end());        //对其中一个数组进行排序 
-    for(int i=0;i&lt;n;i++){
-        if(v[i]==s[i]&amp;&amp;v[i]&gt;max)    //如果v中的一个元素在自己的排序后的位置上，且左边的数都小于自身 
-            out.push_back(s[i]);    //则为主元，因为题中所有的数均不相同，因此一定满足右边的数都大于自身 
-        max=max&gt;v[i]?max:v[i];      //更新左侧最大值 
+int n,k,p,maxfacsum=-1;
+vector&lt;int&gt; v,ans,tempans;
+void init();
+void dfs(int index,int tempsum,int tempk,int facsum);
+int main(void)
+{
+    #ifdef ONLINE_JUDGE
+    #else
+        freopen(&quot;1.txt&quot;,&quot;r&quot;,stdin);
+    #endif
+    scanf(&quot;%d%d%d&quot;,&amp;n,&amp;k,&amp;p);       //输入 
+    init();                         //初始化1~i的p次方数组 
+    tempans.resize(k);              //答案数组大小初始化为k 
+    dfs(v.size()-1,0,0,0);          //dfs求解，从最大的p次方项开始，因此第一个参数为v.size-1 
+    if(maxfacsum==-1){              //如果没有这样的解，则maxfacsum不变 
+        puts(&quot;Impossible&quot;);
     }
-    cout&lt;&lt;out.size()&lt;&lt;'\n';         //输出结果 
-    for(int i=0;i&lt;out.size();i++){
-        if(i) putchar(' '); 
-        printf(&quot;%d&quot;,out[i]);
+    else{                           //否则输出ans中的结果 
+        printf(&quot;%d = &quot;,n);
+        for(int i=0;i&lt;ans.size();i++){
+            if(i) printf(&quot; + &quot;);
+            printf(&quot;%d^%d&quot;,ans[i],p);
+        }
     }
-    putchar('\n');                  //谜之换行符，没有这一句，有一个测试点会格式错误 
     return 0;
-} 
+}
+void init()                         //初始化1~i的p次方数组
+{
+    int i=1;
+    v.push_back(0);                 //下标0位置的占位 
+    while(1){
+        int temp=pow(i,p);
+        if(temp&gt;n)                  //分解的每一个p次方项需要小于n，故以n为界进行初始化 
+            break;
+        v.push_back(temp);          //讲相应的p次方存入数组中 
+        i++;
+    }
+}
+//index 为p次方数组的下标，也就代表了分解的一项的因子 
+//tempsum为当前求解的的因子p次方的总和，tempk为当前求解的个数，facsun为因子总和 
+void dfs(int index,int tempsum,int tempk,int facsum)    
+{
+    if(tempk==k){                           //递归边界，得到k个因子 
+        if(tempsum==n&amp;&amp;facsum&gt;maxfacsum){   //如果满足分解要求，则保留因子和最大的结果 
+            ans=tempans;                    //保存结果 
+            maxfacsum=facsum;               //更新因子最大和的数值 
+        }
+            return ;                        //该层递归结束 
+    } 
+    while(index&gt;=1){                        
+        if(tempsum+v[index]&lt;=n){            //有于因子可以重复，故当循环选择当前的因子，直至不满足要求 
+            tempans[tempk]=index;           //想临时结果数组中存放一个p次方项 
+            dfs(index,tempsum+v[index],tempk+1,facsum+index); 
+        }
+        index--;                            // 不满足要求时，从大到小选择下一个因子 
+    }
+}
 </code></pre>
               
             </div>
@@ -356,13 +397,13 @@ int main(void){
                     
   <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/pat/">PAT</a>
 
-  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E6%8E%92%E5%BA%8F/">排序</a>
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E6%95%B0%E5%AD%A6%E6%A8%A1%E6%8B%9F/">数学模拟</a>
 
                   </div>
                 
               
             
-              <span id="/2019/11/pat_a1101/" class="leancloud_visitors" data-flag-title="PAT_A1101">
+              <span id="/2019/12/pat_a1103/" class="leancloud_visitors" data-flag-title="PAT_A1103">
                 <span class="post-meta-item-text">文章阅读量 </span>
                 <span class="leancloud-visitors-count">1000000</span>
                 <p></p>
@@ -389,7 +430,7 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/12/pat_a1102/" data-tooltip="PAT_A1102">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/12/%E7%BD%AE%E9%A1%B6/" data-tooltip="置顶">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -397,7 +438,7 @@ int main(void){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1100/" data-tooltip="PAT_A1100">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/12/pat_a1102/" data-tooltip="PAT_A1102">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -457,7 +498,7 @@ int main(void){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/12/pat_a1102/" data-tooltip="PAT_A1102">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/12/%E7%BD%AE%E9%A1%B6/" data-tooltip="置顶">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -465,7 +506,7 @@ int main(void){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/11/pat_a1100/" data-tooltip="PAT_A1100">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/12/pat_a1102/" data-tooltip="PAT_A1102">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -597,9 +638,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/saquarius.github.io\/2019\/11\/pat_a1101\/';
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/12\/pat_a1103\/';
           
-            this.page.identifier = '\/2019\/11\/pat_a1101\/'
+            this.page.identifier = '\/2019\/12\/pat_a1103\/'
           
         };
         (function() {
