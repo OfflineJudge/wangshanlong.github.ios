@@ -674,6 +674,9 @@ publishDir = &quot;public&quot;
   #然后将下边给出的插件代码复制进去，就可以了
    [[params.customJS]]
      src = &quot;js/clicklove.js&quot;
+  #新年到了加个雪花吧！类似于点击爱心特效，在同样的文件夹下创建snow.js然后将下文中雪花的代码复制进去就可以了
+   [[params.customJS]]
+     src = &quot;js/snow.js&quot;
 
   # Sharing options
   # Comment and uncomment to enable or disable sharing options
@@ -791,6 +794,51 @@ publishDir = &quot;public&quot;
     }
     
 })(window,document);
+</code></pre>
+
+<p>　　雪花的插件代码如下：</p>
+
+<pre><code>(function($){
+    $.fn.snow = function(options){
+    var $flake = $('&lt;div id=&quot;snowbox&quot; /&gt;').css({'position': 'absolute','z-index':'9999', 'top': '-50px'}).html('&amp;#10052;'),
+    documentHeight  = $(document).height(),
+    documentWidth   = $(document).width(),
+    defaults = {
+        minSize     : 10,
+        maxSize     : 20,
+        newOn       : 1000,
+        flakeColor  : &quot;#AFDAEF&quot; /* 此处可以定义雪花颜色，若要白色可以改为#FFFFFF */
+    },
+    options = $.extend({}, defaults, options);
+    var interval= setInterval( function(){
+    var startPositionLeft = Math.random() * documentWidth - 100,
+    startOpacity = 0.5 + Math.random(),
+    sizeFlake = options.minSize + Math.random() * options.maxSize,
+    endPositionTop = documentHeight - 200,
+    endPositionLeft = startPositionLeft - 500 + Math.random() * 500,
+    durationFall = documentHeight * 10 + Math.random() * 5000;
+    $flake.clone().appendTo('body').css({
+        left: startPositionLeft,
+        opacity: startOpacity,
+        'font-size': sizeFlake,
+        color: options.flakeColor
+    }).animate({
+        top: endPositionTop,
+        left: endPositionLeft,
+        opacity: 0.2
+    },durationFall,'linear',function(){
+        $(this).remove()
+    });
+    }, options.newOn);
+    };
+})(jQuery);
+$(function(){
+    $.fn.snow({ 
+        minSize: 5, /* 定义雪花最小尺寸 */
+        maxSize: 50,/* 定义雪花最大尺寸 */
+        newOn: 300  /* 定义密集程度，数字越小越密集 */
+    });
+});
 </code></pre>
 
 <h4 id="设置文章模板">设置文章模板</h4>
@@ -1190,6 +1238,10 @@ git push origin master
 
   
     <script src="https://saquarius.github.io/js/clicklove.js"></script>
+  
+
+  
+    <script src="https://saquarius.github.io/js/snow.js"></script>
   
 
 <script lang="javascript">
