@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="SAquarius">
+<meta name="keywords" content="PAT, PAT甲级, PATA1105, C, C&#43;&#43;, PAT">
+<meta name="description" content="PAT甲级1105.
+">
+
+
+<meta property="og:description" content="PAT甲级1105.
+">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT_A1105">
+<meta name="twitter:title" content="PAT_A1105">
+<meta property="og:url" content="https://saquarius.github.io/2019/12/pat_a1105/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/12/pat_a1105/">
+<meta property="og:site_name" content="SAquarius的梦想屋">
+<meta property="og:description" content="PAT甲级1105.
+">
+<meta name="twitter:description" content="PAT甲级1105.
+">
+<meta property="og:locale" content="zh-cn">
+
+  
+    <meta property="article:published_time" content="2019-12-29T15:50:27">
+  
+  
+    <meta property="article:modified_time" content="2019-12-29T15:50:27">
+  
+  
+  
+    
+      <meta property="article:section" content="PAT">
+    
+      <meta property="article:section" content="PAT甲级">
+    
+  
+  
+    
+      <meta property="article:tag" content="PAT">
+    
+      <meta property="article:tag" content="简单模拟">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://saquarius.github.io/images/PAT_A.png">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/PAT_A.png">
+
+
+
+
+
+  <meta property="og:image" content="https://saquarius.github.io/images/touxiang.png">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
+
+
+    <title>PAT_A1105</title>
+
+    <link rel="icon" href="https://saquarius.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://saquarius.github.io/2019/12/pat_a1105/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://saquarius.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://saquarius.github.io/">SAquarius的梦想屋</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://saquarius.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://saquarius.github.io/images/touxiang.png" alt="作者的图片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://saquarius.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://saquarius.github.io/images/touxiang.png" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">SAquarius</h4>
+        
+          <h5 class="sidebar-profile-bio">All in or nothing, now or never!</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">类别</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">归档</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/SAquarius" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+  <iframe frameborder="no" marginwidth="0" marginheight="0" width=230 height=52 src="//music.163.com/outchain/player?type=0&id=2896870368&auto=1&height=32"></iframe>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      PAT_A1105
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2019-12-29T15:50:27&#43;08:00">
+        
+  十二月 29, 2019
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://saquarius.github.io/categories/pat">PAT</a>, 
+    
+      <a class="category-link" href="https://saquarius.github.io/categories/pat%e7%94%b2%e7%ba%a7">PAT甲级</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <pre><code>PAT甲级1105.
+</code></pre>
+
+<h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#a1105">A1105</a>
+<ul>
+<li><a href="#题目">题目</a></li>
+<li><a href="#样例">样例</a></li>
+<li><a href="#思路和坑点">思路和坑点</a></li>
+<li><a href="#ac代码">AC代码</a></li>
+</ul></li>
+</ul>
+</nav>  
+
+<h1 id="a1105">A1105</h1>
+
+<h2 id="题目">题目</h2>
+
+<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/1105.png" alt="" /></p>
+
+<h2 id="样例">样例</h2>
+
+<p>输入:</p>
+
+<pre><code>12
+37 76 20 98 76 42 53 95 60 81 58 93
+</code></pre>
+
+<p>输出:</p>
+
+<pre><code>98 95 93
+42 37 81
+53 20 76
+58 60 76
+</code></pre>
+
+<h2 id="思路和坑点">思路和坑点</h2>
+
+<p>　　按照从大到小的方法，以螺旋矩阵的格式输出数组。首先需要确定螺旋矩阵的规模m*n，由于满足m&gt;=n且m和n尽可能的接近，所以从n的开方考虑，m和n必在其开方数值的两侧。<br />
+　　然后使用快速排序对数组进行排序。按照螺旋矩阵输出时，每次填充一层，不妨从外到内依次编号，从0层开始，也对应了每一层开始时的位置。每次按照先上方从左到右，右侧从上到下，下方从右到左，左侧从下到上的顺序进行填充，使用r，l记录每一个元素在矩阵中的位置，每层填充完毕后矩阵规模减小一层。并且需要检查是否在某行填充完毕后整个矩阵已经成型的情况，因为可能内部中心只有一层。</p>
+
+<h2 id="ac代码">AC代码</h2>
+
+<pre><code>#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+#include&lt;math.h&gt;
+using namespace std;
+int main(void)
+{
+    int N;
+    cin&gt;&gt;N;
+    vector&lt;int&gt; v(N);
+    for(int i=0;i&lt;N;i++){
+        cin&gt;&gt;v[i];
+    }
+    int m,n;
+    for(int i=sqrt((float)N);i&gt;=1;i--){         //m,n一定是分布在n开方附近的两个数，且m&gt;=n 
+        if(N%i==0){
+            m=N/i;n=i;break;                    //如果找到一个满足的矩阵大小规模，结束循环 
+        }
+    }
+    sort(v.begin(),v.end());                    //排序 
+    int size=v.size();                          
+    int index=size-1;                           
+    vector&lt;vector&lt;int&gt; &gt; vc(m,vector&lt;int&gt; (n)); //创建一个二维数组 
+    int Mt=m,Nt=n,cnt=0;                        //Mt，Nt表示内部小矩阵的规模，cnt是计数器，一旦装填完毕就结束循环 
+    for(int i=0;;i++,Mt--,Nt--){                //没填满一个外层，矩阵规模减小，i表示当前层数，起始为0 
+        int r,l;                                //r，l表示每次填充的坐标，r表示行，l表示列 
+        for(r=i,l=i;l&lt;Nt;l++){                  //上方从左到右按行填充，l递增 
+            vc[r][l]=v[index--];cnt++;          
+        }   
+        if(cnt==size) break;
+        
+        for(l--,r++;r&lt;Mt;r++){                  //右侧按照列填充，需要将上一轮l循环边界多加的1减去，然后r递减 
+            vc[r][l]=v[index--];cnt++;
+        }   
+        if(cnt==size) break;
+        
+        for(l--,r--;l&gt;=i;l--){                  //下方按行从右往左填充 
+            vc[r][l]=v[index--];cnt++;
+        }
+        if(cnt==size) break;
+        
+        for(l++,r--;r&gt;=i+1;r--){                //左侧从下往上填充 
+            vc[r][l]=v[index--];cnt++;
+        }   
+        if(cnt==size) break;                    //如果有任何一次填充过程中，元素全部装填完毕则结束循环 
+    }
+    for(int i=0;i&lt;m;i++)                        //输出矩阵结果 
+        for(int j=0;j&lt;n;j++){
+            if(j) putchar(' ');
+                cout&lt;&lt;vc[i][j];
+            if(j==n-1)
+                cout&lt;&lt;'\n';
+        }
+    
+    return 0;
+}
+ 
+</code></pre>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/pat/">PAT</a>
+
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/">简单模拟</a>
+
+                  </div>
+                
+              
+            
+              <span id="/2019/12/pat_a1105/" class="leancloud_visitors" data-flag-title="PAT_A1105">
+                <span class="post-meta-item-text">文章阅读量 </span>
+                <span class="leancloud-visitors-count">1000000</span>
+                <p></p>
+              </span>
+              <div id="vcomments"></div>
+              <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+              <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+              <script type="text/javascript">
+                new Valine({
+                  el: '#vcomments' ,
+                  appId: 'KlN0M7Tjl5V4eppXsbRRGddm-MdYXbMMI',
+                  appKey: 'ln30tBHGmV0B5ljj24hjugN0',
+                  notify: 'true',
+                  verify: '',
+                  avatar:'mp', 
+                  placeholder: '偷偷告诉你~ 填写了邮箱会收到评论回复通知哦~~',
+                  visitor: 'true'
+                });
+              </script>
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/12/pat_a1106/" data-tooltip="PAT_A1106">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/12/pat_a1104/" data-tooltip="PAT_A1104">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2019 SAquarius. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/12/pat_a1106/" data-tooltip="PAT_A1106">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/12/pat_a1104/" data-tooltip="PAT_A1104">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://saquarius.github.io/images/touxiang.png" alt="作者的图片" />
+    
+    <h4 id="about-card-name">SAquarius</h4>
+    
+      <div id="about-card-bio">All in or nothing, now or never!</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        学生
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        武汉
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://saquarius.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://saquarius.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+  
+    <script src="https://saquarius.github.io/js/clicklove.js"></script>
+  
+
+  
+    <script src="https://saquarius.github.io/js/snow.js"></script>
+  
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/12\/pat_a1105\/';
+          
+            this.page.identifier = '\/2019\/12\/pat_a1105\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'valine';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
