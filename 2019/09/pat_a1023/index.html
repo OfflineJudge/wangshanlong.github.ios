@@ -323,7 +323,7 @@ int main(void){
     int flag=0,temp;
     for(int i=str.size()-1;i&gt;=0;i--){
         temp=str[i]-'0';            
-        a[temp]++;                  //临时存放单个位乘2只有的结果
+        a[temp]++;                  //临时存放单个位乘2之后的结果
         temp*=2; temp+=flag;        //flag是进位
         out.push_back(temp%10);
         b[temp%10]++;

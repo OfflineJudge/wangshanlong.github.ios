@@ -385,7 +385,7 @@ int main(void){
                 if(mpv.size()==0) break;    //vip服务全部完成时，提前结束循环 
             }
         }
-        for(int j=0;j&lt;k;j++){           //安排了vip只有，全员进行判定 
+        for(int j=0;j&lt;k;j++){           //安排了vip之后，全员进行判定 
             if(T[j].edtime&lt;=i){
                 if(mpo.size()&amp;&amp;mpv.size()){                     //如果都不空，取来的早的进行判定 
                     auto it=mpo.begin(),itv=mpv.begin();
