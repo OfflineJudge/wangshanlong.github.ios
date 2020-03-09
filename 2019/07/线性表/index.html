@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="SAquarius">
+<meta name="keywords" content="数据结构, 线性表, C, C&#43;&#43;, PAT">
+<meta name="description" content="　　将线性表相关的代码实现和算法整理如下。">
+
+
+<meta property="og:description" content="　　将线性表相关的代码实现和算法整理如下。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性表">
+<meta name="twitter:title" content="线性表">
+<meta property="og:url" content="https://saquarius.github.io/2019/07/%E7%BA%BF%E6%80%A7%E8%A1%A8/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/07/%E7%BA%BF%E6%80%A7%E8%A1%A8/">
+<meta property="og:site_name" content="SAquarius的梦想屋">
+<meta property="og:description" content="　　将线性表相关的代码实现和算法整理如下。">
+<meta name="twitter:description" content="　　将线性表相关的代码实现和算法整理如下。">
+<meta property="og:locale" content="zh-cn">
+
+  
+    <meta property="article:published_time" content="2019-07-18T20:22:16">
+  
+  
+    <meta property="article:modified_time" content="2019-07-18T20:22:16">
+  
+  
+  
+    
+      <meta property="article:section" content="数据结构">
+    
+      <meta property="article:section" content="线性表">
+    
+  
+  
+    
+      <meta property="article:tag" content="总结笔记">
+    
+      <meta property="article:tag" content="数据结构">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://saquarius.github.io/images/List_s.jpg">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/List_s.jpg">
+
+
+  <meta property="og:image" content="https://saquarius.github.io/images/List.jpg">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/List.jpg">
+
+
+
+
+  <meta property="og:image" content="https://saquarius.github.io/images/touxiang.png">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
+
+
+    <title>线性表</title>
+
+    <link rel="icon" href="https://saquarius.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://saquarius.github.io/2019/07/%E7%BA%BF%E6%80%A7%E8%A1%A8/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://saquarius.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://saquarius.github.io/">SAquarius的梦想屋</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://saquarius.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://saquarius.github.io/images/touxiang.png" alt="作者的图片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://saquarius.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://saquarius.github.io/images/touxiang.png" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">SAquarius</h4>
+        
+          <h5 class="sidebar-profile-bio">All in or nothing, now or never!</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">类别</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">归档</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/SAquarius" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://saquarius.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+  
+  
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              post-header-cover--full"
+       style="background-image:url('/images/List.jpg')"
+       data-behavior="5">
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaOut
+               hasCoverCaption">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+            <span class="post-header-cover-caption caption">线性表</span>
+          
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      线性表
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2019-07-18T20:22:16&#43;08:00">
+        
+  七月 18, 2019
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://saquarius.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84">数据结构</a>, 
+    
+      <a class="category-link" href="https://saquarius.github.io/categories/%e7%ba%bf%e6%80%a7%e8%a1%a8">线性表</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>　　将线性表相关的代码实现和算法整理如下。</p>
+
+<h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#线性表">线性表</a>
+<ul>
+<li><a href="#线性表的adt">线性表的ADT</a></li>
+<li><a href="#顺序表">顺序表</a>
+<ul>
+<li><a href="#顺序表的定义">顺序表的定义</a></li>
+<li><a href="#顺序表函数接口的实现">顺序表函数接口的实现</a></li>
+<li><a href="#常见顺序表的算法实现">常见顺序表的算法实现</a>
+<ul>
+<li><a href="#将两个递增的顺序表合并">将两个递增的顺序表合并</a></li>
+<li><a href="#删除顺序表中所有值为x的元素">删除顺序表中所有值为x的元素</a></li>
+<li><a href="#统计顺序表中出现次数最多的元素">统计顺序表中出现次数最多的元素</a></li>
+<li><a href="#将线性表l在-i-j-区间内的元素逆置">将线性表L在[i,j]区间内的元素逆置</a>
+<ul>
+<li><a href="#将线性表循环左移k个元素-借助逆置函数">将线性表循环左移k个元素（借助逆置函数）</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#链表">链表</a>
+<ul>
+<li><a href="#单链表">单链表</a>
+<ul>
+<li><a href="#单链表的定义">单链表的定义</a></li>
+<li><a href="#单链表函数接口的实现">单链表函数接口的实现</a>
+<ul>
+<li><a href="#不带头结点的写法">不带头结点的写法：</a></li>
+<li><a href="#带头结点的写法">带头结点的写法：</a></li>
+</ul></li>
+<li><a href="#常见链表算法的实现">常见链表算法的实现</a></li>
+</ul></li>
+<li><a href="#循环链表">循环链表</a></li>
+<li><a href="#双向链表">双向链表</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="线性表">线性表</h1>
+
+<div class="alert info ">
+  <p><ul>
+<li>以c为主要的语言描述，但是引入了c++中“传引用”的写法，以及其他相对便捷的操作<br /></li>
+<li>我已对所有的函数接口进行了调试，保证可正常调用运行，但可能个别没有考虑到特殊的边界所产生的bug希望希望各位指正</li>
+</ul></p>
+</div>
+
+<h2 id="线性表的adt">线性表的ADT</h2>
+
+<p>　　<strong>线性表</strong>是最常见且最简单的一种数据结构。一个线性表的n个元素的有限序列。以下是线性表的ADT描述，再之后的代码实现中，仅对部分函数接口给予实现（可能会适当的对函数功能进行修改）。</p>
+
+<pre><code>//线性表的ADT描述
+ADT List{
+    数据对象：D={ai|ai ∈ Elemset , i=1,2,3...n,n&gt;=0}
+    数据关系：R1={&lt;ai-1,ai&gt;|ai-1,ai∈D,i=2,3...n}
+    基本操作：
+        InitList(&amp;L)
+            操作结果：构造一个空的线性表。
+        DestroyList(&amp;L)
+            初始条件：线性表L已存在。
+            操作结果：销毁线性表L。
+        ClearList(&amp;L)
+            初始条件：线性表L已存在。
+            操作结果：将L重置为空表。
+        ListEmpty(L)
+            初始条件：线性表L已存在。
+            操作结果：若L为空表，返回True，否则返回false。
+        ListLength(L)
+            初始条件：线性表L已存在。
+            操作结果：返回L中数据元素的个数。
+        GetElem(L,i,&amp;e)
+            初始条件：线性表L已存在,0&lt;=i&lt;ListLength(L)。
+            操作结果：用e返回L中下标为i数据元素的值。
+        LocateElem(L,e,compare())
+            初始条件：线性表L已存在,compare()是数据元素判定的比较函数。
+            操作结果：返回L中第一个与e满足compare的数据元素的为序。若不存在，则返回-1。
+        ListInsert(&amp;L,i,e)
+            初始条件：线性表L已存在,1&lt;=i&lt;=ListLength(L)+1。
+            操作结果：在L中的第i个位置之前插入新的数据元素e，L的长度加1。
+        ListDelete(&amp;L,i,&amp;e)
+            初始条件：线性表L已存在,1&lt;=i&lt;=ListLength(L)。
+            操作结果：删除L的第i个数据元素，并用e返回其值，L的长度减1。
+        ListTraverse(L,visit())
+            初始条件：线性表L已存在。
+            操作结果：依次对L的每个数据元素调用visit()。如果visit失败，则操作失败。
+}
+</code></pre>
+
+<h2 id="顺序表">顺序表</h2>
+
+<p>　　<strong>顺序表</strong>使用一块连续的空间存放若干数量的元素，可以随机存取，但增、删等修改性能较差。</p>
+
+<h3 id="顺序表的定义">顺序表的定义</h3>
+
+<pre><code>//顺序表的定义 
+#define LIST_INIT_SIZE 100              //顺序表的初始化大小
+typedef struct elem{                    //封装顺序表的数据元素，暂定数据元素为int型 
+    int data;
+    //运算符的重载，将顺序表中的元素进行更好的比较,使得对外隐藏元素的具体细节 
+    bool operator==(const elem &amp;b)const{
+        return this-&gt;data==b.data;
+    }
+    bool operator!=(const elem &amp;b)const{
+        return this-&gt;data!=b.data;
+    }
+    bool operator&lt;(const elem &amp;b)const{
+        return this-&gt;data&lt;b.data;
+    }
+    bool operator&lt;=(const elem &amp;b)const{
+        return this-&gt;data&lt;=b.data;
+    }
+    bool operator&gt;(const elem &amp;b)const{
+        return this-&gt;data&gt;b.data;
+    }
+    bool operator&gt;=(const elem &amp;b)const{
+        return this-&gt;data&gt;=b.data;
+    }
+}Elem; 
+typedef struct list{                    //定义顺序表结构体
+    Elem *p;                            //数组空间的地址
+    unsigned int len;                   //顺序表的有效长度
+}SqList;
+</code></pre>
+
+<h3 id="顺序表函数接口的实现">顺序表函数接口的实现</h3>
+
+<pre><code>//函数接口的实现
+#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+
+//顺序表的初始化
+void InitList(SqList &amp;L){               //申请一定大小的数组空间，并把地址给p 
+    L.p=(Elem*)malloc(sizeof(Elem)*LIST_INIT_SIZE);
+    L.len=0;                            //初始化大小为0 
+    if(L.p==NULL){                      //如果分配失败，输出失败提示 
+        printf(&quot;List init failed. Error: Memory allocation failed.\n&quot;);
+        exit(EXIT_FAILURE);
+    }
+} 
+
+//销毁顺序表
+void DestroyList(SqList &amp;L){            //销毁顺序表L分配的数组空间 
+    free(L.p);
+} 
+
+//清空顺序表
+void ClearList(SqList &amp;L){              //惰性清除，即使所有的数据无效 
+    L.len=0;
+}
+
+//顺序表判空
+bool ListEmpty(SqList L){               //判断顺序表是否为空 
+    return L.len;
+} 
+
+//返回顺序表的长度
+unsigned int ListLength(SqList L){      //返回顺序表的长度 
+    return L.len;
+}
+
+//返回L中第i个元素给变量e，如果成功则返回true，否则返回false 
+bool GetElem(const SqList L,unsigned int i,Elem &amp;e){ 
+    if(i&gt;=L.len) return false;
+    e=L.p[i];
+    return true;
+} 
+
+//在顺序表的下标i处插入新的数据元素,插入成功返回true，否则返回false 
+bool ListInsert(SqList &amp;L,unsigned int i,Elem e){
+    //如果插入在顺寻表长度范围以外，或者顺序表已满 
+    if(i&gt;L.len||L.len==LIST_INIT_SIZE) return false;
+    for(int j=L.len;j&gt;i;j--)            //i之后的元素后移 
+        L.p[j]=L.p[j-1];
+    L.p[i]=e; L.len++;                  //将e插入到下标i处，长度加一 
+    return true;         
+} 
+
+//删除顺序表中下标为i的元素并用e返回，删除成功返回true，否则返回false
+bool ListDelete(SqList &amp;L,unsigned int i,Elem &amp;e){
+    if(i&gt;L.len||L.len==0) return false;//如果i超出范围或者顺序表为空
+    e=L.p[i];                          //保存删除的元素 
+    for(int j=i;j&lt;L.len;j++)           //i号之后的元素前移 
+        L.p[j]=L.p[j+1];
+    L.len--;                           //表长减小 
+    return true; 
+} 
+
+//顺序表的遍历
+void ListTraverse(SqList L){           //遍历并打印顺序表内容，访问方式可修改 
+    for(int i=0;i&lt;L.len;i++){
+        if(i) putchar(' ');
+        printf(&quot;%d&quot;,L.p[i].data); 
+    }   
+}
+</code></pre>
+
+<h3 id="常见顺序表的算法实现">常见顺序表的算法实现</h3>
+
+<h4 id="将两个递增的顺序表合并">将两个递增的顺序表合并</h4>
+
+<pre><code>//将两个有序（递增）的顺序表合并且返回一个新的有序的顺序表
+//时间复杂度O(len_a+len_b),空间复杂度O(len_a+len_b) 
+SqList MergeList(SqList a,SqList b){
+    SqList ret;                         //定义一个返回值，一个顺序表 
+    int len_a=a.len,len_b=b.len;
+    int i=0,j=0,index=0;
+    ret.len=len_a+len_b;                //计算合并后的顺序表的大小 
+    ret.p=(Elem*)malloc(sizeof(Elem)*ret.len);  //申请空间 
+    if(ret.p==NULL) exit(EXIT_FAILURE); //如果内存申请失败，返回 
+    while(i&lt;len_a&amp;&amp;j&lt;len_b){            //比较a，b的中元素，较小的合并到ret中 
+        if(a.p[i]&lt;b.p[j]) ret.p[index++]=a.p[i++];
+        else ret.p[index++]=b.p[j++]; 
+    }
+    //如果有其中一个顺序表有剩余，继续合并进ret中 
+    while(i&lt;len_a) ret.p[index++]=a.p[i++];
+    while(j&lt;len_b) ret.p[index++]=b.p[j++];
+    return ret;
+}
+</code></pre>
+
+<h4 id="删除顺序表中所有值为x的元素">删除顺序表中所有值为x的元素</h4>
+
+<pre><code>//删除顺序表中所有值为x的元素，并返回删除的个数
+//采用惰性删除，时间复杂度O(n),空间复杂度O(1) 
+int Delete_x(SqList &amp;L,Elem x){
+    int cnt=0,ret;              //cnt为新的计数下标 
+    for(int i=0;i&lt;L.len;i++){   //遍历整个链表 
+        if(L.p[i]!=x)           //覆盖式删除 
+            L.p[cnt++]=L.p[i];
+    }
+    ret=L.len-cnt;              //cnt为保留的不等于x的元素个数 
+    L.len=cnt;                  //更新顺序表的长度 
+    return ret;                 //返回删除的x个数 
+}
+</code></pre>
+
+<h4 id="统计顺序表中出现次数最多的元素">统计顺序表中出现次数最多的元素</h4>
+
+<div class="alert warning ">
+  <p>在此假定前提条件为出现次数最多的元素唯一,且顺序表不为空</p>
+</div>
+
+<pre><code>//统计顺序表中出现次数最多的元素
+//在此假定前提条件为出现次数最多的元素唯一,且顺序表不为空 
+Elem Majority(SqList L){
+    int cnt=1;                  //用于计数 
+    Elem ret=L.p[0];            //ret为候选主元 
+    for(int i=1;i&lt;L.len;i++){   //遍历整个顺序表 
+        if(L.p[i]==ret) cnt++;  //如果等于主元，计数 
+        else{
+            if(cnt&gt;0) cnt--;    //如果出现了不是主元的元素，则削弱主元的权值（计数） 
+            else{
+                ret=L.p[i];cnt=1;//如果备选主元被削弱到0，则更换主元，重新计数 
+            }
+        }
+    }
+    return ret;
+}
+</code></pre>
+
+<h4 id="将线性表l在-i-j-区间内的元素逆置">将线性表L在[i,j]区间内的元素逆置</h4>
+
+<pre><code>//将顺序表中从下标[i,j) 左闭右开区间内的元素逆序
+void Reverse(SqList &amp;L,int i,int j){
+    while(i&lt;j){                 //i,j为两侧指针 
+        Elem temp=L.p[i];       //交换i，j 
+        L.p[i]=L.p[j];
+        L.p[j]=temp;
+        i++;j--;                //指针向中间缩进 
+    }
+} 
+</code></pre>
+
+<h5 id="将线性表循环左移k个元素-借助逆置函数">将线性表循环左移k个元素（借助逆置函数）</h5>
+
+<pre><code>//将顺序表中的元素循环左移k个元素 
+void Rotate_left(SqList &amp;L,int k){
+    Reverse(L,0,k-1);           //先将0~k-1逆置 
+    Reverse(L,k,L.len-1);       //再将k~len-1逆置 
+    Reverse(L,0,L.len-1);       //在将整个顺序表逆置 
+} 
+</code></pre>
+
+<h2 id="链表">链表</h2>
+
+<h3 id="单链表">单链表</h3>
+
+<h4 id="单链表的定义">单链表的定义</h4>
+
+<p>　　<strong>链表</strong>使用一组任意的存储单元存储线性表的数据元素（这组存储单元可以是练习的，也可以是不连续的）。数据元素以结点的形式存在，一个结点包含两个域：存储数据元素信息的域称为<strong>数据域</strong>；存储直接后继存储位置的域成为<strong>指针域</strong>；结点之间通过指针域连接形成<strong>单链表</strong>。</p>
+
+<pre><code>typedef struct elem{                    //封装内部的数据元素，暂定数据元素为int型 
+    int x;
+    //运算符的重载，重载元素的比较，可根据实际需求做相应的修改 
+    bool operator==(const elem &amp;b)const{
+        return this-&gt;x==b.x;
+    }
+    bool operator!=(const elem &amp;b)const{
+        return this-&gt;x!=b.x;
+    }
+    bool operator&lt;(const elem &amp;b)const{
+        return this-&gt;x&lt;b.x;
+    }
+    bool operator&lt;=(const elem &amp;b)const{
+        return this-&gt;x&lt;=b.x;
+    }
+    bool operator&gt;(const elem &amp;b)const{
+        return this-&gt;x&gt;b.x;
+    }
+    bool operator&gt;=(const elem &amp;b)const{
+        return this-&gt;x&gt;=b.x;
+    }
+}Elem;
+typedef struct information{             //结点的额外信息，这里额外信息用一个结构体描述，暂定为一个int型数值 
+    int tag;
+}Inform;
+typedef struct Node{                    //定义链表结点 
+    Elem data;                          //数据域 
+    struct Node *next;                  //指针域 
+    Inform info;                        //结点的额外信息 
+}LNode,*LinkList;
+</code></pre>
+
+<h4 id="单链表函数接口的实现">单链表函数接口的实现</h4>
+
+<h5 id="不带头结点的写法">不带头结点的写法：</h5>
+
+<p>　　不带头结点的情况下，链表指针指向第一个结点（空时为NULL），此使链表可能因为增删等原因导致链表指针发生改变。</p>
+
+<pre><code>//初始化链表
+ void InitList(LinkList &amp;L){
+    L=NULL;                             //将链表置空 
+ }
+
+ //销毁整个链表，并释放整个链表的内存空间 
+ void DestoryList(LinkList &amp;L){
+    while(L){
+        LNode *temp=L;                  //使用temp接管链表 
+        L=L-&gt;next;                      //工作指针后移 
+        free(temp);                     //释放节点 
+     }
+ }
+
+ //判断链表是否为空 
+ bool IsEmpty(LinkList L){
+    return !L;                          //如果链表指针为NULL则为空，否则不是空 
+ }
+
+ //链表判满
+ bool IsFull(LinkList L){               //这里判定内存池中是否还有空间容纳节点来判断是否满 
+    LNode *temp=(LNode *)malloc(sizeof(LNode));
+    if(temp==NULL) return true;         //如果申请内存失败，则为满 
+    else{                               //否则，释放尝试申请的内存空间，并返回不满 
+        free(temp);
+        return false;
+     }
+ } 
+
+ //返回链表长度
+ int ListLength(LinkList L){
+    LNode *p=L;                         //p为工作指针 
+    int cnt=0;                          //cnt为节点计数器 
+    while(p){                           //当p不空时，工作指针步进并计数 
+        p=p-&gt;next;
+        cnt++;
+     }
+     return cnt;
+ } 
+
+//读取链表的第i个元素（i从1开始），并用参数e接收,如果读取失败返回false，否则返回true 
+bool GetElem(LinkList L,int i,Elem &amp;e){
+    if(i&lt;=0||i&gt;ListLength(L)){         //如果读取的位置不合法，打印越界错误 
+        printf(&quot;Error: index out of range.\n&quot;);
+        return false;
+    }
+    LNode *p=L;
+    while(--i)                      //循环i次获取该位置的元素 
+        p=p-&gt;next;
+    e=p-&gt;data;
+    return true;                    //读取成功 
+} 
+
+//返回第一个数据等于x的节点的序号(从1开始)，如果不存在则返回-1 
+int LocateElem(LinkList L,Elem x){
+    int index=0;
+    while(L){                       //指针步进，index用于计数 
+        index++; 
+        if(L-&gt;data==x) return index;//如果找到第一个等于x的则返回序号 
+        L=L-&gt;next;
+    }
+    return -1;                      //找不到 返回-1； 
+} 
+
+//在链表中插入一个元素x，（头插）,操作成功返回true，否则返回false 
+bool HeadInsert(LinkList &amp;L,Elem x){
+    LNode *temp=(LNode *)malloc(sizeof(LNode));
+    if(temp==NULL) return false;    //如果内存申请失败，则返回false，无法插入 
+    temp-&gt;data=x;                   //头插代码 
+    temp-&gt;next=L;
+    L=temp; 
+    return true;                    //插入成功 
+} 
+
+//在链表中插入一个元素x，（尾插）,操作成功返回true，否则返回false 
+bool TailInsert(LinkList &amp;L,Elem x){
+    LNode *tail=L;                  //tail是记录最后一个节点的指针 
+    LNode *temp=(LNode *)malloc(sizeof(LNode));
+    if(temp==NULL) return false;    //如果内存申请失败，则返回false，无法插入 
+    temp-&gt;data=x;temp-&gt;next=NULL;
+    if(tail==NULL){                 //如果链表为空，则让L等于新节点 
+        L=temp;
+    }
+    else{                           //如果不为空 
+        while(tail-&gt;next)           //找到最后一个节点 
+            tail=tail-&gt;next;
+        tail-&gt;next=temp;            //插入节点 
+    }
+    return true; 
+} 
+
+//在链表中第i个位置插入一个元素x（从1开始），如果成功返回true，否则返回false
+bool InserLinst_i(LinkList &amp;L,unsigned int i,Elem x){
+    int len=ListLength(L);
+    LNode *temp=(LNode*)malloc(sizeof(LNode));//为插入的元素申请结点空间
+    LNode *p=L;
+    if(len==0||i&gt;len+1||i&lt;=0||temp==NULL)   
+        return false;               //如果链表为空或者满，或者i越界则插入失败，如果链表场Len，可以在尾部即Len+1位置上插入
+    temp-&gt;data=x;                   //结点赋值
+    if(i==1){                       //没有头结点，所以插入第一个做特殊处理
+        temp-&gt;next=L;
+        L=temp;
+    }
+    else{
+        i--;                        //找到第i-1个结点
+        while(--i)
+            p=p-&gt;next;
+        temp-&gt;next=p-&gt;next;         //新节点接管i之后的链表
+        p-&gt;next=temp;               //将新节点勾链到i-1上
+    }
+    return true;
+}
+
+//删除链表中第一个i个（从1开始）的数据元素，并用e返回其值,成功则返回true，否则返回false
+bool DeleteList_i(LinkList &amp;L,unsigned int i,Elem &amp;e){
+    int len=ListLength(L);
+    if(len==0||i&gt;len||i&lt;=0)         //如果链表为空，或者i越界则删除失败
+        return false;
+    LNode* p=L;                     //工作指针
+    if(i==1){                       //没有头结点，所以删除第一个需要特殊处理   
+        e=L-&gt;data;      
+        L=L-&gt;next;
+        free(p);
+    }
+    else{
+        i--;
+        while(--i)                  //找到第i-1个结点
+            p=p-&gt;next;
+        LNode *temp=p-&gt;next;        //temp指向第i个结点
+        e=temp-&gt;data;
+        p-&gt;next=temp-&gt;next;         //第i-1和第i+1个结点勾链
+        free(temp);                 //释放删除的结点
+    }
+    return true;
+}
+
+//遍历整个链表，并打印链表的结构,具体打印的访问细节，可自行实现 
+void TraverseList(LinkList L){
+    int cnt=0;
+    while(L){
+        if(cnt++) printf(&quot;-&gt;&quot;);
+        printf(&quot;%d&quot;,L-&gt;data.x);
+        L=L-&gt;next;
+    }
+}
+</code></pre>
+
+<h5 id="带头结点的写法">带头结点的写法：</h5>
+
+<p>　　带头结点的情况下，链表指针指向一个空的结点，该空结点数据域不保存数据元素，指针域指向链表的第一个结点（初始为NULL）。通常来说带头结点的链表各种操作实现容易，且易于理解，因此之后的常见算法按照带头结点的链表给予实现。</p>
+
+<pre><code>//初始化链表，若初始化成功返回true，否则返回false
+bool InitList(LinkList &amp;L){         //为链表申请并初始化一个头结点，然后初始化头结点指针与为null
+    L=(LNode*)malloc(sizeof(LNode));//申请头结点空间
+    if(L==NULL) return false;       //如果申请失败
+    L-&gt;next=NULL;                   //成功则，初始化指针域
+    return true;
+ }
+
+ //销毁整个链表，并释放整个链表的内存空间 
+void DestoryList(LinkList &amp;L){
+    while(L){
+        LNode *temp=L;                  //使用temp接管链表 
+        L=L-&gt;next;                      //工作指针后移 
+        free(temp);                     //释放节点 
+    }
+ }
+
+ //判断链表是否为空 
+bool IsEmpty(LinkList L){
+    return !L-&gt;next;                    //如果头结点的指针域为NULL则为空，否则不是空 
+ }
+
+//链表判满
+bool IsFull(LinkList L){                //这里判定内存池中是否还有空间容纳节点来判断是否满 
+    LNode *temp=(LNode *)malloc(sizeof(LNode));
+    if(temp==NULL) return true;         //如果申请内存失败，则为满 
+    else{                               //否则，释放尝试申请的内存空间，并返回不满 
+        free(temp);
+        return false;
+    }
+ } 
+
+ //返回链表长度
+ int ListLength(LinkList L){
+    LNode *p=L-&gt;next;                   //p为工作指针 
+    int cnt=0;                          //cnt为节点计数器 
+    while(p){                           //当p不空时，工作指针步进并计数 
+        p=p-&gt;next;
+        cnt++;
+    }
+    return cnt;
+} 
+
+//读取链表的第i个元素（i从1开始），并用参数e接收,如果读取失败返回false，否则返回true 
+bool GetElem(LinkList L,int i,Elem &amp;e){
+    if(i&lt;=0||i&gt;ListLength(L)){         //如果读取的位置不合法，打印越界错误 
+        printf(&quot;Error: index out of range.\n&quot;);
+        return false;
+    }
+    LNode *p=L-&gt;next;
+    while(--i)                      //循环i次获取该位置的元素 
+        p=p-&gt;next;
+    e=p-&gt;data;
+    return true;                    //读取成功 
+} 
+
+//返回第一个数据等于x的节点的序号(从1开始)，如果不存在则返回-1 
+int LocateElem(LinkList L,Elem x){
+    int index=0;
+    L=L-&gt;next;
+    while(L){                       //指针步进，index用于计数 
+        index++; 
+        if(L-&gt;data==x) return index;//如果找到第一个等于x的则返回序号 
+        L=L-&gt;next;
+    }
+    return -1;                      //找不到 返回-1； 
+} 
+
+//在链表中插入一个元素x，（头插）,操作成功返回true，否则返回false 
+bool HeadInsert(LinkList &amp;L,Elem x){
+    LNode *temp=(LNode *)malloc(sizeof(LNode));
+    if(temp==NULL) return false;    //如果内存申请失败，则返回false，无法插入 
+    temp-&gt;data=x;                   //头插代码 
+    temp-&gt;next=L-&gt;next;
+    L-&gt;next=temp; 
+    return true;                    //插入成功 
+} 
+
+//在链表中插入一个元素x，（尾插）,操作成功返回true，否则返回false 
+bool TailInsert(LinkList &amp;L,Elem x){
+    LNode *tail=L-&gt;next;            //tail是记录最后一个节点的指针 
+    LNode *temp=(LNode *)malloc(sizeof(LNode));
+    if(temp==NULL) return false;    //如果内存申请失败，则返回false，无法插入 
+    temp-&gt;data=x;temp-&gt;next=NULL;   //因为插入到尾部，所以直接初始化指针域为NULL
+    if(tail==NULL){                 //如果链表为空，则让第一个结点为新插入的节点 
+        L-&gt;next=temp;
+    }
+    else{                           //如果不为空 
+        while(tail-&gt;next)           //找到最后一个节点 
+            tail=tail-&gt;next;
+        tail-&gt;next=temp;            //插入节点 
+    }
+    return true; 
+} 
+
+//在链表中第i个位置插入一个元素x（从1开始），如果成功返回true，否则返回false
+bool InserLinst_i(LinkList L,unsigned int i,Elem x){
+    int len=ListLength(L);
+    LNode *temp=(LNode*)malloc(sizeof(LNode));//为插入的元素申请结点空间
+    LNode *p=L;                     //工作指针
+    if(len==0||i&gt;len+1||i&lt;=0||temp==NULL)   
+        return false;               //如果链表为空或者满，或者i越界则插入失败，如果链表场Len，可以在尾部即Len+1位置上插入
+    temp-&gt;data=x;                   //结点赋值
+    while(--i)                      //找到第i-1个结点
+        p=p-&gt;next;
+    temp-&gt;next=p-&gt;next;             //新节点接管i之后的链表
+    p-&gt;next=temp;                   //将新节点勾链到i-1上
+    return true;
+}
+
+//删除链表中第一个i个（从1开始）的数据元素，并用e返回其值,成功则返回true，否则返回false
+bool DeleteList_i(LinkList L,unsigned int i,Elem &amp;e){
+    int len=ListLength(L);
+    if(len==0||i&gt;len||i&lt;=0)         //如果链表为空，或者i越界则删除失败
+        return false;
+    LNode* p=L;                     //工作指针
+    while(--i)                      //找到第i-1个结点
+        p=p-&gt;next;
+    LNode *temp=p-&gt;next;            //temp指向第i个结点
+    e=temp-&gt;data;
+    p-&gt;next=temp-&gt;next;             //第i-1和第i+1个结点勾链
+    free(temp);                     //释放删除的结点
+    return true;
+}
+
+//遍历整个链表，并打印链表的结构,具体打印的访问细节，可根据定义自行实现 
+void TraverseList(LinkList L){
+    int cnt=0;
+    L=L-&gt;next;
+    while(L){
+        if(cnt++) printf(&quot;-&gt;&quot;);
+        printf(&quot;%d&quot;,L-&gt;data.x);
+        L=L-&gt;next;
+    }
+}
+</code></pre>
+
+<h4 id="常见链表算法的实现">常见链表算法的实现</h4>
+
+<h3 id="循环链表">循环链表</h3>
+
+<h3 id="双向链表">双向链表</h3>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E6%80%BB%E7%BB%93%E7%AC%94%E8%AE%B0/">总结笔记</a>
+
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+
+                  </div>
+                
+              
+            
+              <span id="/2019/07/%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="leancloud_visitors" data-flag-title="线性表">
+                <span class="post-meta-item-text">文章阅读量 </span>
+                <span class="leancloud-visitors-count">1000000</span>
+                <p></p>
+              </span>
+              <div id="vcomments"></div>
+              <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+              <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+              <script type="text/javascript">
+                new Valine({
+                  el: '#vcomments' ,
+                  appId: 'KlN0M7Tjl5V4eppXsbRRGddm-MdYXbMMI',
+                  appKey: 'ln30tBHGmV0B5ljj24hjugN0',
+                  notify: 'true',
+                  verify: '',
+                  avatar:'mp', 
+                  placeholder: '偷偷告诉你~ 填写了邮箱会收到评论回复通知哦~~',
+                  visitor: 'true'
+                });
+              </script>
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/" data-tooltip="树与二叉树">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10/" data-tooltip="Hugo&#43;github搭建个人博客（windows10）">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 SAquarius. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/" data-tooltip="树与二叉树">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/07/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10/" data-tooltip="Hugo&#43;github搭建个人博客（windows10）">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://saquarius.github.io/images/touxiang.png" alt="作者的图片" />
+    
+    <h4 id="about-card-name">SAquarius</h4>
+    
+      <div id="about-card-bio">All in or nothing, now or never!</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        学生
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        武汉
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://saquarius.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://saquarius.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+  
+    <script src="https://saquarius.github.io/js/clicklove.js"></script>
+  
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/07\/%E7%BA%BF%E6%80%A7%E8%A1%A8\/';
+          
+            this.page.identifier = '\/2019\/07\/%E7%BA%BF%E6%80%A7%E8%A1%A8\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'valine';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
