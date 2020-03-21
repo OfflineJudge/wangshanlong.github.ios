@@ -2,49 +2,49 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>教程 on SAquarius的梦想屋</title>
-    <link>https://162q2x.coding-pages.com/categories/%E6%95%99%E7%A8%8B/</link>
+    <link>https://saquarius.github.io/categories/%E6%95%99%E7%A8%8B/</link>
     <description>Recent content in 教程 on SAquarius的梦想屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 24 Jul 2019 08:55:08 +0800</lastBuildDate>
     
-	<atom:link href="https://162q2x.coding-pages.com/categories/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://saquarius.github.io/categories/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>给Hugo博客添加网易云音乐外链</title>
-      <link>https://162q2x.coding-pages.com/2019/07/%E7%BB%99hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE/</link>
+      <link>https://saquarius.github.io/2019/07/%E7%BB%99hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE/</link>
       <pubDate>Wed, 24 Jul 2019 08:55:08 +0800</pubDate>
       
-      <guid>https://162q2x.coding-pages.com/2019/07/%E7%BB%99hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE/</guid>
+      <guid>https://saquarius.github.io/2019/07/%E7%BB%99hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE/</guid>
       <description>&lt;p&gt;　　之前一段时间，给博客页面做了一点点美化，其实就是加了一个鼠标点击出现小心心的特效插件。但是，感觉还不够呀，这样的博客太安静了，于是就研究给自己的博客加上音乐播放插件，可是搜索到的都是hexo的教程，于是自己参照着摸索出了给自己的hugo博客加上网易云音乐外链的方法。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>vscode中C&#43;&#43;编译和调试环境配置(Win10)</title>
-      <link>https://162q2x.coding-pages.com/2019/07/vscode%E4%B8%ADc-%E7%BC%96%E8%AF%91%E5%92%8C%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEwin10/</link>
+      <link>https://saquarius.github.io/2019/07/vscode%E4%B8%ADc-%E7%BC%96%E8%AF%91%E5%92%8C%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEwin10/</link>
       <pubDate>Mon, 22 Jul 2019 15:20:03 +0800</pubDate>
       
-      <guid>https://162q2x.coding-pages.com/2019/07/vscode%E4%B8%ADc-%E7%BC%96%E8%AF%91%E5%92%8C%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEwin10/</guid>
+      <guid>https://saquarius.github.io/2019/07/vscode%E4%B8%ADc-%E7%BC%96%E8%AF%91%E5%92%8C%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEwin10/</guid>
       <description>&lt;p&gt;　　在win10系统下，VS Code中配置C++编译和调试环境，经过个人实践整理一下配置的过程、方法和使用体验。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Github博客同步到Coding,自定义域名双线解析</title>
-      <link>https://162q2x.coding-pages.com/2019/07/github%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%AD%A5%E5%88%B0coding%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E5%8F%8C%E7%BA%BF%E8%A7%A3%E6%9E%90/</link>
+      <link>https://saquarius.github.io/2019/07/github%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%AD%A5%E5%88%B0coding%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E5%8F%8C%E7%BA%BF%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Mon, 22 Jul 2019 15:15:03 +0800</pubDate>
       
-      <guid>https://162q2x.coding-pages.com/2019/07/github%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%AD%A5%E5%88%B0coding%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E5%8F%8C%E7%BA%BF%E8%A7%A3%E6%9E%90/</guid>
+      <guid>https://saquarius.github.io/2019/07/github%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%AD%A5%E5%88%B0coding%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E5%8F%8C%E7%BA%BF%E8%A7%A3%E6%9E%90/</guid>
       <description>&lt;p&gt;　
 　　为了解决Github屏蔽了百度爬虫导致的Github Pages无法被收录的问题，将Github上的静态网页同步到Coding Pages上。同时对域名采用DNSPod实现域名双线解析，以加快国内的访问，并被百度收录。这里，以我使用Hugo框架搭建的blog为例，使用在&lt;a href=&#34;https://sg.godaddy.com/zh?ci=&#34;&gt;Godaddy&lt;/a&gt;上购买的域名，作为自定义域名。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Hugo&#43;github搭建个人博客（windows10）</title>
-      <link>https://162q2x.coding-pages.com/2019/07/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10/</link>
+      <link>https://saquarius.github.io/2019/07/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10/</link>
       <pubDate>Fri, 12 Jul 2019 10:31:57 +0800</pubDate>
       
-      <guid>https://162q2x.coding-pages.com/2019/07/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10/</guid>
+      <guid>https://saquarius.github.io/2019/07/hugo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2windows10/</guid>
       <description>&lt;p&gt;　　一个尽可能详细的在windows平台上hugo+github部署个人博客的教程。一方面为了记录自己建立博客时候的过程和遇到的困难，另一方面为了给那些学习建立个人博客的同学提供参考。&lt;/p&gt;
 
 &lt;p&gt;　　在参照本教程的时候可以和B站up主CodeSheep的视频搭配食用。&lt;/p&gt;

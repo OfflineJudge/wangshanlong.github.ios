@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>文章 on SAquarius的梦想屋</title>
-    <link>https://162q2x.coding-pages.com/categories/%E6%96%87%E7%AB%A0/</link>
+    <link>https://saquarius.github.io/categories/%E6%96%87%E7%AB%A0/</link>
     <description>Recent content in 文章 on SAquarius的梦想屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 29 Dec 2019 17:10:21 +0800</lastBuildDate>
     
-	<atom:link href="https://162q2x.coding-pages.com/categories/%E6%96%87%E7%AB%A0/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://saquarius.github.io/categories/%E6%96%87%E7%AB%A0/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>置顶</title>
-      <link>https://162q2x.coding-pages.com/2019/12/%E7%BD%AE%E9%A1%B6/</link>
+      <link>https://saquarius.github.io/2019/12/%E7%BD%AE%E9%A1%B6/</link>
       <pubDate>Sun, 29 Dec 2019 17:10:21 +0800</pubDate>
       
-      <guid>https://162q2x.coding-pages.com/2019/12/%E7%BD%AE%E9%A1%B6/</guid>
+      <guid>https://saquarius.github.io/2019/12/%E7%BD%AE%E9%A1%B6/</guid>
       <description>&lt;p&gt;　　所有走过的弯路，都是必经之路，都值得！&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>第二天的记录</title>
-      <link>https://162q2x.coding-pages.com/2019/07/%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%9A%84%E8%AE%B0%E5%BD%95/</link>
+      <link>https://saquarius.github.io/2019/07/%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%9A%84%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Thu, 11 Jul 2019 23:04:49 +0800</pubDate>
       
-      <guid>https://162q2x.coding-pages.com/2019/07/%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%9A%84%E8%AE%B0%E5%BD%95/</guid>
+      <guid>https://saquarius.github.io/2019/07/%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%9A%84%E8%AE%B0%E5%BD%95/</guid>
       <description>&lt;p&gt;　　第二天折腾一下主题的配置和使用，也要留下点记录，tranquilpeak的主题真的好看。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>我的第一篇blog呀！</title>
-      <link>https://162q2x.coding-pages.com/2019/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87blog%E5%91%80/</link>
+      <link>https://saquarius.github.io/2019/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87blog%E5%91%80/</link>
       <pubDate>Wed, 10 Jul 2019 00:40:15 +0800</pubDate>
       
-      <guid>https://162q2x.coding-pages.com/2019/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87blog%E5%91%80/</guid>
+      <guid>https://saquarius.github.io/2019/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87blog%E5%91%80/</guid>
       <description>&lt;p&gt;　　博客搭建起来了，第一篇文章正式上线了，简单的记录一下搭建博客过程，以及往后的博客使用规划。&lt;/p&gt;</description>
     </item>
     

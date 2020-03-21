@@ -15,8 +15,8 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="动态规划">
 <meta name="twitter:title" content="动态规划">
-<meta property="og:url" content="https://162q2x.coding-pages.com/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-<meta property="twitter:url" content="https://162q2x.coding-pages.com/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+<meta property="og:url" content="https://saquarius.github.io/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+<meta property="twitter:url" content="https://saquarius.github.io/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
 <meta property="og:site_name" content="SAquarius的梦想屋">
 <meta property="og:description" content="　　动态规划，是用于解决一类最优化问题的算法思想。简单来说，将一个复杂的问题分解成若干个子问题，通过子问题的最优解推出原问题的最优解，动态规划会记录子问题的结果，用于求解最终问题，解决了纯粹使用递归时候重复计算的问题。这里总结几种常见的动态规划问题及其算法。">
 <meta name="twitter:description" content="　　动态规划，是用于解决一类最优化问题的算法思想。简单来说，将一个复杂的问题分解成若干个子问题，通过子问题的最优解推出原问题的最优解，动态规划会记录子问题的结果，用于求解最终问题，解决了纯粹使用递归时候重复计算的问题。这里总结几种常见的动态规划问题及其算法。">
@@ -53,18 +53,18 @@
 
 
 
-  <meta property="og:image" content="https://162q2x.coding-pages.com/images/DP_s.jpg">
-  <meta property="twitter:image" content="https://162q2x.coding-pages.com/images/DP_s.jpg">
+  <meta property="og:image" content="https://saquarius.github.io/images/DP_s.jpg">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/DP_s.jpg">
 
 
-  <meta property="og:image" content="https://162q2x.coding-pages.com/images/DP.jpg">
-  <meta property="twitter:image" content="https://162q2x.coding-pages.com/images/DP.jpg">
+  <meta property="og:image" content="https://saquarius.github.io/images/DP.jpg">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/DP.jpg">
 
 
 
 
-  <meta property="og:image" content="https://162q2x.coding-pages.com/images/touxiang.png">
-  <meta property="twitter:image" content="https://162q2x.coding-pages.com/images/touxiang.png">
+  <meta property="og:image" content="https://saquarius.github.io/images/touxiang.png">
+  <meta property="twitter:image" content="https://saquarius.github.io/images/touxiang.png">
 
 
     <title>动态规划</title>
@@ -74,7 +74,7 @@
 
     
 
-    <link rel="canonical" href="https://162q2x.coding-pages.com/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+    <link rel="canonical" href="https://saquarius.github.io/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -82,7 +82,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://162q2x.coding-pages.com/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    <link rel="stylesheet" href="https://saquarius.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
     
     
 
@@ -97,17 +97,17 @@
       <header id="header" data-behavior="5">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="https://162q2x.coding-pages.com/">SAquarius的梦想屋</a>
+    <a class="header-title-link" href="https://saquarius.github.io/">SAquarius的梦想屋</a>
   </div>
   
     
       <a class="header-right-picture "
-         href="https://162q2x.coding-pages.com/#about">
+         href="https://saquarius.github.io/#about">
     
     
     
       
-        <img class="header-picture" src="https://162q2x.coding-pages.com/images/touxiang.png" alt="作者的图片" />
+        <img class="header-picture" src="https://saquarius.github.io/images/touxiang.png" alt="作者的图片" />
       
     
     </a>
@@ -118,8 +118,8 @@
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
-        <a href="https://162q2x.coding-pages.com/#about">
-          <img class="sidebar-profile-picture" src="https://162q2x.coding-pages.com/images/touxiang.png" alt="作者的图片" />
+        <a href="https://saquarius.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://saquarius.github.io/images/touxiang.png" alt="作者的图片" />
         </a>
         <h4 class="sidebar-profile-name">SAquarius</h4>
         
@@ -131,7 +131,7 @@
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://162q2x.coding-pages.com/">
+      <a class="sidebar-button-link " href="https://saquarius.github.io/">
     
       <i class="sidebar-button-icon fa fa-lg fa-home"></i>
       
@@ -141,7 +141,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://162q2x.coding-pages.com/categories">
+      <a class="sidebar-button-link " href="https://saquarius.github.io/categories">
     
       <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
       
@@ -151,7 +151,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://162q2x.coding-pages.com/tags">
+      <a class="sidebar-button-link " href="https://saquarius.github.io/tags">
     
       <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
       
@@ -161,7 +161,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://162q2x.coding-pages.com/archives">
+      <a class="sidebar-button-link " href="https://saquarius.github.io/archives">
     
       <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
       
@@ -171,7 +171,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://162q2x.coding-pages.com/#about">
+      <a class="sidebar-button-link " href="https://saquarius.github.io/#about">
     
       <i class="sidebar-button-icon fa fa-lg fa-question"></i>
       
@@ -199,7 +199,7 @@
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://162q2x.coding-pages.com/index.xml">
+      <a class="sidebar-button-link " href="https://saquarius.github.io/index.xml">
     
       <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
       
@@ -253,9 +253,9 @@
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://162q2x.coding-pages.com/categories/%e7%ae%97%e6%b3%95">算法</a>, 
+      <a class="category-link" href="https://saquarius.github.io/categories/%e7%ae%97%e6%b3%95">算法</a>, 
     
-      <a class="category-link" href="https://162q2x.coding-pages.com/categories/%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92">动态规划</a>
+      <a class="category-link" href="https://saquarius.github.io/categories/%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92">动态规划</a>
     
   
 
@@ -455,9 +455,9 @@ int main(){
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">标签</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://162q2x.coding-pages.com/tags/%E7%AE%97%E6%B3%95/">算法</a>
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E7%AE%97%E6%B3%95/">算法</a>
 
-  <a class="tag tag--primary tag--small" href="https://162q2x.coding-pages.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+  <a class="tag tag--primary tag--small" href="https://saquarius.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
 
                   </div>
                 
@@ -490,7 +490,7 @@ int main(){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://162q2x.coding-pages.com/2019/09/pat_a1001/" data-tooltip="PAT_A1001">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1001/" data-tooltip="PAT_A1001">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -498,7 +498,7 @@ int main(){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://162q2x.coding-pages.com/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/" data-tooltip="KMP算法浅析">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/" data-tooltip="KMP算法浅析">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -558,7 +558,7 @@ int main(){
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://162q2x.coding-pages.com/2019/09/pat_a1001/" data-tooltip="PAT_A1001">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/pat_a1001/" data-tooltip="PAT_A1001">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -566,7 +566,7 @@ int main(){
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://162q2x.coding-pages.com/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/" data-tooltip="KMP算法浅析">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://saquarius.github.io/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/" data-tooltip="KMP算法浅析">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -618,7 +618,7 @@ int main(){
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="https://162q2x.coding-pages.com/images/touxiang.png" alt="作者的图片" />
+      <img id="about-card-picture" src="https://saquarius.github.io/images/touxiang.png" alt="作者的图片" />
     
     <h4 id="about-card-name">SAquarius</h4>
     
@@ -646,7 +646,7 @@ int main(){
     
   
     
-      <div id="cover" style="background-image:url('https://162q2x.coding-pages.com/images/cover.jpg');"></div>
+      <div id="cover" style="background-image:url('https://saquarius.github.io/images/cover.jpg');"></div>
     
   
 
@@ -659,11 +659,11 @@ int main(){
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="https://162q2x.coding-pages.com/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+<script src="https://saquarius.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
 
 
   
-    <script src="https://162q2x.coding-pages.com/js/clicklove.js"></script>
+    <script src="https://saquarius.github.io/js/clicklove.js"></script>
   
 
 <script lang="javascript">
@@ -698,7 +698,7 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/162q2x.coding-pages.com\/2019\/09\/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92\/';
+          this.page.url = 'https:\/\/saquarius.github.io\/2019\/09\/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92\/';
           
             this.page.identifier = '\/2019\/09\/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92\/'
           

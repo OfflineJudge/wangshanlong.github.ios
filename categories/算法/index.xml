@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>算法 on SAquarius的梦想屋</title>
-    <link>https://162q2x.coding-pages.com/categories/%E7%AE%97%E6%B3%95/</link>
+    <link>https://saquarius.github.io/categories/%E7%AE%97%E6%B3%95/</link>
     <description>Recent content in 算法 on SAquarius的梦想屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 07 Sep 2019 09:11:47 +0800</lastBuildDate>
     
-	<atom:link href="https://162q2x.coding-pages.com/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://saquarius.github.io/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>动态规划</title>
-      <link>https://162q2x.coding-pages.com/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+      <link>https://saquarius.github.io/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
       <pubDate>Sat, 07 Sep 2019 09:11:47 +0800</pubDate>
       
-      <guid>https://162q2x.coding-pages.com/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
+      <guid>https://saquarius.github.io/2019/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
       <description>&lt;p&gt;　　动态规划，是用于解决一类最优化问题的算法思想。简单来说，将一个复杂的问题分解成若干个子问题，通过子问题的最优解推出原问题的最优解，动态规划会记录子问题的结果，用于求解最终问题，解决了纯粹使用递归时候重复计算的问题。这里总结几种常见的动态规划问题及其算法。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>KMP算法浅析</title>
-      <link>https://162q2x.coding-pages.com/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/</link>
+      <link>https://saquarius.github.io/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/</link>
       <pubDate>Wed, 04 Sep 2019 16:55:58 +0800</pubDate>
       
-      <guid>https://162q2x.coding-pages.com/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/</guid>
+      <guid>https://saquarius.github.io/2019/09/kmp%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/</guid>
       <description>&lt;p&gt;　　字符串的匹配值得是，在一个指定的字符串文本(长度为n)中找到某个字符串（模式串，长度为m）的出现的位置，简单匹配的方式，时间复杂度O(n*m)，在此基础上有改进的匹配算法KMP。&lt;/p&gt;</description>
     </item>
     

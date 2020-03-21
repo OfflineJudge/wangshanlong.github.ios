@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>vscode on SAquarius的梦想屋</title>
-    <link>https://162q2x.coding-pages.com/categories/vscode/</link>
+    <link>https://saquarius.github.io/categories/vscode/</link>
     <description>Recent content in vscode on SAquarius的梦想屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 22 Jul 2019 15:20:03 +0800</lastBuildDate>
     
-	<atom:link href="https://162q2x.coding-pages.com/categories/vscode/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://saquarius.github.io/categories/vscode/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>vscode中C&#43;&#43;编译和调试环境配置(Win10)</title>
-      <link>https://162q2x.coding-pages.com/2019/07/vscode%E4%B8%ADc-%E7%BC%96%E8%AF%91%E5%92%8C%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEwin10/</link>
+      <link>https://saquarius.github.io/2019/07/vscode%E4%B8%ADc-%E7%BC%96%E8%AF%91%E5%92%8C%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEwin10/</link>
       <pubDate>Mon, 22 Jul 2019 15:20:03 +0800</pubDate>
       
-      <guid>https://162q2x.coding-pages.com/2019/07/vscode%E4%B8%ADc-%E7%BC%96%E8%AF%91%E5%92%8C%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEwin10/</guid>
+      <guid>https://saquarius.github.io/2019/07/vscode%E4%B8%ADc-%E7%BC%96%E8%AF%91%E5%92%8C%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEwin10/</guid>
       <description>&lt;p&gt;　　在win10系统下，VS Code中配置C++编译和调试环境，经过个人实践整理一下配置的过程、方法和使用体验。&lt;/p&gt;</description>
     </item>
     
