@@ -305,11 +305,11 @@
 
 <p>　　前往<a href="https://coding.net/">Coding</a>注册个人版账号(腾讯云开发者平台和coding已经合并，并且coding个人版已经自动升级成团队版了)。此处略过注册过程，如果采用微信或者QQ快捷登陆，建议在个人设置中修改默认生成的用户名，填写手机号码以便用于实名认证。<br />
 　　建立一个新建项目，如下图所示：<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/coding.png" alt="新建项目" /><br />
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/coding.png" alt="新建项目" /><br />
 　　选择代码托管项目模板：<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/codinggit.png" alt="模板选择" />
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/codinggit.png" alt="模板选择" />
 　　填写必要的项目信息，项目命名最好自己好记容易识别，并完成创建（建议勾选read.me初始化项目）：
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/codinginfo.png" alt="填写基本信息" />
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/codinginfo.png" alt="填写基本信息" />
 　　至此，Coding Pages服务的仓库就已经初始化完成，接下来需要在git中添加第二个远程仓库的url，并且实现同步提交至远程库。</p>
 
 <h1 id="git中添加第二个远程仓库">Git中添加第二个远程仓库</h1>
@@ -322,7 +322,7 @@
 
 <p>　　这个命令中的origin是可以更改的，但是为push命令一条便可以同时完成向两个远程仓库的推送，我们就采用和Github上相同的仓库标识。<br />
 　　”XXXXXXXXXXXXX“是需要添加的远程仓库的名字，也就是我们要添加的Coding的仓库地址，如下所示：<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/20200121132512.png" alt="仓库url" /><br />
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/20200121132512.png" alt="仓库url" /><br />
 　　在Coding Pages仓库右侧的链接复制代替命令中的XXXXXXXXXXXX占位符。然后我们需要验证一下是添加成功，使用以下命令查看git远程仓库有哪些：</p>
 
 <pre><code>git remote -v
@@ -349,20 +349,20 @@ git push origin master -f
 <h1 id="部署coding-pages上的静态网站">部署coding pages上的静态网站</h1>
 
 <p>　　当git仓库中的内容成功推送后，点击立即部署，则会生成一个访问链接：<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/20200121134644.png" alt="" /></p>
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/20200121134644.png" alt="" /></p>
 
 <h1 id="建立自定义域名的双线解析">建立自定义域名的双线解析</h1>
 
 <h2 id="github-pages自定义域名">Github Pages自定义域名</h2>
 
 <p>　　在Github Pages仓库的setting设置中找到自定义域名，把自己的自定义域名填写上并保存：
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/gitdns2_.png" alt="" /></p>
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/gitdns2_.png" alt="" /></p>
 
 <h2 id="coding-pages自定义域名">Coding Pages自定义域名</h2>
 
 <p>　　在Coding　pages服务的中先找到如下设置菜单，进行域名绑定，暂时不用绑定，需要设置好解析线路之后进行绑定，具体如何设置参见下文：
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/20200121134121.png" alt="" />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/20200121134328.png" alt="" /></p>
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/20200121134121.png" alt="" />
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/20200121134328.png" alt="" /></p>
 
 <h2 id="自定义域名以及dnspod设置">自定义域名以及DNSPod设置</h2>
 
@@ -377,12 +377,12 @@ f1g1ns2.dnspod.net
 </code></pre>
 
 <p>　　在Godaddy的DNS管理中自定义域名服务器更改如下：
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/DNSserver.png" alt="" /></p>
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/DNSserver.png" alt="" /></p>
 
 <h3 id="dnspod中设置coding的dns解析">DNSPod中设置Coding的dns解析</h3>
 
 <p>　　在DNSPod中加入一条CNAME的记录，指向“XXXXXX.coding-pages.com”，（即部署后生成的链接地址，不包含https://）示例如图所示：
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/20200121135220.png" alt="" />
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/20200121135220.png" alt="" />
 　　此时，先不要添加Github Pages的CNAME记录，回到coding中的自定义域名处进行绑定。
 <div class="alert warning ">
   <p>1.绑定时请停用其他的解析线路，以免安全证书申请失败<br />
@@ -402,7 +402,7 @@ f1g1ns2.dnspod.net
 <h1 id="双线解析测试">双线解析测试</h1>
 
 <p>　　分别测试使用不同的方式访问并博客。使用国内国外两条线路ping 自己的域名，看是否能够正确解析，国内ping结果如下所示：
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/ping.png" alt="" /></p>
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/ping.png" alt="" /></p>
 
 <h1 id="友情提示">友情提示</h1>
 

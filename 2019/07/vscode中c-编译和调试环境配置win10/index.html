@@ -298,40 +298,40 @@
 <h2 id="vs-code的安装">VS Code的安装</h2>
 
 <p>　　在vscode安装包下载页面选择相应的版本进行下载：<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/20200304102442.png" alt="" /></p>
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/20200304102442.png" alt="" /></p>
 
 <h2 id="c-和简体中文扩展插件安装">C++和简体中文扩展插件安装</h2>
 
 <h3 id="简体中文插件">简体中文插件</h3>
 
 <p>　　首先在扩展应用商店中搜索<code>chinese</code>,并选择第一个扩展进行安装，点击<code>Install</code>之后重启vscode即可：
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/vszhcn.png" alt="" /></p>
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/vszhcn.png" alt="" /></p>
 
 <h3 id="c-插件">C++插件</h3>
 
 <p>　　在左侧应用商店中搜索<code>C++</code>,并选择第一个扩展插件进行安装，点击<code>Install</code>即可：<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/vscpp.png" alt="" /></p>
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/vscpp.png" alt="" /></p>
 
 <h2 id="安装和配置mingw">安装和配置MinGW</h2>
 
 <p>　　MinGW的安装这里建议使用离线包的安装，因为使用方便，直接解压即可。<br />
 　　一、下载离线包<br />
 　　准备中给出的离线包连接中选择任意一个版本的<code>x86_64-posix-seh</code>下载即可。<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/mingwdownload.png" alt="" />
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/mingwdownload.png" alt="" />
 　　二、解压并存放<br />
 　　使用7z或其他解压工具进行解压，并将其中的mingw整个文件夹复制到自己想要存放的位置，<strong>路径中不要有中文</strong>，而且建议路径不要太长，省的寻找的时候麻烦。比如我将mingw存放在路经<code>C:\myprogram</code>之下。<br />
 　　三、添加至环境变量中<br />
 　　将mingw中的bin目录添加到系统的环境变量中，方法如下:<br />
-　　1. 找到“系统环境变量”的设置位置，在开始菜单的搜索栏搜索环境变量<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/path.png" alt="" /><br />
-　　2. 添加系统环境变量，依此：点击环境变量，找到系统变量中的path，点击编辑，然后点击新建，在使用浏览按钮选中到mingw下的bin文件夹即可。<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/addpath.png" alt="" /><br />
-　　效果如下图所示：<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/pathmingw.png" alt="" /><br />
+　　1. 找到“系统环境变量”的设置位置，在开始菜单的搜索栏搜索环境变量<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/path.png" alt="" /><br />
+　　2. 添加系统环境变量，依此：点击环境变量，找到系统变量中的path，点击编辑，然后点击新建，在使用浏览按钮选中到mingw下的bin文件夹即可。<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/addpath.png" alt="" /><br />
+　　效果如下图所示：<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/pathmingw.png" alt="" /><br />
 　　四、验证是否配置成功<br />
-　　在cmd命令行窗口中输出：<code>gcc -v</code>,如果成功则显示如下信息<code>gcc version 8.1.0</code>：<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/gccv.png" alt="" /></p>
+　　在cmd命令行窗口中输出：<code>gcc -v</code>,如果成功则显示如下信息<code>gcc version 8.1.0</code>：<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/gccv.png" alt="" /></p>
 
 <h2 id="创建配置文件">创建配置文件</h2>
 
 <p>　　根据官方的文档,需要创建以下三个配置文件,以用于编译和运行cpp文件,这里需要先创建一个工作区文件夹,用来保存相关配置文件和将来创建的源代码文件,这里我自己创建了一个命名为<code>vscpp</code>的文件夹(<strong>以下均称该文件夹为工作区</strong>),如下图所示:<br />
-　　首先需要在工作区创建一个名称为<code>.vscode</code>的文件夹:<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/vs_code.png" alt="" /><br />
+　　首先需要在工作区创建一个名称为<code>.vscode</code>的文件夹:<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/vs_code.png" alt="" /><br />
 　　接下来分别手动创建并配置一下三个文件：<br />
 　　1.首先是<code>c_cpp_properties.json</code></p>
 
@@ -442,7 +442,7 @@ int main(void){
 }
 </code></pre>
 
-<p>　　使用<code>Ctrl+F5</code>编译运行并调试，效果如下所示（可在代码左侧打上断点）：<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/debug.png" alt="" /></p>
+<p>　　使用<code>Ctrl+F5</code>编译运行并调试，效果如下所示（可在代码左侧打上断点）：<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/debug.png" alt="" /></p>
 
 <h2 id="使用注意事项">使用注意事项</h2>
 
@@ -480,7 +480,7 @@ int main(void){
 }
 </code></pre>
 
-<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/inside.png" alt="" /><br />
+<p><img src="https://gitee.com/SAquarius/PICGO/raw/master/img/inside.png" alt="" /><br />
 　　<strong>外部写法和测试结果：</strong></p>
 
 <pre><code>//测试代码
@@ -498,7 +498,7 @@ int main(void){
 }
 </code></pre>
 
-<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/outside.png" alt="" /></p>
+<p><img src="https://gitee.com/SAquarius/PICGO/raw/master/img/outside.png" alt="" /></p>
               
             </div>
           </div>

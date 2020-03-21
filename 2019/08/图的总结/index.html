@@ -1127,26 +1127,26 @@ bool topsort(){
 <p>　　顶点活动（AOV）网表示用顶点代表活动，用边代表活动优先顺序的有向图关系。边活动（AOE）网指的是用带权的边表示活动，用顶点表示时间的有向图，这时候有权边表示了活动的时间花费。<br />
 　　一般来说，一个工程可以用一个AOE网表示其进程，工程长分为若干子工程，显然AOE网不能有环，否则会出现，环内的所有定点都是其他顶点的先决条件，这将导致整个工程无法完成。对于AOV网来说有类似的逻辑关系。<br />
 　　AOE网中，可能有多个<strong>源点</strong>（活动的起始顶点）或者多个<strong>汇点</strong>（活动结束的点），这种情况下可以采用给多个源点添加一个统一的源点——“超级源点”，或者给多个汇点添加一个统一的汇点——“超级汇点”的方法转化为一个源点和一个汇点的情况，如下图所示：<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/AOE.png" alt="超级源点和超级汇点的AOE网" /><br />
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/AOE.png" alt="超级源点和超级汇点的AOE网" /><br />
 　　AOV网，可以将一个顶点事件拆分为两个顶点，分别为该事件的起始和结束，边表示该事件的时间花费，如下所示的方法，将AOV网转化为AOE网的样子：
 AOE网：
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/AOE_.png" alt="AOE网" />
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/AOE_.png" alt="AOE网" />
 AOE转化成AOV网：<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/AOV.png" alt="AOE转化为AOV" /></p>
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/AOV.png" alt="AOE转化为AOV" /></p>
 
 <h3 id="关键路径的求解思路">关键路径的求解思路</h3>
 
 <h4 id="基于拓扑排序的关键路径求解">基于拓扑排序的关键路径求解</h4>
 
 <p>　　AOE网实际上是邮箱无环图，关键路径是图中的最长路径，这里给出求解有向无环图（DAG）的最长路径的求解思路：<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/act.png" alt="活动示意图" /><br />
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/act.png" alt="活动示意图" /><br />
 　　由于关键活动没有时间余量，不允许拖延，因此这些轰动的最早开始时间必须等于最迟开始时间，这里用数组e和l分别记录每一个活动的最早开始和最迟开始时间，对于活动a<sub>r</sub>来说，e[r]和l[r]表示了活动的最早开始时间和最迟开始时间，如果对于活动a<sub>r</sub>有e[r]==l[r]，那么这个活动便不允许拖延，就是关键路径。<br />
 　　但是求解e和l数组需要借助活动a<sub>r</sub>两端的事件，如果用ve和vl数组表示顶点事件的最早和最迟发生时间那么有以下关系：<br />
 　　①a<sub>r</sub>的最早发生时间是事件V<sub>i</sub>的最早发生时间，即e[r]=ve[i];<br />
 　　②a<sub>r</sub>的最迟发生事件是事件V<sub>j</sub>的最迟发生时间减去活动a<sub>r</sub>的时间花费，即l[r]=vl[j]-length[r];<br />
 　　<strong>一、求解ve</strong>
 　　由此可见，只需要求出ve和vl就可以求出活动的e和l。对于ve数组的求解来说，计算某个事件V<sub>j</sub>，如果事件V<sub>j</sub>有很多前置事件，例如有k个事件V<sub>i1</sub>~ V<sub>ik</sub>那么显示必须所有的前置事件完成后才能开始事件V<sub>j</sub>，因此V<sub>j</sub>的最早开始事件为前置事件中ve[i1]+lengh[r1]~ve[ik]+lengh[rk]的最大值。可理解如下：<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/get_ve.png" alt="ve的求解" /><br />
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/get_ve.png" alt="ve的求解" /><br />
 　　显然，想要球的ve[j]就必须直到前置事件的ve，这里借助拓扑排序来实现，这样保证了遇到事件V<sub>j</sub>的时候，所有的前置事件的ve已全部求出，只需找到ve[i1]+lengh[r1]~ve[ik]+lengh[rk]的最大值即可，代码实现如下所示：</p>
 
 <pre><code>//图以及求解关键路径时使用的容器的定义和声明
@@ -1201,7 +1201,7 @@ int topsort()                               //拓扑排序
 <p>　　以上算法不仅能够通过返回值得到关键路径的长度，还能判断是否是有向无环图，由此判断工程调度是否合理。<br />
 　　<strong>二、求解vl数组</strong><br />
 　　vl数组的求解，对于事件V<sub>i</sub>来说，其vl的值需要通过其后继的事件推出，显然如果事件V<sub>i</sub>的后继有k个事件V<sub>j1</sub>~ V<sub>jk</sub>分别由权值为length[r1]~length[rk]的活动边r1~rk连接，则事件V<sub>i</sub>的最迟发生时间为vl[j1]-length[r1]~vl[jk]-length[rk]的最小值，选最小值的原因是为了保证后继事件的最迟发生时间得到保障，可以通过下面的公式理解：<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/get_vl.png" alt="vl的求解" /><br />
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/get_vl.png" alt="vl的求解" /><br />
 　　这里与ve求解不同之处在于，需要先直到后继事件的vl值，因此，使用<strong>拓扑序列的逆序</strong>来处理，这个时候，将记录了拓扑序列的栈按顺序出栈便是拓扑排序的逆序，由此从后往前推算vl数组，代码实现如下：</p>
 
 <pre><code>void get_vl(int maxlen)                     //拓扑排序得到的关键路径长度
@@ -1243,7 +1243,7 @@ int topsort()                               //拓扑排序
 <p>　　有向无环图的关键路径就是DAG图中的最长路径，即整个工程的最终时间。如果只是求解最长路径，这里采用动态规划的方法解决这个问题。
 　　可根据实际情况着重解决一下两类问题：一、求解整个图中的最长路径，即不固定起点和终点；二、固定终点，求DAG的最长路径。
 　　对于第一个问题，采用一个数组dp，其中dp[i]表示从i号顶点出发能得到的最长路径长度，同样的，如何求得的dp[i]？这里借用求解vl数组的思路，如果对事件V<sub>i</sub>的后继有k个事件V<sub>j1</sub>~ V<sub>jk</sub>分别由权值为length[r1]~length[rk]的活动边r1~rk连接，且对于后继的事件其dp已知，显然dp[i]等于dp[j1]+length[r1]~dp[jk]+length[rk]的最大值，示意图如下所示：<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/DAG_.png" alt="DAG的dp数组" /><br />
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/DAG_.png" alt="DAG的dp数组" /><br />
 　　为了让算法变得简洁，可以采用递归的写法获得dp数组的求解，代码如下：</p>
 
 <pre><code>int dp[MAXV]={0};               //由于递归求解最后一层是图的汇点，从它出发的最长路径便是0，因此dp数组初始化为0，作为递归的边界
@@ -1297,7 +1297,7 @@ int DP(int i){
 }
 </code></pre>
 
-<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/tobec_.png" alt="" /></p>
+<p><img src="https://gitee.com/SAquarius/PICGO/raw/master/img/tobec_.png" alt="" /></p>
               
             </div>
           </div>

@@ -606,7 +606,7 @@ No
 <h3 id="二叉树的遍历">二叉树的遍历</h3>
 
 <p>　　二叉树的先序、中序、后序遍历路径其实是相同的。如下图所示，先序为路径上第一次遇到时就访问，中序是路径上第二次遇到访问，后序为第三次遇到时访问。<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/tree_Travel.png" alt="二叉树的遍历路径" /><br />
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/tree_Travel.png" alt="二叉树的遍历路径" /><br />
 　　其中，由于叶子结点有两个空指针域，故算上相应的遍历和返回次数，可以按照遇到先后的次序不同得到不同的遍历序列。</p>
 
 <h4 id="先序遍历">先序遍历</h4>
@@ -954,7 +954,7 @@ void updatehigh(Node *root){
 
 <p>　　平衡二叉树的调整有两种形式：左旋和右旋。<br />
 　　左旋及其代码如下所示：<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/L.png" alt="" /></p>
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/L.png" alt="" /></p>
 
 <pre><code>//左旋
 void L(Node *&amp;root){                //因为需要修改指针，因此要传引用
@@ -968,7 +968,7 @@ void L(Node *&amp;root){                //因为需要修改指针，因此要�
 </code></pre>
 
 <p>　　右旋及其代码如下所示：
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/R.png" alt="" /></p>
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/R.png" alt="" /></p>
 
 <pre><code>//右旋
 void R(Node * &amp;root)
@@ -986,13 +986,13 @@ void R(Node * &amp;root)
 
 <p>　　左旋和右旋的使用，用于在插入时调整树的平衡。主要有一下类型：LL型、LR型；RR型，RL型。<br />
 　　LL型的调整，只需要对平衡因子为2的树使用<strong>右旋（R）</strong>：
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/LL.png" alt="" /><br />
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/LL.png" alt="" /><br />
 　　LR型的调整，先要对子树中平衡因子为-1的左子树使用 <strong>左旋(L)</strong> 变成LL型，再对平衡因子为2的结点使<strong>右旋&reg;</strong> 即可：
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/LR.png" alt="" /><br />
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/LR.png" alt="" /><br />
 　　RR型的调整，只需要对平衡因子为-2的树使用<strong>左旋（L）</strong>：
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/RR_.png" alt="" /><br />
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/RR_.png" alt="" /><br />
 　　RL型的调整，先要对子树中平衡因子为1的右子树使用 <strong>右旋&reg;</strong> 变成RR型，再对平衡因子为-2的结点使<strong>左旋(L)</strong> 即可：
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/RL_.png" alt="" /></p>
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/RL_.png" alt="" /></p>
 
 <p>　　由上，可以得到平衡二叉树的插入算法，在插入的过程中，没插入一个结点，进行一次调整，算法代码如下：</p>
 
@@ -1082,7 +1082,7 @@ Node * CreatAVL(){
 }
 </code></pre>
 
-<p><img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/tobec_.png" alt="" /></p>
+<p><img src="https://gitee.com/SAquarius/PICGO/raw/master/img/tobec_.png" alt="" /></p>
               
             </div>
           </div>

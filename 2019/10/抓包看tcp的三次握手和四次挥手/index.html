@@ -306,7 +306,7 @@
 
 <li><p>能够对运输实体资源进行分类，比如缓存大小<br />
 整体的过程包括建立连接、传送数据、断开连接三个过程，其通讯的过程如下如所示：<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/tcp.png" alt="" />
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/tcp.png" alt="" />
 　　接下来，通过抓包的结果，对建立和解除连接过程中的TCP数据包相关字段进行解释和说明。<br />
 <div class="alert info ">
   <p>客户机ip：12.7.7.209<br />
@@ -324,17 +324,17 @@
 <h3 id="第一次握手">第一次握手</h3>
 
 <p>　　客户机向服务器发送TCP连接请求报文。该报文没有应用层数据，首部SYN标记为1，且选择一个随机的起始序号seq=x。<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/B1.png" alt="" /></p>
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/B1.png" alt="" /></p>
 
 <h3 id="第二次握手">第二次握手</h3>
 
 <p>　　服务器收到TCP请求报文后，如果同意建立连接，就要发回确认，并为该TCP连接分配TCP缓存和变量。确认报文中SYN和ACK标记都为1，确认号为第一次握手时候的seq+1，即x+1（即要求客户机发送下一个字节）.并且服务器还会生成一个服务器发送报文的起始序号seq=y。确认报文也不包含应用层数据。<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/B2n.png" alt="" /></p>
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/B2n.png" alt="" /></p>
 
 <h3 id="第三次握手">第三次握手</h3>
 
 <p>　　当客户机收到确认报文后，还要给服务器发挥确认，并且给连接分配缓存和变量，准备开始数据传输。这个报文的ACK为1，序号为seq=x+1（对应上一个报文的ack），确认号为ack=y+1（即要求服务器发送下一个字节）。该报文可以携带数据，如果不携带数据则不消耗序号。<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/B3.png" alt="" />
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/B3.png" alt="" />
 　　以上三步完成后，便可以开始数据传输了，TCP提供全双工通讯。</p>
 
 <h2 id="tcp释放连接的-四次挥手">TCP释放连接的“四次挥手”</h2>
@@ -342,22 +342,22 @@
 <h3 id="第一次挥手">第一次挥手</h3>
 
 <p>　　服务器打算关闭连接，就发送一个释放连接的报文，并停止发送数据，主动关闭该连接。该报文段的FIN标记为1，表示为释放连接的报文；seq=u，为前一个已发送数据的最后一个字节的序号+1（FIN报文不包含数据，但是也会消耗一个序号）。当服务器发送了FIN报文后，就关闭了服务器———&gt;客户端方向的数据通路。<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/F1n.png" alt="" /></p>
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/F1n.png" alt="" /></p>
 
 <h3 id="第二次挥手">第二次挥手</h3>
 
 <p>　　客户机收到连接释放报文后即发出确认，确认号ack=u+1，这个报文的序号为v，等于客户机发送的数据最后一个字节的序号+1。此时，服务器到——&gt;客户机之间的连接就释放了，TCP连接处于<strong>半关闭状态</strong>。客户机还能向服务器发送数据。<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/F2.png" alt="" /></p>
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/F2.png" alt="" /></p>
 
 <h3 id="第三次挥手">第三次挥手</h3>
 
 <p>　　如果客户机也不再向服务器发送数据，则释放TCP连接，发送FIN=1的释放连接报文给服务器。参数和第一次挥手的参数含义类似。<br />
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/F3.png" alt="" /></p>
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/F3.png" alt="" /></p>
 
 <h3 id="第四次挥手">第四次挥手</h3>
 
 <p>　　服务器对客户端的释放连接的报文进行确认，在确认报文中，ACK=1，确认号为ack第三次挥手时候的序号seq+1，序号seq为第三次握手的ack。此时需要等待一段时间（一个报文的来回时延），服务器等待客户端完全关闭之后才关闭。（以免第四次挥手的报文丢失，客户机不能关闭）
-<img src="https://raw.githubusercontent.com/SAquarius/PICGO/master/img/F4.png" alt="" /></p>
+<img src="https://gitee.com/SAquarius/PICGO/raw/master/img/F4.png" alt="" /></p>
 
 <h2 id="总结">总结</h2>
 
