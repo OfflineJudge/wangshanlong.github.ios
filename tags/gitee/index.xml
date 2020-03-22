@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gitee on SAquarius的梦想屋</title>
+    <link>https://saquarius.github.io/tags/gitee/</link>
+    <description>Recent content in gitee on SAquarius的梦想屋</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Jul 2019 15:50:03 +0800</lastBuildDate>
+    
+	<atom:link href="https://saquarius.github.io/tags/gitee/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PICGO&#43;Gitee搭建图床</title>
+      <link>https://saquarius.github.io/2019/07/picgo-gitee%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</link>
+      <pubDate>Mon, 22 Jul 2019 15:50:03 +0800</pubDate>
+      
+      <guid>https://saquarius.github.io/2019/07/picgo-gitee%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</guid>
+      <description>&lt;p&gt;　　啊~，几经折腾终于把图床搞妥当了，原来搭建在github上，现在迁移到gitee上速度果然快了好多呀!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
